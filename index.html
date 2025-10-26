@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVA - Type 1 Diabetes Research Updates</title>
+  <meta name="description" content="Latest breakthroughs in Type 1 Diabetes research">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+      min-height: 100vh;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 24px;
+      padding: 60px 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #1E90FF 0%, #4FB3FF 50%, #1E90FF 100%);
+    }
+    .logo { width: 220px; height: auto; margin-bottom: 30px; filter: drop-shadow(0 4px 12px rgba(30, 144, 255, 0.2)); }
+    h1 { color: #1f2937; font-size: 3em; font-weight: 700; margin-bottom: 20px; line-height: 1.2; }
+    .tagline { color: #6b7280; font-size: 1.4em; margin-bottom: 30px; }
+    .mission {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .mission h2 { color: #1f2937; font-size: 2em; margin-bottom: 20px; text-align: center; }
+    .mission p { color: #4b5563; font-size: 1.15em; line-height: 1.8; text-align: center; max-width: 800px; margin: 0 auto 20px; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    .stat-card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      border: 2px solid #e5e7eb;
+      transition: all 0.3s;
+    }
+    .stat-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); border-color: #1E90FF; }
+    .stat-number { font-size: 3em; font-weight: 700; color: #1E90FF; margin-bottom: 10px; }
+    .stat-label { color: #6b7280; font-size: 1.1em; font-weight: 600; }
+    .email-signup {
+      background: linear-gradient(135deg, #1E90FF 0%, #4FB3FF 100%);
+      border-radius: 20px;
+      padding: 50px 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 15px 50px rgba(30, 144, 255, 0.3);
+      text-align: center;
+      color: white;
+    }
+    .email-signup h2 { font-size: 2.2em; margin-bottom: 15px; }
+    .email-signup p { font-size: 1.2em; margin-bottom: 30px; opacity: 0.95; }
+    .signup-form { display: flex; gap: 15px; max-width: 600px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .signup-form input {
+      flex: 1;
+      min-width: 250px;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .signup-form button {
+      padding: 16px 40px;
+      background: white;
+      color: #1E90FF;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .signup-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .reports {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .reports h2 { color: #1f2937; font-size: 2em; margin-bottom: 30px; text-align: center; }
+    .report-list { display: grid; gap: 20px; }
+    .report-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 25px;
+      background: #f9fafb;
+      border-radius: 12px;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+      border: 2px solid transparent;
+    }
+    .report-item:hover { background: #eff6ff; border-color: #1E90FF; transform: translateX(5px); }
+    .report-date { background: #1E90FF; color: white; padding: 15px; border-radius: 10px; text-align: center; min-width: 80px; font-weight: 700; }
+    .report-date .day { font-size: 2em; display: block; line-height: 1; }
+    .report-date .month { font-size: 0.9em; opacity: 0.9; }
+    .report-info { flex: 1; }
+    .report-title { font-size: 1.3em; font-weight: 700; color: #1f2937; margin-bottom: 5px; }
+    .report-desc { color: #6b7280; }
+    .loading { text-align: center; padding: 40px; color: #6b7280; }
+    .footer {
+      text-align: center;
+      color: white;
+      padding: 30px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+    .footer a { color: white; text-decoration: none; font-weight: 600; }
+    .footer a:hover { text-decoration: underline; }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2em; }
+      .logo { width: 160px; }
+      .signup-form { flex-direction: column; }
+      .signup-form input, .signup-form button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <img src="https://i.imgur.com/PrQvHzV.png" alt="AVA Logo" class="logo">
+      <h1>Fighting for a Type 1 Diabetes Cure</h1>
+      <p class="tagline">Latest research breakthroughs, clinical trials, and hope-filled updates delivered to parents and families</p>
+    </div>
+
+    <div class="mission">
+      <h2>Our Mission</h2>
+      <p>We aggregate and simplify the latest Type 1 Diabetes research from ClinicalTrials.gov and PubMed, making cutting-edge science accessible to every parent and patient. No medical jargon - just clear, hopeful updates about the search for a cure.</p>
+      <p style="margin-top: 20px; font-weight: 600; color: #1E90FF;">Because every family deserves to understand the science that could change their child's life.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Research Updates</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Summaries Per Study</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">Weekly</div>
+        <div class="stat-label">New Reports</div>
+      </div>
+    </div>
+
+    <div class="email-signup">
+      <h2>📧 Stay Updated</h2>
+      <p>Get weekly research updates delivered to your inbox. Join parents from around the world.</p>
+      <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="Your email address" required>
+        <button type="submit">Join the List</button>
+      </form>
+      <p style="font-size: 0.9em; margin-top: 15px; opacity: 0.8;">We respect your privacy. Unsubscribe anytime.</p>
+    </div>
+
+    <div class="reports">
+      <h2>📊 Latest Research Reports</h2>
+      <div id="reportList" class="report-list">
+        <div class="loading">Loading reports...</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p style="font-size: 1.2em; font-weight: 600; margin-bottom: 15px;">💙 Together, we're closer to a cure every day.</p>
+      <p style="opacity: 0.9;">Data aggregated from <a href="https://clinicaltrials.gov" target="_blank">ClinicalTrials.gov</a> and <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">PubMed</a></p>
+      <p style="margin-top: 15px; opacity: 0.8;">Powered by AVA 💙 | Open Source on <a href="https://github.com/kameronmartinllc-dotcom" target="_blank">GitHub</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Auto-fetch reports from GitHub
+    async function loadReports() {
+      try {
+        const response = await fetch('https://api.github.com/repos/kameronmartinllc-dotcom/kameronmartinllc-dotcom.github.io/contents/');
+        const files = await response.json();
+        
+        // Filter for report files
+        const reports = files
+          .filter(file => file.name.startsWith('report-') && file.name.endsWith('.html'))
+          .map(file => {
+            const filename = file.name.replace('report-', '').replace('.html', '');
+            const date = new Date(filename);
+            return {
+              name: file.name,
+              date: date,
+              day: date.getDate(),
+              month: date.toLocaleString('en-US', { month: 'short' }).toUpperCase(),
+              year: date.getFullYear(),
+              title: `${date.toLocaleString('en-US', { month: 'long' })} ${date.getDate()}, ${date.getFullYear()} Research Update`
+            };
+          })
+          .sort((a, b) => b.date - a.date); // Newest first
+
+        // Display reports
+        const reportList = document.getElementById('reportList');
+        if (reports.length === 0) {
+          reportList.innerHTML = '<div class="loading">No reports yet. Check back soon!</div>';
+        } else {
+          reportList.innerHTML = reports.map(report => `
+            <a href="${report.name}" class="report-item">
+              <div class="report-date">
+                <span class="day">${report.day}</span>
+                <span class="month">${report.month}</span>
+              </div>
+              <div class="report-info">
+                <div class="report-title">${report.title}</div>
+                <div class="report-desc">CAR T-cell therapy, beta cell regeneration, and more breakthrough studies</div>
+              </div>
+              <div style="color: #1E90FF; font-size: 1.5em;">→</div>
+            </a>
+          `).join('');
+        }
+      } catch (error) {
+        console.error('Error loading reports:', error);
+        document.getElementById('reportList').innerHTML = '<div class="loading">Error loading reports. Please refresh.</div>';
+      }
+    }
+
+    // Load reports on page load
+    loadReports();
+  </script>
+</body>
+</html>
