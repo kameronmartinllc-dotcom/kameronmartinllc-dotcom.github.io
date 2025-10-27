@@ -210,7 +210,9 @@
           .filter(file => file.name.startsWith('report-') && file.name.endsWith('.html'))
           .map(file => {
             const filename = file.name.replace('report-', '').replace('.html', '');
-            const date = new Date(filename + 'T00:00:00');
+            const datePart = filename.split('-').slice(0, 3).join('-');
+const [year, month, day] = datePart.split('-').map(Number);
+const date = new Date(year, month - 1, day);
             return {
               name: file.name,
               date: date,
