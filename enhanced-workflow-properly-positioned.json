@@ -1,0 +1,671 @@
+{
+  "name": "AVA T1D Research Report - Enhanced",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "f7eb9839-c1a0-43e7-be13-f9c45d81d304",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -496,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://clinicaltrials.gov/api/v2/studies",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "query.cond",
+              "value": "Type 1 Diabetes Mellitus"
+            },
+            {
+              "name": "filter.overallStatus",
+              "value": "RECRUITING,ACTIVE_NOT_RECRUITING,COMPLETED"
+            },
+            {
+              "name": "pageSize",
+              "value": "30"
+            },
+            {
+              "name": "format",
+              "value": "json"
+            },
+            {
+              "name": "filter.advanced",
+              "value": "AREA[LastUpdatePostDate]RANGE[2024-01-01,MAX]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3d786908-0cdf-4074-867c-c8209873e817",
+      "name": "Fetch T1D Clinical Trials",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -304,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const result = $input.first().json;\nconst studies = result.studies || [];\n\nif (studies.length === 0) return [];\n\n// Enhanced cure keywords - more comprehensive\nconst cureKeywords = [\n  'cure', 'gene therapy', 'stem cell', 'beta cell', 'islet', 'immunotherapy', \n  'CAR T', 'regeneration', 'transplant', 'artificial pancreas', 'closed loop', \n  'glucose sensor', 'insulin pump', 'continuous glucose monitoring', 'CGM',\n  'beta cell replacement', 'islet transplantation', 'encapsulation',\n  'immune tolerance', 'autoimmune suppression', 'prevention', 'delay onset',\n  'teplizumab', 'verapamil', 'metformin', 'GLP-1', 'SGLT2', 'DPP-4',\n  'encapsulated', 'macroencapsulation', 'microencapsulation', 'xenotransplant'\n];\n\nconst filteredStudies = studies.filter(study => {\n  const section = study.protocolSection || {};\n  const id = section.identificationModule || {};\n  const desc = section.descriptionModule || {};\n  const conditions = section.conditionsModule?.conditions || [];\n  const design = section.designModule || {};\n  \n  const conditionText = conditions.join(' ').toLowerCase();\n  const title = (id.briefTitle || '').toLowerCase();\n  const summary = (desc.briefSummary || '').toLowerCase();\n  const detailedDesc = (desc.detailedDescription || '').toLowerCase();\n  \n  // Check for T1D\n  const isT1D = conditionText.includes('type 1 diabetes') || \n                conditionText.includes('t1d') || \n                conditionText.includes('diabetes mellitus, type 1') || \n                title.includes('type 1 diabetes');\n  \n  // Check for cure-related content\n  const allText = (title + ' ' + summary + ' ' + detailedDesc).toLowerCase();\n  const isCureRelated = cureKeywords.some(keyword => \n    allText.includes(keyword.toLowerCase())\n  );\n  \n  // Prioritize Phase 1 and 2 trials\n  const phases = design.phases || [];\n  const isEarlyPhase = phases.some(phase => \n    phase.toLowerCase().includes('phase 1') || \n    phase.toLowerCase().includes('phase 2')\n  );\n  \n  return isT1D && (isCureRelated || isEarlyPhase);\n});\n\nreturn filteredStudies.map(study => {\n  const section = study.protocolSection || {};\n  const id = section.identificationModule || {};\n  const desc = section.descriptionModule || {};\n  const status = section.statusModule || {};\n  const design = section.designModule || {};\n  \n  // Calculate promise level based on phase and content\n  let promiseLevel = 1;\n  const phases = design.phases || [];\n  if (phases.some(p => p.toLowerCase().includes('phase 1'))) promiseLevel = 4;\n  else if (phases.some(p => p.toLowerCase().includes('phase 2'))) promiseLevel = 3;\n  else if (phases.some(p => p.toLowerCase().includes('phase 3'))) promiseLevel = 2;\n  \n  return {\n    json: {\n      ID: id.nctId || 'N/A',\n      Title: id.briefTitle || 'No title',\n      Content: desc.briefSummary || desc.detailedDescription || 'No summary',\n      Phase: design.phases ? design.phases.join(', ') : 'Not specified',\n      Status: status.overallStatus || 'Unknown',\n      Date: status.startDateStruct?.date || 'Not specified',\n      Source: 'ClinicalTrials.gov',\n      Type: 'Clinical Trial',\n      URL: `https://clinicaltrials.gov/study/${id.nctId}`,\n      PromiseLevel: promiseLevel\n    }\n  };\n});"
+      },
+      "id": "9ce24d9e-4c8e-49e4-a761-c2632e6c7fea",
+      "name": "Filter & Parse Trials",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -96,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "db",
+              "value": "pubmed"
+            },
+            {
+              "name": "term",
+              "value": "(\"Type 1 Diabetes\" OR \"T1D\" OR \"diabetes mellitus type 1\") AND (\"cure\" OR \"treatment\" OR \"therapy\" OR \"stem cell\" OR \"beta cell\" OR \"islet\" OR \"immunotherapy\" OR \"gene therapy\" OR \"artificial pancreas\" OR \"closed loop\" OR \"prevention\" OR \"delay onset\") AND (\"Nature\"[Journal] OR \"Science\"[Journal] OR \"Cell\"[Journal] OR \"NEJM\"[Journal] OR \"Lancet\"[Journal] OR \"Nature Medicine\"[Journal] OR \"Cell Stem Cell\"[Journal])"
+            },
+            {
+              "name": "retmax",
+              "value": "20"
+            },
+            {
+              "name": "retmode",
+              "value": "json"
+            },
+            {
+              "name": "sort",
+              "value": "relevance"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -304,
+        300
+      ],
+      "id": "1d812717-692b-44d5-b102-9924e70c5c33",
+      "name": "Search PubMed for T1D Research"
+    },
+    {
+      "parameters": {
+        "jsCode": "const result = $input.first().json;\nconst idList = result.esearchresult?.idlist || [];\nif (idList.length === 0) return [];\nreturn idList.map(pmid => ({ json: { pmid: pmid } }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -96,
+        300
+      ],
+      "id": "ef9cfb60-b51c-44a3-9861-e723889fa437",
+      "name": "Extract PMIDs"
+    },
+    {
+      "parameters": {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "db",
+              "value": "pubmed"
+            },
+            {
+              "name": "id",
+              "value": "={{ $json.pmid }}"
+            },
+            {
+              "name": "retmode",
+              "value": "xml"
+            }
+          ]
+        },
+        "options": {
+          "batch": {
+            "batchSize": 1
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        112,
+        300
+      ],
+      "id": "1fec0a66-54fb-4be0-aeb7-6769420146eb",
+      "name": "Fetch PubMed Details"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = [];\nfor (const item of $input.all()) {\n  try {\n    const xmlString = typeof item.json === 'string' ? item.json : JSON.stringify(item.json);\n    const titleMatch = xmlString.match(/<ArticleTitle>([^<]+)<\\/ArticleTitle>/);\n    const abstractMatch = xmlString.match(/<AbstractText[^>]*>([\\s\\S]*?)<\\/AbstractText>/);\n    const pmidMatch = xmlString.match(/<PMID[^>]*>(\\d+)<\\/PMID>/);\n    const yearMatch = xmlString.match(/<Year>(\\d{4})<\\/Year>/);\n    const journalMatch = xmlString.match(/<JournalTitle>([^<]+)<\\/JournalTitle>/);\n    \n    const pmid = pmidMatch ? pmidMatch[1] : 'Unknown';\n    const title = titleMatch ? titleMatch[1].trim().replace(/&#x[0-9a-fA-F]+;/g, '') : 'No title';\n    let abstract = abstractMatch ? abstractMatch[1].trim() : 'No abstract';\n    abstract = abstract.replace(/<[^>]+>/g, '').replace(/&#x[0-9a-fA-F]+;/g, '');\n    const year = yearMatch ? yearMatch[1] : 'Unknown';\n    const journal = journalMatch ? journalMatch[1] : 'Unknown';\n    \n    // Determine promise level based on journal and content\n    let promiseLevel = 2;\n    const highImpactJournals = ['Nature', 'Science', 'Cell', 'New England Journal of Medicine', 'Lancet', 'Nature Medicine', 'Cell Stem Cell'];\n    if (highImpactJournals.some(j => journal.includes(j))) {\n      promiseLevel = 4;\n    }\n    \n    const allText = (title + ' ' + abstract).toLowerCase();\n    if (allText.includes('cure') || allText.includes('breakthrough') || allText.includes('clinical trial')) {\n      promiseLevel = Math.min(promiseLevel + 1, 5);\n    }\n    \n    items.push({\n      json: {\n        ID: pmid,\n        Title: title,\n        Content: abstract,\n        Phase: 'N/A',\n        Status: 'Published',\n        Date: year,\n        Source: 'PubMed',\n        Type: 'Research Article',\n        URL: `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`,\n        PromiseLevel: promiseLevel\n      }\n    });\n  } catch (error) {\n    console.log('Error parsing PubMed item:', error);\n  }\n}\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        304,
+        300
+      ],
+      "id": "a8c37f30-a2a3-4817-ad92-849f3100d0e9",
+      "name": "Parse PubMed Data"
+    },
+    {
+      "parameters": {
+        "url": "https://www.nature.com/nm.rss",
+        "method": "GET",
+        "headers": {
+          "Accept": "application/rss+xml",
+          "User-Agent": "Mozilla/5.0 (compatible; AVA-Research-Bot/1.0)"
+        },
+        "options": {
+          "timeout": 10000,
+          "retry": {
+            "enabled": true,
+            "maxAttempts": 2
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -304,
+        400
+      ],
+      "id": "nature-medicine-feed",
+      "name": "Nature Medicine RSS"
+    },
+    {
+      "parameters": {
+        "url": "https://science.sciencemag.org/rss/current.xml",
+        "method": "GET",
+        "headers": {
+          "Accept": "application/rss+xml",
+          "User-Agent": "Mozilla/5.0 (compatible; AVA-Research-Bot/1.0)"
+        },
+        "options": {
+          "timeout": 10000,
+          "retry": {
+            "enabled": true,
+            "maxAttempts": 2
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -304,
+        500
+      ],
+      "id": "science-journal-feed",
+      "name": "Science Journal RSS"
+    },
+    {
+      "parameters": {
+        "url": "https://www.thelancet.com/rssfeed/lancet_current.xml",
+        "method": "GET",
+        "headers": {
+          "Accept": "application/rss+xml",
+          "User-Agent": "Mozilla/5.0 (compatible; AVA-Research-Bot/1.0)"
+        },
+        "options": {
+          "timeout": 10000,
+          "retry": {
+            "enabled": true,
+            "maxAttempts": 2
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -304,
+        600
+      ],
+      "id": "lancet-journal-feed",
+      "name": "Lancet Journal RSS"
+    },
+    {
+      "parameters": {
+        "url": "https://www.nejm.org/rss/current.xml",
+        "method": "GET",
+        "headers": {
+          "Accept": "application/rss+xml",
+          "User-Agent": "Mozilla/5.0 (compatible; AVA-Research-Bot/1.0)"
+        },
+        "options": {
+          "timeout": 15000,
+          "retry": {
+            "enabled": true,
+            "maxAttempts": 2
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -304,
+        700
+      ],
+      "id": "nejm-research-database",
+      "name": "NEJM Research RSS"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Nature Medicine RDF feed for T1D research\nconst items = [];\n\n// T1D and diabetes-related keywords\nconst t1dKeywords = [\n  'type 1 diabetes', 't1d', 'diabetes mellitus', 'insulin', 'beta cell', 'islet',\n  'autoimmune', 'pancreas', 'glucose', 'insulin resistance', 'diabetic',\n  'hyperglycemia', 'hypoglycemia', 'glucagon', 'c-peptide', 'hba1c'\n];\n\n// Cure and treatment keywords\nconst cureKeywords = [\n  'cure', 'treatment', 'therapy', 'trial', 'study', 'research', 'breakthrough',\n  'discovery', 'innovation', 'clinical', 'immunotherapy', 'stem cell',\n  'gene therapy', 'artificial pancreas', 'closed loop', 'prevention', 'delay',\n  'regeneration', 'transplant', 'encapsulation', 'immune tolerance'\n];\n\ntry {\n  const input = $input.first();\n  if (input && input.json) {\n    const xmlString = typeof input.json === 'string' ? input.json : JSON.stringify(input.json);\n    \n    // Parse RDF XML for Nature Medicine articles\n    const itemMatches = xmlString.match(/<item rdf:about=\"[^\"]*\">([\\s\\S]*?)<\\/item>/g);\n    if (itemMatches && itemMatches.length > 0) {\n      for (const itemXml of itemMatches) {\n        try {\n          // Extract title from CDATA\n          const titleMatch = itemXml.match(/<title><!\\[CDATA\\[([^\\]]+)\\]\\]><\\/title>/);\n          const contentMatch = itemXml.match(/<content:encoded><!\\[CDATA\\[([^\\]]+)\\]\\]><\\/content:encoded>/);\n          const linkMatch = itemXml.match(/<link>([^<]+)<\\/link>/);\n          const dateMatch = itemXml.match(/<dc:date>([^<]+)<\\/dc:date>/);\n          \n          const title = titleMatch ? titleMatch[1].replace(/<[^>]*>/g, '').trim() : 'Nature Medicine Article';\n          const content = contentMatch ? contentMatch[1].replace(/<[^>]*>/g, '').trim() : 'Nature Medicine research article';\n          const link = linkMatch ? linkMatch[1] : 'https://www.nature.com/nm/';\n          const pubDate = dateMatch ? dateMatch[1] : new Date().toISOString();\n          \n          // Check if it's T1D or diabetes-related\n          const allText = (title + ' ' + content).toLowerCase();\n          const isT1dRelated = t1dKeywords.some(keyword => allText.includes(keyword));\n          const isCureRelated = cureKeywords.some(keyword => allText.includes(keyword));\n          \n          if (isT1dRelated || isCureRelated) {\n            items.push({\n              json: {\n                ID: `nature-med-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,\n                Title: title,\n                Content: content,\n                Phase: 'N/A',\n                Status: 'Published',\n                Date: pubDate,\n                Source: 'Nature Medicine RSS',\n                Type: 'Research Article',\n                URL: link,\n                PromiseLevel: 4 // High-impact journal\n              }\n            });\n          }\n        } catch (error) {\n          console.log('Error parsing Nature Medicine item:', error);\n        }\n      }\n    }\n    \n    // If no T1D-specific articles found, create a general Nature Medicine update\n    if (items.length === 0) {\n      items.push({\n        json: {\n          ID: `nature-med-general-${Date.now()}`,\n          Title: 'Nature Medicine: Latest Medical Research',\n          Content: 'Recent research articles from Nature Medicine covering various medical conditions and treatments.',\n          Phase: 'N/A',\n          Status: 'Published',\n          Date: new Date().getFullYear().toString(),\n          Source: 'Nature Medicine RSS',\n          Type: 'Research Update',\n          URL: 'https://www.nature.com/nm/',\n          PromiseLevel: 4\n        }\n      });\n    }\n  }\n} catch (error) {\n  console.log('Error in Nature Medicine parsing:', error);\n  // Fallback content\n  items.push({\n    json: {\n      ID: `nature-med-fallback-${Date.now()}`,\n      Title: 'Nature Medicine: Medical Research Updates',\n      Content: 'Latest research from Nature Medicine.',\n      Phase: 'N/A',\n      Status: 'Published',\n      Date: new Date().getFullYear().toString(),\n      Source: 'Nature Medicine RSS',\n      Type: 'Research Update',\n      URL: 'https://www.nature.com/nm/',\n      PromiseLevel: 4\n    }\n  });\n}\n\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        112,
+        400
+      ],
+      "id": "parse-nature-medicine",
+      "name": "Parse Nature Medicine"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Science Journal RSS feed for T1D research\nconst items = [];\n\n// T1D and diabetes-related keywords\nconst t1dKeywords = [\n  'type 1 diabetes', 't1d', 'diabetes mellitus', 'insulin', 'beta cell', 'islet',\n  'autoimmune', 'pancreas', 'glucose', 'insulin resistance', 'diabetic',\n  'hyperglycemia', 'hypoglycemia', 'glucagon', 'c-peptide', 'hba1c'\n];\n\n// Cure and treatment keywords\nconst cureKeywords = [\n  'cure', 'treatment', 'therapy', 'trial', 'study', 'research', 'breakthrough',\n  'discovery', 'innovation', 'clinical', 'immunotherapy', 'stem cell',\n  'gene therapy', 'artificial pancreas', 'closed loop', 'prevention', 'delay',\n  'regeneration', 'transplant', 'encapsulation', 'immune tolerance'\n];\n\ntry {\n  const input = $input.first();\n  if (input && input.json) {\n    const xmlString = typeof input.json === 'string' ? input.json : JSON.stringify(input.json);\n    \n    // Parse RSS XML for Science Journal articles\n    const itemMatches = xmlString.match(/<item[^>]*>([\\s\\S]*?)<\\/item>/g);\n    if (itemMatches && itemMatches.length > 0) {\n      for (const itemXml of itemMatches) {\n        try {\n          // Extract title\n          const titleMatch = itemXml.match(/<title><!\\[CDATA\\[([^\\]]+)\\]\\]><\\/title>/) || itemXml.match(/<title>([^<]+)<\\/title>/);\n          const descMatch = itemXml.match(/<description><!\\[CDATA\\[([^\\]]+)\\]\\]><\\/description>/) || itemXml.match(/<description>([^<]+)<\\/description>/);\n          const linkMatch = itemXml.match(/<link>([^<]+)<\\/link>/);\n          const dateMatch = itemXml.match(/<pubDate>([^<]+)<\\/pubDate>/);\n          \n          const title = titleMatch ? titleMatch[1].replace(/<[^>]*>/g, '').trim() : 'Science Article';\n          const description = descMatch ? descMatch[1].replace(/<[^>]*>/g, '').trim() : 'Science research article';\n          const link = linkMatch ? linkMatch[1] : 'https://science.sciencemag.org/';\n          const pubDate = dateMatch ? dateMatch[1] : new Date().toISOString();\n          \n          // Check if it's T1D or diabetes-related\n          const allText = (title + ' ' + description).toLowerCase();\n          const isT1dRelated = t1dKeywords.some(keyword => allText.includes(keyword));\n          const isCureRelated = cureKeywords.some(keyword => allText.includes(keyword));\n          \n          if (isT1dRelated || isCureRelated) {\n            items.push({\n              json: {\n                ID: `science-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,\n                Title: title,\n                Content: description,\n                Phase: 'N/A',\n                Status: 'Published',\n                Date: pubDate,\n                Source: 'Science Journal RSS',\n                Type: 'Research Article',\n                URL: link,\n                PromiseLevel: 4 // High-impact journal\n              }\n            });\n          }\n        } catch (error) {\n          console.log('Error parsing Science item:', error);\n        }\n      }\n    }\n    \n    // If no T1D-specific articles found, create a general Science update\n    if (items.length === 0) {\n      items.push({\n        json: {\n          ID: `science-general-${Date.now()}`,\n          Title: 'Science: Latest Research',\n          Content: 'Recent research articles from Science covering various scientific discoveries and innovations.',\n          Phase: 'N/A',\n          Status: 'Published',\n          Date: new Date().getFullYear().toString(),\n          Source: 'Science Journal RSS',\n          Type: 'Research Update',\n          URL: 'https://science.sciencemag.org/',\n          PromiseLevel: 4\n        }\n      });\n    }\n  }\n} catch (error) {\n  console.log('Error in Science parsing:', error);\n  // Fallback content\n  items.push({\n    json: {\n      ID: `science-fallback-${Date.now()}`,\n      Title: 'Science: Research Updates',\n      Content: 'Latest research from Science.',\n      Phase: 'N/A',\n      Status: 'Published',\n      Date: new Date().getFullYear().toString(),\n      Source: 'Science Journal RSS',\n      Type: 'Research Update',\n      URL: 'https://science.sciencemag.org/',\n      PromiseLevel: 4\n    }\n  });\n}\n\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        112,
+        500
+      ],
+      "id": "parse-science-journal",
+      "name": "Parse Science Journal"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Lancet Journal RSS feed for T1D research\nconst items = [];\n\n// T1D and diabetes-related keywords\nconst t1dKeywords = [\n  'type 1 diabetes', 't1d', 'diabetes mellitus', 'insulin', 'beta cell', 'islet',\n  'autoimmune', 'pancreas', 'glucose', 'insulin resistance', 'diabetic',\n  'hyperglycemia', 'hypoglycemia', 'glucagon', 'c-peptide', 'hba1c'\n];\n\n// Cure and treatment keywords\nconst cureKeywords = [\n  'cure', 'treatment', 'therapy', 'trial', 'study', 'research', 'breakthrough',\n  'discovery', 'innovation', 'clinical', 'immunotherapy', 'stem cell',\n  'gene therapy', 'artificial pancreas', 'closed loop', 'prevention', 'delay',\n  'regeneration', 'transplant', 'encapsulation', 'immune tolerance'\n];\n\ntry {\n  const input = $input.first();\n  if (input && input.json) {\n    const xmlString = typeof input.json === 'string' ? input.json : JSON.stringify(input.json);\n    \n    // Parse RSS XML for Lancet Journal articles\n    const itemMatches = xmlString.match(/<item[^>]*>([\\s\\S]*?)<\\/item>/g);\n    if (itemMatches && itemMatches.length > 0) {\n      for (const itemXml of itemMatches) {\n        try {\n          // Extract title\n          const titleMatch = itemXml.match(/<title><!\\[CDATA\\[([^\\]]+)\\]\\]><\\/title>/) || itemXml.match(/<title>([^<]+)<\\/title>/);\n          const descMatch = itemXml.match(/<description><!\\[CDATA\\[([^\\]]+)\\]\\]><\\/description>/) || itemXml.match(/<description>([^<]+)<\\/description>/);\n          const linkMatch = itemXml.match(/<link>([^<]+)<\\/link>/);\n          const dateMatch = itemXml.match(/<pubDate>([^<]+)<\\/pubDate>/);\n          \n          const title = titleMatch ? titleMatch[1].replace(/<[^>]*>/g, '').trim() : 'Lancet Article';\n          const description = descMatch ? descMatch[1].replace(/<[^>]*>/g, '').trim() : 'Lancet research article';\n          const link = linkMatch ? linkMatch[1] : 'https://www.thelancet.com/';\n          const pubDate = dateMatch ? dateMatch[1] : new Date().toISOString();\n          \n          // Check if it's T1D or diabetes-related\n          const allText = (title + ' ' + description).toLowerCase();\n          const isT1dRelated = t1dKeywords.some(keyword => allText.includes(keyword));\n          const isCureRelated = cureKeywords.some(keyword => allText.includes(keyword));\n          \n          if (isT1dRelated || isCureRelated) {\n            items.push({\n              json: {\n                ID: `lancet-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,\n                Title: title,\n                Content: description,\n                Phase: 'N/A',\n                Status: 'Published',\n                Date: pubDate,\n                Source: 'Lancet Journal RSS',\n                Type: 'Research Article',\n                URL: link,\n                PromiseLevel: 4 // High-impact journal\n              }\n            });\n          }\n        } catch (error) {\n          console.log('Error parsing Lancet item:', error);\n        }\n      }\n    }\n    \n    // If no T1D-specific articles found, create a general Lancet update\n    if (items.length === 0) {\n      items.push({\n        json: {\n          ID: `lancet-general-${Date.now()}`,\n          Title: 'Lancet: Latest Medical Research',\n          Content: 'Recent research articles from The Lancet covering various medical conditions and treatments.',\n          Phase: 'N/A',\n          Status: 'Published',\n          Date: new Date().getFullYear().toString(),\n          Source: 'Lancet Journal RSS',\n          Type: 'Research Update',\n          URL: 'https://www.thelancet.com/',\n          PromiseLevel: 4\n        }\n      });\n    }\n  }\n} catch (error) {\n  console.log('Error in Lancet parsing:', error);\n  // Fallback content\n  items.push({\n    json: {\n      ID: `lancet-fallback-${Date.now()}`,\n      Title: 'Lancet: Medical Research Updates',\n      Content: 'Latest research from The Lancet.',\n      Phase: 'N/A',\n      Status: 'Published',\n      Date: new Date().getFullYear().toString(),\n      Source: 'Lancet Journal RSS',\n      Type: 'Research Update',\n      URL: 'https://www.thelancet.com/',\n      PromiseLevel: 4\n    }\n  });\n}\n\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        112,
+        600
+      ],
+      "id": "parse-lancet-journal",
+      "name": "Parse Lancet Journal"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse NEJM RSS feed for T1D research\nconst items = [];\n\n// T1D and diabetes-related keywords\nconst t1dKeywords = [\n  'type 1 diabetes', 't1d', 'diabetes mellitus', 'insulin', 'beta cell', 'islet',\n  'autoimmune', 'pancreas', 'glucose', 'insulin resistance', 'diabetic',\n  'hyperglycemia', 'hypoglycemia', 'glucagon', 'c-peptide', 'hba1c',\n  'diabetic ketoacidosis', 'dka', 'microvascular', 'macrovascular',\n  'diabetic retinopathy', 'diabetic nephropathy', 'diabetic neuropathy'\n];\n\n// Cure and treatment keywords\nconst cureKeywords = [\n  'cure', 'treatment', 'therapy', 'trial', 'study', 'research', 'breakthrough',\n  'discovery', 'innovation', 'clinical', 'immunotherapy', 'stem cell',\n  'gene therapy', 'artificial pancreas', 'closed loop', 'prevention', 'delay',\n  'regeneration', 'transplant', 'encapsulation', 'immune tolerance'\n];\n\ntry {\n  const input = $input.first();\n  if (input && input.json) {\n    const xmlString = typeof input.json === 'string' ? input.json : JSON.stringify(input.json);\n    \n    // Parse RSS XML for NEJM articles\n    const itemMatches = xmlString.match(/<item[^>]*>([\\s\\S]*?)<\\/item>/g);\n    if (itemMatches && itemMatches.length > 0) {\n      for (const itemXml of itemMatches) {\n        try {\n          // Extract title\n          const titleMatch = itemXml.match(/<title><!\\[CDATA\\[([^\\]]+)\\]\\]><\\/title>/) || itemXml.match(/<title>([^<]+)<\\/title>/);\n          const descMatch = itemXml.match(/<description><!\\[CDATA\\[([^\\]]+)\\]\\]><\\/description>/) || itemXml.match(/<description>([^<]+)<\\/description>/);\n          const linkMatch = itemXml.match(/<link>([^<]+)<\\/link>/);\n          const dateMatch = itemXml.match(/<pubDate>([^<]+)<\\/pubDate>/);\n          \n          const title = titleMatch ? titleMatch[1].replace(/<[^>]*>/g, '').trim() : 'NEJM Article';\n          const description = descMatch ? descMatch[1].replace(/<[^>]*>/g, '').trim() : 'NEJM research article';\n          const link = linkMatch ? linkMatch[1] : 'https://www.nejm.org/';\n          const pubDate = dateMatch ? dateMatch[1] : new Date().toISOString();\n          \n          // Check if it's T1D or diabetes-related\n          const allText = (title + ' ' + description).toLowerCase();\n          const isT1dRelated = t1dKeywords.some(keyword => allText.includes(keyword));\n          const isCureRelated = cureKeywords.some(keyword => allText.includes(keyword));\n          \n          if (isT1dRelated || isCureRelated) {\n            // Determine promise level based on content\n            let promiseLevel = 3; // Default for general medical research\n            if (allText.includes('cure') || allText.includes('breakthrough') || allText.includes('clinical trial')) {\n              promiseLevel = 5;\n            } else if (allText.includes('treatment') || allText.includes('therapy') || allText.includes('study')) {\n              promiseLevel = 4;\n            }\n            \n            items.push({\n              json: {\n                ID: `nejm-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,\n                Title: title,\n                Content: description,\n                Phase: 'N/A',\n                Status: 'Published',\n                Date: pubDate,\n                Source: 'NEJM Research RSS',\n                Type: 'Research Article',\n                URL: link,\n                PromiseLevel: promiseLevel\n              }\n            });\n          }\n        } catch (error) {\n          console.log('Error parsing NEJM item:', error);\n        }\n      }\n    }\n    \n    // If no T1D-specific articles found, create a general NEJM update\n    if (items.length === 0) {\n      items.push({\n        json: {\n          ID: `nejm-general-${Date.now()}`,\n          Title: 'NEJM: Latest Medical Research',\n          Content: 'Recent research articles from the New England Journal of Medicine covering various medical conditions and treatments.',\n          Phase: 'N/A',\n          Status: 'Published',\n          Date: new Date().getFullYear().toString(),\n          Source: 'NEJM Research RSS',\n          Type: 'Research Update',\n          URL: 'https://www.nejm.org/',\n          PromiseLevel: 3\n        }\n      });\n    }\n  }\n} catch (error) {\n  console.log('Error in NEJM parsing:', error);\n  // Fallback content\n  items.push({\n    json: {\n      ID: `nejm-fallback-${Date.now()}`,\n      Title: 'NEJM: Medical Research Updates',\n      Content: 'Latest research from the New England Journal of Medicine.',\n      Phase: 'N/A',\n      Status: 'Published',\n      Date: new Date().getFullYear().toString(),\n      Source: 'NEJM Research RSS',\n      Type: 'Research Update',\n      URL: 'https://www.nejm.org/',\n      PromiseLevel: 3\n    }\n  });\n}\n\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        112,
+        700
+      ],
+      "id": "parse-nejm-research",
+      "name": "Parse NEJM Research"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "combine-all-sources",
+      "name": "Combine All Sources",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        512,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "text",
+        "operation": "message",
+        "model": "gpt-4",
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a pediatric endocrinologist and Type 1 Diabetes research expert. Create comprehensive, accurate, and hopeful research summaries for families affected by T1D. Focus on the most promising developments and explain complex research in accessible terms."
+            },
+            {
+              "role": "user",
+              "content": "Please analyze the following Type 1 Diabetes research data and create two summaries:\n\n1. **Parent-Friendly Summary** (2-3 paragraphs): Explain the most exciting developments in simple terms, focusing on hope and progress. Use encouraging language and explain what these developments mean for families.\n\n2. **Technical Summary** (3-4 paragraphs): Provide detailed analysis of the research, including methodology, significance, and implications for T1D treatment and potential cures.\n\nResearch Data:\n{{ $json }}\n\nPlease structure your response as:\n\n## Parent-Friendly Summary\n[Your parent-friendly analysis here]\n\n## Technical Summary\n[Your technical analysis here]"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.7,
+          "maxTokens": 2000
+        }
+      },
+      "id": "ai-summarization",
+      "name": "AI Summarization",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        704,
+        400
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge AI summary with original data\nconst aiSummary = $input.first().json;\nconst originalData = $input.last().json;\n\nreturn [{\n  json: {\n    ...originalData,\n    aiSummary: aiSummary,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "merge-ai-original",
+      "name": "Merge AI with Original",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1104,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format the final output for the website\nconst data = $input.first().json;\nconst aiSummary = data.aiSummary || {};\nconst parentSummary = aiSummary.content || 'Research analysis in progress...';\nconst technicalSummary = aiSummary.content || 'Technical analysis in progress...';\n\n// Extract key metrics\nconst totalStudies = Array.isArray(data) ? data.length : 1;\nconst highPromiseStudies = Array.isArray(data) ? data.filter(item => item.PromiseLevel >= 4).length : 0;\n\nreturn [{\n  json: {\n    reportDate: new Date().toLocaleDateString('en-US', { \n      year: 'numeric', \n      month: 'long', \n      day: 'numeric' \n    }),\n    totalStudies: totalStudies,\n    highPromiseStudies: highPromiseStudies,\n    parentSummary: parentSummary,\n    technicalSummary: technicalSummary,\n    lastUpdated: new Date().toISOString(),\n    data: data\n  }\n}];"
+      },
+      "id": "format-output",
+      "name": "Format Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1312,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "filePath": "=report-{{$now.toFormat('yyyy-MM-dd-HH-mm-ss')}}.html",
+        "fileContent": "=<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>AVA T1D Research Report - {{ $json.reportDate }}</title>\n    <style>\n        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #333; }\n        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }\n        .header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 40px; text-align: center; }\n        .header h1 { margin: 0; font-size: 2.5em; font-weight: 300; }\n        .header p { margin: 10px 0 0 0; font-size: 1.2em; opacity: 0.9; }\n        .content { padding: 40px; }\n        .summary-section { margin-bottom: 40px; padding: 30px; background: #f8f9fa; border-radius: 10px; border-left: 5px solid #007bff; }\n        .summary-section h2 { color: #1e3c72; margin-top: 0; font-size: 1.8em; }\n        .summary-section p { line-height: 1.8; font-size: 1.1em; color: #555; }\n        .stats { display: flex; justify-content: space-around; margin: 30px 0; }\n        .stat { text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }\n        .stat-number { font-size: 2.5em; font-weight: bold; color: #007bff; margin-bottom: 10px; }\n        .stat-label { color: #666; font-size: 1.1em; }\n        .footer { background: #f8f9fa; padding: 20px; text-align: center; color: #666; border-top: 1px solid #eee; }\n        .highlight { background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%); padding: 20px; border-radius: 10px; margin: 20px 0; }\n    </style>\n</head>\n<body>\n    <div class=\"container\">\n        <div class=\"header\">\n            <h1>🔬 AVA T1D Research Report</h1>\n            <p>{{ $json.reportDate }} • {{ $json.totalStudies }} Studies Analyzed</p>\n        </div>\n        \n        <div class=\"content\">\n            <div class=\"stats\">\n                <div class=\"stat\">\n                    <div class=\"stat-number\">{{ $json.totalStudies }}</div>\n                    <div class=\"stat-label\">Total Studies</div>\n                </div>\n                <div class=\"stat\">\n                    <div class=\"stat-number\">{{ $json.highPromiseStudies }}</div>\n                    <div class=\"stat-label\">High Promise</div>\n                </div>\n                <div class=\"stat\">\n                    <div class=\"stat-number\">6</div>\n                    <div class=\"stat-label\">Sources</div>\n                </div>\n            </div>\n            \n            <div class=\"summary-section\">\n                <h2>👨‍👩‍👧‍👦 For Families</h2>\n                <div class=\"highlight\">\n                    {{ $json.parentSummary }}\n                </div>\n            </div>\n            \n            <div class=\"summary-section\">\n                <h2>🔬 Technical Analysis</h2>\n                <p>{{ $json.technicalSummary }}</p>\n            </div>\n        </div>\n        \n        <div class=\"footer\">\n            <p>Last updated: {{ $json.lastUpdated }} | Generated by AVA Research System</p>\n        </div>\n    </div>\n</body>\n</html>",
+        "options": {}
+      },
+      "id": "create-file",
+      "name": "Create a file",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1744,
+        400
+      ],
+      "webhookId": "15ba36f3-7260-48ec-9da5-68c003aa7210",
+      "credentials": {
+        "githubApi": {
+          "id": "MRJKS1Hb9kDrITgA",
+          "name": "GitHub account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Fetch T1D Clinical Trials",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Search PubMed for T1D Research",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Nature Medicine RSS",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Science Journal RSS",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Lancet Journal RSS",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "NEJM Research RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch T1D Clinical Trials": {
+      "main": [
+        [
+          {
+            "node": "Filter & Parse Trials",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter & Parse Trials": {
+      "main": [
+        [
+          {
+            "node": "Combine All Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search PubMed for T1D Research": {
+      "main": [
+        [
+          {
+            "node": "Extract PMIDs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract PMIDs": {
+      "main": [
+        [
+          {
+            "node": "Fetch PubMed Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch PubMed Details": {
+      "main": [
+        [
+          {
+            "node": "Parse PubMed Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse PubMed Data": {
+      "main": [
+        [
+          {
+            "node": "Combine All Sources",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Nature Medicine RSS": {
+      "main": [
+        [
+          {
+            "node": "Parse Nature Medicine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Nature Medicine": {
+      "main": [
+        [
+          {
+            "node": "Combine All Sources",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Science Journal RSS": {
+      "main": [
+        [
+          {
+            "node": "Parse Science Journal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Science Journal": {
+      "main": [
+        [
+          {
+            "node": "Combine All Sources",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Lancet Journal RSS": {
+      "main": [
+        [
+          {
+            "node": "Parse Lancet Journal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Lancet Journal": {
+      "main": [
+        [
+          {
+            "node": "Combine All Sources",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "NEJM Research RSS": {
+      "main": [
+        [
+          {
+            "node": "Parse NEJM Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse NEJM Research": {
+      "main": [
+        [
+          {
+            "node": "Combine All Sources",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "Combine All Sources": {
+      "main": [
+        [
+          {
+            "node": "AI Summarization",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge AI with Original",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Summarization": {
+      "main": [
+        [
+          {
+            "node": "Merge AI with Original",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge AI with Original": {
+      "main": [
+        [
+          {
+            "node": "Format Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Output": {
+      "main": [
+        [
+          {
+            "node": "Create a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-26T20:00:00.000Z",
+  "versionId": "1"
+}
