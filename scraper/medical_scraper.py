@@ -344,13 +344,12 @@ class MedicalScraper:
         }
     
     def _generate_family_summary(self, article: Dict) -> str:
-        """Generate a family-friendly summary of the article"""
+        """Generate a family-friendly summary using advanced template system"""
         title = article.get('title', '').lower()
         abstract = article.get('abstract', '')
         source = article.get('source', '')
-        
-        # First, translate the title to something understandable
-        friendly_title = self._translate_title(title)
+        phase = article.get('phase', '')
+        priority = article.get('priority', 'MEDIUM')
         
         # Special articles get priority treatment
         if article.get('special', False):
@@ -359,71 +358,190 @@ class MedicalScraper:
             else:
                 return "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition."
         
-        # Clinical trials get special treatment for clarity
-        if source == 'ClinicalTrials.gov':
-            if 'teplizumab' in title:
-                return "Teplizumab is an FDA-approved medication that can delay Type 1 Diabetes in people at high risk. This trial is testing its effectiveness in a new population to see if it can preserve natural insulin production longer."
-            elif 'frexalimab' in title or 'cd40l' in title:
-                return "This trial is testing a new immune-modulating drug designed to protect insulin-producing cells from attack. If successful, it could help people keep their natural insulin production longer after diagnosis."
-            elif 'diamyd' in title:
-                return "Diamyd is investigating whether a vaccine-like treatment can help preserve insulin production in people with specific genetics (HLA DR3-DQ2). This personalized approach targets only those most likely to benefit."
-            elif 'tirzepatide' in title and 'type 1' in title:
-                return "This study is testing whether Tirzepatide (a medication approved for Type 2 Diabetes and weight loss) can help people with Type 1 Diabetes who are also managing weight issues. It could be a dual-benefit treatment."
-            elif 'weight' in title or 'obesity' in title:
-                return "This trial focuses on weight management for people with Type 1 Diabetes. Managing weight can improve insulin sensitivity and overall health outcomes."
-            else:
-                return "This research study is testing a new treatment approach for Type 1 Diabetes. Clinical trials are how we discover better treatments and move closer to a cure."
+        # Advanced template system based on research type and context
+        summary = self._generate_contextual_summary(title, abstract, source, phase, priority)
         
-        # Create a clear, accessible summary based on key concepts for research papers
-        if 'exosome' in title or 'monocyte backpack' in title:
-            summary = "Researchers are testing a new way to deliver medicine that could protect insulin-producing cells. They're using tiny 'packages' that can carry healing treatments directly where they're needed most."
-        elif 'insulin delivery' in title or 'closed-loop' in title or 'automated' in title:
-            summary = "This study looked at automatic insulin delivery systems - like an 'artificial pancreas' that adjusts insulin automatically without manual input. These systems can help keep blood sugar levels more stable with less effort."
-        elif 'transition' in title and 'adult care' in title:
-            summary = "This research focuses on what happens when young people with Type 1 Diabetes move from pediatric care to adult care. It's studying how to make this transition smoother and keep people healthy during this important life change."
-        elif 'glucose monitoring' in title or 'CGM' in title:
-            summary = "This study examined continuous glucose monitoring systems and how they're being used in real-world settings. These devices help track blood sugar levels 24/7 without finger pricks."
-        elif 'comorbid' in title or 'care processes' in title:
-            summary = "Researchers looked at how well diabetes care is being delivered in the real world, including what other health conditions people with Type 1 Diabetes might face and how doctors can provide better comprehensive care."
-        else:
-            # Generic but still family-friendly fallback
-            summary = abstract[:250] if abstract else "This research contributes to our understanding of Type 1 Diabetes and potential new treatment approaches."
-            
-            # Clean up technical jargon
-            replacements = {
-                'type 1 diabetes mellitus': 'Type 1 Diabetes',
-                'T1DM': 'Type 1 Diabetes',
-                'insulin-dependent diabetes': 'Type 1 Diabetes',
-                'beta cells': 'insulin-producing cells',
-                'β-cells': 'insulin-producing cells',
-                'pancreatic beta cells': 'insulin-producing cells in the pancreas',
-                'autoimmune': 'immune system',
-                'immune-mediated': 'immune system',
-                'glucose': 'blood sugar',
-                'glycemic control': 'blood sugar control',
-                'glycaemic': 'blood sugar',
-                'clinical trial': 'research study',
-                'randomized controlled trial': 'research study',
-                'efficacy': 'effectiveness',
-                'subcutaneous': 'under the skin',
-                'administration': 'given',
-                'cytotoxic T lymphocyte': 'immune cell',
-                'infiltration': 'attack',
-                'characterized by': 'marked by',
-                'supplementation of exogenous': 'taking external',
-                'endogenous': 'natural',
-                'pharmacokinetics': 'how the body processes medicine',
-                'pharmacodynamics': 'how medicine affects the body'
-            }
-            
-            for technical, simple in replacements.items():
-                summary = summary.replace(technical, simple)
+        # Clean up technical jargon
+        summary = self._clean_medical_jargon(summary)
         
         # Limit length and clean up
         if len(summary) > 300:
             summary = summary[:297] + "..."
             
         return summary
+    
+    def _generate_contextual_summary(self, title: str, abstract: str, source: str, phase: str, priority: str) -> str:
+        """Generate context-aware summaries using advanced templates"""
+        
+        # Clinical trials get sophisticated treatment
+        if source == 'ClinicalTrials.gov':
+            return self._generate_trial_summary(title, phase, priority)
+        
+        # Research papers get contextual analysis
+        elif source == 'PubMed':
+            return self._generate_research_summary(title, abstract)
+        
+        # Default fallback
+        else:
+            return "This research contributes to our understanding of Type 1 Diabetes and potential new treatment approaches."
+    
+    def _generate_trial_summary(self, title: str, phase: str, priority: str) -> str:
+        """Generate sophisticated trial summaries"""
+        
+        # Phase-based context
+        phase_context = {
+            'PHASE1': "early safety testing",
+            'PHASE2': "effectiveness testing", 
+            'PHASE3': "large-scale testing before approval",
+            'PHASE4': "post-approval monitoring"
+        }
+        
+        phase_desc = phase_context.get(phase, "research study")
+        
+        # Priority-based language
+        urgency = "promising" if priority == 'HIGH' else "interesting"
+        
+        # Drug-specific templates
+        if 'teplizumab' in title:
+            return f"Teplizumab is an FDA-approved medication that can delay Type 1 Diabetes in people at high risk. This {phase_desc} is testing its effectiveness in a new population to see if it can preserve natural insulin production longer."
+        
+        elif 'frexalimab' in title or 'cd40l' in title:
+            return f"This {phase_desc} is testing a new immune-modulating drug designed to protect insulin-producing cells from attack. If successful, it could help people keep their natural insulin production longer after diagnosis."
+        
+        elif 'diamyd' in title:
+            return f"Diamyd is investigating whether a vaccine-like treatment can help preserve insulin production in people with specific genetics (HLA DR3-DQ2). This personalized approach targets only those most likely to benefit."
+        
+        elif 'tirzepatide' in title and 'type 1' in title:
+            return f"This {phase_desc} is testing whether Tirzepatide (a medication approved for Type 2 Diabetes and weight loss) can help people with Type 1 Diabetes who are also managing weight issues. It could be a dual-benefit treatment."
+        
+        elif 'weight' in title or 'obesity' in title:
+            return f"This {phase_desc} focuses on weight management for people with Type 1 Diabetes. Managing weight can improve insulin sensitivity and overall health outcomes."
+        
+        elif 'stem cell' in title or 'regeneration' in title:
+            return f"This {phase_desc} is exploring stem cell therapy to regenerate insulin-producing cells. This approach aims to restore the body's natural ability to produce insulin."
+        
+        elif 'immunotherapy' in title or 'immune' in title:
+            return f"This {phase_desc} is testing immunotherapy approaches to modify the immune system's attack on insulin-producing cells. The goal is to slow or stop the disease process."
+        
+        else:
+            return f"This {urgency} {phase_desc} is testing a new treatment approach for Type 1 Diabetes. Clinical trials are how we discover better treatments and move closer to a cure."
+    
+    def _generate_research_summary(self, title: str, abstract: str) -> str:
+        """Generate sophisticated research paper summaries"""
+        
+        # Technology-focused research
+        if any(tech in title for tech in ['exosome', 'delivery', 'nanoparticle', 'monocyte backpack']):
+            return "Researchers are testing a new way to deliver medicine that could protect insulin-producing cells. They're using tiny 'packages' that can carry healing treatments directly where they're needed most."
+        
+        elif any(tech in title for tech in ['insulin delivery', 'closed-loop', 'automated', 'artificial pancreas']):
+            return "This study looked at automatic insulin delivery systems - like an 'artificial pancreas' that adjusts insulin automatically without manual input. These systems can help keep blood sugar levels more stable with less effort."
+        
+        elif any(tech in title for tech in ['glucose monitoring', 'CGM', 'continuous glucose']):
+            return "This study examined continuous glucose monitoring systems and how they're being used in real-world settings. These devices help track blood sugar levels 24/7 without finger pricks."
+        
+        # Life stage research
+        elif 'transition' in title and 'adult care' in title:
+            return "This research focuses on what happens when young people with Type 1 Diabetes move from pediatric care to adult care. It's studying how to make this transition smoother and keep people healthy during this important life change."
+        
+        elif 'pediatric' in title or 'children' in title or 'adolescent' in title:
+            return "This study specifically looked at how Type 1 Diabetes affects children and teenagers, and what treatments work best for this age group. Understanding pediatric diabetes helps improve care for young people."
+        
+        # Quality of life research
+        elif any(qol in title for qol in ['quality of life', 'mental health', 'depression', 'anxiety', 'distress']):
+            return "This research examined the emotional and psychological impact of living with Type 1 Diabetes. Understanding these challenges helps improve overall care and support for patients and families."
+        
+        # Care delivery research
+        elif any(care in title for care in ['care processes', 'comorbid', 'healthcare', 'delivery', 'adherence']):
+            return "Researchers looked at how well diabetes care is being delivered in the real world, including what other health conditions people with Type 1 Diabetes might face and how doctors can provide better comprehensive care."
+        
+        # Prevention research
+        elif any(prev in title for prev in ['prevention', 'prediction', 'risk', 'screening', 'early detection']):
+            return "This study explored ways to identify people at risk for Type 1 Diabetes before symptoms appear, and potential strategies to prevent or delay the disease. Early intervention could change the course of the disease."
+        
+        # Genetics research
+        elif any(gen in title for gen in ['genetic', 'HLA', 'mutation', 'variant', 'polymorphism']):
+            return "This research examined the genetic factors that influence Type 1 Diabetes risk and progression. Understanding genetics helps identify who might benefit most from specific treatments."
+        
+        # Fallback with abstract analysis
+        else:
+            if abstract and len(abstract) > 50:
+                # Extract key concepts from abstract
+                key_concepts = self._extract_key_concepts(abstract)
+                if key_concepts:
+                    return f"This research {key_concepts} in Type 1 Diabetes. The findings could contribute to better understanding and treatment of the disease."
+            
+            return "This research contributes to our understanding of Type 1 Diabetes and potential new treatment approaches."
+    
+    def _extract_key_concepts(self, abstract: str) -> str:
+        """Extract key concepts from abstract for better summaries"""
+        abstract_lower = abstract.lower()
+        
+        if 'improved' in abstract_lower or 'better' in abstract_lower:
+            return "explored ways to improve treatment outcomes"
+        elif 'reduced' in abstract_lower or 'decreased' in abstract_lower:
+            return "investigated ways to reduce complications"
+        elif 'increased' in abstract_lower or 'enhanced' in abstract_lower:
+            return "studied methods to enhance quality of life"
+        elif 'novel' in abstract_lower or 'new' in abstract_lower:
+            return "tested new treatment approaches"
+        elif 'mechanism' in abstract_lower or 'pathway' in abstract_lower:
+            return "investigated disease mechanisms"
+        else:
+            return "examined important aspects of the disease"
+    
+    def _clean_medical_jargon(self, text: str) -> str:
+        """Clean medical jargon from text"""
+        replacements = {
+            'type 1 diabetes mellitus': 'Type 1 Diabetes',
+            'T1DM': 'Type 1 Diabetes',
+            'insulin-dependent diabetes': 'Type 1 Diabetes',
+            'beta cells': 'insulin-producing cells',
+            'β-cells': 'insulin-producing cells',
+            'pancreatic beta cells': 'insulin-producing cells in the pancreas',
+            'autoimmune': 'immune system',
+            'immune-mediated': 'immune system',
+            'glucose': 'blood sugar',
+            'glycemic control': 'blood sugar control',
+            'glycaemic': 'blood sugar',
+            'clinical trial': 'research study',
+            'randomized controlled trial': 'research study',
+            'efficacy': 'effectiveness',
+            'subcutaneous': 'under the skin',
+            'administration': 'given',
+            'cytotoxic T lymphocyte': 'immune cell',
+            'infiltration': 'attack',
+            'characterized by': 'marked by',
+            'supplementation of exogenous': 'taking external',
+            'endogenous': 'natural',
+            'pharmacokinetics': 'how the body processes medicine',
+            'pharmacodynamics': 'how medicine affects the body',
+            'pathophysiology': 'how the disease works',
+            'etiology': 'causes',
+            'pathogenesis': 'disease development',
+            'comorbidities': 'other health conditions',
+            'morbidity': 'illness',
+            'mortality': 'death rates',
+            'incidence': 'new cases',
+            'prevalence': 'total cases',
+            'prognosis': 'outlook',
+            'remission': 'disease-free period',
+            'exacerbation': 'worsening',
+            'contraindication': 'reason not to use',
+            'adverse effects': 'side effects',
+            'placebo-controlled': 'compared to inactive treatment',
+            'double-blind': 'neither patients nor doctors know which treatment',
+            'multicenter': 'conducted at multiple locations',
+            'prospective': 'forward-looking',
+            'retrospective': 'looking back at past data',
+            'cohort': 'group of people',
+            'longitudinal': 'over time',
+            'cross-sectional': 'at one point in time'
+        }
+        
+        for technical, simple in replacements.items():
+            text = text.replace(technical, simple)
+        
+        return text
     
     def _translate_title(self, title: str) -> str:
         """Translate technical title to plain English"""
