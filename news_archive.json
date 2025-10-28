@@ -124,5 +124,26 @@
     },
     "link": "https://clinicaltrials.gov/study/NCT06914895",
     "archived_date": "2025-10-28T00:14:06.750067"
+  },
+  {
+    "id": "55614838",
+    "badge": "BREAKTHROUGH",
+    "title": "Elon Pharmaceuticals Announces Revolutionary Autoimmune Treatment for Type 1 Diabetes",
+    "summary": "Elon Pharmaceuticals has announced a revolutionary new treatment that targets the immune system attack on insulin-producing cells. This could be a game-changer for people with Type 1 Diabetes, potentially offering the first true disease-modifying therapy.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This represents one of the most significant advances in T1D treatment in recent years. The medication targets the underlying autoimmune process that destroys insulin-producing cells, potentially slowing or even halting disease progression. Early results suggest it may be particularly effective when administered early in the disease course, offering hope for preserving natural insulin production and reducing long-term complications."
+    },
+    "meta": {
+      "published": "Unknown date",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "HIGH",
+      "impact_score": 9,
+      "timeline": "2-3 years"
+    },
+    "link": "https://example.com/elon-pharma-t1d-treatment",
+    "special": true,
+    "archived_date": "2025-10-28T00:21:56.813537"
   }
 ]

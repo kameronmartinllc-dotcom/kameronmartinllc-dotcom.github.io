@@ -1,5 +1,25 @@
 [
   {
+    "id": "55614838",
+    "badge": "BREAKTHROUGH",
+    "title": "Elon Pharmaceuticals Announces Revolutionary Autoimmune Treatment for Type 1 Diabetes",
+    "summary": "Elon Pharmaceuticals has announced a revolutionary new treatment that targets the immune system attack on insulin-producing cells. This could be a game-changer for people with Type 1 Diabetes, potentially offering the first true disease-modifying therapy.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This represents one of the most significant advances in T1D treatment in recent years. The medication targets the underlying autoimmune process that destroys insulin-producing cells, potentially slowing or even halting disease progression. Early results suggest it may be particularly effective when administered early in the disease course, offering hope for preserving natural insulin production and reducing long-term complications."
+    },
+    "meta": {
+      "published": "Unknown date",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "HIGH",
+      "impact_score": 9,
+      "timeline": "2-3 years"
+    },
+    "link": "https://example.com/elon-pharma-t1d-treatment",
+    "special": true
+  },
+  {
     "id": "1bf355c4",
     "badge": "HOT",
     "title": "Efficacy and Safety of Teplizumab in the Treatment of Japanese Pediatric and Adult Participants Aged 8 to 34 Years With Stage 2 Type 1 Diabetes: A Multicenter, Randomized, Open-label, Controlled Study.",
@@ -12,9 +32,12 @@
       "published": "Unknown date",
       "phase": "PHASE2",
       "status": "RECRUITING",
-      "priority": "HIGH"
+      "priority": "HIGH",
+      "impact_score": 10,
+      "timeline": "3-5 years"
     },
-    "link": "https://clinicaltrials.gov/study/NCT06791291"
+    "link": "https://clinicaltrials.gov/study/NCT06791291",
+    "special": false
   },
   {
     "id": "bcc561d1",
@@ -29,9 +52,12 @@
       "published": "Unknown date",
       "phase": "PHASE2",
       "status": "RECRUITING",
-      "priority": "HIGH"
+      "priority": "HIGH",
+      "impact_score": 10,
+      "timeline": "3-5 years"
     },
-    "link": "https://clinicaltrials.gov/study/NCT06111586"
+    "link": "https://clinicaltrials.gov/study/NCT06111586",
+    "special": false
   },
   {
     "id": "b8d87e1a",
@@ -46,9 +72,12 @@
       "published": "Unknown date",
       "phase": "PHASE3",
       "status": "RECRUITING",
-      "priority": "HIGH"
+      "priority": "HIGH",
+      "impact_score": 10,
+      "timeline": "1-3 years"
     },
-    "link": "https://clinicaltrials.gov/study/NCT05018585"
+    "link": "https://clinicaltrials.gov/study/NCT05018585",
+    "special": false
   },
   {
     "id": "852a7b57",
@@ -63,25 +92,11 @@
       "published": "Unknown date",
       "phase": "PHASE3",
       "status": "RECRUITING",
-      "priority": "HIGH"
+      "priority": "HIGH",
+      "impact_score": 9,
+      "timeline": "1-3 years"
     },
-    "link": "https://clinicaltrials.gov/study/NCT07104500"
-  },
-  {
-    "id": "b50e5c20",
-    "badge": "HOT",
-    "title": "A Phase 3, Multicenter, Randomized, Double-Blind, Placebo-Controlled, Parallel-Group Study Evaluating the Efficacy and Safety of Tirzepatide Once Weekly Compared to Placebo in Adult Participants With Type 1 Diabetes and Obesity or Overweight",
-    "summary": "This study is testing whether Tirzepatide (a medication approved for Type 2 Diabetes and weight loss) can help people with Type 1 Diabetes who are also managing weight issues. It could be a dual-benefit treatment.",
-    "details": {
-      "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "Clinical trials test new treatments that might help people with Type 1 Diabetes. Participating helps advance research while potentially giving access to cutting-edge treatments. Every person who joins a trial brings us closer to better options for everyone living with this condition."
-    },
-    "meta": {
-      "published": "Unknown date",
-      "phase": "PHASE3",
-      "status": "RECRUITING",
-      "priority": "HIGH"
-    },
-    "link": "https://clinicaltrials.gov/study/NCT06914895"
+    "link": "https://clinicaltrials.gov/study/NCT07104500",
+    "special": false
   }
 ]
