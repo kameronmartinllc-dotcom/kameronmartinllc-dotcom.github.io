@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First 30 Days with Type 1 Diabetes - AVA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+            padding: 20px;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+            border-radius: 24px;
+            padding: 50px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #1E90FF 0%, #4FB3FF 50%, #1E90FF 100%);
+        }
+        
+        .back-link {
+            display: inline-block;
+            background: rgba(30, 144, 255, 0.1);
+            color: #1E90FF;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            background: rgba(30, 144, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        h1 {
+            color: #1f2937;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+        
+        .intro-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        
+        .intro-section h2 {
+            color: #1f2937;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .intro-section p {
+            color: #4b5563;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        
+        .day-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        
+        .day-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+        
+        .day-number {
+            background: linear-gradient(135deg, #1E90FF 0%, #4FB3FF 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-right: 20px;
+        }
+        
+        .day-title {
+            color: #1f2937;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        
+        .checklist {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .checklist h3 {
+            color: #1f2937;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            padding: 8px 0;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-right: 12px;
+            margin-top: 2px;
+            transform: scale(1.2);
+        }
+        
+        .checklist-item label {
+            color: #4b5563;
+            font-size: 1em;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .download-section h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+        
+        .download-section p {
+            color: #78350f;
+            margin-bottom: 15px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+        
+        .emergency-section {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-left: 5px solid #ef4444;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .emergency-section h3 {
+            color: #dc2626;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .emergency-section p {
+            color: #991b1b;
+            margin-bottom: 10px;
+        }
+        
+        .emergency-section strong {
+            color: #dc2626;
+        }
+        
+        .template-section {
+            background: #f0f9ff;
+            border-left: 5px solid #3b82f6;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .template-section h3 {
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+        
+        .template-section p {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+        
+        .template-btn {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+        
+        .template-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            text-align: center;
+            color: #fff;
+            padding: 30px 20px;
+            font-size: 1em;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin-top: 40px;
+        }
+        
+        .footer p:first-child {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .day-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .day-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .template-btn {
+                display: block;
+                text-align: center;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1>🚨 First 30 Days with Type 1 Diabetes</h1>
+            <p class="subtitle">Your survival guide for the most challenging month</p>
+        </div>
+        
+        <div class="intro-section">
+            <h2>You're Not Alone</h2>
+            <p>Those first 30 days can feel overwhelming, but you've got this. This guide will walk you through each day with practical steps, downloadable tools, and the knowledge that thousands of families have been exactly where you are right now. Take it one day at a time.</p>
+        </div>
+        
+        <div class="emergency-section">
+            <h3>🚨 Emergency Information</h3>
+            <p><strong>Call 911 if:</strong> Your child is unconscious, having seizures, or you can't wake them up</p>
+            <p><strong>Call your doctor if:</strong> Blood sugar is over 400 mg/dL or under 70 mg/dL and not responding to treatment</p>
+            <p><strong>Always carry:</strong> Glucagon emergency kit, fast-acting sugar, medical ID</p>
+        </div>
+        
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-number">1-3</div>
+                <div class="day-title">The Hospital Days</div>
+            </div>
+            
+            <div class="checklist">
+                <h3>✅ What to do in the hospital:</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="hospital1">
+                    <label for="hospital1">Ask questions - no question is too basic</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="hospital2">
+                    <label for="hospital2">Take notes or record important instructions</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="hospital3">
+                    <label for="hospital3">Get contact info for your diabetes team</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="hospital4">
+                    <label for="hospital4">Ask about diabetes education classes</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="hospital5">
+                    <label for="hospital5">Request a social worker if you need help with insurance</label>
+                </div>
+            </div>
+            
+            <div class="download-section">
+                <h3>📋 Hospital Checklist</h3>
+                <p>Print this checklist to take with you to the hospital</p>
+                <a href="#" class="download-btn" onclick="downloadChecklist('hospital')">Download Hospital Checklist</a>
+            </div>
+        </div>
+        
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-number">4-7</div>
+                <div class="day-title">Coming Home</div>
+            </div>
+            
+            <div class="checklist">
+                <h3>✅ First week at home:</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="home1">
+                    <label for="home1">Set up a blood sugar testing station</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="home2">
+                    <label for="home2">Create emergency contact list</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="home3">
+                    <label for="home3">Stock up on supplies (test strips, lancets, insulin)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="home4">
+                    <label for="home4">Set phone alarms for blood sugar checks</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="home5">
+                    <label for="home5">Start logging blood sugars and insulin doses</label>
+                </div>
+            </div>
+            
+            <div class="template-section">
+                <h3>📝 Essential Templates</h3>
+                <p>Download these templates to help with school and daily management</p>
+                <a href="#" class="template-btn" onclick="downloadTemplate('blood-sugar-log')">Blood Sugar Log</a>
+                <a href="#" class="template-btn" onclick="downloadTemplate('teacher-letter')">Letter to Teacher</a>
+                <a href="#" class="template-btn" onclick="downloadTemplate('emergency-contacts')">Emergency Contacts</a>
+            </div>
+        </div>
+        
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-number">8-14</div>
+                <div class="day-title">Getting Into Routine</div>
+            </div>
+            
+            <div class="checklist">
+                <h3>✅ Second week goals:</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week2-1">
+                    <label for="week2-1">Meet with school nurse and teachers</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week2-2">
+                    <label for="week2-2">Create 504 plan for school</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week2-3">
+                    <label for="week2-3">Learn to count carbohydrates</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week2-4">
+                    <label for="week2-4">Practice giving insulin injections</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week2-5">
+                    <label for="week2-5">Join online support groups</label>
+                </div>
+            </div>
+            
+            <div class="template-section">
+                <h3>🏫 School Resources</h3>
+                <p>Essential documents for school accommodations</p>
+                <a href="#" class="template-btn" onclick="downloadTemplate('504-plan-template')">504 Plan Template</a>
+                <a href="#" class="template-btn" onclick="downloadTemplate('school-nurse-letter')">School Nurse Letter</a>
+                <a href="#" class="template-btn" onclick="downloadTemplate('carb-counting-guide')">Carb Counting Guide</a>
+            </div>
+        </div>
+        
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-number">15-21</div>
+                <div class="day-title">Building Confidence</div>
+            </div>
+            
+            <div class="checklist">
+                <h3>✅ Third week focus:</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week3-1">
+                    <label for="week3-1">Attend diabetes education classes</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week3-2">
+                    <label for="week3-2">Learn about sick day management</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week3-3">
+                    <label for="week3-3">Practice emergency procedures</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week3-4">
+                    <label for="week3-4">Connect with other T1D families</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week3-5">
+                    <label for="week3-5">Start thinking about technology options</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-number">22-30</div>
+                <div class="day-title">Finding Your New Normal</div>
+            </div>
+            
+            <div class="checklist">
+                <h3>✅ Final week goals:</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week4-1">
+                    <label for="week4-1">Feel confident with daily management</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week4-2">
+                    <label for="week4-2">Have emergency supplies in multiple locations</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week4-3">
+                    <label for="week4-3">Know when to call your diabetes team</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week4-4">
+                    <label for="week4-4">Feel comfortable explaining T1D to others</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="week4-5">
+                    <label for="week4-5">Celebrate making it through the first month!</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="template-section">
+            <h3>📚 Additional Resources</h3>
+            <p>More tools to help you through this journey</p>
+            <a href="#" class="template-btn" onclick="downloadTemplate('sick-day-plan')">Sick Day Management Plan</a>
+            <a href="#" class="template-btn" onclick="downloadTemplate('travel-checklist')">Travel Checklist</a>
+            <a href="#" class="template-btn" onclick="downloadTemplate('insurance-guide')">Insurance Navigation Guide</a>
+        </div>
+        
+        <div class="footer">
+            <p>💙 You've got this. One day at a time.</p>
+            <p style="margin-top:12px;font-size:.9em;opacity:.9">Remember: Every T1D parent has been where you are right now</p>
+            <p style="margin-top:8px;font-size:.85em;opacity:.8">Powered by AVA 💙</p>
+        </div>
+    </div>
+    
+    <script>
+        function downloadTemplate(templateType) {
+            // This would normally generate and download the actual template
+            // For now, we'll show an alert
+            const templates = {
+                'blood-sugar-log': 'Blood Sugar Log Template',
+                'teacher-letter': 'Letter to Teacher Template',
+                '504-plan-template': '504 Plan Template',
+                'school-nurse-letter': 'School Nurse Letter Template',
+                'carb-counting-guide': 'Carb Counting Guide',
+                'emergency-contacts': 'Emergency Contacts Template',
+                'sick-day-plan': 'Sick Day Management Plan',
+                'travel-checklist': 'Travel Checklist',
+                'insurance-guide': 'Insurance Navigation Guide'
+            };
+            
+            alert(`Downloading ${templates[templateType]}...\n\n(Note: This would normally download the actual PDF template)`);
+        }
+        
+        function downloadChecklist(checklistType) {
+            alert(`Downloading ${checklistType} checklist...\n\n(Note: This would normally download the actual PDF checklist)`);
+        }
+        
+        // Save checklist progress to localStorage
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                localStorage.setItem(this.id, this.checked);
+            });
+            
+            // Load saved state
+            const savedState = localStorage.getItem(checkbox.id);
+            if (savedState === 'true') {
+                checkbox.checked = true;
+            }
+        });
+    </script>
+</body>
+</html>
