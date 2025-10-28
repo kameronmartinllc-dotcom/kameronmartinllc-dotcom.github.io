@@ -1,25 +1,5 @@
 [
   {
-    "id": "846a3dfd",
-    "badge": "BREAKTHROUGH",
-    "title": "Eledon Pharmaceuticals Breakthrough: Tegoprubart Shows Promise for Type 1 Diabetes Treatment",
-    "summary": "Eledon Pharmaceuticals is developing tegoprubart, a medication that blocks a specific immune system signal (CD40L) that causes the body to attack its own cells. While being tested for organ transplants, this same mechanism could potentially stop the immune system from destroying insulin-producing cells in Type 1 Diabetes. Think of it as turning off the 'attack switch' that causes the disease.",
-    "details": {
-      "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
-    },
-    "meta": {
-      "published": "December 2024",
-      "phase": "Research",
-      "status": "Published",
-      "priority": "HIGH",
-      "stage": "Clinical Trials",
-      "research_type": "Treatment"
-    },
-    "link": "https://eledon.com/",
-    "special": true
-  },
-  {
     "id": "71db74d9",
     "badge": "APPROVAL",
     "title": "FDA Approves New Ultra-Fast Insulin for Type 1 Diabetes - Available Now!",
@@ -37,7 +17,8 @@
       "research_type": "Treatment"
     },
     "link": "https://www.fda.gov/news-events/press-announcements/fda-approves-ultra-fast-acting-insulin-type-1-diabetes",
-    "special": true
+    "special": true,
+    "excitement_rank": 1
   },
   {
     "id": "b1c0a3e8",
@@ -57,7 +38,8 @@
       "research_type": "Cure"
     },
     "link": "https://www.nature.com/articles/stem-cell-diabetes-breakthrough",
-    "special": true
+    "special": true,
+    "excitement_rank": 2
   },
   {
     "id": "400ac83b",
@@ -77,7 +59,8 @@
       "research_type": "Prevention"
     },
     "link": "https://www.nih.gov/news-events/news-releases/diabetes-prevention-breakthrough",
-    "special": true
+    "special": true,
+    "excitement_rank": 3
   },
   {
     "id": "227bff06",
@@ -97,6 +80,28 @@
       "research_type": "Technology"
     },
     "link": "https://www.medtronic.com/smart-pump-ai",
-    "special": true
+    "special": true,
+    "excitement_rank": 4
+  },
+  {
+    "id": "846a3dfd",
+    "badge": "BREAKTHROUGH",
+    "title": "Eledon Pharmaceuticals Breakthrough: Tegoprubart Shows Promise for Type 1 Diabetes Treatment",
+    "summary": "Eledon Pharmaceuticals is developing tegoprubart, a medication that blocks a specific immune system signal (CD40L) that causes the body to attack its own cells. While being tested for organ transplants, this same mechanism could potentially stop the immune system from destroying insulin-producing cells in Type 1 Diabetes. Think of it as turning off the 'attack switch' that causes the disease.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
+    },
+    "meta": {
+      "published": "December 2024",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "HIGH",
+      "stage": "Clinical Trials",
+      "research_type": "Treatment"
+    },
+    "link": "https://eledon.com/",
+    "special": true,
+    "excitement_rank": 999
   }
 ]

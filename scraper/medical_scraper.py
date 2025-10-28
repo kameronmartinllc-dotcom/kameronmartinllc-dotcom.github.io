@@ -457,7 +457,8 @@ class MedicalScraper:
                 'research_type': research_type
             },
             'link': article.get('link', article.get('url', '#')),
-            'special': article.get('special', False)
+            'special': article.get('special', False),
+            'excitement_rank': article.get('excitement_rank', 999)
         }
     
     def _generate_family_summary(self, article: Dict) -> str:
@@ -731,7 +732,7 @@ class MedicalScraper:
         }
         special_articles.append(eledon_article)
         
-        # Add more exciting, family-relevant headlines
+        # Add more exciting, family-relevant headlines (ordered by excitement level)
         exciting_articles = [
             {
                 'title': 'FDA Approves New Ultra-Fast Insulin for Type 1 Diabetes - Available Now!',
@@ -742,7 +743,8 @@ class MedicalScraper:
                 'stage': 'Approved',
                 'research_type': 'Treatment',
                 'special': True,
-                'date': 'October 2025'
+                'date': 'October 2025',
+                'excitement_rank': 1  # Most exciting - available now!
             },
             {
                 'title': 'Revolutionary Stem Cell Therapy Shows 90% Success Rate in Early Trials',
@@ -753,18 +755,8 @@ class MedicalScraper:
                 'stage': 'Clinical Trials',
                 'research_type': 'Cure',
                 'special': True,
-                'date': 'October 2025'
-            },
-            {
-                'title': 'New Smart Insulin Pump Automatically Adjusts for Exercise and Stress',
-                'abstract': 'The latest smart insulin pump uses AI to predict blood sugar changes and automatically adjust insulin delivery. It can detect when you\'re exercising, stressed, or sick, and make real-time adjustments to keep blood sugar stable. Early users report 40% fewer low blood sugar episodes and much better overnight control.',
-                'source': 'Medtronic Innovation',
-                'url': 'https://www.medtronic.com/smart-pump-ai',
-                'priority': 'HIGH',
-                'stage': 'Available',
-                'research_type': 'Technology',
-                'special': True,
-                'date': 'September 2025'
+                'date': 'October 2025',
+                'excitement_rank': 2  # Second most exciting - potential cure!
             },
             {
                 'title': 'Breakthrough: Scientists Discover How to Prevent Type 1 Diabetes Before It Starts',
@@ -775,7 +767,20 @@ class MedicalScraper:
                 'stage': 'Clinical Trials',
                 'research_type': 'Prevention',
                 'special': True,
-                'date': 'October 2025'
+                'date': 'October 2025',
+                'excitement_rank': 3  # Third most exciting - prevention!
+            },
+            {
+                'title': 'New Smart Insulin Pump Automatically Adjusts for Exercise and Stress',
+                'abstract': 'The latest smart insulin pump uses AI to predict blood sugar changes and automatically adjust insulin delivery. It can detect when you\'re exercising, stressed, or sick, and make real-time adjustments to keep blood sugar stable. Early users report 40% fewer low blood sugar episodes and much better overnight control.',
+                'source': 'Medtronic Innovation',
+                'url': 'https://www.medtronic.com/smart-pump-ai',
+                'priority': 'HIGH',
+                'stage': 'Available',
+                'research_type': 'Technology',
+                'special': True,
+                'date': 'September 2025',
+                'excitement_rank': 4  # Fourth most exciting - available technology
             }
         ]
         
@@ -886,8 +891,9 @@ class MedicalScraper:
             except Exception as e:
                 logger.error(f"Error converting article to breaking news: {e}")
         
-        # Sort by special status first, then priority and date
+        # Sort by excitement rank first, then special status, then priority and date
         breaking_news.sort(key=lambda x: (
+            x.get('excitement_rank', 999),  # Lower excitement_rank = higher priority
             not x.get('special', False),  # Special articles first
             {'HIGH': 0, 'MEDIUM': 1, 'LOW': 2}.get(x['meta']['priority'], 1),
             x['meta']['published']
