@@ -1,22 +1,22 @@
 [
   {
-    "id": "f52c4bca",
+    "id": "846a3dfd",
     "badge": "BREAKTHROUGH",
-    "title": "Elon Pharmaceuticals Announces Revolutionary Autoimmune Treatment for Type 1 Diabetes",
-    "summary": "Elon Pharmaceuticals has announced a revolutionary new treatment that targets the immune system attack on insulin-producing cells. This could be a game-changer for people with Type 1 Diabetes, potentially offering the first true disease-modifying therapy.",
+    "title": "Eledon Pharmaceuticals Breakthrough: Tegoprubart Shows Promise for Type 1 Diabetes Treatment",
+    "summary": "Eledon Pharmaceuticals is developing tegoprubart, a medication that blocks a specific immune system signal (CD40L) that causes the body to attack its own cells. While being tested for organ transplants, this same mechanism could potentially stop the immune system from destroying insulin-producing cells in Type 1 Diabetes. Think of it as turning off the 'attack switch' that causes the disease.",
     "details": {
       "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "This represents one of the most significant advances in T1D treatment in recent years. The medication targets the underlying autoimmune process that destroys insulin-producing cells, potentially slowing or even halting disease progression. Early results suggest it may be particularly effective when administered early in the disease course, offering hope for preserving natural insulin production and reducing long-term complications."
+      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
     },
     "meta": {
-      "published": "January 2025",
+      "published": "December 2024",
       "phase": "Research",
       "status": "Published",
       "priority": "HIGH",
-      "impact_score": 9,
-      "timeline": "2-3 years"
+      "impact_score": 8,
+      "timeline": "3-5 years"
     },
-    "link": "https://www.elonpharma.com/type1-diabetes-treatment",
+    "link": "https://eledon.com/",
     "special": true
   },
   {

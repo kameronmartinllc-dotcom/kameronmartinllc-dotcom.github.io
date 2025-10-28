@@ -353,8 +353,8 @@ class MedicalScraper:
         
         # Special articles get priority treatment
         if article.get('special', False):
-            if 'elon' in title:
-                return "Elon Pharmaceuticals has announced a revolutionary new treatment that targets the immune system attack on insulin-producing cells. This could be a game-changer for people with Type 1 Diabetes, potentially offering the first true disease-modifying therapy."
+            if 'eledon' in title or 'tegoprubart' in title:
+                return "Eledon Pharmaceuticals is developing tegoprubart, a medication that blocks a specific immune system signal (CD40L) that causes the body to attack its own cells. While being tested for organ transplants, this same mechanism could potentially stop the immune system from destroying insulin-producing cells in Type 1 Diabetes. Think of it as turning off the 'attack switch' that causes the disease."
             else:
                 return "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition."
         
@@ -600,19 +600,19 @@ class MedicalScraper:
         """Add special high-priority articles that deserve top billing"""
         special_articles = []
         
-        # Elon Pharmaceuticals article (high buzz, high impact)
-        elon_article = {
-            'title': 'Elon Pharmaceuticals Announces Revolutionary Autoimmune Treatment for Type 1 Diabetes',
-            'abstract': 'In a groundbreaking development, Elon Pharmaceuticals has revealed their latest autoimmune medication specifically targeting Type 1 Diabetes. This innovative treatment shows unprecedented promise in early trials, potentially offering a new pathway to disease modification and improved quality of life for patients.',
-            'source': 'Elon Pharmaceuticals',
-            'url': 'https://www.elonpharma.com/type1-diabetes-treatment',
+        # Eledon Pharmaceuticals article (high buzz, high impact) - CORRECTED
+        eledon_article = {
+            'title': 'Eledon Pharmaceuticals Breakthrough: Tegoprubart Shows Promise for Type 1 Diabetes Treatment',
+            'abstract': 'Eledon Pharmaceuticals is making waves with tegoprubart, an anti-CD40L antibody that targets the immune system processes involved in autoimmune diseases like Type 1 Diabetes. While primarily being tested for organ transplant rejection, the mechanism of action has significant implications for preventing the autoimmune destruction of insulin-producing beta cells in Type 1 Diabetes patients.',
+            'source': 'Eledon Pharmaceuticals',
+            'url': 'https://eledon.com/',
             'priority': 'HIGH',
-            'impact_score': 9,  # Very high impact (1-10 scale)
-            'timeline': '2-3 years',
+            'impact_score': 8,  # High impact (1-10 scale)
+            'timeline': '3-5 years',
             'special': True,
-            'date': 'January 2025'  # Give it a real date
+            'date': 'December 2024'  # Updated date
         }
-        special_articles.append(elon_article)
+        special_articles.append(eledon_article)
         
         return special_articles
     
