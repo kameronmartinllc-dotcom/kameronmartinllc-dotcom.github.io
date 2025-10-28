@@ -12,32 +12,12 @@ from pathlib import Path
 def update_breaking_news_section(breaking_news_data):
     """Update the breaking news section in index.html with new data"""
     
-    # Read the current index.html
-    index_path = Path('index.html')
-    if not index_path.exists():
-        print("Error: index.html not found")
-        return False
+    # The main page only shows a teaser (top article), not the full breaking news list
+    # The full breaking news is on breaking-news.html
+    # The teaser is updated by JavaScript from breaking_news_data.json
+    # So we don't need to update the hidden breaking news section on the main page
     
-    with open(index_path, 'r', encoding='utf-8') as f:
-        content = f.read()
-    
-    # Generate new breaking news HTML
-    breaking_news_html = generate_breaking_news_html(breaking_news_data)
-    
-    # Find and replace the breaking news section
-    pattern = r'<div id="breakingNewsList">.*?</div>'
-    replacement = f'<div id="breakingNewsList">\n{breaking_news_html}\n      </div>'
-    
-    new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
-    
-    # Note: JavaScript data will be updated by the loadBreakingNews() function
-    # which reads from the breaking_news_data.json file
-    
-    # Write the updated content back
-    with open(index_path, 'w', encoding='utf-8') as f:
-        f.write(new_content)
-    
-    print(f"Updated index.html with {len(breaking_news_data)} breaking news items")
+    print(f"Main page teaser will be updated by JavaScript from {len(breaking_news_data)} breaking news items")
     return True
 
 def generate_breaking_news_html(breaking_news_data):
