@@ -176,6 +176,43 @@
       color: white;
       font-size: 1.2em;
     }
+    .priority-key {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .key-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    
+    .key-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .key-badge {
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+      min-width: 200px;
+    }
+    
+    .key-description {
+      color: #4b5563;
+      line-height: 1.6;
+      font-size: 0.95em;
+    }
+    
     .footer {
       text-align: center;
       color: white;
@@ -192,6 +229,8 @@
       .logo { width: 150px; }
       .trial-title { font-size: 1.4em; padding-right: 0; }
       .trial-badge { position: static; margin-bottom: 15px; display: inline-block; }
+      .key-grid { grid-template-columns: 1fr; gap: 20px; }
+      .key-badge { min-width: auto; }
       .stats { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
@@ -221,6 +260,27 @@
       <div class="stat-card">
         <div class="stat-number" id="phase3Trials">0</div>
         <div class="stat-label">Phase 3 Trials</div>
+      </div>
+    </div>
+    
+    <!-- Priority Key -->
+    <div class="priority-key">
+      <h3 style="color: #1f2937; font-size: 1.3em; margin-bottom: 20px; text-align: center;">🎯 Understanding Trial Priorities</h3>
+      <div class="key-grid">
+        <div class="key-item">
+          <div class="key-badge badge-high">⭐ HIGH PRIORITY</div>
+          <div class="key-description">
+            <strong>Phase 1, 2, or 3 trials actively recruiting</strong><br>
+            These trials need participants to meet enrollment goals and advance research. Phase 1 tests safety, Phase 2 tests effectiveness, and Phase 3 tests for FDA approval.
+          </div>
+        </div>
+        <div class="key-item">
+          <div class="key-badge badge-medium">💡 RECRUITING</div>
+          <div class="key-description">
+            <strong>Other recruiting trials</strong><br>
+            Observational studies, post-approval research, or studies with special focus areas. Still actively seeking participants.
+          </div>
+        </div>
       </div>
     </div>
     
