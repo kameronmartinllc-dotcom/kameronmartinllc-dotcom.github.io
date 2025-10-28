@@ -141,28 +141,43 @@ class MedicalScraper:
         return None
     
     def scrape_clinical_trials(self, days_back: int = 7) -> List[Dict]:
-        """Scrape recent clinical trials from ClinicalTrials.gov"""
-        logger.info("Scraping ClinicalTrials.gov for recent T1D trials...")
+        """Scrape recent clinical trials from ClinicalTrials.gov - focusing on actively recruiting trials"""
+        logger.info("Scraping ClinicalTrials.gov for actively recruiting T1D trials...")
         
         trials = []
         try:
-            # ClinicalTrials.gov search for T1D trials
+            # ClinicalTrials.gov search for T1D trials - multiple searches to catch all variations
             search_url = "https://clinicaltrials.gov/api/v2/studies"
-            params = {
-                'query.cond': 'Type 1 Diabetes',
-                'filter.overallStatus': 'RECRUITING',
-                'pageSize': 20,
-                'sort': 'LastUpdatePostDate:desc'
-            }
             
-            response = self.session.get(search_url, params=params)
-            if response.status_code == 200:
-                data = response.json()
+            # Search terms to catch different T1D variations
+            search_terms = [
+                'Type 1 Diabetes',
+                'Type 1 Diabetes Mellitus', 
+                'Diabetes Mellitus, Type 1',
+                'Type 1 Diabetes (T1D)',
+                'Diabetes Type 1'
+            ]
+            
+            for term in search_terms:
+                params = {
+                    'query.cond': term,
+                    'filter.overallStatus': 'RECRUITING',
+                    'pageSize': 50,  # Increased from 20
+                    'sort': 'LastUpdatePostDate:desc'
+                }
                 
-                for study in data.get('studies', [])[:10]:  # Limit to top 10
-                    trial_data = self._process_clinical_trial(study)
-                    if trial_data:
-                        trials.append(trial_data)
+                response = self.session.get(search_url, params=params)
+                if response.status_code == 200:
+                    data = response.json()
+                    
+                    for study in data.get('studies', []):
+                        trial_data = self._process_clinical_trial(study)
+                        if trial_data and trial_data not in trials:  # Avoid duplicates
+                            trials.append(trial_data)
+                            
+                    logger.info(f"Found {len(data.get('studies', []))} trials for term: {term}")
+                else:
+                    logger.warning(f"Failed to search for term '{term}': {response.status_code}")
                         
         except Exception as e:
             logger.error(f"Error scraping ClinicalTrials.gov: {e}")
@@ -188,12 +203,17 @@ class MedicalScraper:
             # Get start date
             start_date = status_module.get('startDateStruct', {}).get('date', 'Unknown')
             
-            # Determine priority based on phase and status
+            # Determine priority based on phase and status - focus on trials needing participants
             priority = 'MEDIUM'
-            if phase in ['PHASE2', 'PHASE3'] and overall_status == 'RECRUITING':
-                priority = 'HIGH'
-            elif phase == 'PHASE1' and overall_status == 'RECRUITING':
-                priority = 'MEDIUM'
+            if overall_status == 'RECRUITING':
+                if phase in ['PHASE3', 'PHASE2']:
+                    priority = 'HIGH'  # Later phase trials need more participants
+                elif phase in ['PHASE1', 'EARLY_PHASE1']:
+                    priority = 'HIGH'  # Early phase trials also need participants
+                else:
+                    priority = 'MEDIUM'
+            else:
+                priority = 'LOW'  # Not actively recruiting
             
             return {
                 'nct_id': nct_id,
@@ -733,12 +753,22 @@ def main():
     scraper = MedicalScraper()
     breaking_news = scraper.run_scraping_workflow()
     
-    # Save to JSON file
-    output_file = 'scraper/breaking_news_data.json'
-    with open(output_file, 'w') as f:
+    # Get raw trials data separately
+    trials_data = scraper.scrape_clinical_trials()
+    
+    # Save breaking news to JSON file
+    breaking_news_file = 'scraper/breaking_news_data.json'
+    with open(breaking_news_file, 'w') as f:
         json.dump(breaking_news, f, indent=2)
     
-    logger.info(f"Breaking news data saved to {output_file}")
+    # Save trials data to separate JSON file
+    trials_file = 'scraper/trials_data.json'
+    with open(trials_file, 'w') as f:
+        json.dump(trials_data, f, indent=2)
+    
+    logger.info(f"Breaking news data saved to {breaking_news_file}")
+    logger.info(f"Trials data saved to {trials_file}")
+    logger.info(f"Total trials found: {len(trials_data)}")
     
     # Print summary
     for item in breaking_news:
