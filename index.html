@@ -256,6 +256,84 @@
       font-weight: 600;
     }
     
+    /* Breaking News Teaser Styles */
+    .breaking-news-teaser {
+      background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+      border-radius: 20px;
+      padding: 50px 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .breaking-news-teaser:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+    }
+    .breaking-teaser-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
+      color: #1f2937;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 1em;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+      animation: pulse 2s infinite;
+    }
+    .breaking-teaser-title {
+      color: #f9fafb;
+      font-size: 2.2em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .breaking-teaser-summary {
+      color: #d1d5db;
+      font-size: 1.2em;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .breaking-teaser-meta {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .breaking-teaser-meta span {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 0.95em;
+      font-weight: 600;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .breaking-teaser-link {
+      display: inline-block;
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      color: #1f2937;
+      padding: 15px 40px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1em;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    }
+    .breaking-teaser-link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+    }
+    
     /* Breaking News Section Styles */
     .breaking-news {
       background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
@@ -460,7 +538,19 @@
       <p class="tagline">Latest research breakthroughs, clinical trials, and hope-filled updates delivered to parents and families</p>
     </div>
 
-    <div class="breaking-news">
+    <!-- Breaking News Teaser Section -->
+    <div class="breaking-news-teaser">
+      <div class="breaking-teaser-badge">🚨 BREAKING NEWS</div>
+      <h2 id="breakingTeaserTitle" class="breaking-teaser-title">Loading latest research...</h2>
+      <p id="breakingTeaserSummary" class="breaking-teaser-summary">Please wait...</p>
+      <div class="breaking-teaser-meta">
+        <span id="breakingTeaserDate">Just In</span>
+        <span id="breakingTeaserBadge">NEW</span>
+      </div>
+      <a href="breaking-news.html" class="breaking-teaser-link">View All Breaking News →</a>
+    </div>
+    
+    <div class="breaking-news" style="display:none;">
       <h2>🚨 BREAKING NEWS</h2>
       <div id="breakingNewsList">
 
@@ -587,7 +677,7 @@
       </div>
     </div>
 
-    <div class="trials">
+    <div class="trials" style="display:none;">
       <h2>🔬 Clinical Trial Opportunities</h2>
       <div class="trial-stats">
         <div class="trial-stat-card">
@@ -752,6 +842,27 @@ const date = new Date(year, month - 1, day);
       }
     }
 
+    // Load breaking news teaser (just the top article)
+    async function loadBreakingNewsTeaser() {
+      try {
+        const response = await fetch('scraper/breaking_news_data.json');
+        const breakingNews = await response.json();
+        
+        if (breakingNews && breakingNews.length > 0) {
+          const topNews = breakingNews[0]; // Get the most recent/important article
+          
+          document.getElementById('breakingTeaserTitle').textContent = topNews.title;
+          document.getElementById('breakingTeaserSummary').textContent = topNews.summary.substring(0, 200) + '...';
+          document.getElementById('breakingTeaserDate').textContent = `Published: ${topNews.meta.published}`;
+          document.getElementById('breakingTeaserBadge').textContent = topNews.badge;
+        }
+      } catch (error) {
+        console.error('Error loading breaking news teaser:', error);
+        document.getElementById('breakingTeaserTitle').textContent = 'Latest Type 1 Diabetes Research';
+        document.getElementById('breakingTeaserSummary').textContent = 'Click to view the latest breaking news and research developments.';
+      }
+    }
+    
     // Load breaking news data
     async function loadBreakingNews() {
       try {
@@ -868,7 +979,7 @@ const date = new Date(year, month - 1, day);
     // Load all content on page load
     loadReports();
     loadTrials();
-    loadBreakingNews();
+    loadBreakingNewsTeaser();
   </script>
 </body>
 </html>

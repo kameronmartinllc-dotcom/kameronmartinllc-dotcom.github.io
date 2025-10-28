@@ -17,10 +17,27 @@
     "link": "https://pubmed.ncbi.nlm.nih.gov/41116608/"
   },
   {
-    "id": "87797056",
+    "id": "0360505b",
     "badge": "NEW",
-    "title": "One-year effectiveness and safety in young children aged 2-6\u2009years with type 1 diabetes using an automated insulin delivery system: A real-world prospective cohort study.",
-    "summary": "This study evaluated 1-year real-world changes in glycaemic management, parent-reported outcomes and safety with an automated insulin delivery (AID) system in young children with type 1 diabetes (T1D).",
+    "title": "Evaluating diabetes care processes, comorbidity burden and continuous glucose monitoring utilisation in regional Australia: results from Central Queensland Hospital.",
+    "summary": "Real-world adherence to guideline-recommended diabetes care in regional Australia is poorly described. This study aimed to evaluate adherence to diabetes care processes, comorbidity burden and continuous blood sugar monitoring (CGM) metrics among individuals with type 1 diabetes (T1D) attending a region...",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This research paper presents new findings about Type 1 Diabetes. Scientists are constantly learning more about how the disease works and how to treat it better. This research contributes to our overall understanding and may lead to new treatment options in the future."
+    },
+    "meta": {
+      "published": "25 Oct 2025",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "MEDIUM"
+    },
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41137611/"
+  },
+  {
+    "id": "8b696105",
+    "badge": "NEW",
+    "title": "Transition to Adult Care in Youth with Type 1 Diabetes: Follow-Up Continuity, Complications, and Metabolic Control.",
+    "summary": "The transition from pediatric to adult care in individuals with Type 1 Diabetes (T1D) often presents significant challenges, including disruptions in follow-up continuity and metabolic control.",
     "details": {
       "heading": "\ud83d\udd2c What This Means for Families:",
       "content": "This research paper presents new findings about Type 1 Diabetes. Scientists are constantly learning more about how the disease works and how to treat it better. This research contributes to our overall understanding and may lead to new treatment options in the future."
@@ -31,6 +48,6 @@
       "status": "Published",
       "priority": "MEDIUM"
     },
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41144887/"
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41143600/"
   }
 ]
