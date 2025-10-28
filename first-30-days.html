@@ -555,12 +555,13 @@
 <head>
     <title>Blood Sugar Log - AVA</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .log-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        .log-table th, .log-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        .log-table th { background: #f2f2f2; font-weight: bold; }
-        .notes { margin-top: 20px; font-size: 0.9em; color: #666; }
+        body { font-family: Arial, sans-serif; margin: 10px; color: black; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .log-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        .log-table th, .log-table td { border: 1px solid black; padding: 8px; text-align: left; }
+        .log-table th { background: #f0f0f0; font-weight: bold; }
+        .notes { margin-top: 20px; font-size: 0.9em; }
+        @media print { body { margin: 0; } }
     </style>
 </head>
 <body>
@@ -592,12 +593,33 @@
             <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
             <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
             <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
         </tbody>
     </table>
     
     <div class="notes">
-        <p><strong>Target Range:</strong> 70-180 mg/dL</p>
-        <p><strong>Emergency Numbers:</strong> Doctor: _______________ Emergency: 911</p>
+        <p><strong>Target Range:</strong> _________________ mg/dL</p>
+        <p><strong>Emergency Numbers:</strong> Doctor: _________________ Emergency: 911</p>
         <p><strong>Notes:</strong> Use this log to track patterns and share with your diabetes team.</p>
     </div>
 </body>
@@ -610,22 +632,25 @@
 <head>
     <title>Letter to Teacher - Type 1 Diabetes</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        .header { text-align: center; margin-bottom: 30px; }
+        body { font-family: Arial, sans-serif; margin: 10px; line-height: 1.6; color: black; }
+        .header { text-align: center; margin-bottom: 20px; }
         .letter { max-width: 600px; margin: 0 auto; }
-        .signature { margin-top: 30px; }
+        .signature { margin-top: 20px; }
+        .underline { border-bottom: 1px solid black; display: inline-block; min-width: 200px; }
+        .long-underline { border-bottom: 1px solid black; display: inline-block; min-width: 300px; }
+        @media print { body { margin: 0; } }
     </style>
 </head>
 <body>
     <div class="letter">
         <div class="header">
             <h2>Important Information About Type 1 Diabetes</h2>
-            <p>Student: _________________ &nbsp;&nbsp; Date: _________________</p>
+            <p>Student: <span class="long-underline">_________________</span> &nbsp;&nbsp; Date: <span class="underline">_________________</span></p>
         </div>
         
         <p>Dear Teacher,</p>
         
-        <p>I wanted to share some important information about my child, <strong>_________________</strong>, who has Type 1 Diabetes (T1D). This is an autoimmune condition where the pancreas stops producing insulin, a hormone needed to process sugar from food.</p>
+        <p>I wanted to share some important information about my child, <strong><span class="long-underline">_________________</span></strong>, who has Type 1 Diabetes (T1D). This is an autoimmune condition where the pancreas stops producing insulin, a hormone needed to process sugar from food.</p>
         
         <h3>What You Need to Know:</h3>
         <ul>
@@ -656,9 +681,9 @@
         
         <div class="signature">
             <p>Sincerely,</p>
-            <p>Parent/Guardian: _________________</p>
-            <p>Phone: _________________</p>
-            <p>Email: _________________</p>
+            <p>Parent/Guardian: <span class="long-underline">_________________</span></p>
+            <p>Phone: <span class="long-underline">_________________</span></p>
+            <p>Email: <span class="long-underline">_________________</span></p>
         </div>
     </div>
 </body>
@@ -671,22 +696,26 @@
 <head>
     <title>504 Plan Template - Type 1 Diabetes</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .section { margin: 20px 0; }
-        .checkbox { margin: 10px 0; }
+        body { font-family: Arial, sans-serif; margin: 10px; line-height: 1.6; color: black; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .section { margin: 15px 0; }
+        .checkbox { margin: 8px 0; }
+        .underline { border-bottom: 1px solid black; display: inline-block; min-width: 200px; }
+        .long-underline { border-bottom: 1px solid black; display: inline-block; min-width: 300px; }
+        .notes-line { border-bottom: 1px solid black; display: block; margin: 10px 0; min-height: 20px; }
+        @media print { body { margin: 0; } }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>504 Plan Accommodations for Type 1 Diabetes</h1>
-        <p>Student: _________________ &nbsp;&nbsp; School: _________________ &nbsp;&nbsp; Date: _________________</p>
+        <p>Student: <span class="long-underline">_________________</span> &nbsp;&nbsp; School: <span class="long-underline">_________________</span> &nbsp;&nbsp; Date: <span class="underline">_________________</span></p>
     </div>
     
     <div class="section">
         <h2>Medical Needs</h2>
         <div class="checkbox">☐ Blood glucose monitoring as needed</div>
-        <div class="checkbox">☐ Insulin administration (specify method): _________________</div>
+        <div class="checkbox">☐ Insulin administration (specify method): <span class="long-underline">_________________</span></div>
         <div class="checkbox">☐ Access to diabetes supplies at all times</div>
         <div class="checkbox">☐ Emergency glucagon administration training for staff</div>
         <div class="checkbox">☐ School nurse availability during school hours</div>
@@ -704,24 +733,24 @@
     <div class="section">
         <h2>Emergency Procedures</h2>
         <div class="checkbox">☐ Emergency contact information readily available</div>
-        <div class="checkbox">☐ Glucagon emergency kit location: _________________</div>
+        <div class="checkbox">☐ Glucagon emergency kit location: <span class="long-underline">_________________</span></div>
         <div class="checkbox">☐ Staff trained in diabetes emergency response</div>
         <div class="checkbox">☐ 911 called for severe low blood sugar</div>
-        <div class="checkbox">☐ Parent notification procedures: _________________</div>
+        <div class="checkbox">☐ Parent notification procedures: <span class="long-underline">_________________</span></div>
     </div>
     
     <div class="section">
         <h2>Additional Notes</h2>
-        <p>_________________________________________________</p>
-        <p>_________________________________________________</p>
-        <p>_________________________________________________</p>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
     </div>
     
     <div class="section">
         <h2>Signatures</h2>
-        <p>Parent/Guardian: _________________ Date: _________________</p>
-        <p>School Representative: _________________ Date: _________________</p>
-        <p>Student (if applicable): _________________ Date: _________________</p>
+        <p>Parent/Guardian: <span class="long-underline">_________________</span> Date: <span class="underline">_________________</span></p>
+        <p>School Representative: <span class="long-underline">_________________</span> Date: <span class="underline">_________________</span></p>
+        <p>Student (if applicable): <span class="long-underline">_________________</span> Date: <span class="underline">_________________</span></p>
     </div>
 </body>
 </html>`;
@@ -733,32 +762,35 @@
 <head>
     <title>School Nurse Letter - Type 1 Diabetes</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        .header { text-align: center; margin-bottom: 30px; }
+        body { font-family: Arial, sans-serif; margin: 10px; line-height: 1.6; color: black; }
+        .header { text-align: center; margin-bottom: 20px; }
         .letter { max-width: 600px; margin: 0 auto; }
-        .medical-info { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .medical-info { border: 1px solid black; padding: 10px; margin: 15px 0; }
+        .underline { border-bottom: 1px solid black; display: inline-block; min-width: 200px; }
+        .long-underline { border-bottom: 1px solid black; display: inline-block; min-width: 300px; }
+        @media print { body { margin: 0; } }
     </style>
 </head>
 <body>
     <div class="letter">
         <div class="header">
             <h2>Medical Information for School Nurse</h2>
-            <p>Student: _________________ &nbsp;&nbsp; Date: _________________</p>
+            <p>Student: <span class="long-underline">_________________</span> &nbsp;&nbsp; Date: <span class="underline">_________________</span></p>
         </div>
         
         <p>Dear School Nurse,</p>
         
-        <p>Please find below the medical information for <strong>_________________</strong>, who has Type 1 Diabetes and will be attending your school.</p>
+        <p>Please find below the medical information for <strong><span class="long-underline">_________________</span></strong>, who has Type 1 Diabetes and will be attending your school.</p>
         
         <div class="medical-info">
             <h3>Medical Information</h3>
-            <p><strong>Diagnosis Date:</strong> _________________</p>
-            <p><strong>Endocrinologist:</strong> _________________</p>
-            <p><strong>Phone:</strong> _________________</p>
-            <p><strong>Target Blood Sugar Range:</strong> 70-180 mg/dL</p>
-            <p><strong>Insulin Type:</strong> _________________</p>
-            <p><strong>Insulin-to-Carb Ratio:</strong> 1 unit per _____ grams</p>
-            <p><strong>Correction Factor:</strong> 1 unit drops blood sugar by _____ mg/dL</p>
+            <p><strong>Diagnosis Date:</strong> <span class="long-underline">_________________</span></p>
+            <p><strong>Endocrinologist:</strong> <span class="long-underline">_________________</span></p>
+            <p><strong>Phone:</strong> <span class="long-underline">_________________</span></p>
+            <p><strong>Target Blood Sugar Range:</strong> <span class="long-underline">_________________</span> mg/dL</p>
+            <p><strong>Insulin Type:</strong> <span class="long-underline">_________________</span></p>
+            <p><strong>Insulin-to-Carb Ratio:</strong> 1 unit per <span class="underline">_____</span> grams</p>
+            <p><strong>Correction Factor:</strong> 1 unit drops blood sugar by <span class="underline">_____</span> mg/dL</p>
         </div>
         
         <h3>Emergency Procedures</h3>
@@ -772,7 +804,7 @@
         <h3>Daily Management</h3>
         <ul>
             <li>Blood sugar checks: Before meals and as needed</li>
-            <li>Insulin administration: _________________</li>
+            <li>Insulin administration: <span class="long-underline">_________________</span></li>
             <li>Snacks: Available for low blood sugar treatment</li>
             <li>Water: Unlimited access</li>
             <li>Bathroom: Unlimited access</li>
@@ -790,9 +822,9 @@
         <p>Please contact me with any questions. I'm available to provide additional training or information as needed.</p>
         
         <p>Thank you for your support,</p>
-        <p>Parent/Guardian: _________________</p>
-        <p>Phone: _________________</p>
-        <p>Emergency Contact: _________________</p>
+        <p>Parent/Guardian: <span class="long-underline">_________________</span></p>
+        <p>Phone: <span class="long-underline">_________________</span></p>
+        <p>Emergency Contact: <span class="long-underline">_________________</span></p>
     </div>
 </body>
 </html>`;
@@ -804,12 +836,13 @@
 <head>
     <title>Carb Counting Guide - AVA</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .food-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        .food-table th, .food-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        .food-table th { background: #f2f2f2; font-weight: bold; }
-        .tips { background: #e8f4fd; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        body { font-family: Arial, sans-serif; margin: 10px; line-height: 1.6; color: black; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .food-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        .food-table th, .food-table td { border: 1px solid black; padding: 8px; text-align: left; }
+        .food-table th { background: #f0f0f0; font-weight: bold; }
+        .tips { border: 1px solid black; padding: 10px; margin: 15px 0; }
+        @media print { body { margin: 0; } }
     </style>
 </head>
 <body>
@@ -819,7 +852,7 @@
     </div>
     
     <div class="tips">
-        <h3>💡 Quick Tips</h3>
+        <h3>Quick Tips</h3>
         <ul>
             <li><strong>1 serving = 15g carbs</strong> (this is the standard "carb choice")</li>
             <li><strong>Read nutrition labels</strong> - look for "Total Carbohydrates"</li>
@@ -902,7 +935,7 @@
     </table>
     
     <div class="tips">
-        <h3>📝 Notes</h3>
+        <h3>Notes</h3>
         <p>This is a general guide. Always check nutrition labels for accurate carb counts. When in doubt, consult with your diabetes team.</p>
     </div>
 </body>
@@ -915,83 +948,85 @@
 <head>
     <title>Emergency Contacts - Type 1 Diabetes</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .contact-card { background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #007bff; }
-        .emergency { border-left-color: #dc3545; background: #fff5f5; }
-        .important { border-left-color: #ffc107; background: #fffbf0; }
+        body { font-family: Arial, sans-serif; margin: 10px; line-height: 1.6; color: black; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .contact-card { border: 1px solid black; padding: 10px; margin: 10px 0; }
+        .contact-line { margin: 8px 0; }
+        .underline { border-bottom: 1px solid black; display: inline-block; min-width: 200px; }
+        .long-underline { border-bottom: 1px solid black; display: inline-block; min-width: 300px; }
+        @media print { body { margin: 0; } }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>Emergency Contacts</h1>
-        <p>Child: _________________ &nbsp;&nbsp; Date: _________________</p>
-    </div>
-    
-    <div class="contact-card emergency">
-        <h3>🚨 EMERGENCY (Call 911)</h3>
-        <p><strong>When to call:</strong> Unconscious, seizures, severe low blood sugar, can't wake up</p>
-        <p><strong>Phone:</strong> 911</p>
+        <p>Child: <span class="long-underline">_________________</span> &nbsp;&nbsp; Date: <span class="underline">_________________</span></p>
     </div>
     
     <div class="contact-card">
-        <h3>👨‍⚕️ Primary Doctor</h3>
-        <p><strong>Name:</strong> _________________</p>
-        <p><strong>Phone:</strong> _________________</p>
-        <p><strong>After Hours:</strong> _________________</p>
+        <h3>EMERGENCY (Call 911)</h3>
+        <div class="contact-line"><strong>When to call:</strong> Unconscious, seizures, severe low blood sugar, can't wake up</div>
+        <div class="contact-line"><strong>Phone:</strong> 911</div>
     </div>
     
     <div class="contact-card">
-        <h3>🏥 Endocrinologist</h3>
-        <p><strong>Name:</strong> _________________</p>
-        <p><strong>Phone:</strong> _________________</p>
-        <p><strong>Office Hours:</strong> _________________</p>
+        <h3>Primary Doctor</h3>
+        <div class="contact-line"><strong>Name:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Phone:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>After Hours:</strong> <span class="long-underline">_________________</span></div>
     </div>
     
     <div class="contact-card">
-        <h3>👩‍⚕️ School Nurse</h3>
-        <p><strong>Name:</strong> _________________</p>
-        <p><strong>Phone:</strong> _________________</p>
-        <p><strong>Extension:</strong> _________________</p>
+        <h3>Endocrinologist</h3>
+        <div class="contact-line"><strong>Name:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Phone:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Office Hours:</strong> <span class="long-underline">_________________</span></div>
     </div>
     
     <div class="contact-card">
-        <h3>👨‍👩‍👧‍👦 Parents/Guardians</h3>
-        <p><strong>Primary Contact:</strong> _________________</p>
-        <p><strong>Phone:</strong> _________________</p>
-        <p><strong>Work Phone:</strong> _________________</p>
-        <p><strong>Secondary Contact:</strong> _________________</p>
-        <p><strong>Phone:</strong> _________________</p>
-    </div>
-    
-    <div class="contact-card important">
-        <h3>⚠️ Important Notes</h3>
-        <p><strong>Insurance:</strong> _________________</p>
-        <p><strong>Policy Number:</strong> _________________</p>
-        <p><strong>Pharmacy:</strong> _________________</p>
-        <p><strong>Phone:</strong> _________________</p>
+        <h3>School Nurse</h3>
+        <div class="contact-line"><strong>Name:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Phone:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Extension:</strong> <span class="underline">_________________</span></div>
     </div>
     
     <div class="contact-card">
-        <h3>🏥 Nearest Hospital</h3>
-        <p><strong>Name:</strong> _________________</p>
-        <p><strong>Address:</strong> _________________</p>
-        <p><strong>Phone:</strong> _________________</p>
+        <h3>Parents/Guardians</h3>
+        <div class="contact-line"><strong>Primary Contact:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Phone:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Work Phone:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Secondary Contact:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Phone:</strong> <span class="long-underline">_________________</span></div>
     </div>
     
     <div class="contact-card">
-        <h3>💊 Pharmacy</h3>
-        <p><strong>Name:</strong> _________________</p>
-        <p><strong>Address:</strong> _________________</p>
-        <p><strong>Phone:</strong> _________________</p>
-        <p><strong>24-Hour:</strong> _________________</p>
+        <h3>Important Notes</h3>
+        <div class="contact-line"><strong>Insurance:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Policy Number:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Pharmacy:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Phone:</strong> <span class="long-underline">_________________</span></div>
     </div>
     
-    <div style="margin-top: 30px; padding: 15px; background: #e8f4fd; border-radius: 5px;">
-        <h3>📋 Emergency Procedures</h3>
-        <p><strong>Low Blood Sugar:</strong> Give 15g fast-acting sugar, recheck in 15 minutes</p>
-        <p><strong>Severe Low:</strong> Give glucagon, call 911</p>
-        <p><strong>High Blood Sugar:</strong> Check ketones, contact doctor if >300</p>
+    <div class="contact-card">
+        <h3>Nearest Hospital</h3>
+        <div class="contact-line"><strong>Name:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Address:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Phone:</strong> <span class="long-underline">_________________</span></div>
+    </div>
+    
+    <div class="contact-card">
+        <h3>Pharmacy</h3>
+        <div class="contact-line"><strong>Name:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Address:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>Phone:</strong> <span class="long-underline">_________________</span></div>
+        <div class="contact-line"><strong>24-Hour:</strong> <span class="long-underline">_________________</span></div>
+    </div>
+    
+    <div style="margin-top: 20px; padding: 10px; border: 1px solid black;">
+        <h3>Emergency Procedures</h3>
+        <div class="contact-line"><strong>Low Blood Sugar:</strong> Give 15g fast-acting sugar, recheck in 15 minutes</div>
+        <div class="contact-line"><strong>Severe Low:</strong> Give glucagon, call 911</div>
+        <div class="contact-line"><strong>High Blood Sugar:</strong> Check ketones, contact doctor if >300</div>
     </div>
 </body>
 </html>`;
@@ -1003,12 +1038,15 @@
 <head>
     <title>Sick Day Management Plan - Type 1 Diabetes</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .section { margin: 20px 0; padding: 15px; border-radius: 5px; }
-        .urgent { background: #fff5f5; border-left: 4px solid #dc3545; }
-        .important { background: #fffbf0; border-left: 4px solid #ffc107; }
-        .normal { background: #f8f9fa; border-left: 4px solid #007bff; }
+        body { font-family: Arial, sans-serif; margin: 10px; line-height: 1.6; color: black; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .section { margin: 15px 0; padding: 10px; border: 1px solid black; }
+        .urgent { border: 2px solid black; }
+        .important { border: 1px solid black; }
+        .normal { border: 1px solid black; }
+        .underline { border-bottom: 1px solid black; display: inline-block; min-width: 200px; }
+        .long-underline { border-bottom: 1px solid black; display: inline-block; min-width: 300px; }
+        @media print { body { margin: 0; } }
     </style>
 </head>
 <body>
@@ -1122,12 +1160,14 @@
 <head>
     <title>Travel Checklist - Type 1 Diabetes</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .checklist { margin: 20px 0; }
-        .category { background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #007bff; }
-        .item { margin: 8px 0; }
-        .emergency { border-left-color: #dc3545; background: #fff5f5; }
+        body { font-family: Arial, sans-serif; margin: 10px; line-height: 1.6; color: black; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .checklist { margin: 15px 0; }
+        .category { border: 1px solid black; padding: 10px; margin: 10px 0; }
+        .item { margin: 6px 0; }
+        .emergency { border: 2px solid black; }
+        .underline { border-bottom: 1px solid black; display: inline-block; min-width: 200px; }
+        @media print { body { margin: 0; } }
     </style>
 </head>
 <body>
@@ -1224,13 +1264,16 @@
 <head>
     <title>Insurance Navigation Guide - Type 1 Diabetes</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .section { margin: 20px 0; padding: 15px; border-radius: 5px; }
-        .urgent { background: #fff5f5; border-left: 4px solid #dc3545; }
-        .important { background: #fffbf0; border-left: 4px solid #ffc107; }
-        .normal { background: #f8f9fa; border-left: 4px solid #007bff; }
-        .success { background: #f0fff4; border-left: 4px solid #28a745; }
+        body { font-family: Arial, sans-serif; margin: 10px; line-height: 1.6; color: black; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .section { margin: 15px 0; padding: 10px; border: 1px solid black; }
+        .urgent { border: 2px solid black; }
+        .important { border: 1px solid black; }
+        .normal { border: 1px solid black; }
+        .success { border: 1px solid black; }
+        .underline { border-bottom: 1px solid black; display: inline-block; min-width: 200px; }
+        .long-underline { border-bottom: 1px solid black; display: inline-block; min-width: 300px; }
+        @media print { body { margin: 0; } }
     </style>
 </head>
 <body>
