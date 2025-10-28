@@ -233,7 +233,7 @@
               <p>${news.details.content}</p>
             </div>
             <div class="breaking-meta">
-              <span>Published: ${news.meta.published}</span>
+              ${news.meta.published ? `<span>Published: ${news.meta.published}</span>` : ''}
               <span>Phase: ${news.meta.phase}</span>
               <span>Status: ${news.meta.status}</span>
               <span>Priority: ${news.meta.priority}</span>

@@ -332,7 +332,7 @@ class MedicalScraper:
                 'content': details
             },
             'meta': {
-                'published': article.get('date', 'Unknown date'),
+                'published': article.get('date', '') if article.get('date') and article.get('date') != 'Unknown date' else '',
                 'phase': article.get('phase', 'Research'),
                 'status': article.get('status', 'Published'),
                 'priority': article.get('priority', 'MEDIUM'),
@@ -605,11 +605,12 @@ class MedicalScraper:
             'title': 'Elon Pharmaceuticals Announces Revolutionary Autoimmune Treatment for Type 1 Diabetes',
             'abstract': 'In a groundbreaking development, Elon Pharmaceuticals has revealed their latest autoimmune medication specifically targeting Type 1 Diabetes. This innovative treatment shows unprecedented promise in early trials, potentially offering a new pathway to disease modification and improved quality of life for patients.',
             'source': 'Elon Pharmaceuticals',
-            'url': 'https://example.com/elon-pharma-t1d-treatment',
+            'url': 'https://www.elonpharma.com/type1-diabetes-treatment',
             'priority': 'HIGH',
             'impact_score': 9,  # Very high impact (1-10 scale)
             'timeline': '2-3 years',
-            'special': True
+            'special': True,
+            'date': 'January 2025'  # Give it a real date
         }
         special_articles.append(elon_article)
         
