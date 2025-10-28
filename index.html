@@ -100,33 +100,33 @@
     }
     .signup-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
     .reports {
-      background: white;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
       border-radius: 20px;
       padding: 40px;
       margin-bottom: 40px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
     }
-    .reports h2 { color: #1f2937; font-size: 2em; margin-bottom: 30px; text-align: center; }
+    .reports h2 { color: white; font-size: 2em; margin-bottom: 30px; text-align: center; }
     .report-list { display: grid; gap: 20px; }
     .report-item {
       display: flex;
       align-items: center;
       gap: 20px;
       padding: 25px;
-      background: #f9fafb;
+      background: rgba(255,255,255,0.1);
       border-radius: 12px;
       transition: all 0.3s;
       text-decoration: none;
       color: inherit;
-      border: 2px solid transparent;
+      border: 1px solid rgba(255,255,255,0.2);
     }
-    .report-item:hover { background: #eff6ff; border-color: #1E90FF; transform: translateX(5px); }
-    .report-date { background: #1E90FF; color: white; padding: 15px; border-radius: 10px; text-align: center; min-width: 80px; font-weight: 700; }
+    .report-item:hover { background: rgba(255,255,255,0.2); border-color: #fbbf24; transform: translateX(5px); }
+    .report-date { background: #fbbf24; color: #1f2937; padding: 15px; border-radius: 10px; text-align: center; min-width: 80px; font-weight: 700; }
     .report-date .day { font-size: 2em; display: block; line-height: 1; }
     .report-date .month { font-size: 0.9em; opacity: 0.9; }
-    .report-info { flex: 1; }
-    .report-title { font-size: 1.3em; font-weight: 700; color: #1f2937; margin-bottom: 5px; }
-    .report-desc { color: #6b7280; }
+    .report-info { flex: 1; color: white; }
+    .report-title { font-size: 1.3em; font-weight: 700; color: white; margin-bottom: 5px; }
+    .report-desc { color: rgba(255,255,255,0.8); }
     
     /* Trials Section Styles */
     .trials {
