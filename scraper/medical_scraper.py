@@ -296,16 +296,20 @@ class MedicalScraper:
     
     def generate_breaking_news_item(self, article: Dict) -> Dict:
         """Convert scraped article into breaking news format"""
+        title = article.get('title', '').lower()
+        
         # Determine badge based on source and content
         badge = "NEW"
         if article.get('source') == 'ClinicalTrials.gov':
             if article.get('priority') == 'HIGH':
                 badge = "HOT"
+            elif article.get('phase') == 'PHASE3':
+                badge = "TRIAL"
             else:
                 badge = "TRIAL"
-        elif 'breakthrough' in article.get('title', '').lower() or 'revolutionary' in article.get('title', '').lower():
+        elif 'breakthrough' in title or 'revolutionary' in title or 'novel' in title:
             badge = "BREAKTHROUGH"
-        elif 'fda' in article.get('title', '').lower() or 'approval' in article.get('title', '').lower():
+        elif 'fda' in title or 'approval' in title or 'approved' in title:
             badge = "APPROVAL"
         
         # Generate family-friendly summary
@@ -334,40 +338,124 @@ class MedicalScraper:
     
     def _generate_family_summary(self, article: Dict) -> str:
         """Generate a family-friendly summary of the article"""
-        title = article.get('title', '')
+        title = article.get('title', '').lower()
         abstract = article.get('abstract', '')
+        source = article.get('source', '')
         
-        # Simple AI-like text processing to make it family-friendly
-        summary = abstract[:300] + "..." if len(abstract) > 300 else abstract
+        # First, translate the title to something understandable
+        friendly_title = self._translate_title(title)
         
-        # Replace technical terms with simpler ones
-        replacements = {
-            'type 1 diabetes mellitus': 'Type 1 Diabetes',
-            'insulin-dependent diabetes': 'Type 1 Diabetes',
-            'beta cells': 'insulin-producing cells',
-            'autoimmune': 'immune system',
-            'glucose': 'blood sugar',
-            'glycemic control': 'blood sugar control',
-            'clinical trial': 'research study',
-            'randomized controlled trial': 'research study'
-        }
+        # Clinical trials get special treatment for clarity
+        if source == 'ClinicalTrials.gov':
+            if 'teplizumab' in title:
+                return "Teplizumab is an FDA-approved medication that can delay Type 1 Diabetes in people at high risk. This trial is testing its effectiveness in a new population to see if it can preserve natural insulin production longer."
+            elif 'frexalimab' in title or 'cd40l' in title:
+                return "This trial is testing a new immune-modulating drug designed to protect insulin-producing cells from attack. If successful, it could help people keep their natural insulin production longer after diagnosis."
+            elif 'diamyd' in title:
+                return "Diamyd is investigating whether a vaccine-like treatment can help preserve insulin production in people with specific genetics (HLA DR3-DQ2). This personalized approach targets only those most likely to benefit."
+            elif 'tirzepatide' in title and 'type 1' in title:
+                return "This study is testing whether Tirzepatide (a medication approved for Type 2 Diabetes and weight loss) can help people with Type 1 Diabetes who are also managing weight issues. It could be a dual-benefit treatment."
+            elif 'weight' in title or 'obesity' in title:
+                return "This trial focuses on weight management for people with Type 1 Diabetes. Managing weight can improve insulin sensitivity and overall health outcomes."
+            else:
+                return "This research study is testing a new treatment approach for Type 1 Diabetes. Clinical trials are how we discover better treatments and move closer to a cure."
         
-        for technical, simple in replacements.items():
-            summary = summary.replace(technical, simple)
+        # Create a clear, accessible summary based on key concepts for research papers
+        if 'exosome' in title or 'monocyte backpack' in title:
+            summary = "Researchers are testing a new way to deliver medicine that could protect insulin-producing cells. They're using tiny 'packages' that can carry healing treatments directly where they're needed most."
+        elif 'insulin delivery' in title or 'closed-loop' in title or 'automated' in title:
+            summary = "This study looked at automatic insulin delivery systems - like an 'artificial pancreas' that adjusts insulin automatically without manual input. These systems can help keep blood sugar levels more stable with less effort."
+        elif 'transition' in title and 'adult care' in title:
+            summary = "This research focuses on what happens when young people with Type 1 Diabetes move from pediatric care to adult care. It's studying how to make this transition smoother and keep people healthy during this important life change."
+        elif 'glucose monitoring' in title or 'CGM' in title:
+            summary = "This study examined continuous glucose monitoring systems and how they're being used in real-world settings. These devices help track blood sugar levels 24/7 without finger pricks."
+        elif 'comorbid' in title or 'care processes' in title:
+            summary = "Researchers looked at how well diabetes care is being delivered in the real world, including what other health conditions people with Type 1 Diabetes might face and how doctors can provide better comprehensive care."
+        else:
+            # Generic but still family-friendly fallback
+            summary = abstract[:250] if abstract else "This research contributes to our understanding of Type 1 Diabetes and potential new treatment approaches."
+            
+            # Clean up technical jargon
+            replacements = {
+                'type 1 diabetes mellitus': 'Type 1 Diabetes',
+                'T1DM': 'Type 1 Diabetes',
+                'insulin-dependent diabetes': 'Type 1 Diabetes',
+                'beta cells': 'insulin-producing cells',
+                'β-cells': 'insulin-producing cells',
+                'pancreatic beta cells': 'insulin-producing cells in the pancreas',
+                'autoimmune': 'immune system',
+                'immune-mediated': 'immune system',
+                'glucose': 'blood sugar',
+                'glycemic control': 'blood sugar control',
+                'glycaemic': 'blood sugar',
+                'clinical trial': 'research study',
+                'randomized controlled trial': 'research study',
+                'efficacy': 'effectiveness',
+                'subcutaneous': 'under the skin',
+                'administration': 'given',
+                'cytotoxic T lymphocyte': 'immune cell',
+                'infiltration': 'attack',
+                'characterized by': 'marked by',
+                'supplementation of exogenous': 'taking external',
+                'endogenous': 'natural',
+                'pharmacokinetics': 'how the body processes medicine',
+                'pharmacodynamics': 'how medicine affects the body'
+            }
+            
+            for technical, simple in replacements.items():
+                summary = summary.replace(technical, simple)
+        
+        # Limit length and clean up
+        if len(summary) > 300:
+            summary = summary[:297] + "..."
             
         return summary
     
+    def _translate_title(self, title: str) -> str:
+        """Translate technical title to plain English"""
+        # This helps create better summaries by understanding what the research is about
+        title_lower = title.lower()
+        
+        if 'exosome' in title_lower:
+            return "new cell-based delivery method"
+        elif 'closed-loop' in title_lower or 'automated insulin' in title_lower:
+            return "automatic insulin delivery system"
+        elif 'transition' in title_lower:
+            return "moving from child to adult diabetes care"
+        elif 'CGM' in title_lower or 'glucose monitoring' in title_lower:
+            return "continuous blood sugar monitoring"
+        else:
+            return "diabetes treatment research"
+    
     def _generate_detailed_explanation(self, article: Dict) -> str:
         """Generate a detailed explanation for families"""
-        # This would ideally use AI, but for now we'll create template responses
+        title = article.get('title', '').lower()
         source = article.get('source', '')
         
-        if source == 'ClinicalTrials.gov':
-            return "This research study is looking for volunteers to test new treatments for Type 1 Diabetes. Participating in clinical trials helps advance our understanding of the disease and brings us closer to finding better treatments or even a cure."
+        # Generate specific, meaningful explanations based on research type
+        if 'exosome' in title or 'delivery' in title:
+            return "This research is exploring a new way to protect insulin-producing cells using tiny biological 'packages' that can deliver medicine directly to where it's needed. Think of it like a targeted delivery system that could help slow down or stop the immune system attack on the pancreas. If successful, this could mean better preservation of natural insulin production, especially for people recently diagnosed."
+            
+        elif 'insulin delivery' in title or 'closed-loop' in title or 'automated' in title:
+            return "Automated insulin delivery systems (sometimes called 'artificial pancreas' systems) use continuous glucose monitors and smart algorithms to automatically adjust insulin throughout the day and night. This study shows how well these systems work in real life - not just in controlled research settings. Better time-in-range means fewer dangerous highs and lows, better long-term health, and less mental burden from constant diabetes management."
+            
+        elif 'transition' in title and 'adult care' in title:
+            return "Moving from pediatric to adult diabetes care is a critical time. Young adults often struggle with maintaining good blood sugar control during this transition. This research helps us understand what goes wrong and how to better support people during this change. Better transition care means fewer complications and hospitalizations during this vulnerable period."
+            
+        elif 'glucose monitoring' in title or 'CGM' in title:
+            return "Continuous glucose monitors (CGMs) have revolutionized diabetes management by showing blood sugar trends in real-time without finger pricks. This study looks at how these devices are actually being used in everyday life and their impact on health outcomes. Understanding real-world use helps improve the technology and shows insurance companies why coverage is essential."
+            
+        elif 'teplizumab' in title.lower() or 'immunotherapy' in title:
+            return "This is a disease-modifying therapy that targets the immune system attack on insulin-producing cells. Unlike insulin which just treats symptoms, this aims to slow or stop the underlying disease process. Getting treatment early (before all insulin production is lost) could preserve natural insulin production longer, meaning better blood sugar control and potentially fewer complications."
+            
+        elif source == 'ClinicalTrials.gov':
+            return "Clinical trials test new treatments that might help people with Type 1 Diabetes. Participating helps advance research while potentially giving access to cutting-edge treatments. Every person who joins a trial brings us closer to better options for everyone living with this condition."
+            
         elif source == 'PubMed':
-            return "This research paper presents new findings about Type 1 Diabetes. Scientists are constantly learning more about how the disease works and how to treat it better. This research contributes to our overall understanding and may lead to new treatment options in the future."
+            return "This research adds to our scientific understanding of Type 1 Diabetes. While not every study leads to immediate treatments, each piece of knowledge helps researchers develop better therapies. Breakthroughs often come from connecting insights across many different studies like this one."
+            
         else:
-            return "This development represents ongoing progress in Type 1 Diabetes research. Every new discovery, no matter how small, brings us closer to better treatments and ultimately a cure for this disease."
+            return "This work represents progress in understanding and treating Type 1 Diabetes. Research happens in steps - from understanding basic biology, to testing in labs, to clinical trials, to approved treatments. Every study, no matter how technical, moves us forward on that path toward better options and eventually a cure."
     
     def run_scraping_workflow(self) -> List[Dict]:
         """Run the complete scraping workflow"""

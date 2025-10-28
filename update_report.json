@@ -1,13 +1,14 @@
 {
-  "update_time": "2025-10-27T23:48:07.047016",
-  "total_items": 2,
+  "update_time": "2025-10-28T00:14:06.750444",
+  "total_items": 5,
   "sources": {
-    "Research": 2
+    "PHASE2": 2,
+    "PHASE3": 3
   },
   "priorities": {
-    "MEDIUM": 2
+    "HIGH": 5
   },
   "badges": {
-    "NEW": 2
+    "HOT": 5
   }
 }

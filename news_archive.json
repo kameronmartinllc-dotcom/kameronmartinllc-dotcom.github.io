@@ -34,5 +34,95 @@
     },
     "link": "https://pubmed.ncbi.nlm.nih.gov/41144887/",
     "archived_date": "2025-10-27T23:48:07.046791"
+  },
+  {
+    "id": "1bf355c4",
+    "badge": "HOT",
+    "title": "Efficacy and Safety of Teplizumab in the Treatment of Japanese Pediatric and Adult Participants Aged 8 to 34 Years With Stage 2 Type 1 Diabetes: A Multicenter, Randomized, Open-label, Controlled Study.",
+    "summary": "Teplizumab is an FDA-approved medication that can delay Type 1 Diabetes in people at high risk. This trial is testing its effectiveness in a new population to see if it can preserve natural insulin production longer.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This is a disease-modifying therapy that targets the immune system attack on insulin-producing cells. Unlike insulin which just treats symptoms, this aims to slow or stop the underlying disease process. Getting treatment early (before all insulin production is lost) could preserve natural insulin production longer, meaning better blood sugar control and potentially fewer complications."
+    },
+    "meta": {
+      "published": "Unknown date",
+      "phase": "PHASE2",
+      "status": "RECRUITING",
+      "priority": "HIGH"
+    },
+    "link": "https://clinicaltrials.gov/study/NCT06791291",
+    "archived_date": "2025-10-28T00:14:06.750053"
+  },
+  {
+    "id": "bcc561d1",
+    "badge": "HOT",
+    "title": "A 52-week Randomized, Double-blind, Placebo-controlled, Multi-center Phase 2b Study With a 52-week Blinded Extension Assessing Safety and Efficacy of Frexalimab, a CD40L-antagonist Monoclonal Antibody, for Preservation of Pancreatic \u03b2-cell Function in Adults and Adolescents With Newly Diagnosed Type 1 Diabetes on Insulin Therapy",
+    "summary": "This trial is testing a new immune-modulating drug designed to protect insulin-producing cells from attack. If successful, it could help people keep their natural insulin production longer after diagnosis.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "Clinical trials test new treatments that might help people with Type 1 Diabetes. Participating helps advance research while potentially giving access to cutting-edge treatments. Every person who joins a trial brings us closer to better options for everyone living with this condition."
+    },
+    "meta": {
+      "published": "Unknown date",
+      "phase": "PHASE2",
+      "status": "RECRUITING",
+      "priority": "HIGH"
+    },
+    "link": "https://clinicaltrials.gov/study/NCT06111586",
+    "archived_date": "2025-10-28T00:14:06.750062"
+  },
+  {
+    "id": "b8d87e1a",
+    "badge": "HOT",
+    "title": "A Phase III, Randomized, Double-blind, Placebo-controlled, Multicenter Trial to Evaluate the Efficacy and Safety of Diamyd\u00ae to Preserve Endogenous Beta Cell Function in Adolescents and Adults With Recently Diagnosed Type 1 Diabetes, Carrying the Genetic HLA DR3-DQ2 Haplotype",
+    "summary": "Diamyd is investigating whether a vaccine-like treatment can help preserve insulin production in people with specific genetics (HLA DR3-DQ2). This personalized approach targets only those most likely to benefit.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "Clinical trials test new treatments that might help people with Type 1 Diabetes. Participating helps advance research while potentially giving access to cutting-edge treatments. Every person who joins a trial brings us closer to better options for everyone living with this condition."
+    },
+    "meta": {
+      "published": "Unknown date",
+      "phase": "PHASE3",
+      "status": "RECRUITING",
+      "priority": "HIGH"
+    },
+    "link": "https://clinicaltrials.gov/study/NCT05018585",
+    "archived_date": "2025-10-28T00:14:06.750064"
+  },
+  {
+    "id": "852a7b57",
+    "badge": "HOT",
+    "title": "A Phase 3 Randomized, Double-Blind, Placebo-Controlled, 78-Week Efficacy and Safety Study of VK2735 Administered Subcutaneously for Weight Management in Participants Without Type 2 Diabetes Who Are Obese, or Overweight With at Least One Weight-related Comorbid Condition",
+    "summary": "This trial focuses on weight management for people with Type 1 Diabetes. Managing weight can improve insulin sensitivity and overall health outcomes.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "Clinical trials test new treatments that might help people with Type 1 Diabetes. Participating helps advance research while potentially giving access to cutting-edge treatments. Every person who joins a trial brings us closer to better options for everyone living with this condition."
+    },
+    "meta": {
+      "published": "Unknown date",
+      "phase": "PHASE3",
+      "status": "RECRUITING",
+      "priority": "HIGH"
+    },
+    "link": "https://clinicaltrials.gov/study/NCT07104500",
+    "archived_date": "2025-10-28T00:14:06.750066"
+  },
+  {
+    "id": "b50e5c20",
+    "badge": "HOT",
+    "title": "A Phase 3, Multicenter, Randomized, Double-Blind, Placebo-Controlled, Parallel-Group Study Evaluating the Efficacy and Safety of Tirzepatide Once Weekly Compared to Placebo in Adult Participants With Type 1 Diabetes and Obesity or Overweight",
+    "summary": "This study is testing whether Tirzepatide (a medication approved for Type 2 Diabetes and weight loss) can help people with Type 1 Diabetes who are also managing weight issues. It could be a dual-benefit treatment.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "Clinical trials test new treatments that might help people with Type 1 Diabetes. Participating helps advance research while potentially giving access to cutting-edge treatments. Every person who joins a trial brings us closer to better options for everyone living with this condition."
+    },
+    "meta": {
+      "published": "Unknown date",
+      "phase": "PHASE3",
+      "status": "RECRUITING",
+      "priority": "HIGH"
+    },
+    "link": "https://clinicaltrials.gov/study/NCT06914895",
+    "archived_date": "2025-10-28T00:14:06.750067"
   }
 ]
