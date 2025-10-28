@@ -694,25 +694,18 @@ class MedicalScraper:
             return 'Research'
     
     def run_scraping_workflow(self) -> List[Dict]:
-        """Run the complete scraping workflow"""
+        """Run the complete scraping workflow - for breaking news only (research articles)"""
         logger.info("Starting medical research scraping workflow...")
         
         all_articles = []
         
-        # Scrape different sources
+        # Scrape research articles only (not clinical trials)
         try:
             pubmed_articles = self.scrape_pubmed()
             all_articles.extend(pubmed_articles)
             logger.info(f"Scraped {len(pubmed_articles)} articles from PubMed")
         except Exception as e:
             logger.error(f"PubMed scraping failed: {e}")
-        
-        try:
-            clinical_trials = self.scrape_clinical_trials()
-            all_articles.extend(clinical_trials)
-            logger.info(f"Scraped {len(clinical_trials)} trials from ClinicalTrials.gov")
-        except Exception as e:
-            logger.error(f"ClinicalTrials.gov scraping failed: {e}")
         
         try:
             journal_articles = self.scrape_medical_journals()

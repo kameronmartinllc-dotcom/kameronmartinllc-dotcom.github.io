@@ -20,83 +20,83 @@
     "special": true
   },
   {
-    "id": "1bf355c4",
-    "badge": "HOT",
-    "title": "Efficacy and Safety of Teplizumab in the Treatment of Japanese Pediatric and Adult Participants Aged 8 to 34 Years With Stage 2 Type 1 Diabetes: A Multicenter, Randomized, Open-label, Controlled Study.",
-    "summary": "Teplizumab is an FDA-approved medication that can delay Type 1 Diabetes in people at high risk. This effectiveness testing is testing its effectiveness in a new population to see if it can preserve natural insulin production longer.",
+    "id": "2805f18c",
+    "badge": "NEW",
+    "title": "Closed-Loop Insulin Delivery in Type 1 Diabetes in Pregnancy: The CIRCUIT Randomized Clinical Trial.",
+    "summary": "Researchers are testing a new way to deliver medicine that could protect insulin-producing cells. They're using tiny 'packages' that can carry healing treatments directly where they're needed most.",
     "details": {
       "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "This is a disease-modifying therapy that targets the immune system attack on insulin-producing cells. Unlike insulin which just treats symptoms, this aims to slow or stop the underlying disease process. Getting treatment early (before all insulin production is lost) could preserve natural insulin production longer, meaning better blood sugar control and potentially fewer complications."
+      "content": "This research is exploring a new way to protect insulin-producing cells using tiny biological 'packages' that can deliver medicine directly to where it's needed. Think of it like a targeted delivery system that could help slow down or stop the immune system attack on the pancreas. If successful, this could mean better preservation of natural insulin production, especially for people recently diagnosed."
     },
     "meta": {
-      "published": "",
-      "phase": "PHASE2",
-      "status": "RECRUITING",
-      "priority": "HIGH",
-      "stage": "Phase 2 Trials",
+      "published": "24 Oct 2025",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "MEDIUM",
+      "stage": "Clinical Trials",
       "research_type": "Treatment"
     },
-    "link": "https://clinicaltrials.gov/study/NCT06791291",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41134589/",
     "special": false
   },
   {
-    "id": "bcc561d1",
-    "badge": "HOT",
-    "title": "A 52-week Randomized, Double-blind, Placebo-controlled, Multi-center Phase 2b Study With a 52-week Blinded Extension Assessing Safety and Efficacy of Frexalimab, a CD40L-antagonist Monoclonal Antibody, for Preservation of Pancreatic \u03b2-cell Function in Adults and Adolescents With Newly Diagnosed Type 1 Diabetes on Insulin Therapy",
-    "summary": "This effectiveness testing is testing a new immune-modulating drug designed to protect insulin-producing cells from attack. If successful, it could help people keep their natural insulin production longer after diagnosis.",
+    "id": "43052071",
+    "badge": "NEW",
+    "title": "Experiences of adolescents with type 1 diabetes, their parents, and health care providers during the transition to adult health care settings: a qualitative systematic review.",
+    "summary": "This study specifically looked at how Type 1 Diabetes affects children and teenagers, and what treatments work best for this age group. Understanding pediatric diabetes helps improve care for young people.",
     "details": {
       "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "Clinical trials test new treatments that might help people with Type 1 Diabetes. Participating helps advance research while potentially giving access to cutting-edge treatments. Every person who joins a trial brings us closer to better options for everyone living with this condition."
+      "content": "This research adds to our scientific understanding of Type 1 Diabetes. While not every study leads to immediate treatments, each piece of knowledge helps researchers develop better therapies. Breakthroughs often come from connecting insights across many different studies like this one."
     },
     "meta": {
-      "published": "",
-      "phase": "PHASE2",
-      "status": "RECRUITING",
-      "priority": "HIGH",
-      "stage": "Phase 2 Trials",
-      "research_type": "Treatment"
-    },
-    "link": "https://clinicaltrials.gov/study/NCT06111586",
-    "special": false
-  },
-  {
-    "id": "b8d87e1a",
-    "badge": "HOT",
-    "title": "A Phase III, Randomized, Double-blind, Placebo-controlled, Multicenter Trial to Evaluate the Efficacy and Safety of Diamyd\u00ae to Preserve Endogenous Beta Cell Function in Adolescents and Adults With Recently Diagnosed Type 1 Diabetes, Carrying the Genetic HLA DR3-DQ2 Haplotype",
-    "summary": "Diamyd is investigating whether a vaccine-like treatment can help preserve insulin production in people with specific genetics (HLA DR3-DQ2). This personalized approach targets only those most likely to benefit.",
-    "details": {
-      "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "Clinical trials test new treatments that might help people with Type 1 Diabetes. Participating helps advance research while potentially giving access to cutting-edge treatments. Every person who joins a trial brings us closer to better options for everyone living with this condition."
-    },
-    "meta": {
-      "published": "",
-      "phase": "PHASE3",
-      "status": "RECRUITING",
-      "priority": "HIGH",
-      "stage": "Phase 3 Trials",
-      "research_type": "Genetics"
-    },
-    "link": "https://clinicaltrials.gov/study/NCT05018585",
-    "special": false
-  },
-  {
-    "id": "852a7b57",
-    "badge": "HOT",
-    "title": "A Phase 3 Randomized, Double-Blind, Placebo-Controlled, 78-Week Efficacy and Safety Study of VK2735 Administered Subcutaneously for Weight Management in Participants Without Type 2 Diabetes Who Are Obese, or Overweight With at Least One Weight-related Comorbid Condition",
-    "summary": "This large-scale testing before approval focuses on weight management for people with Type 1 Diabetes. Managing weight can improve insulin sensitivity and overall health outcomes.",
-    "details": {
-      "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "Clinical trials test new treatments that might help people with Type 1 Diabetes. Participating helps advance research while potentially giving access to cutting-edge treatments. Every person who joins a trial brings us closer to better options for everyone living with this condition."
-    },
-    "meta": {
-      "published": "",
-      "phase": "PHASE3",
-      "status": "RECRUITING",
-      "priority": "HIGH",
-      "stage": "Phase 3 Trials",
+      "published": "24 Oct 2025",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "MEDIUM",
+      "stage": "Early Research",
       "research_type": "Research"
     },
-    "link": "https://clinicaltrials.gov/study/NCT07104500",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41128603/",
+    "special": false
+  },
+  {
+    "id": "0360505b",
+    "badge": "NEW",
+    "title": "Evaluating diabetes care processes, comorbidity burden and continuous glucose monitoring utilisation in regional Australia: results from Central Queensland Hospital.",
+    "summary": "This study examined continuous blood sugar monitoring systems and how they're being used in real-world settings. These devices help track blood sugar levels 24/7 without finger pricks.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "Continuous glucose monitors (CGMs) have revolutionized diabetes management by showing blood sugar trends in real-time without finger pricks. This study looks at how these devices are actually being used in everyday life and their impact on health outcomes. Understanding real-world use helps improve the technology and shows insurance companies why coverage is essential."
+    },
+    "meta": {
+      "published": "25 Oct 2025",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "MEDIUM",
+      "stage": "Early Research",
+      "research_type": "Technology"
+    },
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41137611/",
+    "special": false
+  },
+  {
+    "id": "8b696105",
+    "badge": "NEW",
+    "title": "Transition to Adult Care in Youth with Type 1 Diabetes: Follow-Up Continuity, Complications, and Metabolic Control.",
+    "summary": "This research focuses on what happens when young people with Type 1 Diabetes move from pediatric care to adult care. It's studying how to make this transition smoother and keep people healthy during this important life change.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "Moving from pediatric to adult diabetes care is a critical time. Young adults often struggle with maintaining good blood sugar control during this transition. This research helps us understand what goes wrong and how to better support people during this change. Better transition care means fewer complications and hospitalizations during this vulnerable period."
+    },
+    "meta": {
+      "published": "27 Oct 2025",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "MEDIUM",
+      "stage": "Early Research",
+      "research_type": "Research"
+    },
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41143600/",
     "special": false
   }
 ]
