@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T1D Clinical Trial Opportunities</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .header {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    .header h1 {
+      color: #1f2937;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .header p {
+      color: #6b7280;
+      font-size: 1.2em;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .stat-card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    .stat-number {
+      font-size: 3em;
+      font-weight: bold;
+      color: #667eea;
+    }
+    .stat-label {
+      color: #6b7280;
+      font-size: 1.1em;
+      margin-top: 5px;
+    }
+    .trial-card {
+      background: white;
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .trial-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+    .trial-title {
+      color: #1f2937;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      padding-right: 150px;
+    }
+    .trial-meta {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+    .trial-meta span {
+      background: #f3f4f6;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-size: 0.9em;
+      color: #4b5563;
+    }
+    .section {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .parent-section {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-left: 5px solid #f59e0b;
+    }
+    .eligibility-section {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+      border-left: 5px solid #10b981;
+    }
+    .promising-section {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      border-left: 5px solid #3b82f6;
+    }
+    .contact-section {
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+      border-left: 5px solid #6366f1;
+    }
+    .section h3 {
+      color: #1f2937;
+      margin-bottom: 12px;
+      font-size: 1.3em;
+    }
+    .section p {
+      color: #4b5563;
+      line-height: 1.8;
+    }
+    .age-box {
+      background: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #059669;
+    }
+    .apply-btn {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: all 0.3s;
+    }
+    .apply-btn:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    .footer {
+      text-align: center;
+      color: white;
+      padding: 30px;
+      margin-top: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+    }
+    @media (max-width: 768px) {
+      .header h1 { font-size: 2em; }
+      .trial-title { font-size: 1.4em; padding-right: 0; }
+      .trial-badge { position: static; margin-bottom: 15px; display: inline-block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🔬 T1D Clinical Trial Opportunities</h1>
+      <p>Curated opportunities to join cutting-edge Type 1 Diabetes research</p>
+      <p style="margin-top: 10px; color: #9ca3af; font-size: 0.9em;">Updated October 27, 2025</p>
+    </div>
+    
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number">32</div>
+        <div class="stat-label">Active Trials</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">0</div>
+        <div class="stat-label">High Promise</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Recruiting Now</div>
+      </div>
+    </div>
+    
+    
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    <div class="trial-card">
+      <div class="trial-badge" style="background: #6b7280;">
+        💡 Progress
+      </div>
+      
+      <h2 class="trial-title">undefined</h2>
+      
+      <div class="trial-meta">
+        <span><strong>ID:</strong> undefined</span>
+        <span><strong>Phase:</strong> undefined</span>
+        <span><strong>Status:</strong> undefined</span>
+      </div>
+      
+      <div class="section parent-section">
+        <h3>👨‍👩‍👧 What This Means for Families</h3>
+        <p>Analysis pending...</p>
+      </div>
+      
+      <div class="section eligibility-section">
+        <h3>✅ Am I Eligible?</h3>
+        <p>Check trial website for details</p>
+        <div class="age-box">Age Range: undefined to undefined</div>
+      </div>
+      
+      <div class="section promising-section">
+        <h3>🔬 Why This Matters</h3>
+        <p>Innovative T1D research</p>
+      </div>
+      
+      <div class="section contact-section">
+        <h3>📞 How to Join</h3>
+        <p>Visit trial website to learn more</p>
+        <p><strong>Locations:</strong> undefined</p>
+        <a href="undefined" class="apply-btn" target="_blank">View Full Trial Details →</a>
+      </div>
+    </div>
+  
+    
+    <div class="footer">
+      <p style="font-size: 1.3em; margin-bottom: 10px;">💙 Every trial brings us closer to a cure</p>
+      <p style="opacity: 0.9;">Data from ClinicalTrials.gov | Generated by AVA T1D Research Bot</p>
+    </div>
+  </div>
+</body>
+</html>
