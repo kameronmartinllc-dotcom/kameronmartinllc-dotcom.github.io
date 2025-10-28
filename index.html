@@ -548,8 +548,8 @@
       <div class="breaking-teaser-meta">
         <span id="breakingTeaserDate">Just In</span>
         <span id="breakingTeaserBadge">NEW</span>
-        <span id="breakingTeaserImpact" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%); color: white;">Impact: 9/10</span>
-        <span id="breakingTeaserTimeline" style="background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%); color: white;">Timeline: 2-3 years</span>
+          <span id="breakingTeaserStage" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%); color: white;">Clinical Trials</span>
+          <span id="breakingTeaserType" style="background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%); color: white;">Treatment</span>
       </div>
       <a href="breaking-news.html" class="breaking-teaser-link">View All Breaking News →</a>
     </div>
@@ -748,8 +748,8 @@
           document.getElementById('breakingTeaserSummary').textContent = topNews.summary.substring(0, 200) + '...';
           document.getElementById('breakingTeaserDate').textContent = topNews.meta.published ? `Published: ${topNews.meta.published}` : 'Just In';
           document.getElementById('breakingTeaserBadge').textContent = topNews.badge;
-          document.getElementById('breakingTeaserImpact').textContent = `Impact: ${topNews.meta.impact_score}/10`;
-          document.getElementById('breakingTeaserTimeline').textContent = `Timeline: ${topNews.meta.timeline}`;
+            document.getElementById('breakingTeaserStage').textContent = topNews.meta.stage;
+            document.getElementById('breakingTeaserType').textContent = topNews.meta.research_type;
         }
       } catch (error) {
         console.error('Error loading breaking news teaser:', error);

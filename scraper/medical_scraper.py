@@ -318,9 +318,9 @@ class MedicalScraper:
         # Generate detailed explanation
         details = self._generate_detailed_explanation(article)
         
-        # Generate impact score and timeline
-        impact_score = article.get('impact_score', self._calculate_impact_score(article))
-        timeline = article.get('timeline', self._calculate_timeline(article))
+        # Generate stage and research type
+        stage = article.get('stage', self._determine_research_stage(article))
+        research_type = article.get('research_type', self._determine_research_type(article))
         
         return {
             'id': hashlib.md5(article.get('url', '').encode()).hexdigest()[:8],
@@ -336,8 +336,8 @@ class MedicalScraper:
                 'phase': article.get('phase', 'Research'),
                 'status': article.get('status', 'Published'),
                 'priority': article.get('priority', 'MEDIUM'),
-                'impact_score': impact_score,
-                'timeline': timeline
+                'stage': stage,
+                'research_type': research_type
             },
             'link': article.get('url', '#'),
             'special': article.get('special', False)
@@ -607,8 +607,8 @@ class MedicalScraper:
             'source': 'Eledon Pharmaceuticals',
             'url': 'https://eledon.com/',
             'priority': 'HIGH',
-            'impact_score': 8,  # High impact (1-10 scale)
-            'timeline': '3-5 years',
+            'stage': 'Clinical Trials',
+            'research_type': 'Treatment',
             'special': True,
             'date': 'December 2024'  # Updated date
         }
@@ -616,61 +616,62 @@ class MedicalScraper:
         
         return special_articles
     
-    def _calculate_impact_score(self, article: Dict) -> int:
-        """Calculate impact score (1-10) based on article content"""
+    def _determine_research_stage(self, article: Dict) -> str:
+        """Determine the research stage based on article content"""
         title = article.get('title', '').lower()
         source = article.get('source', '')
+        phase = article.get('phase', '').lower()
         
-        score = 5  # Base score
-        
-        # High impact keywords
-        if any(word in title for word in ['cure', 'breakthrough', 'revolutionary', 'novel', 'first', 'approval', 'fda']):
-            score += 3
-        elif any(word in title for word in ['treatment', 'therapy', 'drug', 'medication', 'immunotherapy']):
-            score += 2
-        elif any(word in title for word in ['prevention', 'delay', 'preserve', 'protect']):
-            score += 2
-        
-        # Source impact
-        if source == 'ClinicalTrials.gov':
-            phase = article.get('phase', '')
-            if phase == 'PHASE3':
-                score += 2
-            elif phase == 'PHASE2':
-                score += 1
-        elif source == 'PubMed':
-            score += 1
-        
-        # Priority impact
-        priority = article.get('priority', 'MEDIUM')
-        if priority == 'HIGH':
-            score += 2
-        elif priority == 'MEDIUM':
-            score += 1
-        
-        return min(score, 10)  # Cap at 10
-    
-    def _calculate_timeline(self, article: Dict) -> str:
-        """Calculate timeline to impact based on article content"""
-        title = article.get('title', '').lower()
-        source = article.get('source', '')
-        phase = article.get('phase', '')
-        
-        if source == 'ClinicalTrials.gov':
-            if phase == 'PHASE3':
-                return '1-3 years'
-            elif phase == 'PHASE2':
-                return '3-5 years'
-            elif phase == 'PHASE1':
-                return '5-7 years'
-            else:
-                return '5-10 years'
-        elif 'approval' in title or 'fda' in title:
-            return 'Available now'
-        elif 'breakthrough' in title or 'revolutionary' in title:
-            return '2-5 years'
+        # Clinical trial stages
+        if 'phase 3' in title or 'phase 3' in phase or 'phase iii' in title or phase == 'phase3':
+            return 'Phase 3 Trials'
+        elif 'phase 2' in title or 'phase 2' in phase or 'phase ii' in title or phase == 'phase2':
+            return 'Phase 2 Trials'
+        elif 'phase 1' in title or 'phase 1' in phase or 'phase i' in title or phase == 'phase1':
+            return 'Phase 1 Trials'
+        elif 'clinical trial' in title or source == 'ClinicalTrials.gov':
+            return 'Clinical Trials'
+        elif 'fda approval' in title or 'approved' in title:
+            return 'FDA Review'
+        elif 'preclinical' in title or 'laboratory' in title or 'in vitro' in title:
+            return 'Preclinical'
+        elif source in ['Nature', 'Cell', 'Science', 'NEJM', 'The Lancet', 'PubMed']:
+            return 'Early Research'
         else:
-            return '5-10 years'
+            return 'Research'
+    
+    def _determine_research_type(self, article: Dict) -> str:
+        """Determine the type of research based on article content"""
+        title = article.get('title', '').lower()
+        abstract = article.get('abstract', '').lower()
+        
+        # Check for cure-related research
+        if any(word in title or word in abstract for word in ['cure', 'reversal', 'regeneration', 'beta cell restoration']):
+            return 'Cure Research'
+        
+        # Check for prevention research
+        elif any(word in title or word in abstract for word in ['prevention', 'delay onset', 'prevent', 'screening', 'early detection']):
+            return 'Prevention'
+        
+        # Check for treatment research
+        elif any(word in title or word in abstract for word in ['treatment', 'therapy', 'drug', 'medication', 'insulin', 'glucose control']):
+            return 'Treatment'
+        
+        # Check for technology/devices
+        elif any(word in title or word in abstract for word in ['device', 'pump', 'monitor', 'sensor', 'artificial pancreas', 'cgm']):
+            return 'Technology'
+        
+        # Check for quality of life research
+        elif any(word in title or word in abstract for word in ['quality of life', 'psychological', 'mental health', 'support', 'education']):
+            return 'Quality of Life'
+        
+        # Check for genetics/biomarkers
+        elif any(word in title or word in abstract for word in ['genetic', 'biomarker', 'genomic', 'personalized', 'precision']):
+            return 'Genetics'
+        
+        # Default
+        else:
+            return 'Research'
     
     def run_scraping_workflow(self) -> List[Dict]:
         """Run the complete scraping workflow"""
@@ -721,7 +722,6 @@ class MedicalScraper:
         breaking_news.sort(key=lambda x: (
             not x.get('special', False),  # Special articles first
             {'HIGH': 0, 'MEDIUM': 1, 'LOW': 2}.get(x['meta']['priority'], 1),
-            -x['meta'].get('impact_score', 0),  # Higher impact first
             x['meta']['published']
         ))
         
@@ -734,7 +734,7 @@ def main():
     breaking_news = scraper.run_scraping_workflow()
     
     # Save to JSON file
-    output_file = 'breaking_news_data.json'
+    output_file = 'scraper/breaking_news_data.json'
     with open(output_file, 'w') as f:
         json.dump(breaking_news, f, indent=2)
     
