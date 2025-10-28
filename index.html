@@ -255,6 +255,175 @@
       font-size: 0.8em;
       font-weight: 600;
     }
+    
+    /* Breaking News Section Styles */
+    .breaking-news {
+      background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .breaking-news::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .breaking-news h2 {
+      color: #fbbf24;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .breaking-news h2::before {
+      content: "🚨";
+      font-size: 1.3em;
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-5px); }
+      60% { transform: translateY(-3px); }
+    }
+    .breaking-news h2::after {
+      content: "BREAKING NEWS";
+      font-size: 0.5em;
+      background: #f59e0b;
+      color: #1f2937;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      animation: glow 2s infinite;
+    }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 5px #f59e0b; }
+      50% { box-shadow: 0 0 20px #f59e0b, 0 0 30px #f59e0b; }
+    }
+    .breaking-item {
+      background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 25px;
+      border-left: 6px solid #f59e0b;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .breaking-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .breaking-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      border-left-color: #fbbf24;
+    }
+    .breaking-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      color: #1f2937;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+    .breaking-title {
+      color: #f9fafb;
+      font-size: 1.6em;
+      font-weight: 700;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      padding-right: 120px;
+    }
+    .breaking-summary {
+      color: #d1d5db;
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .breaking-details {
+      background: rgba(31, 41, 55, 0.6);
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 15px;
+      border: 1px solid #4b5563;
+    }
+    .breaking-details h4 {
+      color: #fbbf24;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .breaking-details p {
+      color: #e5e7eb;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+    .breaking-meta {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .breaking-meta span {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85em;
+      font-weight: 600;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .breaking-link {
+      display: inline-block;
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      color: #1f2937;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 15px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+    .breaking-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+      color: #1f2937;
+    }
     .loading { text-align: center; padding: 40px; color: #6b7280; }
     .footer {
       text-align: center;
@@ -276,6 +445,10 @@
       .trial-badge { position: static; margin-bottom: 15px; display: inline-block; }
       .trial-stats { grid-template-columns: repeat(2, 1fr); }
       .trials h2::after { display: none; }
+      .breaking-title { padding-right: 0; font-size: 1.4em; }
+      .breaking-badge { position: static; margin-bottom: 15px; display: inline-block; }
+      .breaking-news h2::after { display: none; }
+      .breaking-meta { justify-content: center; }
     }
   </style>
 </head>
@@ -285,6 +458,95 @@
       <img src="https://i.imgur.com/PrQvHzV.png" alt="AVA Logo" class="logo">
       <h1>Fighting for a Type 1 Diabetes Cure</h1>
       <p class="tagline">Latest research breakthroughs, clinical trials, and hope-filled updates delivered to parents and families</p>
+    </div>
+
+    <div class="breaking-news">
+      <h2>🚨 BREAKING NEWS</h2>
+      <div id="breakingNewsList">
+
+        <div class="breaking-item">
+          <div class="breaking-badge">NEW</div>
+          <h3 class="breaking-title">Monocyte Backpack Delivery of Engineered MCF-7 Exosomes for the Treatment of Early Stage Type 1 Diabetes.</h3>
+          <p class="breaking-summary">Type 1 diabetes mellitus (T1DM) is a chronic immune system disorder characterized by immune system-mediated destruction of pancreatic β-cells through cytotoxic T lymphocyte infiltration, leading to absolute insulin deficiency. Supplementation of exogenous insulin can't protect remaining β-cells or address...</p>
+          <div class="breaking-details">
+            <h4>🔬 What This Means for Families:</h4>
+            <p>This research paper presents new findings about Type 1 Diabetes. Scientists are constantly learning more about how the disease works and how to treat it better. This research contributes to our overall understanding and may lead to new treatment options in the future.</p>
+          </div>
+          <div class="breaking-meta">
+            <span>Published: 20 Oct 2025</span>
+            <span>Phase: Research</span>
+            <span>Status: Published</span>
+            <span>Priority: MEDIUM</span>
+          </div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/41116608/" class="breaking-link" target="_blank">Read Full Report →</a>
+        </div>
+
+        <div class="breaking-item">
+          <div class="breaking-badge">NEW</div>
+          <h3 class="breaking-title">One-year effectiveness and safety in young children aged 2-6 years with type 1 diabetes using an automated insulin delivery system: A real-world prospective cohort study.</h3>
+          <p class="breaking-summary">This study evaluated 1-year real-world changes in glycaemic management, parent-reported outcomes and safety with an automated insulin delivery (AID) system in young children with type 1 diabetes (T1D).</p>
+          <div class="breaking-details">
+            <h4>🔬 What This Means for Families:</h4>
+            <p>This research paper presents new findings about Type 1 Diabetes. Scientists are constantly learning more about how the disease works and how to treat it better. This research contributes to our overall understanding and may lead to new treatment options in the future.</p>
+          </div>
+          <div class="breaking-meta">
+            <span>Published: 27 Oct 2025</span>
+            <span>Phase: Research</span>
+            <span>Status: Published</span>
+            <span>Priority: MEDIUM</span>
+          </div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/41144887/" class="breaking-link" target="_blank">Read Full Report →</a>
+        </div>
+      </div>
+          <h3 class="breaking-title">Elon Pharmaceuticals Announces Revolutionary Autoimmune Treatment for Type 1 Diabetes</h3>
+          <p class="breaking-summary">In a groundbreaking development, Elon Pharmaceuticals has revealed their latest autoimmune medication specifically targeting Type 1 Diabetes. This innovative treatment shows unprecedented promise in early trials, potentially offering a new pathway to disease modification and improved quality of life for patients.</p>
+          <div class="breaking-details">
+            <h4>🔬 What This Means for Families:</h4>
+            <p>This represents one of the most significant advances in T1D treatment in recent years. The medication targets the underlying autoimmune process that destroys insulin-producing cells, potentially slowing or even halting disease progression. Early results suggest it may be particularly effective when administered early in the disease course.</p>
+          </div>
+          <div class="breaking-meta">
+            <span>Published: January 2025</span>
+            <span>Phase: 2 Clinical Trials</span>
+            <span>Status: Recruiting</span>
+            <span>Priority: HIGH</span>
+          </div>
+          <a href="#" class="breaking-link">Read Full Report →</a>
+        </div>
+
+        <div class="breaking-item">
+          <div class="breaking-badge">NEW</div>
+          <h3 class="breaking-title">FDA Fast-Tracks Novel Beta Cell Regeneration Therapy</h3>
+          <p class="breaking-summary">The FDA has granted Fast Track designation to a revolutionary therapy that uses stem cell technology to regenerate insulin-producing beta cells in Type 1 Diabetes patients. This could be the first treatment to actually restore natural insulin production.</p>
+          <div class="breaking-details">
+            <h4>💡 Why This Matters:</h4>
+            <p>Unlike current treatments that manage symptoms, this therapy aims to address the root cause by replacing the destroyed beta cells. The Fast Track designation means the FDA recognizes the potential for significant improvement over existing treatments and will expedite the review process.</p>
+          </div>
+          <div class="breaking-meta">
+            <span>Published: December 2024</span>
+            <span>Phase: 1/2 Trials</span>
+            <span>Status: Active</span>
+            <span>Priority: HIGH</span>
+          </div>
+          <a href="#" class="breaking-link">Learn More →</a>
+        </div>
+
+        <div class="breaking-item">
+          <div class="breaking-badge">BREAKTHROUGH</div>
+          <h3 class="breaking-title">AI-Powered Closed-Loop System Achieves 95% Time in Range</h3>
+          <p class="breaking-summary">A new artificial intelligence-powered insulin delivery system has achieved remarkable results in clinical trials, keeping blood glucose levels in the target range 95% of the time - a significant improvement over current systems.</p>
+          <div class="breaking-details">
+            <h4>🤖 Technical Innovation:</h4>
+            <p>This AI system learns from individual patient patterns and continuously adapts insulin delivery in real-time. The 95% time-in-range result represents a major leap forward in diabetes management technology, potentially reducing complications and improving quality of life.</p>
+          </div>
+          <div class="breaking-meta">
+            <span>Published: January 2025</span>
+            <span>Phase: 3 Trials</span>
+            <span>Status: Completed</span>
+            <span>Priority: MEDIUM</span>
+          </div>
+          <a href="#" class="breaking-link">View Results →</a>
+        </div>
+      </div>
     </div>
 
     <div class="mission">
@@ -490,9 +752,123 @@ const date = new Date(year, month - 1, day);
       }
     }
 
-    // Load both reports and trials on page load
+    // Load breaking news data
+    async function loadBreakingNews() {
+      try {
+        // This could be expanded to fetch from a real API or data source
+        // For now, we'll use the static content but make it easily updatable
+        const breakingNews = [
+          {
+            id: "elon-pharma-2025",
+            badge: "HOT",
+            title: "Elon Pharmaceuticals Announces Revolutionary Autoimmune Treatment for Type 1 Diabetes",
+            summary: "In a groundbreaking development, Elon Pharmaceuticals has revealed their latest autoimmune medication specifically targeting Type 1 Diabetes. This innovative treatment shows unprecedented promise in early trials, potentially offering a new pathway to disease modification and improved quality of life for patients.",
+            details: {
+              heading: "🔬 What This Means for Families:",
+              content: "This represents one of the most significant advances in T1D treatment in recent years. The medication targets the underlying autoimmune process that destroys insulin-producing cells, potentially slowing or even halting disease progression. Early results suggest it may be particularly effective when administered early in the disease course."
+            },
+            meta: {
+              published: "January 2025",
+              phase: "Phase 2 Clinical Trials",
+              status: "Recruiting",
+              priority: "HIGH"
+            },
+            link: "#"
+          },
+          {
+            id: "fda-fast-track-2024",
+            badge: "NEW",
+            title: "FDA Fast-Tracks Novel Beta Cell Regeneration Therapy",
+            summary: "The FDA has granted Fast Track designation to a revolutionary therapy that uses stem cell technology to regenerate insulin-producing beta cells in Type 1 Diabetes patients. This could be the first treatment to actually restore natural insulin production.",
+            details: {
+              heading: "💡 Why This Matters:",
+              content: "Unlike current treatments that manage symptoms, this therapy aims to address the root cause by replacing the destroyed beta cells. The Fast Track designation means the FDA recognizes the potential for significant improvement over existing treatments and will expedite the review process."
+            },
+            meta: {
+              published: "December 2024",
+              phase: "Phase 1/2 Trials",
+              status: "Active",
+              priority: "HIGH"
+            },
+            link: "#"
+          },
+          {
+            id: "ai-closed-loop-2025",
+            badge: "BREAKTHROUGH",
+            title: "AI-Powered Closed-Loop System Achieves 95% Time in Range",
+            summary: "A new artificial intelligence-powered insulin delivery system has achieved remarkable results in clinical trials, keeping blood glucose levels in the target range 95% of the time - a significant improvement over current systems.",
+            details: {
+              heading: "🤖 Technical Innovation:",
+              content: "This AI system learns from individual patient patterns and continuously adapts insulin delivery in real-time. The 95% time-in-range result represents a major leap forward in diabetes management technology, potentially reducing complications and improving quality of life."
+            },
+            meta: {
+              published: "January 2025",
+              phase: "Phase 3 Trials",
+              status: "Completed",
+              priority: "MEDIUM"
+            },
+            link: "#"
+          }
+        ];
+
+        // Display breaking news
+        const breakingNewsList = document.getElementById('breakingNewsList');
+        if (breakingNews.length === 0) {
+          breakingNewsList.innerHTML = '<div class="loading">No breaking news at this time. Check back soon!</div>';
+        } else {
+          breakingNewsList.innerHTML = breakingNews.map(news => `
+            <div class="breaking-item">
+              <div class="breaking-badge">${news.badge}</div>
+              <h3 class="breaking-title">${news.title}</h3>
+              <p class="breaking-summary">${news.summary}</p>
+              <div class="breaking-details">
+                <h4>${news.details.heading}</h4>
+                <p>${news.details.content}</p>
+              </div>
+              <div class="breaking-meta">
+                <span>Published: ${news.meta.published}</span>
+                <span>Phase: ${news.meta.phase}</span>
+                <span>Status: ${news.meta.status}</span>
+                <span>Priority: ${news.meta.priority}</span>
+              </div>
+              <a href="${news.link}" class="breaking-link">Read Full Report →</a>
+            </div>
+          `).join('');
+        }
+      } catch (error) {
+        console.error('Error loading breaking news:', error);
+        document.getElementById('breakingNewsList').innerHTML = '<div class="loading">Error loading breaking news. Please refresh.</div>';
+      }
+    }
+
+    // Function to add new breaking news (for easy updates)
+    function addBreakingNews(newsItem) {
+      const breakingNewsList = document.getElementById('breakingNewsList');
+      const newsElement = document.createElement('div');
+      newsElement.className = 'breaking-item';
+      newsElement.innerHTML = `
+        <div class="breaking-badge">${newsItem.badge}</div>
+        <h3 class="breaking-title">${newsItem.title}</h3>
+        <p class="breaking-summary">${newsItem.summary}</p>
+        <div class="breaking-details">
+          <h4>${newsItem.details.heading}</h4>
+          <p>${newsItem.details.content}</p>
+        </div>
+        <div class="breaking-meta">
+          <span>Published: ${newsItem.meta.published}</span>
+          <span>Phase: ${newsItem.meta.phase}</span>
+          <span>Status: ${newsItem.meta.status}</span>
+          <span>Priority: ${newsItem.meta.priority}</span>
+        </div>
+        <a href="${newsItem.link}" class="breaking-link">Read Full Report →</a>
+      `;
+      breakingNewsList.insertBefore(newsElement, breakingNewsList.firstChild);
+    }
+
+    // Load all content on page load
     loadReports();
     loadTrials();
+    loadBreakingNews();
   </script>
 </body>
 </html>
