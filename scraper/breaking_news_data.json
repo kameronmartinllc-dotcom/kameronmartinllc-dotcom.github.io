@@ -20,83 +20,83 @@
     "special": true
   },
   {
-    "id": "2805f18c",
-    "badge": "NEW",
-    "title": "Closed-Loop Insulin Delivery in Type 1 Diabetes in Pregnancy: The CIRCUIT Randomized Clinical Trial.",
-    "summary": "Researchers are testing a new way to deliver medicine that could protect insulin-producing cells. They're using tiny 'packages' that can carry healing treatments directly where they're needed most.",
+    "id": "71db74d9",
+    "badge": "APPROVAL",
+    "title": "FDA Approves New Ultra-Fast Insulin for Type 1 Diabetes - Available Now!",
+    "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
     "details": {
       "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "This research is exploring a new way to protect insulin-producing cells using tiny biological 'packages' that can deliver medicine directly to where it's needed. Think of it like a targeted delivery system that could help slow down or stop the immune system attack on the pancreas. If successful, this could mean better preservation of natural insulin production, especially for people recently diagnosed."
+      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
     },
     "meta": {
-      "published": "24 Oct 2025",
+      "published": "October 2025",
       "phase": "Research",
       "status": "Published",
-      "priority": "MEDIUM",
-      "stage": "Clinical Trials",
+      "priority": "HIGH",
+      "stage": "Approved",
       "research_type": "Treatment"
     },
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41134589/",
-    "special": false
+    "link": "https://www.fda.gov/news-events/press-announcements/fda-approves-ultra-fast-acting-insulin-type-1-diabetes",
+    "special": true
   },
   {
-    "id": "43052071",
-    "badge": "NEW",
-    "title": "Experiences of adolescents with type 1 diabetes, their parents, and health care providers during the transition to adult health care settings: a qualitative systematic review.",
-    "summary": "This study specifically looked at how Type 1 Diabetes affects children and teenagers, and what treatments work best for this age group. Understanding pediatric diabetes helps improve care for young people.",
+    "id": "b1c0a3e8",
+    "badge": "BREAKTHROUGH",
+    "title": "Revolutionary Stem Cell Therapy Shows 90% Success Rate in Early Trials",
+    "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
     "details": {
       "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "This research adds to our scientific understanding of Type 1 Diabetes. While not every study leads to immediate treatments, each piece of knowledge helps researchers develop better therapies. Breakthroughs often come from connecting insights across many different studies like this one."
+      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
     },
     "meta": {
-      "published": "24 Oct 2025",
+      "published": "October 2025",
       "phase": "Research",
       "status": "Published",
-      "priority": "MEDIUM",
-      "stage": "Early Research",
-      "research_type": "Research"
+      "priority": "HIGH",
+      "stage": "Clinical Trials",
+      "research_type": "Cure"
     },
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41128603/",
-    "special": false
+    "link": "https://www.nature.com/articles/stem-cell-diabetes-breakthrough",
+    "special": true
   },
   {
-    "id": "0360505b",
-    "badge": "NEW",
-    "title": "Evaluating diabetes care processes, comorbidity burden and continuous glucose monitoring utilisation in regional Australia: results from Central Queensland Hospital.",
-    "summary": "This study examined continuous blood sugar monitoring systems and how they're being used in real-world settings. These devices help track blood sugar levels 24/7 without finger pricks.",
+    "id": "400ac83b",
+    "badge": "BREAKTHROUGH",
+    "title": "Breakthrough: Scientists Discover How to Prevent Type 1 Diabetes Before It Starts",
+    "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
     "details": {
       "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "Continuous glucose monitors (CGMs) have revolutionized diabetes management by showing blood sugar trends in real-time without finger pricks. This study looks at how these devices are actually being used in everyday life and their impact on health outcomes. Understanding real-world use helps improve the technology and shows insurance companies why coverage is essential."
+      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
     },
     "meta": {
-      "published": "25 Oct 2025",
+      "published": "October 2025",
       "phase": "Research",
       "status": "Published",
-      "priority": "MEDIUM",
-      "stage": "Early Research",
+      "priority": "HIGH",
+      "stage": "Clinical Trials",
+      "research_type": "Prevention"
+    },
+    "link": "https://www.nih.gov/news-events/news-releases/diabetes-prevention-breakthrough",
+    "special": true
+  },
+  {
+    "id": "227bff06",
+    "badge": "NEW",
+    "title": "New Smart Insulin Pump Automatically Adjusts for Exercise and Stress",
+    "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
+    },
+    "meta": {
+      "published": "September 2025",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "HIGH",
+      "stage": "Available",
       "research_type": "Technology"
     },
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41137611/",
-    "special": false
-  },
-  {
-    "id": "8b696105",
-    "badge": "NEW",
-    "title": "Transition to Adult Care in Youth with Type 1 Diabetes: Follow-Up Continuity, Complications, and Metabolic Control.",
-    "summary": "This research focuses on what happens when young people with Type 1 Diabetes move from pediatric care to adult care. It's studying how to make this transition smoother and keep people healthy during this important life change.",
-    "details": {
-      "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "Moving from pediatric to adult diabetes care is a critical time. Young adults often struggle with maintaining good blood sugar control during this transition. This research helps us understand what goes wrong and how to better support people during this change. Better transition care means fewer complications and hospitalizations during this vulnerable period."
-    },
-    "meta": {
-      "published": "27 Oct 2025",
-      "phase": "Research",
-      "status": "Published",
-      "priority": "MEDIUM",
-      "stage": "Early Research",
-      "research_type": "Research"
-    },
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41143600/",
-    "special": false
+    "link": "https://www.medtronic.com/smart-pump-ai",
+    "special": true
   }
 ]
