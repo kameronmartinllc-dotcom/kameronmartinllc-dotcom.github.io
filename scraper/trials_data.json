@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "nct_id": "NCT06791291",
+    "title": "Efficacy and Safety of Teplizumab in the Treatment of Japanese Pediatric and Adult Participants Aged 8 to 34 Years With Stage 2 Type 1 Diabetes: A Multicenter, Randomized, Open-label, Controlled Study.",
+    "phase": "PHASE2",
+    "status": "RECRUITING",
+    "start_date": "2025-07-25",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06791291"
+  },
+  {
+    "nct_id": "NCT06111586",
+    "title": "A 52-week Randomized, Double-blind, Placebo-controlled, Multi-center Phase 2b Study With a 52-week Blinded Extension Assessing Safety and Efficacy of Frexalimab, a CD40L-antagonist Monoclonal Antibody, for Preservation of Pancreatic \u03b2-cell Function in Adults and Adolescents With Newly Diagnosed Type 1 Diabetes on Insulin Therapy",
+    "phase": "PHASE2",
+    "status": "RECRUITING",
+    "start_date": "2023-12-11",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06111586"
+  },
+  {
+    "nct_id": "NCT05018585",
+    "title": "A Phase III, Randomized, Double-blind, Placebo-controlled, Multicenter Trial to Evaluate the Efficacy and Safety of Diamyd\u00ae to Preserve Endogenous Beta Cell Function in Adolescents and Adults With Recently Diagnosed Type 1 Diabetes, Carrying the Genetic HLA DR3-DQ2 Haplotype",
+    "phase": "PHASE3",
+    "status": "RECRUITING",
+    "start_date": "2022-05-19",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT05018585"
+  },
+  {
+    "nct_id": "NCT06481904",
+    "title": "An Observational, Long-term Safety Study of TZIELD\u00ae (Teplizumab-mzwv) in Patients With Stage 2 Type 1 Diabetes",
+    "phase": "Unknown",
+    "status": "RECRUITING",
+    "start_date": "2024-09-27",
+    "priority": "MEDIUM",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06481904"
+  },
+  {
+    "nct_id": "NCT05540704",
+    "title": "Changing the T1DE (Type 1 Disordered Eating): A Randomized Controlled Trial Comparing ACT to Supportive Diabetes Counseling",
+    "phase": "NA",
+    "status": "RECRUITING",
+    "start_date": "2023-04-04",
+    "priority": "MEDIUM",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT05540704"
+  },
+  {
+    "nct_id": "NCT07104500",
+    "title": "A Phase 3 Randomized, Double-Blind, Placebo-Controlled, 78-Week Efficacy and Safety Study of VK2735 Administered Subcutaneously for Weight Management in Participants Without Type 2 Diabetes Who Are Obese, or Overweight With at Least One Weight-related Comorbid Condition",
+    "phase": "PHASE3",
+    "status": "RECRUITING",
+    "start_date": "2025-06-23",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT07104500"
+  },
+  {
+    "nct_id": "NCT06845202",
+    "title": "A Phase 1/2, Randomized, Double-blind, Placebo-controlled 2-part Study of the Safety, Tolerability, Efficacy, Pharmacokinetics, and Pharmacodynamics of Single Dose ALN-4324 in Overweight to Obese Adult Healthy Volunteers and Multiple Dose ALN-4324 in Overweight to Obese Patients With Type 2 Diabetes Mellitus (T2DM)",
+    "phase": "PHASE1",
+    "status": "RECRUITING",
+    "start_date": "2025-03-03",
+    "priority": "MEDIUM",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06845202"
+  },
+  {
+    "nct_id": "NCT06914895",
+    "title": "A Phase 3, Multicenter, Randomized, Double-Blind, Placebo-Controlled, Parallel-Group Study Evaluating the Efficacy and Safety of Tirzepatide Once Weekly Compared to Placebo in Adult Participants With Type 1 Diabetes and Obesity or Overweight",
+    "phase": "PHASE3",
+    "status": "RECRUITING",
+    "start_date": "2025-04-25",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06914895"
+  },
+  {
+    "nct_id": "NCT06972459",
+    "title": "A Master Protocol to Investigate the Efficacy and Safety of Orforglipron Tablet Once Daily Compared With Placebo in Participants With Obesity or Overweight With and Without Type 2 Diabetes",
+    "phase": "PHASE3",
+    "status": "RECRUITING",
+    "start_date": "2025-05-15",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06972459"
+  },
+  {
+    "nct_id": "NCT06962280",
+    "title": "A Phase 3, Multicenter, Randomized, Double-Blind, Placebo-Controlled, Parallel-Group Study Evaluating the Efficacy and Long-Term Safety of Tirzepatide Once Weekly Compared to Placebo in Adults With Type 1 Diabetes and Obesity or Overweight",
+    "phase": "PHASE3",
+    "status": "RECRUITING",
+    "start_date": "2025-05-12",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06962280"
+  }
+]

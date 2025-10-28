@@ -149,27 +149,10 @@ class MedicalScraper:
             # ClinicalTrials.gov search for T1D trials
             search_url = "https://clinicaltrials.gov/api/v2/studies"
             params = {
-                'query.term': 'type 1 diabetes',
-                'query.locn': '',
-                'query.titles': '',
-                'query.intr': '',
-                'query.outc': '',
-                'query.spons': '',
-                'query.lead': '',
-                'query.id': '',
-                'query.patient': '',
+                'query.cond': 'Type 1 Diabetes',
                 'filter.overallStatus': 'RECRUITING',
-                'filter.phase': 'PHASE1,PHASE2,PHASE3',
-                'filter.ids': '',
-                'filter.conditions': '',
-                'filter.interventions': '',
-                'filter.locations': '',
-                'filter.terms': '',
-                'filter.synonyms': '',
-                'filter.overallStatus': 'RECRUITING',
-                'sort': 'NCTId',
-                'order': 'desc',
-                'pageSize': 20
+                'pageSize': 20,
+                'sort': 'LastUpdatePostDate:desc'
             }
             
             response = self.session.get(search_url, params=params)
