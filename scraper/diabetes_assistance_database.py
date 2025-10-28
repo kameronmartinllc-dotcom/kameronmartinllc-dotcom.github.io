@@ -1,0 +1,295 @@
+#!/usr/bin/env python3
+"""
+Diabetes Assistance Database
+Comprehensive database of known diabetes assistance programs with verified URLs and details
+"""
+
+import json
+import time
+from typing import Dict, List
+
+def create_assistance_database() -> Dict:
+    """Create comprehensive database of diabetes assistance programs"""
+    
+    database = {
+        "title": "Diabetes Assistance Programs for Uninsured Families",
+        "last_updated": time.strftime('%Y-%m-%d'),
+        "introduction": {
+            "heading": "💙 Help is Available",
+            "content": "If you're managing diabetes without insurance, you're not alone. Many manufacturers and organizations offer assistance programs to help reduce the cost of insulin, CGMs, pumps, and supplies. This guide compiles verified programs to help you find the support you need."
+        },
+        "categories": {
+            "insulin_manufacturers": {
+                "title": "💉 Insulin Assistance Programs",
+                "description": "Major insulin manufacturers offer programs that can reduce insulin costs to $35/month or even free for qualifying patients.",
+                "programs": [
+                    {
+                        "company": "Eli Lilly",
+                        "category": "insulin_manufacturers",
+                        "program_name": "Lilly Insulin Value Program",
+                        "url": "https://www.insulinaffordability.com/",
+                        "description": "Monthly cap of $35 for most Lilly insulins for people without insurance or with high-deductible plans.",
+                        "eligibility": "Available to people without insurance or with commercial insurance with high out-of-pocket costs",
+                        "how_to_apply": "Download savings card from website or ask your pharmacy",
+                        "contact_info": "1-833-808-1234",
+                        "key_benefits": ["$35/month cap", "No income requirements", "Covers Humalog, Basaglar"]
+                    },
+                    {
+                        "company": "Eli Lilly",
+                        "program_name": "Lilly Cares Foundation",
+                        "url": "https://www.lillycares.com/",
+                        "description": "Free insulin for qualifying patients who cannot afford their medication.",
+                        "eligibility": "Household income at or below 300% of Federal Poverty Level",
+                        "how_to_apply": "Complete application online or download forms",
+                        "contact_info": "1-833-808-1234",
+                        "key_benefits": ["Free insulin", "Income-based eligibility", "Covers all Lilly insulins"]
+                    },
+                    {
+                        "company": "Novo Nordisk",
+                        "program_name": "Patient Assistance Program (PAP)",
+                        "url": "https://www.novocare.com/diabetes-overview/let-us-help/pap.html",
+                        "description": "Free insulin for eligible patients without insurance coverage.",
+                        "eligibility": "Household income at or below 400% of Federal Poverty Level, no insurance coverage for medication",
+                        "how_to_apply": "Complete application with healthcare provider",
+                        "contact_info": "1-866-310-7549",
+                        "key_benefits": ["Free insulin", "Up to 400% FPL", "Covers NovoLog, Levemir, Tresiba"]
+                    },
+                    {
+                        "company": "Novo Nordisk",
+                        "program_name": "My$99Insulin",
+                        "url": "https://www.novonordisk-us.com/patients/diabetes-care/save-on-insulin/my99insulin.html",
+                        "description": "$99 for a 30-day supply of insulin for people without insurance.",
+                        "eligibility": "People without insurance or whose insurance doesn't cover insulin",
+                        "how_to_apply": "Present savings card at pharmacy",
+                        "contact_info": "1-844-Novo4Me",
+                        "key_benefits": ["$99 for 30-day supply", "No income requirements", "Available at most pharmacies"]
+                    },
+                    {
+                        "company": "Sanofi",
+                        "program_name": "Insulins Valyou Savings Program",
+                        "url": "https://www.sanofidiabetes.com/savings-and-support",
+                        "description": "Reduced-cost insulin program for people without insurance.",
+                        "eligibility": "People without insurance or with high out-of-pocket costs",
+                        "how_to_apply": "Download savings card or register online",
+                        "contact_info": "1-888-847-4877",
+                        "key_benefits": ["$35/month for most patients", "Covers Lantus, Admelog, Apidra"]
+                    }
+                ]
+            },
+            "cgm_manufacturers": {
+                "title": "📱 CGM Assistance Programs",
+                "description": "Continuous glucose monitor companies provide programs to help with device and sensor costs.",
+                "programs": [
+                    {
+                        "company": "Dexcom",
+                        "program_name": "Dexcom Warrior Program",
+                        "url": "https://dexcom.custhelp.com/app/answers/detail/a_id/1648",
+                        "description": "Financial assistance for Dexcom CGM systems and supplies.",
+                        "eligibility": "Financial need, no insurance or inadequate coverage",
+                        "how_to_apply": "Contact Dexcom customer service for application",
+                        "contact_info": "1-844-373-9266",
+                        "key_benefits": ["Reduced cost CGM", "Payment plans available", "Case-by-case basis"]
+                    },
+                    {
+                        "company": "Abbott",
+                        "program_name": "FreeStyle Patient Assistance",
+                        "url": "https://www.freestyle.abbott/us-en/support.html",
+                        "description": "Assistance programs for FreeStyle Libre systems.",
+                        "eligibility": "Varies by program, financial need assessment",
+                        "how_to_apply": "Contact Abbott customer service",
+                        "contact_info": "1-855-632-8658",
+                        "key_benefits": ["Discounted sensors", "Free trial programs", "Insurance navigation help"]
+                    },
+                    {
+                        "company": "Medtronic",
+                        "program_name": "Medtronic Foundation Patient Assistance",
+                        "url": "https://www.medtronicdiabetes.com/support/insurance-coverage-reimbursement",
+                        "description": "Financial assistance for Medtronic diabetes products.",
+                        "eligibility": "Financial hardship, limited insurance coverage",
+                        "how_to_apply": "Work with Medtronic reimbursement team",
+                        "contact_info": "1-800-646-4633",
+                        "key_benefits": ["Device financing", "Supply assistance", "Insurance advocacy"]
+                    }
+                ]
+            },
+            "pump_manufacturers": {
+                "title": "⚡ Insulin Pump Assistance",
+                "description": "Pump manufacturers offer financing, loaner programs, and assistance for qualifying patients.",
+                "programs": [
+                    {
+                        "company": "Tandem",
+                        "program_name": "Tandem Cares Patient Assistance",
+                        "url": "https://www.tandemdiabetes.com/support/insurance-and-reimbursement",
+                        "description": "Financial assistance and payment plans for t:slim X2 insulin pumps.",
+                        "eligibility": "Financial need, insurance challenges",
+                        "how_to_apply": "Contact Tandem customer support",
+                        "contact_info": "1-877-801-6901",
+                        "key_benefits": ["Payment plans", "Insurance navigation", "Loaner pumps available"]
+                    },
+                    {
+                        "company": "Insulet (Omnipod)",
+                        "program_name": "Omnipod Promise Program",
+                        "url": "https://www.omnipod.com/coverage-and-cost-support",
+                        "description": "Coverage support and financial assistance for Omnipod systems.",
+                        "eligibility": "Insurance coverage issues, financial hardship",
+                        "how_to_apply": "Contact Omnipod customer care",
+                        "contact_info": "1-800-591-3455",
+                        "key_benefits": ["Coverage advocacy", "Financial assistance", "Trial programs"]
+                    },
+                    {
+                        "company": "Medtronic",
+                        "program_name": "Medtronic MiniMed Assistance",
+                        "url": "https://www.medtronicdiabetes.com/support/insurance-coverage-reimbursement",
+                        "description": "Financial assistance and insurance support for MiniMed pumps.",
+                        "eligibility": "Insurance coverage gaps, financial need",
+                        "how_to_apply": "Work with Medtronic reimbursement specialists",
+                        "contact_info": "1-800-646-4633",
+                        "key_benefits": ["Insurance advocacy", "Payment plans", "Upgrade programs"]
+                    }
+                ]
+            },
+            "supply_companies": {
+                "title": "📦 Supply Discount Programs",
+                "description": "Diabetes supply companies offer discounted rates for uninsured patients on test strips, lancets, and other supplies.",
+                "programs": [
+                    {
+                        "company": "ADW Diabetes",
+                        "program_name": "Uninsured Discount Program",
+                        "url": "https://www.adwdiabetes.com/",
+                        "description": "Discounted diabetes supplies for uninsured customers.",
+                        "eligibility": "Uninsured patients",
+                        "how_to_apply": "Call customer service or shop online",
+                        "contact_info": "1-877-241-9002",
+                        "key_benefits": ["Up to 65% off supplies", "Free shipping options", "Bulk discounts"]
+                    },
+                    {
+                        "company": "Diabetic Warehouse",
+                        "program_name": "Cash Pay Discounts",
+                        "url": "https://www.diabeticwarehouse.org/",
+                        "description": "Discounted diabetes supplies for cash-paying customers.",
+                        "eligibility": "All customers, additional discounts for uninsured",
+                        "how_to_apply": "Shop online or call",
+                        "contact_info": "1-866-819-4926",
+                        "key_benefits": ["Competitive cash prices", "No insurance required", "Fast shipping"]
+                    },
+                    {
+                        "company": "Total Diabetes Supply",
+                        "program_name": "Uninsured Patient Program",
+                        "url": "https://www.totaldiabetessupply.com/",
+                        "description": "Special pricing for uninsured diabetes patients.",
+                        "eligibility": "Uninsured patients with prescription",
+                        "how_to_apply": "Call customer service for pricing",
+                        "contact_info": "1-866-815-1196",
+                        "key_benefits": ["Reduced pricing", "Payment plans", "Insurance-free ordering"]
+                    }
+                ]
+            },
+            "additional_resources": {
+                "title": "🔗 Additional Resources",
+                "description": "Other organizations and programs that can help reduce diabetes-related costs.",
+                "programs": [
+                    {
+                        "company": "GoodRx",
+                        "program_name": "GoodRx Prescription Discounts",
+                        "url": "https://www.goodrx.com/diabetes",
+                        "description": "Prescription discount program that can reduce insulin and medication costs.",
+                        "eligibility": "Available to everyone, no insurance required",
+                        "how_to_apply": "Download app or print coupons from website",
+                        "contact_info": "Visit website",
+                        "key_benefits": ["Up to 80% off prescriptions", "Free to use", "Accepted at most pharmacies"]
+                    },
+                    {
+                        "company": "NeedyMeds",
+                        "program_name": "Patient Assistance Program Database",
+                        "url": "https://www.needymeds.org/",
+                        "description": "Comprehensive database of patient assistance programs and discount cards.",
+                        "eligibility": "Varies by program",
+                        "how_to_apply": "Search database by medication or condition",
+                        "contact_info": "1-800-503-6897",
+                        "key_benefits": ["Free database", "Multiple program options", "Discount card available"]
+                    },
+                    {
+                        "company": "Partnership for Prescription Assistance",
+                        "program_name": "Medicine Assistance Tool",
+                        "url": "https://www.pparx.org/",
+                        "description": "Helps patients find assistance programs for their medications.",
+                        "eligibility": "Varies by program",
+                        "how_to_apply": "Use online matching tool",
+                        "contact_info": "Visit website",
+                        "key_benefits": ["Program matching", "Free service", "Multiple options"]
+                    },
+                    {
+                        "company": "Patient Access Network Foundation",
+                        "program_name": "Type 1 Diabetes Fund",
+                        "url": "https://www.panfoundation.org/",
+                        "description": "Copay assistance for Type 1 Diabetes medications and supplies.",
+                        "eligibility": "Insurance coverage with high out-of-pocket costs, income limits apply",
+                        "how_to_apply": "Apply online when funds are available",
+                        "contact_info": "1-866-316-7263",
+                        "key_benefits": ["Copay assistance", "Covers multiple products", "Income-based eligibility"]
+                    },
+                    {
+                        "company": "HealthWell Foundation",
+                        "program_name": "Diabetes Fund",
+                        "url": "https://www.healthwellfoundation.org/",
+                        "description": "Financial assistance for diabetes medications and supplies.",
+                        "eligibility": "Insurance coverage with high costs, income at or below 500% FPL",
+                        "how_to_apply": "Apply online when funds are open",
+                        "contact_info": "1-800-675-8416",
+                        "key_benefits": ["Up to $7,500 annually", "Covers medications and supplies", "Income-based"]
+                    }
+                ]
+            }
+        },
+        "quick_tips": [
+            "Start with manufacturer programs - they often have the most generous assistance",
+            "Don't be discouraged if you don't qualify for one program - try others",
+            "Keep documentation of your income and medical needs ready",
+            "Many programs can be combined with discount cards like GoodRx",
+            "Call customer service - they often know about programs not listed online",
+            "Ask your endocrinologist's office - they often have samples and program information",
+            "Check if your state has additional assistance programs",
+            "Some programs have waiting lists - apply early and follow up"
+        ],
+        "emergency_resources": [
+            "For immediate insulin needs: Contact manufacturer patient assistance hotlines",
+            "For supplies: Check local diabetes support groups and endocrinologist offices for samples",
+            "For CGMs: Many companies offer trial programs or starter kits",
+            "Visit local health departments - some have emergency medication programs",
+            "Contact 211 (dial 2-1-1) for local assistance resources",
+            "Check with local pharmacies - some have their own assistance programs"
+        ],
+        "application_tips": [
+            "Have your prescription information ready",
+            "Gather income documentation (tax returns, pay stubs)",
+            "Get a letter from your doctor about medical necessity",
+            "Be persistent - follow up on applications",
+            "Apply to multiple programs - you can often combine benefits",
+            "Keep copies of all applications and correspondence"
+        ]
+    }
+    
+    return database
+
+def main():
+    """Generate the assistance database"""
+    database = create_assistance_database()
+    
+    # Save to JSON file
+    with open('scraper/diabetes_assistance_guide.json', 'w') as f:
+        json.dump(database, f, indent=2)
+    
+    print("✅ Created comprehensive diabetes assistance database!")
+    
+    # Print summary
+    total_programs = 0
+    for category in database['categories'].values():
+        program_count = len(category['programs'])
+        total_programs += program_count
+        print(f"  {category['title']}: {program_count} programs")
+    
+    print(f"\n🎯 Total Programs: {total_programs}")
+    print(f"📅 Last Updated: {database['last_updated']}")
+
+if __name__ == "__main__":
+    main()

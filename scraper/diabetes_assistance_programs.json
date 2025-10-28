@@ -1,0 +1,81 @@
+[
+  {
+    "company": "Dexcom",
+    "category": "cgm_manufacturers",
+    "program_name": "Dexcom Patient Assistance",
+    "url": "https://www.dexcom.com/dexcom-warrior-program",
+    "description": "Patient assistance program for Dexcom products",
+    "eligibility": "Varies - check website for details",
+    "how_to_apply": "Visit website or call customer service",
+    "contact_info": "See website for contact information",
+    "scraped_successfully": false
+  },
+  {
+    "company": "Dexcom",
+    "category": "cgm_manufacturers",
+    "program_name": "Dexcom Patient Assistance",
+    "url": "https://www.dexcom.com/patient-assistance-program",
+    "description": "Patient assistance program for Dexcom products",
+    "eligibility": "Varies - check website for details",
+    "how_to_apply": "Visit website or call customer service",
+    "contact_info": "See website for contact information",
+    "scraped_successfully": false
+  },
+  {
+    "company": "Dexcom",
+    "category": "cgm_manufacturers",
+    "program_name": "Dexcom Patient Assistance",
+    "url": "https://www.dexcom.com/coverage-support",
+    "description": "Patient assistance program for Dexcom products",
+    "eligibility": "Varies - check website for details",
+    "how_to_apply": "Visit website or call customer service",
+    "contact_info": "See website for contact information",
+    "scraped_successfully": false
+  },
+  {
+    "company": "Diabetes Express",
+    "category": "supply_companies",
+    "program_name": "Diabetes Express Patient Assistance",
+    "url": "https://www.diabetesexpress.com/uninsured-discount-program",
+    "description": "Patient assistance program for Diabetes Express products",
+    "eligibility": "Varies - check website for details",
+    "how_to_apply": "Visit website or call customer service",
+    "contact_info": "See website for contact information",
+    "scraped_successfully": false
+  },
+  {
+    "company": "Diabetes Express",
+    "category": "supply_companies",
+    "program_name": "Diabetes Express Patient Assistance",
+    "url": "https://www.diabetesexpress.com/patient-assistance",
+    "description": "Patient assistance program for Diabetes Express products",
+    "eligibility": "Varies - check website for details",
+    "how_to_apply": "Visit website or call customer service",
+    "contact_info": "See website for contact information",
+    "scraped_successfully": false
+  },
+  {
+    "company": "NeedyMeds",
+    "category": "additional_resources",
+    "program_name": "NeedyMeds",
+    "url": "https://www.needymeds.org",
+    "description": "Patient assistance program database",
+    "eligibility": "Varies by program",
+    "how_to_apply": "Visit website for details",
+    "contact_info": "See website",
+    "scraped_successfully": true,
+    "last_updated": "2025-10-28"
+  },
+  {
+    "company": "Partnership for Prescription Assistance",
+    "category": "additional_resources",
+    "program_name": "Partnership for Prescription Assistance",
+    "url": "https://www.pparx.org",
+    "description": "Pharmaceutical assistance programs",
+    "eligibility": "Varies by program",
+    "how_to_apply": "Visit website for details",
+    "contact_info": "See website",
+    "scraped_successfully": true,
+    "last_updated": "2025-10-28"
+  }
+]

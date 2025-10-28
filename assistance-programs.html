@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes Assistance Programs - AVA</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    
+    .header {
+      text-align: center;
+      padding: 40px 0;
+      color: white;
+    }
+    
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    
+    .header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+    
+    .intro-section {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .intro-section h2 {
+      color: #1e3c72;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+    
+    .intro-section p {
+      font-size: 1.1em;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 15px;
+    }
+    
+    .quick-tips {
+      background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 30px 0;
+      color: white;
+    }
+    
+    .quick-tips h3 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    
+    .quick-tips ul {
+      list-style: none;
+    }
+    
+    .quick-tips li {
+      margin-bottom: 10px;
+      padding-left: 25px;
+      position: relative;
+    }
+    
+    .quick-tips li:before {
+      content: "💡";
+      position: absolute;
+      left: 0;
+    }
+    
+    .category-section {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .category-title {
+      font-size: 1.8em;
+      color: #1e3c72;
+      margin-bottom: 15px;
+    }
+    
+    .category-description {
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    
+    .program-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .program-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: #3b82f6;
+    }
+    
+    .program-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+    
+    .program-name {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #1e3c72;
+      margin-bottom: 5px;
+    }
+    
+    .company-name {
+      font-size: 0.9em;
+      color: #6b7280;
+      font-weight: 500;
+    }
+    
+    .program-link {
+      background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .program-link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+    
+    .program-description {
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    .program-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 15px;
+    }
+    
+    .detail-item {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      border-left: 4px solid #3b82f6;
+    }
+    
+    .detail-label {
+      font-weight: 600;
+      color: #374151;
+      font-size: 0.9em;
+      margin-bottom: 5px;
+    }
+    
+    .detail-content {
+      color: #6b7280;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    .emergency-section {
+      background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+      border-radius: 20px;
+      padding: 40px;
+      margin: 40px 0;
+      color: white;
+      text-align: center;
+    }
+    
+    .emergency-section h3 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+    
+    .emergency-section ul {
+      list-style: none;
+      font-size: 1.1em;
+    }
+    
+    .emergency-section li {
+      margin-bottom: 15px;
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 60px;
+      color: #6b7280;
+      font-size: 1.2em;
+    }
+    
+    .back-link {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+    
+    .back-link:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+    
+    @media (max-width: 768px) {
+      .program-details {
+        grid-template-columns: 1fr;
+      }
+      
+      .program-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="index.html" class="back-link">← Back to Home</a>
+      <h1>💙 Diabetes Assistance Programs</h1>
+      <p>Help for uninsured families managing Type 1 Diabetes</p>
+    </div>
+
+    <div id="assistanceContent" class="loading">
+      Loading assistance programs...
+    </div>
+  </div>
+
+  <script>
+    async function loadAssistancePrograms() {
+      try {
+        const response = await fetch('scraper/diabetes_assistance_guide.json');
+        const guide = await response.json();
+        
+        displayAssistanceGuide(guide);
+      } catch (error) {
+        console.error('Error loading assistance programs:', error);
+        displayFallbackContent();
+      }
+    }
+
+    function displayAssistanceGuide(guide) {
+      const container = document.getElementById('assistanceContent');
+      
+      let html = `
+        <div class="intro-section">
+          <h2>${guide.introduction.heading}</h2>
+          <p>${guide.introduction.content}</p>
+        </div>
+        
+        <div class="quick-tips">
+          <h3>💡 Quick Tips for Success</h3>
+          <ul>
+            ${guide.quick_tips.map(tip => `<li>${tip}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+      
+      // Add each category
+      for (const [categoryKey, category] of Object.entries(guide.categories)) {
+        html += `
+          <div class="category-section">
+            <h2 class="category-title">${category.title}</h2>
+            <p class="category-description">${category.description}</p>
+            
+            <div class="programs-list">
+              ${category.programs.map(program => `
+                <div class="program-card">
+                  <div class="program-header">
+                    <div>
+                      <div class="program-name">${program.program_name}</div>
+                      <div class="company-name">${program.company}</div>
+                    </div>
+                    <a href="${program.url}" target="_blank" class="program-link">Visit Program →</a>
+                  </div>
+                  
+                  <div class="program-description">
+                    ${program.description}
+                  </div>
+                  
+                  <div class="program-details">
+                    <div class="detail-item">
+                      <div class="detail-label">Eligibility</div>
+                      <div class="detail-content">${program.eligibility}</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">How to Apply</div>
+                      <div class="detail-content">${program.how_to_apply}</div>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+      
+      // Add emergency resources
+      html += `
+        <div class="emergency-section">
+          <h3>🚨 Emergency Resources</h3>
+          <ul>
+            ${guide.emergency_resources.map(resource => `<li>${resource}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+      
+      container.innerHTML = html;
+    }
+
+    function displayFallbackContent() {
+      const container = document.getElementById('assistanceContent');
+      
+      container.innerHTML = `
+        <div class="intro-section">
+          <h2>💙 Help is Available</h2>
+          <p>If you're managing diabetes without insurance, you're not alone. Many manufacturers and organizations offer assistance programs to help reduce the cost of insulin, CGMs, pumps, and supplies.</p>
+          
+          <div class="quick-tips">
+            <h3>💡 Key Assistance Programs to Check</h3>
+            <ul>
+              <li><strong>Eli Lilly:</strong> Lilly Cares Foundation - insulin assistance</li>
+              <li><strong>Novo Nordisk:</strong> Patient Assistance Program</li>
+              <li><strong>Sanofi:</strong> Insulin affordability programs</li>
+              <li><strong>Dexcom:</strong> Patient assistance for CGMs</li>
+              <li><strong>Abbott FreeStyle:</strong> Coverage support programs</li>
+              <li><strong>GoodRx:</strong> Prescription discount cards</li>
+              <li><strong>NeedyMeds:</strong> Database of assistance programs</li>
+            </ul>
+          </div>
+          
+          <p><em>We're working to gather more detailed information about these programs. Check back soon!</em></p>
+        </div>
+      `;
+    }
+
+    // Load assistance programs when page loads
+    loadAssistancePrograms();
+  </script>
+</body>
+</html>
