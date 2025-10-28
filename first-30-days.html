@@ -519,21 +519,844 @@
     
     <script>
         function downloadTemplate(templateType) {
-            // This would normally generate and download the actual template
-            // For now, we'll show an alert
             const templates = {
-                'blood-sugar-log': 'Blood Sugar Log Template',
-                'teacher-letter': 'Letter to Teacher Template',
-                '504-plan-template': '504 Plan Template',
-                'school-nurse-letter': 'School Nurse Letter Template',
-                'carb-counting-guide': 'Carb Counting Guide',
-                'emergency-contacts': 'Emergency Contacts Template',
-                'sick-day-plan': 'Sick Day Management Plan',
-                'travel-checklist': 'Travel Checklist',
-                'insurance-guide': 'Insurance Navigation Guide'
+                'blood-sugar-log': generateBloodSugarLog(),
+                'teacher-letter': generateTeacherLetter(),
+                '504-plan-template': generate504PlanTemplate(),
+                'school-nurse-letter': generateSchoolNurseLetter(),
+                'carb-counting-guide': generateCarbCountingGuide(),
+                'emergency-contacts': generateEmergencyContacts(),
+                'sick-day-plan': generateSickDayPlan(),
+                'travel-checklist': generateTravelChecklist(),
+                'insurance-guide': generateInsuranceGuide()
             };
             
-            alert(`Downloading ${templates[templateType]}...\n\n(Note: This would normally download the actual PDF template)`);
+            const content = templates[templateType];
+            if (content) {
+                downloadFile(content, `${templateType}.html`);
+            }
+        }
+        
+        function downloadFile(content, filename) {
+            const blob = new Blob([content], { type: 'text/html' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+        
+        function generateBloodSugarLog() {
+            return `<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Sugar Log - AVA</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .log-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .log-table th, .log-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .log-table th { background: #f2f2f2; font-weight: bold; }
+        .notes { margin-top: 20px; font-size: 0.9em; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Blood Sugar Log</h1>
+        <p>Child's Name: _________________ &nbsp;&nbsp; Date: _________________</p>
+    </div>
+    
+    <table class="log-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Blood Sugar (mg/dL)</th>
+                <th>Carbs (grams)</th>
+                <th>Insulin (units)</th>
+                <th>Meal/Snack</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+    
+    <div class="notes">
+        <p><strong>Target Range:</strong> 70-180 mg/dL</p>
+        <p><strong>Emergency Numbers:</strong> Doctor: _______________ Emergency: 911</p>
+        <p><strong>Notes:</strong> Use this log to track patterns and share with your diabetes team.</p>
+    </div>
+</body>
+</html>`;
+        }
+        
+        function generateTeacherLetter() {
+            return `<!DOCTYPE html>
+<html>
+<head>
+    <title>Letter to Teacher - Type 1 Diabetes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .letter { max-width: 600px; margin: 0 auto; }
+        .signature { margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="letter">
+        <div class="header">
+            <h2>Important Information About Type 1 Diabetes</h2>
+            <p>Student: _________________ &nbsp;&nbsp; Date: _________________</p>
+        </div>
+        
+        <p>Dear Teacher,</p>
+        
+        <p>I wanted to share some important information about my child, <strong>_________________</strong>, who has Type 1 Diabetes (T1D). This is an autoimmune condition where the pancreas stops producing insulin, a hormone needed to process sugar from food.</p>
+        
+        <h3>What You Need to Know:</h3>
+        <ul>
+            <li><strong>It's not caused by diet or lifestyle</strong> - it's an autoimmune condition</li>
+            <li><strong>My child needs insulin</strong> to process carbohydrates from food</li>
+            <li><strong>Blood sugar levels</strong> need to be checked regularly throughout the day</li>
+            <li><strong>Low blood sugar (hypoglycemia)</strong> can be dangerous and needs immediate treatment</li>
+        </ul>
+        
+        <h3>What to Watch For:</h3>
+        <ul>
+            <li><strong>Low blood sugar signs:</strong> Shaking, sweating, confusion, irritability, hunger</li>
+            <li><strong>High blood sugar signs:</strong> Excessive thirst, frequent urination, fatigue</li>
+            <li><strong>If you notice these signs:</strong> Please send my child to the school nurse immediately</li>
+        </ul>
+        
+        <h3>What My Child May Need:</h3>
+        <ul>
+            <li>Permission to check blood sugar in class if needed</li>
+            <li>Access to water and bathroom without restrictions</li>
+            <li>Snacks or juice available for low blood sugar</li>
+            <li>Understanding if they seem "off" or not themselves</li>
+        </ul>
+        
+        <p>I'm happy to answer any questions you may have. My contact information is below, and I can provide additional resources if needed.</p>
+        
+        <p>Thank you for your understanding and support.</p>
+        
+        <div class="signature">
+            <p>Sincerely,</p>
+            <p>Parent/Guardian: _________________</p>
+            <p>Phone: _________________</p>
+            <p>Email: _________________</p>
+        </div>
+    </div>
+</body>
+</html>`;
+        }
+        
+        function generate504PlanTemplate() {
+            return `<!DOCTYPE html>
+<html>
+<head>
+    <title>504 Plan Template - Type 1 Diabetes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .section { margin: 20px 0; }
+        .checkbox { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>504 Plan Accommodations for Type 1 Diabetes</h1>
+        <p>Student: _________________ &nbsp;&nbsp; School: _________________ &nbsp;&nbsp; Date: _________________</p>
+    </div>
+    
+    <div class="section">
+        <h2>Medical Needs</h2>
+        <div class="checkbox">☐ Blood glucose monitoring as needed</div>
+        <div class="checkbox">☐ Insulin administration (specify method): _________________</div>
+        <div class="checkbox">☐ Access to diabetes supplies at all times</div>
+        <div class="checkbox">☐ Emergency glucagon administration training for staff</div>
+        <div class="checkbox">☐ School nurse availability during school hours</div>
+    </div>
+    
+    <div class="section">
+        <h2>Academic Accommodations</h2>
+        <div class="checkbox">☐ Unlimited bathroom and water access</div>
+        <div class="checkbox">☐ Flexible testing times if blood sugar is high/low</div>
+        <div class="checkbox">☐ Make-up work for medical appointments</div>
+        <div class="checkbox">☐ Alternative activities during high-risk times (PE, etc.)</div>
+        <div class="checkbox">☐ Blood sugar checks during standardized tests</div>
+    </div>
+    
+    <div class="section">
+        <h2>Emergency Procedures</h2>
+        <div class="checkbox">☐ Emergency contact information readily available</div>
+        <div class="checkbox">☐ Glucagon emergency kit location: _________________</div>
+        <div class="checkbox">☐ Staff trained in diabetes emergency response</div>
+        <div class="checkbox">☐ 911 called for severe low blood sugar</div>
+        <div class="checkbox">☐ Parent notification procedures: _________________</div>
+    </div>
+    
+    <div class="section">
+        <h2>Additional Notes</h2>
+        <p>_________________________________________________</p>
+        <p>_________________________________________________</p>
+        <p>_________________________________________________</p>
+    </div>
+    
+    <div class="section">
+        <h2>Signatures</h2>
+        <p>Parent/Guardian: _________________ Date: _________________</p>
+        <p>School Representative: _________________ Date: _________________</p>
+        <p>Student (if applicable): _________________ Date: _________________</p>
+    </div>
+</body>
+</html>`;
+        }
+        
+        function generateSchoolNurseLetter() {
+            return `<!DOCTYPE html>
+<html>
+<head>
+    <title>School Nurse Letter - Type 1 Diabetes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .letter { max-width: 600px; margin: 0 auto; }
+        .medical-info { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="letter">
+        <div class="header">
+            <h2>Medical Information for School Nurse</h2>
+            <p>Student: _________________ &nbsp;&nbsp; Date: _________________</p>
+        </div>
+        
+        <p>Dear School Nurse,</p>
+        
+        <p>Please find below the medical information for <strong>_________________</strong>, who has Type 1 Diabetes and will be attending your school.</p>
+        
+        <div class="medical-info">
+            <h3>Medical Information</h3>
+            <p><strong>Diagnosis Date:</strong> _________________</p>
+            <p><strong>Endocrinologist:</strong> _________________</p>
+            <p><strong>Phone:</strong> _________________</p>
+            <p><strong>Target Blood Sugar Range:</strong> 70-180 mg/dL</p>
+            <p><strong>Insulin Type:</strong> _________________</p>
+            <p><strong>Insulin-to-Carb Ratio:</strong> 1 unit per _____ grams</p>
+            <p><strong>Correction Factor:</strong> 1 unit drops blood sugar by _____ mg/dL</p>
+        </div>
+        
+        <h3>Emergency Procedures</h3>
+        <ul>
+            <li><strong>Low Blood Sugar (<70):</strong> Give 15g fast-acting sugar, recheck in 15 minutes</li>
+            <li><strong>Severe Low (<50 or unconscious):</strong> Administer glucagon, call 911</li>
+            <li><strong>High Blood Sugar (>300):</strong> Check for ketones, contact parent</li>
+            <li><strong>Ketones present:</strong> Contact parent immediately, may need to go home</li>
+        </ul>
+        
+        <h3>Daily Management</h3>
+        <ul>
+            <li>Blood sugar checks: Before meals and as needed</li>
+            <li>Insulin administration: _________________</li>
+            <li>Snacks: Available for low blood sugar treatment</li>
+            <li>Water: Unlimited access</li>
+            <li>Bathroom: Unlimited access</li>
+        </ul>
+        
+        <h3>Supplies Needed</h3>
+        <ul>
+            <li>Blood glucose meter and test strips</li>
+            <li>Insulin and syringes/pens</li>
+            <li>Fast-acting sugar (glucose tablets, juice boxes)</li>
+            <li>Glucagon emergency kit</li>
+            <li>Ketone test strips</li>
+        </ul>
+        
+        <p>Please contact me with any questions. I'm available to provide additional training or information as needed.</p>
+        
+        <p>Thank you for your support,</p>
+        <p>Parent/Guardian: _________________</p>
+        <p>Phone: _________________</p>
+        <p>Emergency Contact: _________________</p>
+    </div>
+</body>
+</html>`;
+        }
+        
+        function generateCarbCountingGuide() {
+            return `<!DOCTYPE html>
+<html>
+<head>
+    <title>Carb Counting Guide - AVA</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .food-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .food-table th, .food-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .food-table th { background: #f2f2f2; font-weight: bold; }
+        .tips { background: #e8f4fd; padding: 15px; border-radius: 5px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Carb Counting Guide</h1>
+        <p>Quick reference for common foods and their carbohydrate content</p>
+    </div>
+    
+    <div class="tips">
+        <h3>💡 Quick Tips</h3>
+        <ul>
+            <li><strong>1 serving = 15g carbs</strong> (this is the standard "carb choice")</li>
+            <li><strong>Read nutrition labels</strong> - look for "Total Carbohydrates"</li>
+            <li><strong>Weigh food when possible</strong> for accuracy</li>
+            <li><strong>When in doubt, overestimate</strong> rather than underestimate</li>
+        </ul>
+    </div>
+    
+    <h2>Breads & Grains (15g carbs per serving)</h2>
+    <table class="food-table">
+        <thead>
+            <tr>
+                <th>Food</th>
+                <th>Serving Size</th>
+                <th>Carbs (g)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>White bread</td><td>1 slice</td><td>15</td></tr>
+            <tr><td>Whole wheat bread</td><td>1 slice</td><td>15</td></tr>
+            <tr><td>Bagel</td><td>1/2 bagel</td><td>15</td></tr>
+            <tr><td>Rice (cooked)</td><td>1/3 cup</td><td>15</td></tr>
+            <tr><td>Pasta (cooked)</td><td>1/3 cup</td><td>15</td></tr>
+            <tr><td>Cereal (dry)</td><td>3/4 cup</td><td>15</td></tr>
+            <tr><td>Oatmeal</td><td>1/2 cup</td><td>15</td></tr>
+        </tbody>
+    </table>
+    
+    <h2>Fruits (15g carbs per serving)</h2>
+    <table class="food-table">
+        <thead>
+            <tr>
+                <th>Food</th>
+                <th>Serving Size</th>
+                <th>Carbs (g)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Apple</td><td>1 small</td><td>15</td></tr>
+            <tr><td>Banana</td><td>1/2 medium</td><td>15</td></tr>
+            <tr><td>Orange</td><td>1 small</td><td>15</td></tr>
+            <tr><td>Grapes</td><td>17 small</td><td>15</td></tr>
+            <tr><td>Strawberries</td><td>1 1/4 cup</td><td>15</td></tr>
+            <tr><td>Raisins</td><td>2 tablespoons</td><td>15</td></tr>
+        </tbody>
+    </table>
+    
+    <h2>Dairy (12g carbs per serving)</h2>
+    <table class="food-table">
+        <thead>
+            <tr>
+                <th>Food</th>
+                <th>Serving Size</th>
+                <th>Carbs (g)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Milk (2%)</td><td>1 cup</td><td>12</td></tr>
+            <tr><td>Yogurt (plain)</td><td>1 cup</td><td>12</td></tr>
+            <tr><td>Yogurt (flavored)</td><td>1 cup</td><td>30-45</td></tr>
+        </tbody>
+    </table>
+    
+    <h2>Snacks & Treats</h2>
+    <table class="food-table">
+        <thead>
+            <tr>
+                <th>Food</th>
+                <th>Serving Size</th>
+                <th>Carbs (g)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Cookies</td><td>2 small</td><td>15</td></tr>
+            <tr><td>Cake</td><td>1/12 of cake</td><td>30</td></tr>
+            <tr><td>Ice cream</td><td>1/2 cup</td><td>15</td></tr>
+            <tr><td>Potato chips</td><td>15 chips</td><td>15</td></tr>
+            <tr><td>Crackers</td><td>6 crackers</td><td>15</td></tr>
+        </tbody>
+    </table>
+    
+    <div class="tips">
+        <h3>📝 Notes</h3>
+        <p>This is a general guide. Always check nutrition labels for accurate carb counts. When in doubt, consult with your diabetes team.</p>
+    </div>
+</body>
+</html>`;
+        }
+        
+        function generateEmergencyContacts() {
+            return `<!DOCTYPE html>
+<html>
+<head>
+    <title>Emergency Contacts - Type 1 Diabetes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .contact-card { background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #007bff; }
+        .emergency { border-left-color: #dc3545; background: #fff5f5; }
+        .important { border-left-color: #ffc107; background: #fffbf0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Emergency Contacts</h1>
+        <p>Child: _________________ &nbsp;&nbsp; Date: _________________</p>
+    </div>
+    
+    <div class="contact-card emergency">
+        <h3>🚨 EMERGENCY (Call 911)</h3>
+        <p><strong>When to call:</strong> Unconscious, seizures, severe low blood sugar, can't wake up</p>
+        <p><strong>Phone:</strong> 911</p>
+    </div>
+    
+    <div class="contact-card">
+        <h3>👨‍⚕️ Primary Doctor</h3>
+        <p><strong>Name:</strong> _________________</p>
+        <p><strong>Phone:</strong> _________________</p>
+        <p><strong>After Hours:</strong> _________________</p>
+    </div>
+    
+    <div class="contact-card">
+        <h3>🏥 Endocrinologist</h3>
+        <p><strong>Name:</strong> _________________</p>
+        <p><strong>Phone:</strong> _________________</p>
+        <p><strong>Office Hours:</strong> _________________</p>
+    </div>
+    
+    <div class="contact-card">
+        <h3>👩‍⚕️ School Nurse</h3>
+        <p><strong>Name:</strong> _________________</p>
+        <p><strong>Phone:</strong> _________________</p>
+        <p><strong>Extension:</strong> _________________</p>
+    </div>
+    
+    <div class="contact-card">
+        <h3>👨‍👩‍👧‍👦 Parents/Guardians</h3>
+        <p><strong>Primary Contact:</strong> _________________</p>
+        <p><strong>Phone:</strong> _________________</p>
+        <p><strong>Work Phone:</strong> _________________</p>
+        <p><strong>Secondary Contact:</strong> _________________</p>
+        <p><strong>Phone:</strong> _________________</p>
+    </div>
+    
+    <div class="contact-card important">
+        <h3>⚠️ Important Notes</h3>
+        <p><strong>Insurance:</strong> _________________</p>
+        <p><strong>Policy Number:</strong> _________________</p>
+        <p><strong>Pharmacy:</strong> _________________</p>
+        <p><strong>Phone:</strong> _________________</p>
+    </div>
+    
+    <div class="contact-card">
+        <h3>🏥 Nearest Hospital</h3>
+        <p><strong>Name:</strong> _________________</p>
+        <p><strong>Address:</strong> _________________</p>
+        <p><strong>Phone:</strong> _________________</p>
+    </div>
+    
+    <div class="contact-card">
+        <h3>💊 Pharmacy</h3>
+        <p><strong>Name:</strong> _________________</p>
+        <p><strong>Address:</strong> _________________</p>
+        <p><strong>Phone:</strong> _________________</p>
+        <p><strong>24-Hour:</strong> _________________</p>
+    </div>
+    
+    <div style="margin-top: 30px; padding: 15px; background: #e8f4fd; border-radius: 5px;">
+        <h3>📋 Emergency Procedures</h3>
+        <p><strong>Low Blood Sugar:</strong> Give 15g fast-acting sugar, recheck in 15 minutes</p>
+        <p><strong>Severe Low:</strong> Give glucagon, call 911</p>
+        <p><strong>High Blood Sugar:</strong> Check ketones, contact doctor if >300</p>
+    </div>
+</body>
+</html>`;
+        }
+        
+        function generateSickDayPlan() {
+            return `<!DOCTYPE html>
+<html>
+<head>
+    <title>Sick Day Management Plan - Type 1 Diabetes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .section { margin: 20px 0; padding: 15px; border-radius: 5px; }
+        .urgent { background: #fff5f5; border-left: 4px solid #dc3545; }
+        .important { background: #fffbf0; border-left: 4px solid #ffc107; }
+        .normal { background: #f8f9fa; border-left: 4px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Sick Day Management Plan</h1>
+        <p>Child: _________________ &nbsp;&nbsp; Date: _________________</p>
+    </div>
+    
+    <div class="section urgent">
+        <h3>🚨 Call Doctor Immediately If:</h3>
+        <ul>
+            <li>Blood sugar >300 mg/dL for more than 2 hours</li>
+            <li>Ketones are moderate to large</li>
+            <li>Can't keep fluids down</li>
+            <li>Breathing is rapid or labored</li>
+            <li>Confusion or unusual behavior</li>
+            <li>Vomiting more than 3 times</li>
+        </ul>
+    </div>
+    
+    <div class="section important">
+        <h3>⚠️ Check Every 2-4 Hours:</h3>
+        <ul>
+            <li>Blood sugar level</li>
+            <li>Ketones (if blood sugar >250)</li>
+            <li>Temperature</li>
+            <li>Fluid intake</li>
+            <li>Urine output</li>
+        </ul>
+    </div>
+    
+    <div class="section normal">
+        <h3>📋 Daily Sick Day Checklist</h3>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Check blood sugar every 2-4 hours
+        </div>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Check ketones if blood sugar >250
+        </div>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Take temperature
+        </div>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Continue taking insulin (never stop)
+        </div>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Drink plenty of fluids
+        </div>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Eat small, frequent meals if possible
+        </div>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Rest and monitor symptoms
+        </div>
+    </div>
+    
+    <div class="section">
+        <h3>💊 Medication Adjustments</h3>
+        <p><strong>Never stop taking insulin, even if not eating!</strong></p>
+        <p>Your doctor may recommend:</p>
+        <ul>
+            <li>Increased insulin doses (sick day rules)</li>
+            <li>Correction doses for high blood sugar</li>
+            <li>Basal insulin adjustments</li>
+        </ul>
+        <p><strong>Doctor's sick day instructions:</strong></p>
+        <p>_________________________________________________</p>
+        <p>_________________________________________________</p>
+    </div>
+    
+    <div class="section">
+        <h3>🍽️ Food & Fluids</h3>
+        <p><strong>If eating normally:</strong> Count carbs and take insulin as usual</p>
+        <p><strong>If not eating:</strong> Take basal insulin + correction doses</p>
+        <p><strong>Fluids to try:</strong></p>
+        <ul>
+            <li>Water, sugar-free drinks</li>
+            <li>Broth, clear soups</li>
+            <li>Ice chips, popsicles</li>
+            <li>Ginger ale (if blood sugar is low)</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h3>📞 When to Call Doctor</h3>
+        <p><strong>Call within 24 hours if:</strong></p>
+        <ul>
+            <li>Blood sugar consistently >250</li>
+            <li>Ketones present for more than 4 hours</li>
+            <li>Fever >101°F (38.3°C)</li>
+            <li>Can't keep fluids down</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h3>📝 Notes</h3>
+        <p>Date: _________________</p>
+        <p>Illness: _________________</p>
+        <p>Blood sugar range: _________________</p>
+        <p>Ketones: _________________</p>
+        <p>Notes: _________________</p>
+        <p>_________________________________________________</p>
+    </div>
+</body>
+</html>`;
+        }
+        
+        function generateTravelChecklist() {
+            return `<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Checklist - Type 1 Diabetes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .checklist { margin: 20px 0; }
+        .category { background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #007bff; }
+        .item { margin: 8px 0; }
+        .emergency { border-left-color: #dc3545; background: #fff5f5; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Travel Checklist for Type 1 Diabetes</h1>
+        <p>Trip: _________________ &nbsp;&nbsp; Dates: _________________</p>
+    </div>
+    
+    <div class="category emergency">
+        <h3>🚨 Emergency Supplies</h3>
+        <div class="item"><input type="checkbox"> Glucagon emergency kit</div>
+        <div class="item"><input type="checkbox"> Extra fast-acting sugar (glucose tablets, juice)</div>
+        <div class="item"><input type="checkbox"> Medical ID bracelet/necklace</div>
+        <div class="item"><input type="checkbox"> Emergency contact information</div>
+        <div class="item"><input type="checkbox"> Doctor's letter for TSA/airport security</div>
+    </div>
+    
+    <div class="category">
+        <h3>💊 Medical Supplies</h3>
+        <div class="item"><input type="checkbox"> Blood glucose meter + extra batteries</div>
+        <div class="item"><input type="checkbox"> Test strips (2x normal amount)</div>
+        <div class="item"><input type="checkbox"> Lancets and lancing device</div>
+        <div class="item"><input type="checkbox"> Insulin (2x normal amount)</div>
+        <div class="item"><input type="checkbox"> Syringes/pen needles (2x normal amount)</div>
+        <div class="item"><input type="checkbox"> Ketone test strips</div>
+        <div class="item"><input type="checkbox"> Alcohol swabs</div>
+        <div class="item"><input type="checkbox"> Sharps container</div>
+    </div>
+    
+    <div class="category">
+        <h3>📱 Technology</h3>
+        <div class="item"><input type="checkbox"> CGM receiver/phone app</div>
+        <div class="item"><input type="checkbox"> Insulin pump supplies (if applicable)</div>
+        <div class="item"><input type="checkbox"> Chargers for all devices</div>
+        <div class="item"><input type="checkbox"> Backup batteries</div>
+        <div class="item"><input type="checkbox"> Phone with diabetes apps</div>
+    </div>
+    
+    <div class="category">
+        <h3>🍎 Food & Snacks</h3>
+        <div class="item"><input type="checkbox"> Carb counting guide</div>
+        <div class="item"><input type="checkbox"> Low blood sugar snacks</div>
+        <div class="item"><input type="checkbox"> Water bottles</div>
+        <div class="item"><input type="checkbox"> Non-perishable snacks</div>
+        <div class="item"><input type="checkbox"> Meal planning resources</div>
+    </div>
+    
+    <div class="category">
+        <h3>📋 Documentation</h3>
+        <div class="item"><input type="checkbox"> Medical insurance card</div>
+        <div class="item"><input type="checkbox"> Prescription list</div>
+        <div class="item"><input type="checkbox"> Doctor's contact information</div>
+        <div class="item"><input type="checkbox"> Blood sugar log</div>
+        <div class="item"><input type="checkbox"> Emergency action plan</div>
+        <div class="item"><input type="checkbox"> Travel insurance information</div>
+    </div>
+    
+    <div class="category">
+        <h3>✈️ Travel Preparation</h3>
+        <div class="item"><input type="checkbox"> TSA notification (if flying)</div>
+        <div class="item"><input type="checkbox"> Carry-on bag for all supplies</div>
+        <div class="item"><input type="checkbox"> Cooler for insulin (if needed)</div>
+        <div class="item"><input type="checkbox"> Time zone adjustment plan</div>
+        <div class="item"><input type="checkbox"> Hotel room refrigerator request</div>
+        <div class="item"><input type="checkbox"> Local pharmacy research</div>
+    </div>
+    
+    <div class="category">
+        <h3>🏥 Destination Research</h3>
+        <div class="item"><input type="checkbox"> Nearest hospital location</div>
+        <div class="item"><input type="checkbox"> Local pharmacy locations</div>
+        <div class="item"><input type="checkbox"> Emergency contact numbers</div>
+        <div class="item"><input type="checkbox"> Language translation cards</div>
+        <div class="item"><input type="checkbox"> Local diabetes resources</div>
+    </div>
+    
+    <div style="margin-top: 30px; padding: 15px; background: #e8f4fd; border-radius: 5px;">
+        <h3>💡 Travel Tips</h3>
+        <ul>
+            <li>Pack supplies in carry-on luggage (never check medical supplies)</li>
+            <li>Bring extra supplies in case of delays</li>
+            <li>Research time zone changes and insulin timing</li>
+            <li>Keep emergency contacts easily accessible</li>
+            <li>Consider travel insurance for medical emergencies</li>
+        </ul>
+    </div>
+</body>
+</html>`;
+        }
+        
+        function generateInsuranceGuide() {
+            return `<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance Navigation Guide - Type 1 Diabetes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .section { margin: 20px 0; padding: 15px; border-radius: 5px; }
+        .urgent { background: #fff5f5; border-left: 4px solid #dc3545; }
+        .important { background: #fffbf0; border-left: 4px solid #ffc107; }
+        .normal { background: #f8f9fa; border-left: 4px solid #007bff; }
+        .success { background: #f0fff4; border-left: 4px solid #28a745; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Insurance Navigation Guide</h1>
+        <p>Understanding your coverage for Type 1 Diabetes supplies and care</p>
+    </div>
+    
+    <div class="section urgent">
+        <h3>🚨 If You're Uninsured</h3>
+        <ul>
+            <li><strong>Medicaid:</strong> Check eligibility in your state</li>
+            <li><strong>CHIP:</strong> Children's Health Insurance Program</li>
+            <li><strong>Marketplace:</strong> Healthcare.gov for ACA plans</li>
+            <li><strong>Manufacturer Programs:</strong> Many offer patient assistance</li>
+            <li><strong>Local Resources:</strong> Check with diabetes organizations</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h3>📋 Understanding Your Coverage</h3>
+        <p><strong>Key Terms to Know:</strong></p>
+        <ul>
+            <li><strong>Deductible:</strong> Amount you pay before insurance kicks in</li>
+            <li><strong>Copay:</strong> Fixed amount you pay for each service</li>
+            <li><strong>Coinsurance:</strong> Percentage you pay after deductible</li>
+            <li><strong>Out-of-pocket maximum:</strong> Most you'll pay in a year</li>
+            <li><strong>Prior authorization:</strong> Insurance approval needed for certain supplies</li>
+        </ul>
+    </div>
+    
+    <div class="section important">
+        <h3>💊 Covered Supplies (Usually)</h3>
+        <ul>
+            <li>Blood glucose meters and test strips</li>
+            <li>Insulin and syringes/pen needles</li>
+            <li>Lancets and lancing devices</li>
+            <li>Ketone test strips</li>
+            <li>Glucagon emergency kits</li>
+            <li>CGM systems (with prior authorization)</li>
+            <li>Insulin pumps (with prior authorization)</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h3>📞 Questions to Ask Your Insurance</h3>
+        <ul>
+            <li>What's my deductible and out-of-pocket maximum?</li>
+            <li>Do I need prior authorization for CGM/pump?</li>
+            <li>Which pharmacies are in-network?</li>
+            <li>What's the copay for diabetes supplies?</li>
+            <li>Are there quantity limits on test strips?</li>
+            <li>Do I need a referral to see an endocrinologist?</li>
+            <li>What's covered for diabetes education?</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h3>📝 Prior Authorization Process</h3>
+        <ol>
+            <li>Get prescription from your doctor</li>
+            <li>Submit to insurance with medical justification</li>
+            <li>Wait for approval (usually 5-10 business days)</li>
+            <li>If denied, appeal with additional documentation</li>
+            <li>Work with your doctor to provide more details</li>
+        </ol>
+    </div>
+    
+    <div class="section success">
+        <h3>✅ Appeals Process</h3>
+        <p><strong>If your claim is denied:</strong></p>
+        <ul>
+            <li>Request written explanation of denial</li>
+            <li>Gather medical records and doctor's letters</li>
+            <li>Submit formal appeal within deadline</li>
+            <li>Consider external review if internal appeal fails</li>
+            <li>Get help from patient advocacy groups</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h3>💰 Cost-Saving Tips</h3>
+        <ul>
+            <li>Use generic insulin when possible</li>
+            <li>Buy supplies in bulk (90-day supply)</li>
+            <li>Compare prices at different pharmacies</li>
+            <li>Use manufacturer coupons and programs</li>
+            <li>Consider mail-order pharmacy</li>
+            <li>Ask about patient assistance programs</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h3>📞 Important Phone Numbers</h3>
+        <p><strong>Your Insurance:</strong> _________________</p>
+        <p><strong>Member ID:</strong> _________________</p>
+        <p><strong>Group Number:</strong> _________________</p>
+        <p><strong>Pharmacy Benefits:</strong> _________________</p>
+        <p><strong>Prior Authorization:</strong> _________________</p>
+    </div>
+    
+    <div class="section">
+        <h3>📋 Annual Checklist</h3>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Review plan changes during open enrollment
+        </div>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Check if your doctors are still in-network
+        </div>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Verify covered supplies haven't changed
+        </div>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Update prior authorizations if needed
+        </div>
+        <div style="margin: 10px 0;">
+            <input type="checkbox"> Review out-of-pocket costs and budget
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px; padding: 15px; background: #e8f4fd; border-radius: 5px;">
+        <h3>💡 Remember</h3>
+        <p>Insurance can be complicated, but you have rights. Don't give up if something is denied - appeals often work. Your diabetes team can help you navigate the system.</p>
+    </div>
+</body>
+</html>`;
         }
         
         function downloadChecklist(checklistType) {
