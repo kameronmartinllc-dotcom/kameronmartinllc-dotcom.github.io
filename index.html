@@ -72,13 +72,13 @@
     }
 
     .nav-logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
       display: flex;
       align-items: center;
-      gap: var(--space-xs);
+    }
+
+    .nav-logo img {
+      height: 40px;
+      width: auto;
     }
 
     .nav-links {
@@ -267,13 +267,11 @@
 
     /* Tool Cards */
     .tool-card {
-      background: var(--white);
       border-radius: var(--radius-lg);
       padding: var(--space-xl) var(--space-lg);
       margin-bottom: var(--space-xl);
       box-shadow: var(--shadow-sm);
       text-align: center;
-      border-top: 4px solid;
       transition: box-shadow 0.2s, transform 0.2s;
     }
 
@@ -282,10 +280,10 @@
       transform: translateY(-2px);
     }
 
-    .tool-card.primary { border-color: var(--primary); }
-    .tool-card.success { border-color: var(--success); }
-    .tool-card.warning { border-color: var(--warning); }
-    .tool-card.purple { border-color: var(--purple); }
+    .tool-card.primary { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); }
+    .tool-card.success { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); }
+    .tool-card.warning { background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); }
+    .tool-card.purple { background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); }
 
     .tool-card h2 {
       font-size: 1.5rem;
@@ -454,12 +452,11 @@
     }
 
     .stat-card {
-      background: var(--white);
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
       padding: var(--space-lg);
       border-radius: var(--radius-lg);
       text-align: center;
       box-shadow: var(--shadow-sm);
-      border-top: 4px solid var(--primary);
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
@@ -647,8 +644,7 @@
   <nav>
     <div class="container">
       <a href="/" class="nav-logo">
-        <i class="fas fa-heart-pulse"></i>
-        AVA
+        <img src="https://i.imgur.com/PrQvHzV.png" alt="AVA">
       </a>
       <ul class="nav-links">
         <li><a href="breaking-news.html">Breaking News</a></li>
