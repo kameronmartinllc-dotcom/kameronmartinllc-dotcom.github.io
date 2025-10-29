@@ -1,44 +1,65 @@
 [
   {
-    "id": "1753f6d8",
-    "badge": "NEW",
-    "title": "Development of a Diabetes Rural Stakeholder Research Team and Patient-Centered Research Agenda.",
-    "summary": "This research tested new treatment approaches in Type 1 Diabetes. The findings could contribute to better understanding and treatment of the disease.",
+    "id": "df1d45b7",
+    "badge": "BREAKING",
+    "title": "New Therapy After Islet Cell Transplant Shows Promise for People with Type 1 Diabetes",
+    "summary": "A new monoclonal antibody therapy called tegoprubart is being tested at the University of Chicago Medicine Transplant Institute to improve outcomes for islet cell transplants in Type 1 diabetes patients. Early results show promise in achieving insulin independence without traditional immunosuppressive drugs.",
     "details": {
       "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "This research adds to our scientific understanding of Type 1 Diabetes. While not every study leads to immediate treatments, each piece of knowledge helps researchers develop better therapies. Breakthroughs often come from connecting insights across many different studies like this one."
+      "content": "This exciting news from ABC News brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
     },
     "meta": {
-      "published": "23 Oct 2025",
+      "published": "2024",
       "phase": "Research",
       "status": "Published",
-      "priority": "MEDIUM",
-      "stage": "Early Research",
-      "research_type": "Research"
+      "priority": "HIGH",
+      "stage": "Clinical Trials",
+      "research_type": "Treatment"
     },
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41127954/",
-    "special": false,
-    "excitement_rank": 999
+    "link": "https://abcnews.go.com/GMA/Wellness/new-therapy-after-islet-cell-transplant-shows-promise/story?id=115230952",
+    "special": true,
+    "excitement_rank": 1
   },
   {
-    "id": "8b696105",
-    "badge": "NEW",
-    "title": "Transition to Adult Care in Youth with Type 1 Diabetes: Follow-Up Continuity, Complications, and Metabolic Control.",
-    "summary": "This research focuses on what happens when young people with Type 1 Diabetes move from pediatric care to adult care. It's studying how to make this transition smoother and keep people healthy during this important life change.",
+    "id": "3feda5d8",
+    "badge": "BREAKING",
+    "title": "Breakthrough T1D Announces Publication of Two Peer-Reviewed Articles on Type 1 Diabetes Burdens",
+    "summary": "Breakthrough T1D published two articles emphasizing the ongoing challenges faced by individuals with Type 1 diabetes and the urgent need for innovative therapies, including cell-based treatments, to alleviate these burdens.",
     "details": {
       "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "Moving from pediatric to adult diabetes care is a critical time. Young adults often struggle with maintaining good blood sugar control during this transition. This research helps us understand what goes wrong and how to better support people during this change. Better transition care means fewer complications and hospitalizations during this vulnerable period."
+      "content": "This exciting news from Breakthrough T1D brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
     },
     "meta": {
-      "published": "27 Oct 2025",
+      "published": "2024",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "HIGH",
+      "stage": "Research",
+      "research_type": "Awareness"
+    },
+    "link": "https://www.breakthrought1d.org/for-the-media/press-releases/breakthrough-t1d-announces-the-publication-of-two-peer-reviewed-articles-that-expand-insight-into-the-burdens-of-living-with-type-1-diabetes/",
+    "special": true,
+    "excitement_rank": 2
+  },
+  {
+    "id": "b9ad7ba8",
+    "badge": "BREAKING",
+    "title": "Top 5 Most-Read Type 1 Diabetes Articles of 2023 Highlight Key Advancements",
+    "summary": "The American Journal of Managed Care compiled the most-read articles on Type 1 diabetes from 2023, covering topics such as advancements in treatment, management strategies, and patient experiences.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This exciting news from American Journal of Managed Care brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
+    },
+    "meta": {
+      "published": "2024",
       "phase": "Research",
       "status": "Published",
       "priority": "MEDIUM",
-      "stage": "Early Research",
-      "research_type": "Research"
+      "stage": "Research",
+      "research_type": "Review"
     },
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41143600/",
-    "special": false,
-    "excitement_rank": 999
+    "link": "https://www.ajmc.com/view/top-5-most-read-type-1-diabetes-articles-of-2023",
+    "special": true,
+    "excitement_rank": 3
   }
 ]

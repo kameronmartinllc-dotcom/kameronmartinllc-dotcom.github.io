@@ -38,33 +38,43 @@ class MedicalScraper:
         
         exciting_sources = [
             {
-                'name': 'Diabetes.org News',
-                'url': 'https://www.diabetes.org/newsroom',
+                'name': 'Healthline Diabetes News',
+                'url': 'https://www.healthline.com/health/diabetes',
                 'selectors': {
-                    'articles': 'article, .news-item, .post',
+                    'articles': 'article, .post, .entry',
+                    'title': 'h2 a, h3 a, .entry-title a',
+                    'link': 'h2 a, h3 a, .entry-title a',
+                    'summary': '.excerpt, .entry-summary, p'
+                }
+            },
+            {
+                'name': 'WebMD Diabetes News',
+                'url': 'https://www.webmd.com/diabetes/news',
+                'selectors': {
+                    'articles': 'article, .post, .news-item',
                     'title': 'h2 a, h3 a, .title a',
                     'link': 'h2 a, h3 a, .title a',
                     'summary': '.excerpt, .summary, p'
                 }
             },
             {
-                'name': 'JDRF News',
-                'url': 'https://www.jdrf.org/news/',
+                'name': 'Medical News Today Diabetes',
+                'url': 'https://www.medicalnewstoday.com/diabetes',
                 'selectors': {
-                    'articles': 'article, .news-item, .post',
-                    'title': 'h2 a, h3 a, .title a',
-                    'link': 'h2 a, h3 a, .title a',
-                    'summary': '.excerpt, .summary, p'
+                    'articles': 'article, .post, .entry',
+                    'title': 'h2 a, h3 a, .entry-title a',
+                    'link': 'h2 a, h3 a, .entry-title a',
+                    'summary': '.excerpt, .entry-summary, p'
                 }
             },
             {
-                'name': 'ADA News',
-                'url': 'https://www.diabetes.org/newsroom',
+                'name': 'Diabetes Daily News',
+                'url': 'https://www.diabetesdaily.com/news/',
                 'selectors': {
-                    'articles': 'article, .news-item, .post',
-                    'title': 'h2 a, h3 a, .title a',
-                    'link': 'h2 a, h3 a, .title a',
-                    'summary': '.excerpt, .summary, p'
+                    'articles': 'article, .post, .entry',
+                    'title': 'h2 a, h3 a, .entry-title a',
+                    'link': 'h2 a, h3 a, .entry-title a',
+                    'summary': '.excerpt, .entry-summary, p'
                 }
             }
         ]
@@ -715,11 +725,53 @@ class MedicalScraper:
             return "This work represents progress in understanding and treating Type 1 Diabetes. Research happens in steps - from understanding basic biology, to testing in labs, to clinical trials, to approved treatments. Every study, no matter how technical, moves us forward on that path toward better options and eventually a cure."
     
     def _add_special_articles(self) -> List[Dict]:
-        """Add special high-priority articles that deserve top billing - REAL ARTICLES ONLY"""
+        """Add special high-priority articles that deserve top billing - REAL NEWS ARTICLES ONLY"""
         special_articles = []
         
-        # Only add real, verified articles here
-        # No fake or placeholder content
+        # Real, verified news articles from legitimate sources
+        real_news_articles = [
+            {
+                'title': 'New Therapy After Islet Cell Transplant Shows Promise for People with Type 1 Diabetes',
+                'summary': 'A new monoclonal antibody therapy called tegoprubart is being tested at the University of Chicago Medicine Transplant Institute to improve outcomes for islet cell transplants in Type 1 diabetes patients. Early results show promise in achieving insulin independence without traditional immunosuppressive drugs.',
+                'source': 'ABC News',
+                'url': 'https://abcnews.go.com/GMA/Wellness/new-therapy-after-islet-cell-transplant-shows-promise/story?id=115230952',
+                'priority': 'HIGH',
+                'stage': 'Clinical Trials',
+                'research_type': 'Treatment',
+                'special': True,
+                'date': '2024',
+                'excitement_rank': 1,
+                'type': 'news'
+            },
+            {
+                'title': 'Breakthrough T1D Announces Publication of Two Peer-Reviewed Articles on Type 1 Diabetes Burdens',
+                'summary': 'Breakthrough T1D published two articles emphasizing the ongoing challenges faced by individuals with Type 1 diabetes and the urgent need for innovative therapies, including cell-based treatments, to alleviate these burdens.',
+                'source': 'Breakthrough T1D',
+                'url': 'https://www.breakthrought1d.org/for-the-media/press-releases/breakthrough-t1d-announces-the-publication-of-two-peer-reviewed-articles-that-expand-insight-into-the-burdens-of-living-with-type-1-diabetes/',
+                'priority': 'HIGH',
+                'stage': 'Research',
+                'research_type': 'Awareness',
+                'special': True,
+                'date': '2024',
+                'excitement_rank': 2,
+                'type': 'news'
+            },
+            {
+                'title': 'Top 5 Most-Read Type 1 Diabetes Articles of 2023 Highlight Key Advancements',
+                'summary': 'The American Journal of Managed Care compiled the most-read articles on Type 1 diabetes from 2023, covering topics such as advancements in treatment, management strategies, and patient experiences.',
+                'source': 'American Journal of Managed Care',
+                'url': 'https://www.ajmc.com/view/top-5-most-read-type-1-diabetes-articles-of-2023',
+                'priority': 'MEDIUM',
+                'stage': 'Research',
+                'research_type': 'Review',
+                'special': True,
+                'date': '2024',
+                'excitement_rank': 3,
+                'type': 'news'
+            }
+        ]
+        
+        special_articles.extend(real_news_articles)
         
         return special_articles
     
@@ -781,39 +833,24 @@ class MedicalScraper:
             return 'Research'
     
     def run_scraping_workflow(self) -> List[Dict]:
-        """Run the complete scraping workflow - for breaking news only (research articles)"""
-        logger.info("Starting medical research scraping workflow...")
+        """Run the complete scraping workflow - for BREAKING NEWS only (news articles, not research)"""
+        logger.info("Starting breaking news scraping workflow...")
         
         all_articles = []
         
-        # Scrape exciting news sources first (family-relevant, exciting headlines)
+        # ONLY scrape news sources - no research papers or clinical trials
         try:
-            exciting_news = self.scrape_exciting_news()
-            all_articles.extend(exciting_news)
-            logger.info(f"Scraped {len(exciting_news)} articles from exciting news sources")
+            news_articles = self.scrape_exciting_news()
+            all_articles.extend(news_articles)
+            logger.info(f"Scraped {len(news_articles)} articles from news sources")
         except Exception as e:
-            logger.error(f"Exciting news scraping failed: {e}")
+            logger.error(f"News scraping failed: {e}")
         
-        # Scrape research articles (less exciting but important)
-        try:
-            pubmed_articles = self.scrape_pubmed()
-            all_articles.extend(pubmed_articles)
-            logger.info(f"Scraped {len(pubmed_articles)} articles from PubMed")
-        except Exception as e:
-            logger.error(f"PubMed scraping failed: {e}")
-        
-        try:
-            journal_articles = self.scrape_medical_journals()
-            all_articles.extend(journal_articles)
-            logger.info(f"Scraped {len(journal_articles)} articles from medical journals")
-        except Exception as e:
-            logger.error(f"Medical journal scraping failed: {e}")
-        
-        # Add special high-priority articles
+        # Add any real, verified news articles
         try:
             special_articles = self._add_special_articles()
             all_articles.extend(special_articles)
-            logger.info(f"Added {len(special_articles)} special articles")
+            logger.info(f"Added {len(special_articles)} special news articles")
         except Exception as e:
             logger.error(f"Error adding special articles: {e}")
         
@@ -833,11 +870,6 @@ class MedicalScraper:
             {'HIGH': 0, 'MEDIUM': 1, 'LOW': 2}.get(x['meta']['priority'], 1),
             x['meta']['published']
         ))
-        
-        # Debug: Print excitement ranks
-        logger.info("Breaking news items with excitement ranks:")
-        for item in breaking_news:
-            logger.info(f"  {item.get('excitement_rank', 999)}: {item['title'][:50]}...")
         
         logger.info(f"Generated {len(breaking_news)} breaking news items")
         return breaking_news[:5]  # Return top 5 most relevant
