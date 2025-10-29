@@ -4,691 +4,737 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AVA - Type 1 Diabetes Research Updates</title>
-  <meta name="description" content="Latest breakthroughs in Type 1 Diabetes research">
+  <meta name="description" content="Latest breakthroughs in Type 1 Diabetes research, clinical trials, and family-friendly updates">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Design System */
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --accent: #0891b2;
+      --success: #059669;
+      --warning: #dc2626;
+      --purple: #7c3aed;
+      --dark: #1e293b;
+      --gray: #64748b;
+      --light-gray: #f1f5f9;
+      --bg-light: #f8fafc;
+      --white: #ffffff;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 32px;
+      --space-xl: 48px;
+      --space-2xl: 64px;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
       min-height: 100vh;
-      padding: 20px;
       line-height: 1.6;
+      color: var(--dark);
     }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .hero {
-      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-      border-radius: 24px;
-      padding: 60px 40px;
-      margin-bottom: 40px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
     }
-    .hero::before {
-      content: '';
-      position: absolute;
+
+    /* Navigation */
+    nav {
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, #1E90FF 0%, #4FB3FF 50%, #1E90FF 100%);
+      z-index: 100;
+      margin-bottom: var(--space-xl);
     }
-    .logo { width: 280px; height: auto; margin-bottom: 30px; filter: drop-shadow(0 4px 12px rgba(30, 144, 255, 0.2)); }
-    h1 { color: #1f2937; font-size: 3em; font-weight: 700; margin-bottom: 20px; line-height: 1.2; }
-    
-    .personal-story {
-      background: rgba(30, 144, 255, 0.1);
-      border: 1px solid rgba(30, 144, 255, 0.2);
-      border-radius: 15px;
-      padding: 25px;
-      margin: 30px 0;
-      backdrop-filter: blur(10px);
-    }
-    
-    .personal-story p {
-      color: #374151;
-      font-size: 1.1em;
-      line-height: 1.7;
-      margin: 0;
-      font-style: italic;
-      text-align: left;
-    }
-    
-    .tagline { color: #6b7280; font-size: 1.4em; margin-bottom: 30px; }
-    .mission {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
-      border-radius: 20px;
-      padding: 40px;
-      margin-bottom: 40px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    }
-    .mission h2 { color: white; font-size: 2em; margin-bottom: 20px; text-align: center; }
-    .mission p { color: rgba(255,255,255,0.9); font-size: 1.15em; line-height: 1.8; text-align: center; max-width: 800px; margin: 0 auto 20px; }
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 25px;
-      margin-bottom: 40px;
-    }
-    .stat-card {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
-      padding: 30px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-      border: 2px solid rgba(255,255,255,0.2);
-      transition: all 0.3s;
-      color: white;
-    }
-    .stat-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.25); border-color: rgba(255,255,255,0.4); }
-    .stat-number { font-size: 3em; font-weight: 700; color: #fbbf24; margin-bottom: 10px; }
-    .stat-label { color: rgba(255,255,255,0.9); font-size: 1.1em; font-weight: 600; }
-    .email-signup {
-      background: linear-gradient(135deg, #1E90FF 0%, #4FB3FF 100%);
-      border-radius: 20px;
-      padding: 50px 40px;
-      margin-bottom: 40px;
-      box-shadow: 0 15px 50px rgba(30, 144, 255, 0.3);
-      text-align: center;
-      color: white;
-    }
-    .email-signup h2 { font-size: 2.2em; margin-bottom: 15px; }
-    .email-signup p { font-size: 1.2em; margin-bottom: 30px; opacity: 0.95; }
-    .signup-form { display: flex; gap: 15px; max-width: 600px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-    .signup-form input {
-      flex: 1;
-      min-width: 250px;
-      padding: 16px 24px;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .signup-form button {
-      padding: 16px 40px;
-      background: white;
-      color: #1E90FF;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .signup-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-    .reports {
-      background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
-      border-radius: 20px;
-      padding: 40px;
-      margin-bottom: 40px;
-      box-shadow: 0 8px 30px rgba(5, 150, 105, 0.3);
-      border-top: 6px solid #059669;
-    }
-    .reports h2 { color: white; font-size: 2em; margin-bottom: 30px; text-align: center; }
-    .report-list { display: grid; gap: 20px; }
-    .report-item {
+
+    nav .container {
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 25px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
-      transition: all 0.3s;
+      justify-content: space-between;
+      padding-top: var(--space-sm);
+      padding-bottom: var(--space-sm);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
       text-decoration: none;
-      color: inherit;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .report-item:hover { background: rgba(255,255,255,0.2); border-color: #fbbf24; transform: translateX(5px); }
-    .report-date { background: #fbbf24; color: #1f2937; padding: 15px; border-radius: 10px; text-align: center; min-width: 80px; font-weight: 700; }
-    .report-date .day { font-size: 2em; display: block; line-height: 1; }
-    .report-date .month { font-size: 0.9em; opacity: 0.9; }
-    .report-info { flex: 1; color: white; }
-    .report-title { font-size: 1.3em; font-weight: 700; color: white; margin-bottom: 5px; }
-    .report-desc { color: rgba(255,255,255,0.8); }
-    
-    /* Trials Section Styles */
-    .trials {
-      background: white;
-      border-radius: 20px;
-      padding: 40px;
-      margin-bottom: 40px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      border-top: 6px solid #dc2626;
-    }
-    .trials h2 { 
-      color: #dc2626; 
-      font-size: 2em; 
-      margin-bottom: 30px; 
-      text-align: center; 
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
+      gap: var(--space-xs);
     }
-    .trials h2::before {
-      content: "🔬";
-      font-size: 1.2em;
-    }
-    .trials h2::after {
-      content: "Clinical Trials";
-      font-size: 0.6em;
-      background: #fef2f2;
-      color: #dc2626;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-weight: 600;
-    }
-    .trial-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-    .trial-stat-card {
-      background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      border: 2px solid #fecaca;
-      transition: all 0.3s;
-    }
-    .trial-stat-card:hover { 
-      transform: translateY(-3px); 
-      box-shadow: 0 8px 25px rgba(220, 38, 38, 0.15); 
-      border-color: #dc2626; 
-    }
-    .trial-stat-number { 
-      font-size: 2.5em; 
-      font-weight: 700; 
-      color: #dc2626; 
-      margin-bottom: 8px; 
-    }
-    .trial-stat-label { 
-      color: #991b1b; 
-      font-size: 0.9em; 
-      font-weight: 600; 
-    }
-    .trial-list { display: grid; gap: 20px; }
-    .trial-item {
+
+    .nav-links {
       display: flex;
+      gap: var(--space-lg);
+      list-style: none;
       align-items: center;
-      gap: 20px;
-      padding: 25px;
-      background: #fef2f2;
-      border-radius: 12px;
-      transition: all 0.3s;
+    }
+
+    .nav-links a {
+      color: var(--dark);
       text-decoration: none;
-      color: inherit;
-      border: 2px solid transparent;
-      position: relative;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
     }
-    .trial-item:hover { 
-      background: #fee2e2; 
-      border-color: #dc2626; 
-      transform: translateX(5px); 
+
+    .nav-links a:hover {
+      color: var(--primary);
     }
-    .trial-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #dc2626;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 15px;
-      font-size: 0.8em;
-      font-weight: 700;
-    }
-    .trial-date { 
-      background: #dc2626; 
-      color: white; 
-      padding: 15px; 
-      border-radius: 10px; 
-      text-align: center; 
-      min-width: 80px; 
-      font-weight: 700; 
-    }
-    .trial-date .day { font-size: 2em; display: block; line-height: 1; }
-    .trial-date .month { font-size: 0.9em; opacity: 0.9; }
-    .trial-info { flex: 1; padding-right: 100px; }
-    .trial-title { 
-      font-size: 1.3em; 
-      font-weight: 700; 
-      color: #1f2937; 
-      margin-bottom: 5px; 
-    }
-    .trial-desc { 
-      color: #6b7280; 
-      font-size: 0.95em;
-    }
-    .trial-meta {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-    .trial-meta span {
-      background: #fecaca;
-      color: #991b1b;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 0.8em;
-      font-weight: 600;
-    }
-    
-    /* Breaking News Teaser Styles */
-    .breaking-news-teaser {
-      background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-      border-radius: 20px;
-      padding: 50px 40px;
-      margin-bottom: 40px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      position: relative;
-      overflow: hidden;
+
+    /* Hero Section */
+    .hero {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
       text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
     }
-    .breaking-news-teaser:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+
+    .logo {
+      width: 200px;
+      height: auto;
+      margin-bottom: var(--space-lg);
     }
-    .breaking-teaser-badge {
-      display: inline-block;
-      background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
-      color: #1f2937;
-      padding: 12px 30px;
-      border-radius: 30px;
-      font-weight: 800;
-      font-size: 1em;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
-      animation: pulse 2s infinite;
-    }
-    .breaking-teaser-title {
-      color: #f9fafb;
-      font-size: 2.2em;
+
+    h1 {
+      color: var(--dark);
+      font-size: 2.25rem;
       font-weight: 700;
-      margin-bottom: 20px;
-      line-height: 1.3;
+      margin-bottom: var(--space-md);
+      line-height: 1.2;
     }
-    .breaking-teaser-summary {
-      color: #d1d5db;
-      font-size: 1.2em;
-      line-height: 1.7;
-      margin-bottom: 25px;
-      max-width: 900px;
+
+    .tagline {
+      color: var(--gray);
+      font-size: 1.125rem;
+      margin-bottom: var(--space-lg);
+      max-width: 700px;
       margin-left: auto;
       margin-right: auto;
     }
-    .breaking-teaser-meta {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
+
+    .personal-story {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-lg) 0;
+      text-align: left;
     }
-    .breaking-teaser-meta span {
-      background: rgba(245, 158, 11, 0.2);
-      color: #fbbf24;
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 0.95em;
-      font-weight: 600;
-      border: 1px solid rgba(245, 158, 11, 0.3);
+
+    .personal-story p {
+      color: var(--dark);
+      font-size: 1rem;
+      line-height: 1.75;
+      font-style: normal;
     }
-    .breaking-teaser-details {
-      margin-top: 10px;
+
+    /* Unified Card System */
+    .section-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s;
     }
-    .breaking-teaser-details ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
+
+    .section-card:hover {
+      box-shadow: var(--shadow-md);
     }
-    .breaking-teaser-details li {
-      background: rgba(30, 144, 255, 0.15);
-      color: #1e90ff;
-      padding: 6px 16px;
-      border-radius: 15px;
-      font-size: 0.9em;
-      font-weight: 600;
-      border: 1px solid rgba(30, 144, 255, 0.3);
-      position: relative;
-    }
-    .breaking-teaser-details li:before {
-      content: "•";
-      color: #1e90ff;
-      font-weight: bold;
-      margin-right: 8px;
-    }
-    .breaking-teaser-link {
-      display: inline-block;
-      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-      color: #1f2937;
-      padding: 15px 40px;
-      border-radius: 30px;
-      text-decoration: none;
+
+    .section-card h2 {
+      font-size: 1.875rem;
       font-weight: 700;
-      font-size: 1.1em;
-      transition: all 0.3s;
-      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
     }
-    .breaking-teaser-link:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+
+    .section-card h2 i {
+      font-size: 1.5rem;
     }
-    
-    /* Breaking News Section Styles */
-    .breaking-news {
-      background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-      border-radius: 20px;
-      padding: 40px;
-      margin-bottom: 40px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      position: relative;
-      overflow: hidden;
+
+    .section-card p {
+      color: var(--gray);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
     }
-    .breaking-news::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-    .breaking-news h2 {
-      color: #fbbf24;
-      font-size: 2.2em;
-      margin-bottom: 20px;
+
+    /* Breaking News Section */
+    .breaking-news-teaser {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-lg);
       text-align: center;
+      color: var(--white);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .breaking-news-teaser:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+    }
+
+    .breaking-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: #f59e0b;
+      color: var(--dark);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.5px;
+      margin-bottom: var(--space-md);
+    }
+
+    .breaking-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: var(--space-md);
+      line-height: 1.3;
+      color: var(--white);
+    }
+
+    .breaking-summary {
+      color: #cbd5e1;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .breaking-meta {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: center;
+      margin-bottom: var(--space-lg);
+      flex-wrap: wrap;
+    }
+
+    .breaking-meta span {
+      background: rgba(241, 245, 249, 0.1);
+      color: #cbd5e1;
+      padding: 6px var(--space-sm);
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .breaking-link {
+      display: inline-block;
+      background: var(--white);
+      color: var(--dark);
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+
+    .breaking-link:hover {
+      transform: scale(1.02);
+    }
+
+    /* Tool Cards */
+    .tool-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      border-top: 4px solid;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .tool-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .tool-card.primary { border-color: var(--primary); }
+    .tool-card.success { border-color: var(--success); }
+    .tool-card.warning { border-color: var(--warning); }
+    .tool-card.purple { border-color: var(--purple); }
+
+    .tool-card h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: var(--space-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 15px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      gap: var(--space-sm);
     }
-    .breaking-news h2::before {
-      content: "🚨";
-      font-size: 1.3em;
-      animation: bounce 1s infinite;
-    }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-5px); }
-      60% { transform: translateY(-3px); }
-    }
-    .breaking-news h2::after {
-      content: "BREAKING NEWS";
-      font-size: 0.5em;
-      background: #f59e0b;
-      color: #1f2937;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      animation: glow 2s infinite;
-    }
-    @keyframes glow {
-      0%, 100% { box-shadow: 0 0 5px #f59e0b; }
-      50% { box-shadow: 0 0 20px #f59e0b, 0 0 30px #f59e0b; }
-    }
-    .breaking-item {
-      background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
-      border-radius: 16px;
-      padding: 30px;
-      margin-bottom: 25px;
-      border-left: 6px solid #f59e0b;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .breaking-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
-      animation: shimmer 3s infinite;
-    }
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-    .breaking-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-      border-left-color: #fbbf24;
-    }
-    .breaking-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-      color: #1f2937;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-weight: 800;
-      font-size: 0.8em;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-    }
-    .breaking-title {
-      color: #f9fafb;
-      font-size: 1.6em;
-      font-weight: 700;
-      margin-bottom: 15px;
-      line-height: 1.4;
-      padding-right: 120px;
-    }
-    .breaking-summary {
-      color: #d1d5db;
-      font-size: 1.1em;
+
+    .tool-card.primary h2 { color: var(--primary); }
+    .tool-card.success h2 { color: var(--success); }
+    .tool-card.warning h2 { color: var(--warning); }
+    .tool-card.purple h2 { color: var(--purple); }
+
+    .tool-card p {
+      color: var(--gray);
+      font-size: 1rem;
       line-height: 1.7;
-      margin-bottom: 20px;
+      margin-bottom: var(--space-lg);
     }
-    .breaking-details {
-      background: rgba(31, 41, 55, 0.6);
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 15px;
-      border: 1px solid #4b5563;
+
+    .tool-card a {
+      display: inline-block;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .breaking-details h4 {
-      color: #fbbf24;
-      font-size: 1.1em;
-      margin-bottom: 10px;
+
+    .tool-card a:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tool-card.primary a {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .tool-card.success a {
+      background: var(--success);
+      color: var(--white);
+    }
+
+    .tool-card.warning a {
+      background: var(--warning);
+      color: var(--white);
+    }
+
+    .tool-card.purple a {
+      background: var(--purple);
+      color: var(--white);
+    }
+
+    /* Reports Section */
+    .reports {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .reports h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: var(--space-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--dark);
+    }
+
+    .report-list {
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .report-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background: var(--bg-light);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 2px solid transparent;
+    }
+
+    .report-item:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-sm);
+      border-color: var(--primary);
+    }
+
+    .report-date {
+      background: var(--primary);
+      color: var(--white);
+      padding: var(--space-sm);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      min-width: 70px;
+      font-weight: 700;
+    }
+
+    .report-date .day {
+      font-size: 2rem;
+      display: block;
+      line-height: 1;
+    }
+
+    .report-date .month {
+      font-size: 0.875rem;
+      opacity: 0.9;
+    }
+
+    .report-info {
+      flex: 1;
+    }
+
+    .report-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .report-desc {
+      color: var(--gray);
+      font-size: 0.9375rem;
+    }
+
+    /* Mission & Stats */
+    .mission {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      color: var(--white);
+    }
+
+    .mission h2 {
+      font-size: 1.875rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .mission p {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .stat-card {
+      background: var(--white);
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--primary);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .stat-label {
+      color: var(--gray);
+      font-size: 1rem;
       font-weight: 600;
     }
-    .breaking-details p {
-      color: #e5e7eb;
-      font-size: 0.95em;
+
+    /* Email Signup */
+    .email-signup {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      color: var(--white);
+    }
+
+    .email-signup h2 {
+      font-size: 1.875rem;
+      margin-bottom: var(--space-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+    }
+
+    .email-signup p {
+      font-size: 1.0625rem;
+      margin-bottom: var(--space-lg);
+      opacity: 0.95;
+    }
+
+    .signup-form {
+      display: flex;
+      gap: var(--space-sm);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .signup-form input {
+      flex: 1;
+      padding: var(--space-sm) var(--space-md);
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+    }
+
+    .signup-form button {
+      padding: var(--space-sm) var(--space-lg);
+      background: var(--white);
+      color: var(--primary);
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .signup-form button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      color: var(--gray);
+    }
+
+    .footer-heart {
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .footer-heart p {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-sources {
+      font-size: 0.9375rem;
+      margin-bottom: var(--space-md);
+      line-height: 1.7;
+    }
+
+    .footer-disclaimer {
+      background: var(--bg-light);
+      border-left: 4px solid var(--primary);
+      padding: var(--space-md);
+      border-radius: var(--radius-sm);
+      margin: var(--space-md) 0;
+      text-align: left;
+      font-size: 0.875rem;
+      color: var(--gray);
       line-height: 1.6;
     }
-    .breaking-meta {
-      display: flex;
-      gap: 15px;
-      margin-top: 15px;
-      flex-wrap: wrap;
+
+    .footer-meta {
+      font-size: 0.875rem;
+      color: var(--gray);
     }
-    .breaking-meta span {
-      background: rgba(245, 158, 11, 0.2);
-      color: #fbbf24;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 0.85em;
-      font-weight: 600;
-      border: 1px solid rgba(245, 158, 11, 0.3);
-    }
-    .breaking-link {
-      display: inline-block;
-      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-      color: #1f2937;
-      padding: 12px 24px;
-      border-radius: 10px;
+
+    .footer a {
+      color: var(--primary);
       text-decoration: none;
-      font-weight: 700;
-      margin-top: 15px;
-      transition: all 0.3s;
-      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+      font-weight: 500;
     }
-    .breaking-link:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
-      color: #1f2937;
+
+    .footer a:hover {
+      text-decoration: underline;
     }
-    .loading { text-align: center; padding: 40px; color: #6b7280; }
-    .footer {
+
+    .loading {
       text-align: center;
-      color: white;
-      padding: 30px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
+      padding: var(--space-xl);
+      color: var(--gray);
     }
-    .footer a { color: white; text-decoration: none; font-weight: 600; }
-    .footer a:hover { text-decoration: underline; }
+
+    /* Mobile Responsive */
     @media (max-width: 768px) {
-      h1 { font-size: 2.2em; }
-      .logo { width: 200px; }
-      .signup-form { flex-direction: column; }
-      .signup-form input, .signup-form button { width: 100%; }
-      .trial-item { flex-direction: column; text-align: center; }
-      .trial-info { padding-right: 0; }
-      .trial-badge { position: static; margin-bottom: 15px; display: inline-block; }
-      .trial-stats { grid-template-columns: repeat(2, 1fr); }
-      .trials h2::after { display: none; }
-      .breaking-title { padding-right: 0; font-size: 1.4em; }
-      .breaking-badge { position: static; margin-bottom: 15px; display: inline-block; }
-      .breaking-news h2::after { display: none; }
-      .breaking-meta { justify-content: center; }
+      h1 { font-size: 1.75rem; }
+      .logo { width: 150px; }
+
+      .nav-links {
+        gap: var(--space-sm);
+        font-size: 0.875rem;
+      }
+
+      .breaking-title {
+        font-size: 1.375rem;
+      }
+
+      .section-card h2,
+      .reports h2,
+      .mission h2,
+      .email-signup h2 {
+        font-size: 1.5rem;
+      }
+
+      .signup-form {
+        flex-direction: column;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        display: none;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <i class="fas fa-heart-pulse"></i>
+        AVA
+      </a>
+      <ul class="nav-links">
+        <li><a href="breaking-news.html">Breaking News</a></li>
+        <li><a href="clinical-trials.html">Clinical Trials</a></li>
+        <li><a href="diabetes-log.html">Tools</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="container">
+    <!-- Hero Section -->
     <div class="hero">
       <img src="https://i.imgur.com/PrQvHzV.png" alt="AVA Logo" class="logo">
       <h1>Fighting for a Type 1 Diabetes Cure</h1>
-    <div class="personal-story">
-      <p>Hi, I'm Kameron. I was diagnosed with Type 1 Diabetes in 1992 at the age of four. My youngest daughter, Kaislyn, was diagnosed in 2022, just before she turned four herself.<br><br>
-      
-      I'm uninsured and manage the old-school way — fingersticks and injections — while she uses modern tools like pumps and CGMs. Seeing the contrast between what I grew up with and what she has now is what drives me.<br><br>
-      
-      It's not an easy condition; it demands focus every single day. But that challenge is exactly why I built this site — to help families understand diabetes clearly, create affordable tools that make life easier, and use AI to push progress toward a real cure. Because every family deserves hope, and every child deserves a future free from this disease.</p>
-    </div>
       <p class="tagline">Latest research breakthroughs, clinical trials, and easy-to-digest updates delivered to parents and families</p>
-    </div>
 
-    <!-- Breaking News Teaser Section -->
-    <div class="breaking-news-teaser">
-      <div class="breaking-teaser-badge">🚨 BREAKING NEWS</div>
-      <h2 id="breakingTeaserTitle" class="breaking-teaser-title">Loading latest research...</h2>
-      <p id="breakingTeaserSummary" class="breaking-teaser-summary">Please wait...</p>
-      <div class="breaking-teaser-meta">
-        <span id="breakingTeaserDate">Just In</span>
-        <span id="breakingTeaserBadge">NEW</span>
-        <div id="breakingTeaserDetails" class="breaking-teaser-details">
-          <ul id="breakingTeaserList">
-            <li id="breakingTeaserStage">Clinical Trials</li>
-            <li id="breakingTeaserType">Treatment</li>
-          </ul>
-        </div>
-      </div>
-      <a href="breaking-news.html" class="breaking-teaser-link">View All Breaking News →</a>
-      </div>
-    
-    <div class="breaking-news" style="display:none;">
-      <h2>🚨 BREAKING NEWS</h2>
-      <div id="breakingNewsList">
-        <!-- Content loaded dynamically by JavaScript from breaking_news_data.json -->
+      <div class="personal-story">
+        <p>Hi, I'm Kameron. I was diagnosed with Type 1 Diabetes in 1992 at the age of four. My youngest daughter, Kaislyn, was diagnosed in 2022, just before she turned four herself.<br><br>
+
+        I'm uninsured and manage the old-school way — fingersticks and injections — while she uses modern tools like pumps and CGMs. Seeing the contrast between what I grew up with and what she has now is what drives me.<br><br>
+
+        It's not an easy condition; it demands focus every single day. But that challenge is exactly why I built this site — to help families understand diabetes clearly, create affordable tools that make life easier, and use AI to push progress toward a real cure. Because every family deserves hope, and every child deserves a future free from this disease.</p>
       </div>
     </div>
 
-    <!-- Diabetes Log Section -->
-    <div style="background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #93c5fd 100%); border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3); text-align: center; border-top: 6px solid #3b82f6;">
-      <h2 style="color: white; font-size: 2em; margin-bottom: 20px;">📊 Diabetes Log</h2>
-      <p style="color: rgba(255,255,255,0.9); font-size: 1.15em; margin-bottom: 25px; line-height: 1.7;">Simple, beautiful tracking for blood sugar and insulin. Log carbs, track patterns, and export data for your doctor.</p>
-      <a href="diabetes-log.html" style="display: inline-block; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); color: #3b82f6; padding: 15px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1em; transition: all 0.3s; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); border: 2px solid rgba(255,255,255,0.2);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 255, 255, 0.5)'" onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 4px 15px rgba(255, 255, 255, 0.3)'">Open Log Tool →</a>
-    </div>
-
-    <!-- First 30 Days Section -->
-    <div style="background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%); border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 8px 30px rgba(5, 150, 105, 0.3); text-align: center; border-top: 6px solid #059669;">
-      <h2 style="color: white; font-size: 2em; margin-bottom: 20px;">🚨 First 30 Days Survival Kit</h2>
-      <p style="color: rgba(255,255,255,0.9); font-size: 1.15em; margin-bottom: 25px; line-height: 1.7;">Newly diagnosed? Get day-by-day guidance, blood sugar logs, school letters, and essential templates to help you through the most challenging month.</p>
-      <a href="first-30-days.html" style="display: inline-block; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); color: #059669; padding: 15px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1em; transition: all 0.3s; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); border: 2px solid rgba(255,255,255,0.2);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 255, 255, 0.5)'" onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 4px 15px rgba(255, 255, 255, 0.3)'">Start Your Journey →</a>
-    </div>
-
-    <!-- Clinical Trials Link Section -->
-    <div style="background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%); border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 8px 30px rgba(220, 38, 38, 0.3); text-align: center; border-top: 6px solid #dc2626;">
-      <h2 style="color: white; font-size: 2em; margin-bottom: 20px;">🔬 Clinical Trial Opportunities</h2>
-      <p style="color: rgba(255,255,255,0.9); font-size: 1.15em; margin-bottom: 25px; line-height: 1.7;">Explore current recruiting clinical trials for Type 1 Diabetes. Participating in research helps advance treatments and may provide access to cutting-edge therapies.</p>
-      <a href="clinical-trials.html" style="display: inline-block; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); color: #dc2626; padding: 15px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1em; transition: all 0.3s; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); border: 2px solid rgba(255,255,255,0.2);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 255, 255, 0.5)'" onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 4px 15px rgba(255, 255, 255, 0.3)'">View Clinical Trials →</a>
-    </div>
-
-    <!-- Assistance Programs Link Section -->
-    <div style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%); border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 8px 30px rgba(124, 58, 237, 0.3); text-align: center; border-top: 6px solid #7c3aed;">
-      <h2 style="color: white; font-size: 2em; margin-bottom: 20px;">💙 Assistance Programs</h2>
-      <p style="color: rgba(255,255,255,0.9); font-size: 1.15em; margin-bottom: 25px; line-height: 1.7;">Find help with insulin, CGM, pump, and supply costs. Comprehensive guide to manufacturer programs and resources for uninsured families.</p>
-      <a href="assistance-programs.html" style="display: inline-block; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); color: #7c3aed; padding: 15px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1em; transition: all 0.3s; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); border: 2px solid rgba(255,255,255,0.2);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 255, 255, 0.5)'" onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 4px 15px rgba(255, 255, 255, 0.3)'">Find Assistance →</a>
-    </div>
-
-    <div class="email-signup">
-      <h2>📧 Stay Updated</h2>
-      <p>Get weekly research updates delivered to your inbox. Join parents from around the world.</p>
-      <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input type="email" name="email" placeholder="Your email address" required>
-        <button type="submit">Join the List</button>
-      </form>
-    </div>
-
-    <div class="reports">
-      <h2>📊 Latest Research Reports</h2>
-      <div id="reportsList">
-        <div class="loading">Loading reports...</div>
+    <!-- Breaking News Teaser -->
+    <div class="breaking-news-teaser" onclick="window.location.href='breaking-news.html'">
+      <div class="breaking-badge">
+        <i class="fas fa-bolt"></i>
+        <span id="breakingTeaserBadge">BREAKING NEWS</span>
       </div>
+      <h2 id="breakingTeaserTitle" class="breaking-title">Loading latest research...</h2>
+      <p id="breakingTeaserSummary" class="breaking-summary">Please wait...</p>
+      <div class="breaking-meta">
+        <span id="breakingTeaserDate"><i class="far fa-clock"></i> Just In</span>
+        <span id="breakingTeaserStage"></span>
+        <span id="breakingTeaserType"></span>
+      </div>
+      <a href="breaking-news.html" class="breaking-link">View All Breaking News <i class="fas fa-arrow-right"></i></a>
     </div>
 
-    <div class="trials" style="display:none;">
-      <h2>🔬 Clinical Trial Opportunities</h2>
-      <div class="trial-stats">
-        <div class="trial-stat-card">
-          <div class="trial-stat-number">32</div>
-          <div class="trial-stat-label">Active Trials</div>
-        </div>
-        <div class="trial-stat-card">
-          <div class="trial-stat-number">0</div>
-          <div class="trial-stat-label">High Promise</div>
-        </div>
-        <div class="trial-stat-card">
-          <div class="trial-stat-number">15</div>
-          <div class="trial-stat-label">Pediatric Focus</div>
-        </div>
-      </div>
-      <div id="trialList">
-        <div class="loading">Loading trials...</div>
-      </div>
+    <!-- Tool Cards -->
+    <div class="tool-card primary">
+      <h2>
+        <i class="fas fa-chart-line"></i>
+        Diabetes Log
+      </h2>
+      <p>Simple, beautiful tracking for blood sugar and insulin. Log carbs, track patterns, and export data for your doctor.</p>
+      <a href="diabetes-log.html">Open Log Tool <i class="fas fa-arrow-right"></i></a>
     </div>
 
+    <div class="tool-card success">
+      <h2>
+        <i class="fas fa-calendar-check"></i>
+        First 30 Days Survival Kit
+      </h2>
+      <p>Newly diagnosed? Get day-by-day guidance, blood sugar logs, school letters, and essential templates to help you through the most challenging month.</p>
+      <a href="first-30-days.html">Start Your Journey <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="tool-card warning">
+      <h2>
+        <i class="fas fa-microscope"></i>
+        Clinical Trial Opportunities
+      </h2>
+      <p>Explore current recruiting clinical trials for Type 1 Diabetes. Participating in research helps advance treatments and may provide access to cutting-edge therapies.</p>
+      <a href="clinical-trials.html">View Clinical Trials <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="tool-card purple">
+      <h2>
+        <i class="fas fa-hand-holding-heart"></i>
+        Assistance Programs
+      </h2>
+      <p>Find help with insulin, CGM, pump, and supply costs. Comprehensive guide to manufacturer programs and resources for uninsured families.</p>
+      <a href="assistance-programs.html">Find Assistance <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Mission -->
     <div class="mission">
-      <h2>🎯 Our Mission</h2>
-      <p>We're dedicated to bringing you the latest Type 1 Diabetes research in language that families can understand. Every breakthrough, every clinical trial, every glimmer of hope - we translate the science into stories of progress.</p>
+      <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
+      <p>We're dedicated to bringing you the latest Type 1 Diabetes research in language that families can understand. Every breakthrough, every clinical trial, every glimmer of hope — we translate the science into stories of progress.</p>
     </div>
 
+    <!-- Stats -->
     <div class="stats">
       <div class="stat-card">
         <div class="stat-number">50+</div>
@@ -699,15 +745,52 @@
         <div class="stat-label">Clinical Trials</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">Weekly</div>
-        <div class="stat-label">New Reports</div>
+        <div class="stat-number">Daily</div>
+        <div class="stat-label">New Updates</div>
       </div>
     </div>
 
+    <!-- Research Reports -->
+    <div class="reports">
+      <h2>
+        <i class="fas fa-file-alt"></i>
+        Latest Research Reports
+      </h2>
+      <div id="reportsList" class="report-list">
+        <div class="loading">Loading reports...</div>
+      </div>
+    </div>
+
+    <!-- Email Signup -->
+    <div class="email-signup" id="newsletter">
+      <h2>
+        <i class="fas fa-envelope"></i>
+        Stay Updated
+      </h2>
+      <p>Get weekly research updates delivered to your inbox. Join parents from around the world.</p>
+      <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="Your email address" required>
+        <button type="submit">Join the List</button>
+      </form>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
-      <p style="font-size: 1.2em; font-weight: 600; margin-bottom: 15px;">Together, we're closer to a cure every day. 💙</p>
-      <p style="opacity: 0.9;">Data aggregated from <a href="https://clinicaltrials.gov" target="_blank">ClinicalTrials.gov</a>, <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">PubMed</a>, <a href="https://www.nature.com" target="_blank">Nature</a>, <a href="https://www.cell.com" target="_blank">Cell</a>, <a href="https://www.science.org" target="_blank">Science</a>, <a href="https://www.nejm.org" target="_blank">NEJM</a>, <a href="https://www.thelancet.com" target="_blank">The Lancet</a>, and <a href="https://diabetesjournals.org" target="_blank">Diabetes Journals</a></p>
-      <p style="margin-top: 15px; opacity: 0.8;">Powered by AVA 💙 | Open Source on <a href="https://github.com/kameronmartinllc-dotcom" target="_blank">GitHub</a></p>
+      <div class="footer-heart">
+        <p>Together, we're closer to a cure every day. <i class="fas fa-heart"></i></p>
+      </div>
+
+      <div class="footer-disclaimer">
+        <strong><i class="fas fa-info-circle"></i> Medical Disclaimer:</strong> This website is for educational and informational purposes only. It is not intended as medical advice. Always consult with your healthcare provider regarding any medical questions or concerns. The content on this site does not constitute professional medical advice, diagnosis, or treatment.
+      </div>
+
+      <div class="footer-sources">
+        Data aggregated from <a href="https://clinicaltrials.gov" target="_blank">ClinicalTrials.gov</a>, <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">PubMed</a>, <a href="https://www.nature.com" target="_blank">Nature</a>, <a href="https://www.cell.com" target="_blank">Cell</a>, <a href="https://www.science.org" target="_blank">Science</a>, <a href="https://www.nejm.org" target="_blank">NEJM</a>, <a href="https://www.thelancet.com" target="_blank">The Lancet</a>, and <a href="https://diabetesjournals.org" target="_blank">Diabetes Journals</a>
+      </div>
+
+      <div class="footer-meta">
+        Powered by AVA <i class="fas fa-heart"></i> | Open Source on <a href="https://github.com/kameronmartinllc-dotcom" target="_blank">GitHub</a>
+      </div>
     </div>
   </div>
 
@@ -717,15 +800,15 @@
       try {
         const response = await fetch('https://api.github.com/repos/kameronmartinllc-dotcom/kameronmartinllc-dotcom.github.io/contents/');
         const files = await response.json();
-        
+
         // Filter for report files
         const reports = files
           .filter(file => file.name.startsWith('report-') && file.name.endsWith('.html'))
           .map(file => {
             const filename = file.name.replace('report-', '').replace('.html', '');
             const datePart = filename.split('-').slice(0, 3).join('-');
-const [year, month, day] = datePart.split('-').map(Number);
-const date = new Date(year, month - 1, day);
+            const [year, month, day] = datePart.split('-').map(Number);
+            const date = new Date(year, month - 1, day);
             return {
               name: file.name,
               date: date,
@@ -752,7 +835,7 @@ const date = new Date(year, month - 1, day);
                 <div class="report-title">${report.title}</div>
                 <div class="report-desc">CAR T-cell therapy, beta cell regeneration, and more breakthrough studies</div>
               </div>
-              <div style="color: #1E90FF; font-size: 1.5em;">→</div>
+              <i class="fas fa-arrow-right" style="color: var(--primary); font-size: 1.25rem;"></i>
             </a>
           `).join('');
         }
@@ -762,97 +845,27 @@ const date = new Date(year, month - 1, day);
       }
     }
 
-    // Load trials data
-    async function loadTrials() {
-      try {
-        // For now, we'll create some sample trial data
-        // In the future, this could fetch from the trials-2025-10-27.html file
-        const trials = [
-          {
-            id: "NCT05660941",
-            title: "CAR T-Cell Therapy for Type 1 Diabetes",
-            phase: "Phase I/II",
-            status: "Recruiting",
-            location: "Multiple Sites",
-            description: "Testing engineered immune cells to preserve beta cell function",
-            eligibility: "Ages 18-65, recent diagnosis"
-          },
-          {
-            id: "NCT05123456",
-            title: "Beta Cell Regeneration Study",
-            phase: "Phase II",
-            status: "Recruiting", 
-            location: "Stanford, UCSF",
-            description: "Novel approach to regenerate insulin-producing cells",
-            eligibility: "Ages 12-45, T1D duration < 5 years"
-          }
-        ];
-
-        const trialList = document.getElementById('trialList');
-        if (trials.length === 0) {
-          trialList.innerHTML = '<div class="loading">No trials available at this time.</div>';
-        } else {
-          trialList.innerHTML = trials.map(trial => `
-            <div class="trial-item">
-              <div class="trial-badge">${trial.phase}</div>
-              <div class="trial-info">
-                <h3 class="trial-title">${trial.title}</h3>
-                <p class="trial-desc">${trial.description}</p>
-                <div class="trial-meta">
-                  <span>📍 ${trial.location}</span>
-                  <span>👥 ${trial.eligibility}</span>
-                  <span class="status-${trial.status.toLowerCase()}">${trial.status}</span>
-                </div>
-              </div>
-              <a href="https://clinicaltrials.gov/study/${trial.id}" class="trial-link" target="_blank">Learn More →</a>
-            </div>
-          `).join('');
-        }
-      } catch (error) {
-        console.error('Error loading trials:', error);
-        document.getElementById('trialList').innerHTML = '<div class="loading">Error loading trials. Please refresh.</div>';
-      }
-    }
-
     // Load breaking news teaser (just the top article)
     async function loadBreakingNewsTeaser() {
       try {
         const response = await fetch('scraper/breaking_news_data.json');
         const breakingNews = await response.json();
-        
+
         if (breakingNews && breakingNews.length > 0) {
           const topNews = breakingNews[0]; // Get the most recent/important article
-          
+
           document.getElementById('breakingTeaserTitle').textContent = topNews.title;
           document.getElementById('breakingTeaserSummary').textContent = topNews.summary.substring(0, 200) + '...';
-          document.getElementById('breakingTeaserDate').textContent = topNews.meta.published ? `Published: ${topNews.meta.published}` : 'Just In';
+          document.getElementById('breakingTeaserDate').innerHTML = `<i class="far fa-clock"></i> ${topNews.meta.published || 'Just In'}`;
           document.getElementById('breakingTeaserBadge').textContent = topNews.badge;
-          
-          // Update the bulleted list with relevant details
-          const detailsList = document.getElementById('breakingTeaserList');
-          detailsList.innerHTML = '';
-          
-          // Add stage information
+
+          // Update meta information
           if (topNews.meta.stage) {
-            const stageItem = document.createElement('li');
-            stageItem.textContent = topNews.meta.stage;
-            stageItem.id = 'breakingTeaserStage';
-            detailsList.appendChild(stageItem);
+            document.getElementById('breakingTeaserStage').innerHTML = `<i class="fas fa-flask"></i> ${topNews.meta.stage}`;
           }
-          
-          // Add research type
+
           if (topNews.meta.research_type) {
-            const typeItem = document.createElement('li');
-            typeItem.textContent = topNews.meta.research_type;
-            typeItem.id = 'breakingTeaserType';
-            detailsList.appendChild(typeItem);
-          }
-          
-          // Add additional relevant details based on the article
-          if (topNews.meta.stage === 'Clinical Trials' && topNews.meta.research_type === 'Treatment') {
-            const cureItem = document.createElement('li');
-            cureItem.textContent = 'Potential Functional Cure';
-            detailsList.appendChild(cureItem);
+            document.getElementById('breakingTeaserType').innerHTML = `<i class="fas fa-tag"></i> ${topNews.meta.research_type}`;
           }
         }
       } catch (error) {
@@ -864,7 +877,6 @@ const date = new Date(year, month - 1, day);
 
     // Load all content on page load
     loadReports();
-    loadTrials();
     loadBreakingNewsTeaser();
   </script>
 </body>

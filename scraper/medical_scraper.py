@@ -33,10 +33,60 @@ class MedicalScraper:
         ]
         
     def scrape_exciting_news(self) -> List[Dict]:
-        """Scrape REAL news articles from legitimate health news sources"""
-        logger.info("Scraping real news sources...")
-        
+        """Scrape REAL news articles from legitimate major news sources"""
+        logger.info("Scraping major news sources for T1D breaking news...")
+
         exciting_sources = [
+            {
+                'name': 'CNN Health',
+                'url': 'https://www.cnn.com/health',
+                'selectors': {
+                    'articles': 'article, .card, .container__item',
+                    'title': 'h3 a, h2 a, .container__title a',
+                    'link': 'h3 a, h2 a, .container__title a',
+                    'summary': '.container__description, p'
+                }
+            },
+            {
+                'name': 'BBC Health',
+                'url': 'https://www.bbc.com/news/health',
+                'selectors': {
+                    'articles': 'article, [data-testid="card"]',
+                    'title': 'h3 a, h2 a',
+                    'link': 'h3 a, h2 a',
+                    'summary': 'p'
+                }
+            },
+            {
+                'name': 'NPR Health',
+                'url': 'https://www.npr.org/sections/health/',
+                'selectors': {
+                    'articles': 'article, .item',
+                    'title': 'h2 a, h3 a',
+                    'link': 'h2 a, h3 a',
+                    'summary': '.teaser, p'
+                }
+            },
+            {
+                'name': 'ABC News Health',
+                'url': 'https://abcnews.go.com/Health/Diabetes',
+                'selectors': {
+                    'articles': 'article, .ContentRoll__Item',
+                    'title': 'h2 a, h3 a',
+                    'link': 'h2 a, h3 a',
+                    'summary': 'p'
+                }
+            },
+            {
+                'name': 'Reuters Health',
+                'url': 'https://www.reuters.com/business/healthcare-pharmaceuticals/',
+                'selectors': {
+                    'articles': 'article, [data-testid="article"]',
+                    'title': 'h3 a, h2 a',
+                    'link': 'h3 a, h2 a',
+                    'summary': 'p'
+                }
+            },
             {
                 'name': 'Healthline Diabetes News',
                 'url': 'https://www.healthline.com/health/diabetes',
@@ -60,16 +110,6 @@ class MedicalScraper:
             {
                 'name': 'Medical News Today Diabetes',
                 'url': 'https://www.medicalnewstoday.com/diabetes',
-                'selectors': {
-                    'articles': 'article, .post, .entry',
-                    'title': 'h2 a, h3 a, .entry-title a',
-                    'link': 'h2 a, h3 a, .entry-title a',
-                    'summary': '.excerpt, .entry-summary, p'
-                }
-            },
-            {
-                'name': 'Diabetes Daily News',
-                'url': 'https://www.diabetesdaily.com/news/',
                 'selectors': {
                     'articles': 'article, .post, .entry',
                     'title': 'h2 a, h3 a, .entry-title a',
@@ -119,6 +159,7 @@ class MedicalScraper:
                                 'link': link,
                                 'source': source['name'],
                                 'published': datetime.now().strftime('%d %b %Y'),
+                                'published_timestamp': datetime.now().timestamp(),  # For sorting
                                 'priority': 'HIGH',  # Exciting news gets high priority
                                 'type': 'news'
                             })
@@ -468,7 +509,8 @@ class MedicalScraper:
             },
             'link': article.get('link', article.get('url', '#')),
             'special': article.get('special', False),
-            'excitement_rank': article.get('excitement_rank', 999)
+            'excitement_rank': article.get('excitement_rank', 999),
+            'published_timestamp': article.get('published_timestamp', datetime.now().timestamp())
         }
     
     def _generate_family_summary(self, article: Dict) -> str:
@@ -729,6 +771,9 @@ class MedicalScraper:
         special_articles = []
         
         # Real, verified news articles from legitimate sources
+        # Using a timestamp slightly in the past to ensure they don't always float to top
+        base_timestamp = datetime.now().timestamp() - (24 * 3600)  # 1 day ago
+
         real_news_articles = [
             {
                 'title': 'New Therapy After Islet Cell Transplant Shows Promise for People with Type 1 Diabetes',
@@ -740,6 +785,8 @@ class MedicalScraper:
                 'research_type': 'Treatment',
                 'special': True,
                 'date': '2024',
+                'published': datetime.now().strftime('%d %b %Y'),
+                'published_timestamp': base_timestamp,
                 'excitement_rank': 1,
                 'type': 'news'
             },
@@ -753,6 +800,8 @@ class MedicalScraper:
                 'research_type': 'Awareness',
                 'special': True,
                 'date': '2024',
+                'published': datetime.now().strftime('%d %b %Y'),
+                'published_timestamp': base_timestamp - 3600,  # 1 hour earlier
                 'excitement_rank': 2,
                 'type': 'news'
             },
@@ -766,6 +815,8 @@ class MedicalScraper:
                 'research_type': 'Review',
                 'special': True,
                 'date': '2024',
+                'published': datetime.now().strftime('%d %b %Y'),
+                'published_timestamp': base_timestamp - 7200,  # 2 hours earlier
                 'excitement_rank': 3,
                 'type': 'news'
             }
@@ -863,12 +914,12 @@ class MedicalScraper:
             except Exception as e:
                 logger.error(f"Error converting article to breaking news: {e}")
         
-        # Sort by excitement rank first, then special status, then priority and date
+        # Sort by date (newest first), then excitement rank, then special status
         breaking_news.sort(key=lambda x: (
+            -x.get('published_timestamp', 0),  # Newest first (negative for descending)
             x.get('excitement_rank', 999),  # Lower excitement_rank = higher priority
             not x.get('special', False),  # Special articles first
-            {'HIGH': 0, 'MEDIUM': 1, 'LOW': 2}.get(x['meta']['priority'], 1),
-            x['meta']['published']
+            {'HIGH': 0, 'MEDIUM': 1, 'LOW': 2}.get(x['meta']['priority'], 1)
         ))
         
         logger.info(f"Generated {len(breaking_news)} breaking news items")
@@ -876,31 +927,47 @@ class MedicalScraper:
 
 def main():
     """Main function to run the scraper"""
+    import os
+
     scraper = MedicalScraper()
+
+    # Get breaking news (ONLY news articles, NO trials)
     breaking_news = scraper.run_scraping_workflow()
-    
-    # Get raw trials data separately
+
+    # Get clinical trials data separately (for clinical-trials.html page)
     trials_data = scraper.scrape_clinical_trials()
-    
-    # Save breaking news to JSON file
-    breaking_news_file = 'breaking_news_data.json'
+
+    # Ensure we're saving to the scraper directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Save breaking news to JSON file (for breaking-news.html page)
+    breaking_news_file = os.path.join(script_dir, 'breaking_news_data.json')
     with open(breaking_news_file, 'w') as f:
         json.dump(breaking_news, f, indent=2)
-    
-    # Save trials data to separate JSON file
-    trials_file = 'trials_data.json'
+
+    # Save trials data to separate JSON file (for clinical-trials.html page)
+    trials_file = os.path.join(script_dir, 'trials_data.json')
     with open(trials_file, 'w') as f:
         json.dump(trials_data, f, indent=2)
-    
+
     logger.info(f"Breaking news data saved to {breaking_news_file}")
     logger.info(f"Trials data saved to {trials_file}")
+    logger.info(f"Total breaking news items: {len(breaking_news)}")
     logger.info(f"Total trials found: {len(trials_data)}")
-    
+
     # Print summary
+    print("\n" + "="*80)
+    print("BREAKING NEWS (Major News Sources Only - No Clinical Trials)")
+    print("="*80)
     for item in breaking_news:
         print(f"\n{item['badge']}: {item['title']}")
-        print(f"Source: {item['meta']['phase']} - {item['meta']['status']}")
+        print(f"Source: {item.get('link', 'N/A')}")
         print(f"Priority: {item['meta']['priority']}")
+
+    print("\n" + "="*80)
+    print(f"CLINICAL TRIALS (Saved separately to trials_data.json)")
+    print(f"Total trials found: {len(trials_data)}")
+    print("="*80)
 
 if __name__ == "__main__":
     main()

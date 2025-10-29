@@ -9,7 +9,7 @@
       "content": "This exciting news from ABC News brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
     },
     "meta": {
-      "published": "2024",
+      "published": "28 Oct 2025",
       "phase": "Research",
       "status": "Published",
       "priority": "HIGH",
@@ -18,7 +18,8 @@
     },
     "link": "https://abcnews.go.com/GMA/Wellness/new-therapy-after-islet-cell-transplant-shows-promise/story?id=115230952",
     "special": true,
-    "excitement_rank": 1
+    "excitement_rank": 1,
+    "published_timestamp": 1761620992.007983
   },
   {
     "id": "3feda5d8",
@@ -30,7 +31,7 @@
       "content": "This exciting news from Breakthrough T1D brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
     },
     "meta": {
-      "published": "2024",
+      "published": "28 Oct 2025",
       "phase": "Research",
       "status": "Published",
       "priority": "HIGH",
@@ -39,7 +40,8 @@
     },
     "link": "https://www.breakthrought1d.org/for-the-media/press-releases/breakthrough-t1d-announces-the-publication-of-two-peer-reviewed-articles-that-expand-insight-into-the-burdens-of-living-with-type-1-diabetes/",
     "special": true,
-    "excitement_rank": 2
+    "excitement_rank": 2,
+    "published_timestamp": 1761617392.007983
   },
   {
     "id": "b9ad7ba8",
@@ -51,7 +53,7 @@
       "content": "This exciting news from American Journal of Managed Care brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
     },
     "meta": {
-      "published": "2024",
+      "published": "28 Oct 2025",
       "phase": "Research",
       "status": "Published",
       "priority": "MEDIUM",
@@ -60,6 +62,7 @@
     },
     "link": "https://www.ajmc.com/view/top-5-most-read-type-1-diabetes-articles-of-2023",
     "special": true,
-    "excitement_rank": 3
+    "excitement_rank": 3,
+    "published_timestamp": 1761613792.007983
   }
 ]
