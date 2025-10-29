@@ -298,7 +298,7 @@
   <script>
     async function loadClinicalTrials() {
       try {
-        const response = await fetch('trials_data.json');
+        const response = await fetch('scraper/trials_data.json');
         const trials = await response.json();
         
         const trialsList = document.getElementById('trialsList');

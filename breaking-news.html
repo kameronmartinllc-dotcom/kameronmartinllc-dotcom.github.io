@@ -240,7 +240,7 @@
   <script>
     async function loadBreakingNews() {
       try {
-        const response = await fetch('breaking_news_data.json');
+        const response = await fetch('scraper/breaking_news_data.json');
         const breakingNews = await response.json();
         
         const breakingNewsList = document.getElementById('breakingNewsList');

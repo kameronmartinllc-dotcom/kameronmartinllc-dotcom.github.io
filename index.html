@@ -610,7 +610,7 @@
         </div>
       </div>
       <a href="breaking-news.html" class="breaking-teaser-link">View All Breaking News →</a>
-    </div>
+      </div>
     
     <div class="breaking-news" style="display:none;">
       <h2>🚨 BREAKING NEWS</h2>
@@ -724,8 +724,8 @@
           .map(file => {
             const filename = file.name.replace('report-', '').replace('.html', '');
             const datePart = filename.split('-').slice(0, 3).join('-');
-            const [year, month, day] = datePart.split('-').map(Number);
-            const date = new Date(year, month - 1, day);
+const [year, month, day] = datePart.split('-').map(Number);
+const date = new Date(year, month - 1, day);
             return {
               name: file.name,
               date: date,
@@ -817,7 +817,7 @@
     // Load breaking news teaser (just the top article)
     async function loadBreakingNewsTeaser() {
       try {
-        const response = await fetch('breaking_news_data.json');
+        const response = await fetch('scraper/breaking_news_data.json');
         const breakingNews = await response.json();
         
         if (breakingNews && breakingNews.length > 0) {
