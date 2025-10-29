@@ -585,7 +585,11 @@
       <img src="https://i.imgur.com/PrQvHzV.png" alt="AVA Logo" class="logo">
       <h1>Fighting for a Type 1 Diabetes Cure</h1>
     <div class="personal-story">
-      <p>Hi, I'm Kameron. I was diagnosed in 1992 at the age of four. My youngest daughter Kaislyn was diagnosed on September 27, 2022 at the age of three. I'm uninsured and manage without a CGM or pump, while she uses modern tools. Growing up when T1D felt scarier shaped me. The contrast between our experiences drives this site: explain the condition clearly, build affordable tools families can use now, and apply AI to keep attention and resources focused on real progress toward a cure.</p>
+      <p>Hi, I'm Kameron. I was diagnosed with Type 1 Diabetes in 1992 at the age of four. My youngest daughter, Kaislyn, was diagnosed in 2022, just before she turned four herself.<br><br>
+      
+      I'm uninsured and manage the old-school way — fingersticks and injections — while she uses modern tools like pumps and CGMs. Seeing the contrast between what I grew up with and what she has now is what drives me.<br><br>
+      
+      It's not an easy condition; it demands focus every single day. But that challenge is exactly why I built this site — to help families understand diabetes clearly, create affordable tools that make life easier, and use AI to push progress toward a real cure. Because every family deserves hope, and every child deserves a future free from this disease.</p>
     </div>
       <p class="tagline">Latest research breakthroughs, clinical trials, and easy-to-digest updates delivered to parents and families</p>
     </div>
@@ -813,7 +817,7 @@
     // Load breaking news teaser (just the top article)
     async function loadBreakingNewsTeaser() {
       try {
-        const response = await fetch('scraper/breaking_news_data.json');
+        const response = await fetch('breaking_news_data.json');
         const breakingNews = await response.json();
         
         if (breakingNews && breakingNews.length > 0) {
