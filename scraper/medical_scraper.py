@@ -33,35 +33,35 @@ class MedicalScraper:
         ]
         
     def scrape_exciting_news(self) -> List[Dict]:
-        """Scrape exciting, family-relevant news from popular health websites"""
-        logger.info("Scraping exciting news sources...")
+        """Scrape REAL news articles from legitimate health news sources"""
+        logger.info("Scraping real news sources...")
         
         exciting_sources = [
             {
-                'name': 'Healthline Diabetes',
-                'url': 'https://www.healthline.com/health/diabetes',
+                'name': 'Diabetes.org News',
+                'url': 'https://www.diabetes.org/newsroom',
                 'selectors': {
-                    'articles': 'article, .post, .entry',
-                    'title': 'h2 a, h3 a, .entry-title a',
-                    'link': 'h2 a, h3 a, .entry-title a',
-                    'summary': '.excerpt, .entry-summary, p'
-                }
-            },
-            {
-                'name': 'WebMD Diabetes',
-                'url': 'https://www.webmd.com/diabetes/news',
-                'selectors': {
-                    'articles': 'article, .post, .news-item',
+                    'articles': 'article, .news-item, .post',
                     'title': 'h2 a, h3 a, .title a',
                     'link': 'h2 a, h3 a, .title a',
                     'summary': '.excerpt, .summary, p'
                 }
             },
             {
-                'name': 'Mayo Clinic News',
-                'url': 'https://newsnetwork.mayoclinic.org/category/diabetes/',
+                'name': 'JDRF News',
+                'url': 'https://www.jdrf.org/news/',
                 'selectors': {
-                    'articles': 'article, .post, .search-result',
+                    'articles': 'article, .news-item, .post',
+                    'title': 'h2 a, h3 a, .title a',
+                    'link': 'h2 a, h3 a, .title a',
+                    'summary': '.excerpt, .summary, p'
+                }
+            },
+            {
+                'name': 'ADA News',
+                'url': 'https://www.diabetes.org/newsroom',
+                'selectors': {
+                    'articles': 'article, .news-item, .post',
                     'title': 'h2 a, h3 a, .title a',
                     'link': 'h2 a, h3 a, .title a',
                     'summary': '.excerpt, .summary, p'
@@ -715,77 +715,11 @@ class MedicalScraper:
             return "This work represents progress in understanding and treating Type 1 Diabetes. Research happens in steps - from understanding basic biology, to testing in labs, to clinical trials, to approved treatments. Every study, no matter how technical, moves us forward on that path toward better options and eventually a cure."
     
     def _add_special_articles(self) -> List[Dict]:
-        """Add special high-priority articles that deserve top billing"""
+        """Add special high-priority articles that deserve top billing - REAL ARTICLES ONLY"""
         special_articles = []
         
-        # Eledon Pharmaceuticals article (high buzz, high impact) - CORRECTED
-        eledon_article = {
-            'title': 'Eledon Pharmaceuticals Breakthrough: Tegoprubart Shows Promise for Type 1 Diabetes Treatment',
-            'abstract': 'Eledon Pharmaceuticals is making waves with tegoprubart, an anti-CD40L antibody that targets the immune system processes involved in autoimmune diseases like Type 1 Diabetes. While primarily being tested for organ transplant rejection, the mechanism of action has significant implications for preventing the autoimmune destruction of insulin-producing beta cells in Type 1 Diabetes patients.',
-            'source': 'Eledon Pharmaceuticals',
-            'url': 'https://eledon.com/science/in-the-news-science/',
-            'priority': 'HIGH',
-            'stage': 'Clinical Trials',
-            'research_type': 'Treatment',
-            'special': True,
-            'date': 'December 2024',
-            'excitement_rank': 5
-        }
-        special_articles.append(eledon_article)
-        
-        # Add more exciting, family-relevant headlines (ordered by excitement level)
-        exciting_articles = [
-            {
-                'title': 'FDA Approves New Ultra-Fast Insulin for Type 1 Diabetes - Available Now!',
-                'abstract': 'The FDA has approved a new ultra-fast-acting insulin that starts working in just 15 minutes, compared to 30 minutes for current fast-acting insulins. This means better blood sugar control after meals and more flexibility in timing meals and insulin doses. Many families are already seeing improved A1C levels and fewer high blood sugar episodes.',
-                'source': 'FDA News Release',
-                'url': 'https://www.fda.gov/news-events/press-announcements',
-                'priority': 'HIGH',
-                'stage': 'Approved',
-                'research_type': 'Treatment',
-                'special': True,
-                'date': 'October 2025',
-                'excitement_rank': 1  # Most exciting - available now!
-            },
-            {
-                'title': 'Revolutionary Stem Cell Therapy Shows 90% Success Rate in Early Trials',
-                'abstract': 'A groundbreaking stem cell therapy has shown remarkable results in early clinical trials, with 90% of participants achieving insulin independence for over 2 years. The therapy uses the patient\'s own stem cells to regenerate insulin-producing cells, potentially offering a functional cure for Type 1 Diabetes. Phase 3 trials are set to begin next year.',
-                'source': 'Nature Medicine',
-                'url': 'https://www.nature.com/subjects/diabetes',
-                'priority': 'HIGH',
-                'stage': 'Clinical Trials',
-                'research_type': 'Cure',
-                'special': True,
-                'date': 'October 2025',
-                'excitement_rank': 2  # Second most exciting - potential cure!
-            },
-            {
-                'title': 'Breakthrough: Scientists Discover How to Prevent Type 1 Diabetes Before It Starts',
-                'abstract': 'Researchers have identified a way to prevent Type 1 Diabetes in people at high risk by using a simple medication that stops the immune system from attacking insulin-producing cells. In a 5-year study, 85% of high-risk participants who took the medication did not develop diabetes, compared to only 15% in the control group. This could mean the end of Type 1 Diabetes for future generations.',
-                'source': 'NIH Research',
-                'url': 'https://www.nih.gov/news-events/news-releases',
-                'priority': 'HIGH',
-                'stage': 'Clinical Trials',
-                'research_type': 'Prevention',
-                'special': True,
-                'date': 'October 2025',
-                'excitement_rank': 3  # Third most exciting - prevention!
-            },
-            {
-                'title': 'New Smart Insulin Pump Automatically Adjusts for Exercise and Stress',
-                'abstract': 'The latest smart insulin pump uses AI to predict blood sugar changes and automatically adjust insulin delivery. It can detect when you\'re exercising, stressed, or sick, and make real-time adjustments to keep blood sugar stable. Early users report 40% fewer low blood sugar episodes and much better overnight control.',
-                'source': 'Medtronic Innovation',
-                'url': 'https://www.medtronic.com/us-en/healthcare-professionals/products/diabetes/insulin-pump-systems.html',
-                'priority': 'HIGH',
-                'stage': 'Available',
-                'research_type': 'Technology',
-                'special': True,
-                'date': 'September 2025',
-                'excitement_rank': 4  # Fourth most exciting - available technology
-            }
-        ]
-        
-        special_articles.extend(exciting_articles)
+        # Only add real, verified articles here
+        # No fake or placeholder content
         
         return special_articles
     

@@ -1,107 +1,44 @@
 [
   {
-    "id": "171dd2f3",
-    "badge": "APPROVAL",
-    "title": "FDA Approves New Ultra-Fast Insulin for Type 1 Diabetes - Available Now!",
-    "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
-    "details": {
-      "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
-    },
-    "meta": {
-      "published": "October 2025",
-      "phase": "Research",
-      "status": "Published",
-      "priority": "HIGH",
-      "stage": "Approved",
-      "research_type": "Treatment"
-    },
-    "link": "https://www.fda.gov/news-events/press-announcements",
-    "special": true,
-    "excitement_rank": 1
-  },
-  {
-    "id": "a83cf705",
-    "badge": "BREAKTHROUGH",
-    "title": "Revolutionary Stem Cell Therapy Shows 90% Success Rate in Early Trials",
-    "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
-    "details": {
-      "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
-    },
-    "meta": {
-      "published": "October 2025",
-      "phase": "Research",
-      "status": "Published",
-      "priority": "HIGH",
-      "stage": "Clinical Trials",
-      "research_type": "Cure"
-    },
-    "link": "https://www.nature.com/subjects/diabetes",
-    "special": true,
-    "excitement_rank": 2
-  },
-  {
-    "id": "4bcbf5e4",
-    "badge": "BREAKTHROUGH",
-    "title": "Breakthrough: Scientists Discover How to Prevent Type 1 Diabetes Before It Starts",
-    "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
-    "details": {
-      "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
-    },
-    "meta": {
-      "published": "October 2025",
-      "phase": "Research",
-      "status": "Published",
-      "priority": "HIGH",
-      "stage": "Clinical Trials",
-      "research_type": "Prevention"
-    },
-    "link": "https://www.nih.gov/news-events/news-releases",
-    "special": true,
-    "excitement_rank": 3
-  },
-  {
-    "id": "75ea90e3",
+    "id": "1753f6d8",
     "badge": "NEW",
-    "title": "New Smart Insulin Pump Automatically Adjusts for Exercise and Stress",
-    "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
+    "title": "Development of a Diabetes Rural Stakeholder Research Team and Patient-Centered Research Agenda.",
+    "summary": "This research tested new treatment approaches in Type 1 Diabetes. The findings could contribute to better understanding and treatment of the disease.",
     "details": {
       "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
+      "content": "This research adds to our scientific understanding of Type 1 Diabetes. While not every study leads to immediate treatments, each piece of knowledge helps researchers develop better therapies. Breakthroughs often come from connecting insights across many different studies like this one."
     },
     "meta": {
-      "published": "September 2025",
+      "published": "23 Oct 2025",
       "phase": "Research",
       "status": "Published",
-      "priority": "HIGH",
-      "stage": "Available",
-      "research_type": "Technology"
+      "priority": "MEDIUM",
+      "stage": "Early Research",
+      "research_type": "Research"
     },
-    "link": "https://www.medtronic.com/us-en/healthcare-professionals/products/diabetes/insulin-pump-systems.html",
-    "special": true,
-    "excitement_rank": 4
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41127954/",
+    "special": false,
+    "excitement_rank": 999
   },
   {
-    "id": "df57e48c",
-    "badge": "BREAKTHROUGH",
-    "title": "Eledon Pharmaceuticals Breakthrough: Tegoprubart Shows Promise for Type 1 Diabetes Treatment",
-    "summary": "Eledon Pharmaceuticals is developing tegoprubart, a medication that blocks a specific immune system signal (CD40L) that causes the body to attack its own cells. While being tested for organ transplants, this same mechanism could potentially stop the immune system from destroying insulin-producing cells in Type 1 Diabetes. Think of it as turning off the 'attack switch' that causes the disease.",
+    "id": "8b696105",
+    "badge": "NEW",
+    "title": "Transition to Adult Care in Youth with Type 1 Diabetes: Follow-Up Continuity, Complications, and Metabolic Control.",
+    "summary": "This research focuses on what happens when young people with Type 1 Diabetes move from pediatric care to adult care. It's studying how to make this transition smoother and keep people healthy during this important life change.",
     "details": {
       "heading": "\ud83d\udd2c What This Means for Families:",
-      "content": "This high-priority research represents a significant step forward in our understanding and treatment of Type 1 Diabetes. The potential impact on quality of life and disease management could be substantial for people living with this condition."
+      "content": "Moving from pediatric to adult diabetes care is a critical time. Young adults often struggle with maintaining good blood sugar control during this transition. This research helps us understand what goes wrong and how to better support people during this change. Better transition care means fewer complications and hospitalizations during this vulnerable period."
     },
     "meta": {
-      "published": "December 2024",
+      "published": "27 Oct 2025",
       "phase": "Research",
       "status": "Published",
-      "priority": "HIGH",
-      "stage": "Clinical Trials",
-      "research_type": "Treatment"
+      "priority": "MEDIUM",
+      "stage": "Early Research",
+      "research_type": "Research"
     },
-    "link": "https://eledon.com/science/in-the-news-science/",
-    "special": true,
-    "excitement_rank": 5
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41143600/",
+    "special": false,
+    "excitement_rank": 999
   }
 ]
