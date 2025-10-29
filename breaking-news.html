@@ -149,6 +149,33 @@
       font-weight: 600;
       border: 1px solid rgba(245, 158, 11, 0.3);
     }
+    .breaking-details-list {
+      margin-top: 10px;
+    }
+    .breaking-details-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .breaking-details-list li {
+      background: rgba(30, 144, 255, 0.15);
+      color: #1e90ff;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.85em;
+      font-weight: 600;
+      border: 1px solid rgba(30, 144, 255, 0.3);
+      position: relative;
+    }
+    .breaking-details-list li:before {
+      content: "•";
+      color: #1e90ff;
+      font-weight: bold;
+      margin-right: 6px;
+    }
     .breaking-link {
       display: inline-block;
       background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
@@ -237,8 +264,15 @@
               <span>Phase: ${news.meta.phase}</span>
               <span>Status: ${news.meta.status}</span>
               <span>Priority: ${news.meta.priority}</span>
-              <span style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%); color: white;">${news.meta.stage}</span>
-              <span style="background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%); color: white;">${news.meta.research_type}</span>
+              <div class="breaking-details-list">
+                <ul>
+                  <li>${news.meta.stage}</li>
+                  <li>${news.meta.research_type}</li>
+                  ${news.meta.stage === 'Clinical Trials' && news.meta.research_type === 'Treatment' ? '<li>Potential Functional Cure</li>' : ''}
+                  ${news.meta.stage === 'Clinical Trials' && news.meta.research_type === 'Cure' ? '<li>Breakthrough Research</li>' : ''}
+                  ${news.meta.stage === 'Approved' ? '<li>Available Now</li>' : ''}
+                </ul>
+              </div>
             </div>
             <a href="${news.link}" class="breaking-link" target="_blank">Read Full Report →</a>
           </div>

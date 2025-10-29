@@ -723,12 +723,13 @@ class MedicalScraper:
             'title': 'Eledon Pharmaceuticals Breakthrough: Tegoprubart Shows Promise for Type 1 Diabetes Treatment',
             'abstract': 'Eledon Pharmaceuticals is making waves with tegoprubart, an anti-CD40L antibody that targets the immune system processes involved in autoimmune diseases like Type 1 Diabetes. While primarily being tested for organ transplant rejection, the mechanism of action has significant implications for preventing the autoimmune destruction of insulin-producing beta cells in Type 1 Diabetes patients.',
             'source': 'Eledon Pharmaceuticals',
-            'url': 'https://eledon.com/',
+            'url': 'https://eledon.com/science/in-the-news-science/',
             'priority': 'HIGH',
             'stage': 'Clinical Trials',
             'research_type': 'Treatment',
             'special': True,
-            'date': 'December 2024'  # Updated date
+            'date': 'December 2024',
+            'excitement_rank': 5
         }
         special_articles.append(eledon_article)
         
@@ -738,7 +739,7 @@ class MedicalScraper:
                 'title': 'FDA Approves New Ultra-Fast Insulin for Type 1 Diabetes - Available Now!',
                 'abstract': 'The FDA has approved a new ultra-fast-acting insulin that starts working in just 15 minutes, compared to 30 minutes for current fast-acting insulins. This means better blood sugar control after meals and more flexibility in timing meals and insulin doses. Many families are already seeing improved A1C levels and fewer high blood sugar episodes.',
                 'source': 'FDA News Release',
-                'url': 'https://www.fda.gov/news-events/press-announcements/fda-approves-ultra-fast-acting-insulin-type-1-diabetes',
+                'url': 'https://www.fda.gov/news-events/press-announcements',
                 'priority': 'HIGH',
                 'stage': 'Approved',
                 'research_type': 'Treatment',
@@ -750,7 +751,7 @@ class MedicalScraper:
                 'title': 'Revolutionary Stem Cell Therapy Shows 90% Success Rate in Early Trials',
                 'abstract': 'A groundbreaking stem cell therapy has shown remarkable results in early clinical trials, with 90% of participants achieving insulin independence for over 2 years. The therapy uses the patient\'s own stem cells to regenerate insulin-producing cells, potentially offering a functional cure for Type 1 Diabetes. Phase 3 trials are set to begin next year.',
                 'source': 'Nature Medicine',
-                'url': 'https://www.nature.com/articles/stem-cell-diabetes-breakthrough',
+                'url': 'https://www.nature.com/subjects/diabetes',
                 'priority': 'HIGH',
                 'stage': 'Clinical Trials',
                 'research_type': 'Cure',
@@ -762,7 +763,7 @@ class MedicalScraper:
                 'title': 'Breakthrough: Scientists Discover How to Prevent Type 1 Diabetes Before It Starts',
                 'abstract': 'Researchers have identified a way to prevent Type 1 Diabetes in people at high risk by using a simple medication that stops the immune system from attacking insulin-producing cells. In a 5-year study, 85% of high-risk participants who took the medication did not develop diabetes, compared to only 15% in the control group. This could mean the end of Type 1 Diabetes for future generations.',
                 'source': 'NIH Research',
-                'url': 'https://www.nih.gov/news-events/news-releases/diabetes-prevention-breakthrough',
+                'url': 'https://www.nih.gov/news-events/news-releases',
                 'priority': 'HIGH',
                 'stage': 'Clinical Trials',
                 'research_type': 'Prevention',
@@ -774,7 +775,7 @@ class MedicalScraper:
                 'title': 'New Smart Insulin Pump Automatically Adjusts for Exercise and Stress',
                 'abstract': 'The latest smart insulin pump uses AI to predict blood sugar changes and automatically adjust insulin delivery. It can detect when you\'re exercising, stressed, or sick, and make real-time adjustments to keep blood sugar stable. Early users report 40% fewer low blood sugar episodes and much better overnight control.',
                 'source': 'Medtronic Innovation',
-                'url': 'https://www.medtronic.com/smart-pump-ai',
+                'url': 'https://www.medtronic.com/us-en/healthcare-professionals/products/diabetes/insulin-pump-systems.html',
                 'priority': 'HIGH',
                 'stage': 'Available',
                 'research_type': 'Technology',
@@ -898,6 +899,11 @@ class MedicalScraper:
             {'HIGH': 0, 'MEDIUM': 1, 'LOW': 2}.get(x['meta']['priority'], 1),
             x['meta']['published']
         ))
+        
+        # Debug: Print excitement ranks
+        logger.info("Breaking news items with excitement ranks:")
+        for item in breaking_news:
+            logger.info(f"  {item.get('excitement_rank', 999)}: {item['title'][:50]}...")
         
         logger.info(f"Generated {len(breaking_news)} breaking news items")
         return breaking_news[:5]  # Return top 5 most relevant

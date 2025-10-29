@@ -1,6 +1,6 @@
 [
   {
-    "id": "71db74d9",
+    "id": "171dd2f3",
     "badge": "APPROVAL",
     "title": "FDA Approves New Ultra-Fast Insulin for Type 1 Diabetes - Available Now!",
     "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
@@ -16,12 +16,12 @@
       "stage": "Approved",
       "research_type": "Treatment"
     },
-    "link": "https://www.fda.gov/news-events/press-announcements/fda-approves-ultra-fast-acting-insulin-type-1-diabetes",
+    "link": "https://www.fda.gov/news-events/press-announcements",
     "special": true,
     "excitement_rank": 1
   },
   {
-    "id": "b1c0a3e8",
+    "id": "a83cf705",
     "badge": "BREAKTHROUGH",
     "title": "Revolutionary Stem Cell Therapy Shows 90% Success Rate in Early Trials",
     "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
@@ -37,12 +37,12 @@
       "stage": "Clinical Trials",
       "research_type": "Cure"
     },
-    "link": "https://www.nature.com/articles/stem-cell-diabetes-breakthrough",
+    "link": "https://www.nature.com/subjects/diabetes",
     "special": true,
     "excitement_rank": 2
   },
   {
-    "id": "400ac83b",
+    "id": "4bcbf5e4",
     "badge": "BREAKTHROUGH",
     "title": "Breakthrough: Scientists Discover How to Prevent Type 1 Diabetes Before It Starts",
     "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
@@ -58,12 +58,12 @@
       "stage": "Clinical Trials",
       "research_type": "Prevention"
     },
-    "link": "https://www.nih.gov/news-events/news-releases/diabetes-prevention-breakthrough",
+    "link": "https://www.nih.gov/news-events/news-releases",
     "special": true,
     "excitement_rank": 3
   },
   {
-    "id": "227bff06",
+    "id": "75ea90e3",
     "badge": "NEW",
     "title": "New Smart Insulin Pump Automatically Adjusts for Exercise and Stress",
     "summary": "This is a high-priority development in Type 1 Diabetes research that could significantly impact treatment options and quality of life for people living with the condition.",
@@ -79,12 +79,12 @@
       "stage": "Available",
       "research_type": "Technology"
     },
-    "link": "https://www.medtronic.com/smart-pump-ai",
+    "link": "https://www.medtronic.com/us-en/healthcare-professionals/products/diabetes/insulin-pump-systems.html",
     "special": true,
     "excitement_rank": 4
   },
   {
-    "id": "846a3dfd",
+    "id": "df57e48c",
     "badge": "BREAKTHROUGH",
     "title": "Eledon Pharmaceuticals Breakthrough: Tegoprubart Shows Promise for Type 1 Diabetes Treatment",
     "summary": "Eledon Pharmaceuticals is developing tegoprubart, a medication that blocks a specific immune system signal (CD40L) that causes the body to attack its own cells. While being tested for organ transplants, this same mechanism could potentially stop the immune system from destroying insulin-producing cells in Type 1 Diabetes. Think of it as turning off the 'attack switch' that causes the disease.",
@@ -100,8 +100,8 @@
       "stage": "Clinical Trials",
       "research_type": "Treatment"
     },
-    "link": "https://eledon.com/",
+    "link": "https://eledon.com/science/in-the-news-science/",
     "special": true,
-    "excitement_rank": 999
+    "excitement_rank": 5
   }
 ]
