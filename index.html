@@ -47,6 +47,24 @@
       --space-2xl: 64px;
     }
 
+    [data-theme="dark"] {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --accent: #06b6d4;
+      --success: #10b981;
+      --warning: #ef4444;
+      --purple: #8b5cf6;
+      --dark: #f8fafc;
+      --gray: #cbd5e1;
+      --light-gray: #334155;
+      --bg-light: #1e293b;
+      --white: #0f172a;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -55,6 +73,11 @@
       min-height: 100vh;
       line-height: 1.6;
       color: var(--dark);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    [data-theme="dark"] body {
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
     }
 
     .container {
@@ -698,6 +721,54 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Dark Mode Toggle */
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: var(--space-lg);
+      right: var(--space-lg);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      z-index: 1000;
+    }
+
+    .dark-mode-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+    }
+
+    .dark-mode-toggle:active {
+      transform: scale(0.95);
+    }
+
+    [data-theme="dark"] .dark-mode-toggle {
+      background: var(--warning);
+    }
+
+    [data-theme="dark"] .dark-mode-toggle:hover {
+      box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
+    }
+
+    @media (max-width: 480px) {
+      .dark-mode-toggle {
+        bottom: var(--space-md);
+        right: var(--space-md);
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -826,7 +897,7 @@
         Stay Updated
       </h2>
       <p>Get weekly research updates delivered to your inbox. Join parents from around the world.</p>
-      <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form class="signup-form" action="https://formspree.io/f/xanlwdpq" method="POST">
         <input type="email" name="email" placeholder="Your email address" required>
         <button type="submit">Join the List</button>
       </form>
@@ -936,6 +1007,46 @@
     // Load all content on page load
     loadReports();
     loadBreakingNewsTeaser();
+  </script>
+
+  <!-- Dark Mode Toggle -->
+  <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <script>
+    // Dark mode functionality
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    const icon = darkModeToggle.querySelector('i');
+
+    // Check for saved theme preference or default to 'light'
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+
+    // Update icon based on current theme
+    if (currentTheme === 'dark') {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    }
+
+    // Toggle dark mode
+    darkModeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+
+      // Update icon
+      if (newTheme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    });
   </script>
 </body>
 </html>
