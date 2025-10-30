@@ -55,16 +55,16 @@
         },
         {
           "company": "Novo Nordisk",
-          "program_name": "My$99Insulin",
-          "url": "https://www.novonordisk-us.com/patients/diabetes-care/save-on-insulin/my99insulin.html",
-          "description": "$99 for a 30-day supply of insulin for people without insurance.",
-          "eligibility": "People without insurance or whose insurance doesn't cover insulin",
-          "how_to_apply": "Present savings card at pharmacy",
-          "contact_info": "1-844-Novo4Me",
+          "program_name": "MyInsulinRx™ Program",
+          "url": "https://www.novocare.com/diabetes/help-with-costs/help-with-insulin-costs/myinsulinrx.html",
+          "description": "$35 for a monthly supply of Novo Nordisk insulin for people without insurance or with high costs.",
+          "eligibility": "People without insurance or whose insurance doesn't cover insulin adequately",
+          "how_to_apply": "Register online and present savings card at pharmacy",
+          "contact_info": "1-844-668-6463",
           "key_benefits": [
-            "$99 for 30-day supply",
+            "$35 for monthly supply",
             "No income requirements",
-            "Available at most pharmacies"
+            "Covers up to 3 vials or 2 packs of pens"
           ]
         },
         {
@@ -88,11 +88,11 @@
       "programs": [
         {
           "company": "Dexcom",
-          "program_name": "Dexcom Warrior Program",
-          "url": "https://dexcom.custhelp.com/app/answers/detail/a_id/1648",
-          "description": "Financial assistance for Dexcom CGM systems and supplies.",
+          "program_name": "Dexcom Patient Assistance Program",
+          "url": "https://assistance.dexcom.com/",
+          "description": "Financial assistance for Dexcom CGM systems and supplies for eligible patients.",
           "eligibility": "Financial need, no insurance or inadequate coverage",
-          "how_to_apply": "Contact Dexcom customer service for application",
+          "how_to_apply": "Apply online at assistance.dexcom.com or contact Dexcom customer service",
           "contact_info": "1-844-373-9266",
           "key_benefits": [
             "Reduced cost CGM",
@@ -259,17 +259,17 @@
           ]
         },
         {
-          "company": "Partnership for Prescription Assistance",
-          "program_name": "Medicine Assistance Tool",
-          "url": "https://www.pparx.org/",
-          "description": "Helps patients find assistance programs for their medications.",
+          "company": "PhRMA",
+          "program_name": "Medicine Assistance Tool (MAT)",
+          "url": "https://medicineassistancetool.org/",
+          "description": "Free search engine connecting patients to over 900 public and private assistance programs.",
           "eligibility": "Varies by program",
-          "how_to_apply": "Use online matching tool",
+          "how_to_apply": "Use online search tool to find matching programs",
           "contact_info": "Visit website",
           "key_benefits": [
-            "Program matching",
+            "Access to 900+ programs",
             "Free service",
-            "Multiple options"
+            "Single point of access"
           ]
         },
         {
