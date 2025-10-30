@@ -59,7 +59,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      margin-bottom: var(--space-xl);
+      margin-bottom: var(--space-lg);
       border-bottom: 1px solid #e2e8f0;
     }
 
@@ -67,8 +67,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: var(--space-md);
-      padding-bottom: var(--space-md);
+      padding-top: var(--space-xs);
+      padding-bottom: var(--space-xs);
     }
 
     .nav-logo {
@@ -80,7 +80,7 @@
       transform: scale(1.05);
     }
     .nav-logo img {
-      height: 45px;
+      height: 60px;
       width: auto;
     }
 
@@ -390,6 +390,13 @@
     }
 
     @media (max-width: 768px) {
+      nav {
+        margin-bottom: var(--space-md);
+      }
+      nav .container {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+      }
       .container {
         padding: 0;
         max-width: 100%;
@@ -454,15 +461,14 @@
 
     @media (max-width: 480px) {
       nav {
-        padding-top: var(--space-sm);
-        padding-bottom: var(--space-sm);
+        margin-bottom: var(--space-md);
       }
       nav .container {
         flex-wrap: wrap;
         justify-content: center;
-        gap: var(--space-sm);
-        padding-top: var(--space-sm);
-        padding-bottom: var(--space-sm);
+        gap: var(--space-xs);
+        padding-top: var(--space-xs);
+        padding-bottom: var(--space-xs);
       }
       .nav-logo {
         width: 100%;
@@ -470,7 +476,7 @@
         margin-bottom: var(--space-xs);
       }
       .nav-logo img {
-        height: 40px;
+        height: 50px;
       }
       .nav-links {
         width: 100%;
@@ -479,7 +485,7 @@
         font-size: 0.8125rem;
       }
       .nav-links a {
-        padding: var(--space-xs) 10px;
+        padding: 6px 10px;
         font-size: 0.75rem;
       }
     }
@@ -506,7 +512,7 @@
         <i class="fas fa-arrow-left"></i> Back to Home
       </a>
       <h1><i class="fas fa-hands-helping"></i> Diabetes Assistance Programs</h1>
-      <p>Help for uninsured families managing Type 1 Diabetes</p>
+      <p>Resources to help manage the cost of diabetes care</p>
     </div>
 
     <div id="assistanceContent" class="loading">
