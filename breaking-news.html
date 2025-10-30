@@ -508,13 +508,6 @@
               <h2 class="breaking-title">${item.title}</h2>
               <p class="breaking-summary">${item.summary}</p>
 
-              ${item.details ? `
-                <div class="breaking-details">
-                  <h4><i class="fas fa-lightbulb"></i> ${item.details.heading}</h4>
-                  <p>${item.details.content}</p>
-                </div>
-              ` : ''}
-
               <div class="breaking-meta">
                 ${item.meta.published ? `<span><i class="far fa-clock"></i> ${item.meta.published}</span>` : ''}
                 ${item.meta.stage ? `<span><i class="fas fa-flask"></i> ${item.meta.stage}</span>` : ''}

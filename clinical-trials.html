@@ -590,88 +590,118 @@
       return 'Type 1 Diabetes Research Study';
     }
 
-    // Extract key eligibility requirements
+    // Extract key eligibility requirements from title
     function extractEligibility(trial) {
-      const eligibility = (trial.eligibility || '').toLowerCase();
-      const title = (trial.title || trial.study_title || '').toLowerCase();
-      const summary = (trial.brief_summary || '').toLowerCase();
-      const fullText = `${eligibility} ${title} ${summary}`;
+      const title = trial.title || '';
 
       const requirements = {
         age: null,
         sex: null,
         a1c: null,
-        location: trial.location || null
+        location: null
       };
 
-      // Extract age
+      // Extract age from title - look for patterns like "Ages 8 to 34", "8-34 Years", "Pediatric and Adult", etc
       const agePatterns = [
-        /ages?\s+(\d+)\s*-\s*(\d+)/i,
-        /(\d+)\s*-\s*(\d+)\s*years/i,
-        /between\s+(\d+)\s+and\s+(\d+)/i,
-        /(\d+)\s+to\s+(\d+)\s+years/i
+        /aged?\s+(\d+)\s+to\s+(\d+)\s+years?/i,
+        /(\d+)\s+to\s+(\d+)\s+years?/i,
+        /ages?\s+(\d+)-(\d+)/i,
+        /participants?\s+(\d+)-(\d+)/i,
+        /children?\s+age\s+(\d+)-(\d+)/i
       ];
+
       for (const pattern of agePatterns) {
-        const match = eligibility.match(pattern);
+        const match = title.match(pattern);
         if (match) {
           requirements.age = `${match[1]}-${match[2]} years`;
           break;
         }
       }
 
-      // Check for pediatric/adult
+      // Check for specific age groups in title
       if (!requirements.age) {
-        if (eligibility.includes('child') || eligibility.includes('pediatric') || eligibility.includes('youth')) {
-          requirements.age = 'Children/Youth';
-        } else if (eligibility.includes('adult') && !eligibility.includes('child')) {
-          requirements.age = 'Adults Only';
+        if (title.match(/pediatric and adult/i)) {
+          requirements.age = 'Children & Adults';
+        } else if (title.match(/pediatric|children|youth/i)) {
+          requirements.age = 'Children/Teens';
+        } else if (title.match(/adolescent/i) && title.match(/adult/i)) {
+          requirements.age = 'Teens & Adults';
+        } else if (title.match(/adolescent/i)) {
+          requirements.age = 'Teens';
+        } else if (title.match(/adult/i)) {
+          requirements.age = 'Adults';
         }
       }
 
-      // Extract sex/gender
-      if (eligibility.includes('male') && eligibility.includes('female')) {
-        requirements.sex = 'All';
-      } else if (eligibility.includes('male') && !eligibility.includes('female')) {
-        requirements.sex = 'Male Only';
-      } else if (eligibility.includes('female') && !eligibility.includes('male')) {
-        requirements.sex = 'Female Only';
-      } else {
-        requirements.sex = 'All';
-      }
+      // Sex is usually "All" unless specified
+      requirements.sex = 'All';
 
-      // Extract A1C
-      const a1cPatterns = [
-        /a1c\s*[<>≤≥]?\s*(\d+\.?\d*)%?\s*-?\s*(\d+\.?\d*)?%?/i,
-        /hba1c\s*[<>≤≥]?\s*(\d+\.?\d*)%?\s*-?\s*(\d+\.?\d*)?%?/i,
-        /hemoglobin\s+a1c\s*[<>≤≥]?\s*(\d+\.?\d*)%?\s*-?\s*(\d+\.?\d*)?%?/i
+      // Extract location from title
+      const locationPatterns = [
+        /japanese/i,
+        /japan/i,
+        /european/i,
+        /multicenter/i
       ];
-      for (const pattern of a1cPatterns) {
-        const match = fullText.match(pattern);
+
+      for (const pattern of locationPatterns) {
+        const match = title.match(pattern);
         if (match) {
-          if (match[2]) {
-            requirements.a1c = `${match[1]}-${match[2]}%`;
-          } else {
-            requirements.a1c = `${match[1]}%`;
+          if (match[0].toLowerCase().includes('japan')) {
+            requirements.location = 'Japan';
+          } else if (match[0].toLowerCase().includes('european')) {
+            requirements.location = 'Europe';
+          } else if (match[0].toLowerCase().includes('multicenter')) {
+            requirements.location = 'Multiple Sites';
           }
           break;
         }
       }
 
-      // Extract location - look for US states or countries
-      const locationPatterns = [
-        /location[s]?:\s*([^\.]+)/i,
-        /conducted\s+in\s+([^\.]+)/i,
-        /(united states|usa|u\.s\.|california|texas|new york|florida|massachusetts)/i
-      ];
-      for (const pattern of locationPatterns) {
-        const match = fullText.match(pattern);
-        if (match) {
-          requirements.location = match[1].trim();
-          break;
-        }
+      return requirements;
+    }
+
+    // Create a readable summary from the technical title
+    function createSummaryFromTitle(title) {
+      // Remove common study prefixes
+      let summary = title
+        .replace(/^(A|An)\s+(Phase\s+\d+[a-z]?|Randomized|Double-blind|Open-label|Multicenter|Multi-center|Single-center|Prospective|Observational)\s+/gi, '')
+        .replace(/,?\s+(Phase\s+\d+[a-z]?|Randomized|Double-blind|Placebo-controlled|Open-label|Multicenter|Multi-center|Single-center)\s+/gi, ' ')
+        .replace(/Study/gi, 'study');
+
+      // Capitalize first letter
+      summary = summary.charAt(0).toUpperCase() + summary.slice(1);
+
+      // If it's still too long, truncate intelligently
+      if (summary.length > 200) {
+        summary = summary.substring(0, 197) + '...';
       }
 
-      return requirements;
+      return summary;
+    }
+
+    // Fetch trial details from ClinicalTrials.gov API
+    async function fetchTrialDetails(nctId) {
+      try {
+        const response = await fetch(`https://clinicaltrials.gov/api/v2/studies/${nctId}`);
+        const data = await response.json();
+
+        if (data && data.protocolSection) {
+          const eligibility = data.protocolSection.eligibilityModule || {};
+          const description = data.protocolSection.descriptionModule || {};
+
+          return {
+            summary: description.briefSummary || '',
+            minAge: eligibility.minimumAge || null,
+            maxAge: eligibility.maximumAge || null,
+            sex: eligibility.sex || 'All',
+            locations: data.protocolSection.contactsLocationsModule?.locations || []
+          };
+        }
+      } catch (error) {
+        console.error(`Error fetching details for ${nctId}:`, error);
+        return null;
+      }
     }
 
     async function loadTrials() {
@@ -684,49 +714,29 @@
         if (trials && trials.length > 0) {
           document.getElementById('totalTrials').textContent = trials.length;
 
+          // Show loading state first
           container.innerHTML = trials.map((trial, index) => {
-            const technicalTitle = trial.title || trial.study_title || 'Untitled Trial';
+            const technicalTitle = trial.title || 'Untitled Trial';
             const plainTitle = getPlainEnglishTitle(trial);
+            const summary = createSummaryFromTitle(technicalTitle);
             const requirements = extractEligibility(trial);
 
             return `
-            <div class="trial-card">
-              <div class="trial-badge badge-recruiting">RECRUITING</div>
+            <div class="trial-card" id="trial-${index}">
+              <div class="trial-badge badge-recruiting">${trial.status || 'RECRUITING'}</div>
               <h2 class="trial-title">${plainTitle}</h2>
 
-              <div class="quick-eligibility">
+              <div class="quick-eligibility" id="quick-${index}">
                 <h3><i class="fas fa-bolt"></i> Quick Check</h3>
                 <div class="eligibility-grid">
-                  ${requirements.age ? `
-                    <div class="eligibility-item">
-                      <i class="fas fa-birthday-cake"></i>
-                      <span>${requirements.age}</span>
-                    </div>
-                  ` : ''}
-                  ${requirements.sex ? `
-                    <div class="eligibility-item">
-                      <i class="fas fa-user"></i>
-                      <span>${requirements.sex}</span>
-                    </div>
-                  ` : ''}
-                  ${requirements.a1c ? `
-                    <div class="eligibility-item">
-                      <i class="fas fa-vial"></i>
-                      <span>A1C: ${requirements.a1c}</span>
-                    </div>
-                  ` : ''}
-                  ${requirements.location ? `
-                    <div class="eligibility-item">
-                      <i class="fas fa-map-marker-alt"></i>
-                      <span>${requirements.location}</span>
-                    </div>
-                  ` : ''}
+                  <div class="eligibility-item">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Loading eligibility...</span>
+                  </div>
                 </div>
               </div>
 
-              ${trial.brief_summary ? `
-                <p class="trial-summary">${trial.brief_summary}</p>
-              ` : ''}
+              <p class="trial-summary" id="summary-${index}">${summary}</p>
 
               <div class="technical-details" onclick="toggleTechnical(${index})">
                 <div class="technical-header">
@@ -743,24 +753,62 @@
               <div class="trial-meta">
                 ${trial.phase ? `<span><i class="fas fa-vial"></i> ${trial.phase}</span>` : ''}
                 ${trial.status ? `<span><i class="fas fa-heartbeat"></i> ${trial.status}</span>` : ''}
-                ${trial.start_date ? `<span><i class="far fa-calendar"></i> ${trial.start_date}</span>` : ''}
+                ${trial.start_date ? `<span><i class="far fa-calendar"></i> Start: ${trial.start_date}</span>` : ''}
               </div>
-
-              ${trial.eligibility ? `
-                <div class="section eligibility-section">
-                  <h3><i class="fas fa-user-check"></i> Full Eligibility Criteria</h3>
-                  <p>${trial.eligibility}</p>
-                </div>
-              ` : ''}
 
               ${trial.nct_id ? `
                 <div class="section contact-section">
                   <h3><i class="fas fa-link"></i> Learn More & Apply</h3>
-                  <p><a href="https://clinicaltrials.gov/study/${trial.nct_id}" target="_blank" style="color: #7c3aed; font-weight: 600;">View Full Details on ClinicalTrials.gov <i class="fas fa-external-link-alt"></i></a></p>
+                  <p><a href="https://clinicaltrials.gov/study/${trial.nct_id}" target="_blank" style="color: #7c3aed; font-weight: 600;">View Full Details & Eligibility on ClinicalTrials.gov <i class="fas fa-external-link-alt"></i></a></p>
                 </div>
               ` : ''}
             </div>
           `}).join('');
+
+          // Fetch detailed data for each trial
+          trials.forEach(async (trial, index) => {
+            if (trial.nct_id) {
+              const details = await fetchTrialDetails(trial.nct_id);
+
+              if (details) {
+                // Update summary if we got a better one
+                if (details.summary && details.summary.length > 50) {
+                  const summaryEl = document.getElementById(`summary-${index}`);
+                  if (summaryEl) {
+                    summaryEl.textContent = details.summary;
+                  }
+                }
+
+                // Update quick eligibility with real data
+                const quickEl = document.getElementById(`quick-${index}`);
+                if (quickEl) {
+                  const locationText = details.locations.length > 0
+                    ? `${details.locations.length} location${details.locations.length > 1 ? 's' : ''}`
+                    : 'Multiple Sites';
+
+                  quickEl.innerHTML = `
+                    <h3><i class="fas fa-bolt"></i> Quick Check</h3>
+                    <div class="eligibility-grid">
+                      ${details.minAge || details.maxAge ? `
+                        <div class="eligibility-item">
+                          <i class="fas fa-birthday-cake"></i>
+                          <span>${details.minAge || '?'} - ${details.maxAge || '?'}</span>
+                        </div>
+                      ` : ''}
+                      <div class="eligibility-item">
+                        <i class="fas fa-user"></i>
+                        <span>${details.sex}</span>
+                      </div>
+                      <div class="eligibility-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>${locationText}</span>
+                      </div>
+                    </div>
+                  `;
+                }
+              }
+            }
+          });
         } else {
           container.innerHTML = '<div class="loading"><p>No trials available at this time.</p></div>';
         }
