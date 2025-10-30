@@ -590,6 +590,90 @@
       return 'Type 1 Diabetes Research Study';
     }
 
+    // Extract key eligibility requirements
+    function extractEligibility(trial) {
+      const eligibility = (trial.eligibility || '').toLowerCase();
+      const title = (trial.title || trial.study_title || '').toLowerCase();
+      const summary = (trial.brief_summary || '').toLowerCase();
+      const fullText = `${eligibility} ${title} ${summary}`;
+
+      const requirements = {
+        age: null,
+        sex: null,
+        a1c: null,
+        location: trial.location || null
+      };
+
+      // Extract age
+      const agePatterns = [
+        /ages?\s+(\d+)\s*-\s*(\d+)/i,
+        /(\d+)\s*-\s*(\d+)\s*years/i,
+        /between\s+(\d+)\s+and\s+(\d+)/i,
+        /(\d+)\s+to\s+(\d+)\s+years/i
+      ];
+      for (const pattern of agePatterns) {
+        const match = eligibility.match(pattern);
+        if (match) {
+          requirements.age = `${match[1]}-${match[2]} years`;
+          break;
+        }
+      }
+
+      // Check for pediatric/adult
+      if (!requirements.age) {
+        if (eligibility.includes('child') || eligibility.includes('pediatric') || eligibility.includes('youth')) {
+          requirements.age = 'Children/Youth';
+        } else if (eligibility.includes('adult') && !eligibility.includes('child')) {
+          requirements.age = 'Adults Only';
+        }
+      }
+
+      // Extract sex/gender
+      if (eligibility.includes('male') && eligibility.includes('female')) {
+        requirements.sex = 'All';
+      } else if (eligibility.includes('male') && !eligibility.includes('female')) {
+        requirements.sex = 'Male Only';
+      } else if (eligibility.includes('female') && !eligibility.includes('male')) {
+        requirements.sex = 'Female Only';
+      } else {
+        requirements.sex = 'All';
+      }
+
+      // Extract A1C
+      const a1cPatterns = [
+        /a1c\s*[<>≤≥]?\s*(\d+\.?\d*)%?\s*-?\s*(\d+\.?\d*)?%?/i,
+        /hba1c\s*[<>≤≥]?\s*(\d+\.?\d*)%?\s*-?\s*(\d+\.?\d*)?%?/i,
+        /hemoglobin\s+a1c\s*[<>≤≥]?\s*(\d+\.?\d*)%?\s*-?\s*(\d+\.?\d*)?%?/i
+      ];
+      for (const pattern of a1cPatterns) {
+        const match = fullText.match(pattern);
+        if (match) {
+          if (match[2]) {
+            requirements.a1c = `${match[1]}-${match[2]}%`;
+          } else {
+            requirements.a1c = `${match[1]}%`;
+          }
+          break;
+        }
+      }
+
+      // Extract location - look for US states or countries
+      const locationPatterns = [
+        /location[s]?:\s*([^\.]+)/i,
+        /conducted\s+in\s+([^\.]+)/i,
+        /(united states|usa|u\.s\.|california|texas|new york|florida|massachusetts)/i
+      ];
+      for (const pattern of locationPatterns) {
+        const match = fullText.match(pattern);
+        if (match) {
+          requirements.location = match[1].trim();
+          break;
+        }
+      }
+
+      return requirements;
+    }
+
     async function loadTrials() {
       try {
         const response = await fetch('scraper/trials_data.json');
@@ -603,11 +687,42 @@
           container.innerHTML = trials.map((trial, index) => {
             const technicalTitle = trial.title || trial.study_title || 'Untitled Trial';
             const plainTitle = getPlainEnglishTitle(trial);
+            const requirements = extractEligibility(trial);
 
             return `
             <div class="trial-card">
               <div class="trial-badge badge-recruiting">RECRUITING</div>
               <h2 class="trial-title">${plainTitle}</h2>
+
+              <div class="quick-eligibility">
+                <h3><i class="fas fa-bolt"></i> Quick Check</h3>
+                <div class="eligibility-grid">
+                  ${requirements.age ? `
+                    <div class="eligibility-item">
+                      <i class="fas fa-birthday-cake"></i>
+                      <span>${requirements.age}</span>
+                    </div>
+                  ` : ''}
+                  ${requirements.sex ? `
+                    <div class="eligibility-item">
+                      <i class="fas fa-user"></i>
+                      <span>${requirements.sex}</span>
+                    </div>
+                  ` : ''}
+                  ${requirements.a1c ? `
+                    <div class="eligibility-item">
+                      <i class="fas fa-vial"></i>
+                      <span>A1C: ${requirements.a1c}</span>
+                    </div>
+                  ` : ''}
+                  ${requirements.location ? `
+                    <div class="eligibility-item">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <span>${requirements.location}</span>
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
 
               ${trial.brief_summary ? `
                 <p class="trial-summary">${trial.brief_summary}</p>
@@ -633,7 +748,7 @@
 
               ${trial.eligibility ? `
                 <div class="section eligibility-section">
-                  <h3><i class="fas fa-user-check"></i> Who Can Participate</h3>
+                  <h3><i class="fas fa-user-check"></i> Full Eligibility Criteria</h3>
                   <p>${trial.eligibility}</p>
                 </div>
               ` : ''}
