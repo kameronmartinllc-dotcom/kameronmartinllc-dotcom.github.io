@@ -238,10 +238,65 @@
 
     .trial-title {
       color: var(--dark);
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 700;
-      margin-bottom: var(--space-md);
+      margin-bottom: var(--space-sm);
       padding-right: 100px;
+      line-height: 1.3;
+    }
+
+    .trial-subtitle {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: var(--space-md);
+      font-style: italic;
+    }
+
+    .technical-details {
+      background: var(--bg-light);
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-sm);
+      padding: var(--space-sm) var(--space-md);
+      margin-bottom: var(--space-md);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .technical-details:hover {
+      background: #e2e8f0;
+    }
+
+    .technical-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gray);
+    }
+
+    .technical-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    .technical-content.expanded {
+      max-height: 500px;
+      margin-top: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: 1px solid #cbd5e1;
+    }
+
+    .toggle-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-icon.rotated {
+      transform: rotate(180deg);
     }
 
     .trial-meta {
@@ -448,6 +503,85 @@
   </div>
 
   <script>
+    // Function to create plain English descriptions from trial titles
+    function getPlainEnglishTitle(trial) {
+      const title = (trial.title || trial.study_title || '').toLowerCase();
+      const summary = (trial.brief_summary || '').toLowerCase();
+
+      // Pattern matching for common trial types
+      if (title.includes('car t') || title.includes('car-t') || summary.includes('car t')) {
+        return 'CAR T-Cell Therapy Trial';
+      }
+      if (title.includes('stem cell') || summary.includes('stem cell')) {
+        return 'Stem Cell Treatment Study';
+      }
+      if (title.includes('artificial pancreas') || title.includes('closed loop')) {
+        return 'Artificial Pancreas System Study';
+      }
+      if (title.includes('cgm') || title.includes('continuous glucose')) {
+        return 'Continuous Glucose Monitor Study';
+      }
+      if (title.includes('insulin pump') || title.includes('pump therapy')) {
+        return 'Insulin Pump Technology Study';
+      }
+      if (title.includes('beta cell') || title.includes('β-cell')) {
+        return 'Beta Cell Regeneration Study';
+      }
+      if (title.includes('immunotherapy') || title.includes('immune')) {
+        return 'Immune System Therapy Study';
+      }
+      if (title.includes('transplant')) {
+        return 'Cell Transplant Study';
+      }
+      if (title.includes('prevention') || title.includes('prevent')) {
+        return 'Type 1 Diabetes Prevention Study';
+      }
+      if (title.includes('honeymoon') || title.includes('newly diagnosed')) {
+        return 'Newly Diagnosed T1D Study';
+      }
+      if (title.includes('glucose control') || title.includes('glycemic control')) {
+        return 'Blood Sugar Control Study';
+      }
+      if (title.includes('drug') || title.includes('medication')) {
+        return 'New Medication Study';
+      }
+
+      // Default fallback
+      return 'Type 1 Diabetes Research Study';
+    }
+
+    // Function to create a short description
+    function getShortDescription(trial) {
+      const title = trial.title || trial.study_title || '';
+
+      if (title.includes('CAR T') || title.includes('CAR-T')) {
+        return 'Testing a treatment that reprograms your immune cells to stop attacking insulin-producing cells';
+      }
+      if (title.includes('stem cell')) {
+        return 'Using stem cells to regenerate or protect insulin-producing cells';
+      }
+      if (title.includes('artificial pancreas')) {
+        return 'Testing an automated system that manages insulin delivery and blood sugar';
+      }
+      if (title.includes('beta cell') || title.includes('β-cell')) {
+        return 'Research focused on regenerating or protecting the cells that make insulin';
+      }
+      if (title.includes('immunotherapy')) {
+        return 'Training your immune system to stop attacking insulin-producing cells';
+      }
+      if (title.includes('transplant')) {
+        return 'Transplanting healthy insulin-producing cells into your body';
+      }
+      if (title.includes('prevention')) {
+        return 'Studying ways to prevent Type 1 Diabetes in at-risk individuals';
+      }
+      if (title.includes('newly diagnosed') || title.includes('honeymoon')) {
+        return 'Testing treatments that may preserve remaining insulin production in newly diagnosed patients';
+      }
+
+      return 'Researching new treatments and therapies for Type 1 Diabetes management';
+    }
+
     async function loadTrials() {
       try {
         const response = await fetch('scraper/trials_data.json');
@@ -458,10 +592,28 @@
         if (trials && trials.length > 0) {
           document.getElementById('totalTrials').textContent = trials.length;
 
-          container.innerHTML = trials.map(trial => `
+          container.innerHTML = trials.map((trial, index) => {
+            const technicalTitle = trial.title || trial.study_title || 'Untitled Trial';
+            const plainTitle = getPlainEnglishTitle(trial);
+            const shortDesc = getShortDescription(trial);
+
+            return `
             <div class="trial-card">
               <div class="trial-badge badge-recruiting">RECRUITING</div>
-              <h2 class="trial-title">${trial.title || trial.study_title || 'Untitled Trial'}</h2>
+              <h2 class="trial-title">${plainTitle}</h2>
+              <p class="trial-subtitle">${shortDesc}</p>
+
+              <div class="technical-details" onclick="toggleTechnical(${index})">
+                <div class="technical-header">
+                  <span><i class="fas fa-file-medical"></i> Show Technical Details</span>
+                  <i class="fas fa-chevron-down toggle-icon" id="toggle-${index}"></i>
+                </div>
+                <div class="technical-content" id="tech-${index}">
+                  <strong>Official Study Title:</strong><br>
+                  ${technicalTitle}
+                  ${trial.nct_id ? `<br><br><strong>ClinicalTrials.gov ID:</strong> ${trial.nct_id}` : ''}
+                </div>
+              </div>
 
               <div class="trial-meta">
                 ${trial.phase ? `<span><i class="fas fa-vial"></i> ${trial.phase}</span>` : ''}
@@ -471,26 +623,26 @@
 
               ${trial.brief_summary ? `
                 <div class="section details-section">
-                  <h3><i class="fas fa-info-circle"></i> Study Description</h3>
+                  <h3><i class="fas fa-info-circle"></i> What This Study Does</h3>
                   <p>${trial.brief_summary}</p>
                 </div>
               ` : ''}
 
               ${trial.eligibility ? `
                 <div class="section eligibility-section">
-                  <h3><i class="fas fa-user-check"></i> Eligibility</h3>
+                  <h3><i class="fas fa-user-check"></i> Who Can Participate</h3>
                   <p>${trial.eligibility}</p>
                 </div>
               ` : ''}
 
               ${trial.nct_id ? `
                 <div class="section contact-section">
-                  <h3><i class="fas fa-link"></i> More Information</h3>
-                  <p><a href="https://clinicaltrials.gov/study/${trial.nct_id}" target="_blank" style="color: #7c3aed; font-weight: 600;">View on ClinicalTrials.gov <i class="fas fa-external-link-alt"></i></a></p>
+                  <h3><i class="fas fa-link"></i> Learn More & Apply</h3>
+                  <p><a href="https://clinicaltrials.gov/study/${trial.nct_id}" target="_blank" style="color: #7c3aed; font-weight: 600;">View Full Details on ClinicalTrials.gov <i class="fas fa-external-link-alt"></i></a></p>
                 </div>
               ` : ''}
             </div>
-          `).join('');
+          `}).join('');
         } else {
           container.innerHTML = '<div class="loading"><p>No trials available at this time.</p></div>';
         }
@@ -498,6 +650,15 @@
         console.error('Error loading trials:', error);
         document.getElementById('trialsList').innerHTML = '<div class="loading"><p>Error loading trials. Please refresh the page.</p></div>';
       }
+    }
+
+    // Toggle technical details visibility
+    function toggleTechnical(index) {
+      const content = document.getElementById(`tech-${index}`);
+      const icon = document.getElementById(`toggle-${index}`);
+
+      content.classList.toggle('expanded');
+      icon.classList.toggle('rotated');
     }
 
     loadTrials();
