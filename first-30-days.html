@@ -93,7 +93,7 @@
             top: 0;
             z-index: 100;
             margin-bottom: var(--space-lg);
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--light-gray);
         }
 
         nav .container {
@@ -167,6 +167,10 @@
             border-radius: var(--radius-md);
             transition: transform 0.2s;
             margin-bottom: var(--space-md);
+        }
+
+        [data-theme="dark"] .back-link {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
         }
 
         .back-link:hover { transform: translateX(-4px); }
