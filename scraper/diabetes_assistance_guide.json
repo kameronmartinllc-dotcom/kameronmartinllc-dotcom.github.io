@@ -70,14 +70,15 @@
         {
           "company": "Sanofi",
           "program_name": "Insulins Valyou Savings Program",
-          "url": "https://www.sanofidiabetes.com/savings-and-support",
-          "description": "Reduced-cost insulin program for people without insurance.",
-          "eligibility": "People without insurance or with high out-of-pocket costs",
-          "how_to_apply": "Download savings card or register online",
-          "contact_info": "1-888-847-4877",
+          "url": "https://www.teamingupfordiabetes.com/sanofidiabetes-savings-program",
+          "description": "$35 for a 30-day supply of Sanofi insulins for uninsured or cash-paying patients.",
+          "eligibility": "Uninsured or commercially insured patients paying cash, regardless of income",
+          "how_to_apply": "Visit website or call to register for savings card",
+          "contact_info": "1-833-813-0190",
           "key_benefits": [
-            "$35/month for most patients",
-            "Covers Lantus, Admelog, Apidra"
+            "$35/month for one or multiple insulins",
+            "Covers Lantus, Toujeo, Admelog, Apidra",
+            "No income requirements"
           ]
         }
       ]
@@ -102,30 +103,30 @@
         },
         {
           "company": "Abbott",
-          "program_name": "FreeStyle Patient Assistance",
-          "url": "https://www.freestyle.abbott/us-en/support.html",
-          "description": "Assistance programs for FreeStyle Libre systems.",
-          "eligibility": "Varies by program, financial need assessment",
-          "how_to_apply": "Contact Abbott customer service",
+          "program_name": "MyFreeStyle Program",
+          "url": "https://www.freestyle.abbott/us-en/myfreestyle-freestyle-libre-3.html",
+          "description": "Eligible patients can receive one FreeStyle Libre sensor at $0 copay.",
+          "eligibility": "Type 1, Type 2, or gestational diabetes patients (not available for Medicare, Medicaid, or other federal/state programs)",
+          "how_to_apply": "Sign up online and download voucher (valid 60 days)",
           "contact_info": "1-855-632-8658",
           "key_benefits": [
-            "Discounted sensors",
-            "Free trial programs",
-            "Insurance navigation help"
+            "$0 copay for one sensor",
+            "For new or current users",
+            "60-day voucher validity"
           ]
         },
         {
           "company": "Medtronic",
-          "program_name": "Medtronic Foundation Patient Assistance",
-          "url": "https://www.medtronicdiabetes.com/support/insurance-coverage-reimbursement",
-          "description": "Financial assistance for Medtronic diabetes products.",
+          "program_name": "Medtronic Financial Support Programs",
+          "url": "https://www.medtronicdiabetes.com/financial-support-programs",
+          "description": "Financial assistance for Medtronic diabetes products including CGMs and pumps.",
           "eligibility": "Financial hardship, limited insurance coverage",
-          "how_to_apply": "Work with Medtronic reimbursement team",
-          "contact_info": "1-800-646-4633",
+          "how_to_apply": "Call to check eligibility for financial assistance",
+          "contact_info": "1-800-646-4633 (option 4)",
           "key_benefits": [
-            "Device financing",
-            "Supply assistance",
-            "Insurance advocacy"
+            "Flexible payment plans",
+            "Copay assistance",
+            "Lower cost supply options"
           ]
         }
       ]
@@ -136,40 +137,40 @@
       "programs": [
         {
           "company": "Tandem",
-          "program_name": "Tandem Cares Patient Assistance",
-          "url": "https://www.tandemdiabetes.com/support/insurance-and-reimbursement",
-          "description": "Financial assistance and payment plans for t:slim X2 insulin pumps.",
+          "program_name": "Tandem Benefit Programs",
+          "url": "https://www.tandemdiabetes.com/support/benefit-programs",
+          "description": "Financial assistance and payment plans for t:slim X2 insulin pumps including the Tandem Choice technology access program.",
           "eligibility": "Financial need, insurance challenges",
-          "how_to_apply": "Contact Tandem customer support",
+          "how_to_apply": "Contact Tandem customer support or visit benefit programs page",
           "contact_info": "1-877-801-6901",
           "key_benefits": [
-            "Payment plans",
+            "Flexible payment plans",
             "Insurance navigation",
-            "Loaner pumps available"
+            "90-day return policy"
           ]
         },
         {
           "company": "Insulet (Omnipod)",
-          "program_name": "Omnipod Promise Program",
-          "url": "https://www.omnipod.com/coverage-and-cost-support",
-          "description": "Coverage support and financial assistance for Omnipod systems.",
-          "eligibility": "Insurance coverage issues, financial hardship",
-          "how_to_apply": "Contact Omnipod customer care",
+          "program_name": "Omnipod Financial Assistance Program",
+          "url": "https://www.omnipod.com/is-omnipod-right-for-me/coverage/financial-assistance",
+          "description": "Financial assistance for Omnipod DASH and Omnipod 5 systems for patients with demonstrated financial need.",
+          "eligibility": "Valid Omnipod prescription, demonstrated financial need, pharmacy channel (not available for Medicare, Medicaid, or federal/state programs)",
+          "how_to_apply": "Visit website or call customer care",
           "contact_info": "1-800-591-3455",
           "key_benefits": [
+            "Financial assistance available",
             "Coverage advocacy",
-            "Financial assistance",
             "Trial programs"
           ]
         },
         {
           "company": "Medtronic",
           "program_name": "Medtronic MiniMed Assistance",
-          "url": "https://www.medtronicdiabetes.com/support/insurance-coverage-reimbursement",
+          "url": "https://www.medtronicdiabetes.com/financial-support-programs",
           "description": "Financial assistance and insurance support for MiniMed pumps.",
           "eligibility": "Insurance coverage gaps, financial need",
-          "how_to_apply": "Work with Medtronic reimbursement specialists",
-          "contact_info": "1-800-646-4633",
+          "how_to_apply": "Call financial support team to check eligibility",
+          "contact_info": "1-800-646-4633 (option 4)",
           "key_benefits": [
             "Insurance advocacy",
             "Payment plans",
