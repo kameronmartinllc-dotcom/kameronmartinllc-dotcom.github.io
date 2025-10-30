@@ -94,7 +94,7 @@
       top: 0;
       z-index: 100;
       margin-bottom: var(--space-lg);
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--light-gray);
     }
 
     nav .container {
@@ -182,12 +182,16 @@
     }
 
     .personal-story {
-      background: #eff6ff;
+      background: var(--bg-light);
       border-left: 4px solid var(--primary);
       border-radius: var(--radius-md);
       padding: var(--space-lg);
       margin: var(--space-lg) 0;
       text-align: left;
+    }
+
+    [data-theme="light"] .personal-story {
+      background: #eff6ff;
     }
 
     .personal-story p {
@@ -272,7 +276,7 @@
     }
 
     .breaking-summary {
-      color: #cbd5e1;
+      color: var(--gray);
       font-size: 1.0625rem;
       line-height: 1.7;
       margin-bottom: var(--space-lg);
@@ -291,7 +295,7 @@
 
     .breaking-meta span {
       background: rgba(241, 245, 249, 0.1);
-      color: #cbd5e1;
+      color: var(--gray);
       padding: 6px var(--space-sm);
       border-radius: var(--radius-sm);
       font-size: 0.875rem;
@@ -332,6 +336,11 @@
     .tool-card.success { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); }
     .tool-card.warning { background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); }
     .tool-card.purple { background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); }
+
+    [data-theme="dark"] .tool-card.primary { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); }
+    [data-theme="dark"] .tool-card.success { background: linear-gradient(135deg, #064e3b 0%, #065f46 100%); }
+    [data-theme="dark"] .tool-card.warning { background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%); }
+    [data-theme="dark"] .tool-card.purple { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%); }
 
     .tool-card h2 {
       font-size: 1.5rem;
@@ -506,6 +515,10 @@
       text-align: center;
       box-shadow: var(--shadow-sm);
       transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    [data-theme="dark"] .stat-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
     }
 
     .stat-card:hover {
