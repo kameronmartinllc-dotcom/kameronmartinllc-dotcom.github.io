@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - AVA</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNXY0C38PY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FNXY0C38PY');
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Design System */
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --accent: #0891b2;
+      --success: #059669;
+      --warning: #dc2626;
+      --purple: #7c3aed;
+      --dark: #1e293b;
+      --gray: #64748b;
+      --light-gray: #f1f5f9;
+      --bg-light: #f8fafc;
+      --white: #ffffff;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 32px;
+      --space-xl: 48px;
+      --space-2xl: 64px;
+    }
+
+    /* Dark Mode */
+    [data-theme="dark"] {
+      --primary: #60a5fa;
+      --primary-dark: #3b82f6;
+      --accent: #22d3ee;
+      --success: #34d399;
+      --warning: #f87171;
+      --purple: #a78bfa;
+      --dark: #f1f5f9;
+      --gray: #94a3b8;
+      --light-gray: #1e293b;
+      --bg-light: #0f172a;
+      --white: #1e293b;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg-light) 0%, var(--light-gray) 100%);
+      min-height: 100vh;
+      color: var(--dark);
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--white);
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      margin-bottom: var(--space-lg);
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    nav .container {
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-xs);
+      padding-bottom: var(--space-xs);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      transition: transform 0.2s;
+    }
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+    .nav-logo img {
+      height: 60px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-lg);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      background: var(--light-gray);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a:active {
+      transform: translateY(0);
+    }
+
+    .dark-mode-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+      color: var(--dark);
+      transition: all 0.3s ease;
+      margin-left: var(--space-md);
+    }
+
+    .dark-mode-toggle:hover {
+      transform: scale(1.1);
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Content */
+    .header {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      padding: var(--space-sm) var(--space-md);
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border-radius: var(--radius-md);
+      transition: transform 0.2s;
+      margin-bottom: var(--space-md);
+    }
+
+    .back-link:hover { transform: translateX(-4px); }
+
+    .header h1 {
+      color: var(--dark);
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+    }
+
+    .header .subtitle {
+      font-size: 1.125rem;
+      color: var(--gray);
+    }
+
+    .content-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .content-section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .content-section h2:first-child {
+      margin-top: 0;
+    }
+
+    .content-section p {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--dark);
+      margin-bottom: var(--space-md);
+    }
+
+    .content-section em {
+      color: var(--primary);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .content-section strong {
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .highlight-quote {
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border-left: 4px solid var(--primary);
+      padding: var(--space-lg);
+      border-radius: var(--radius-md);
+      margin: var(--space-lg) 0;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .footer {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      color: var(--gray);
+    }
+
+    .footer-signature {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-top: var(--space-md);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        margin-bottom: var(--space-md);
+      }
+      nav .container {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+      }
+      .container {
+        padding: 0 var(--space-sm);
+      }
+      .header {
+        padding: var(--space-lg) var(--space-md);
+        border-radius: 0;
+      }
+      .header h1 {
+        font-size: 1.75rem;
+      }
+      .content-section {
+        padding: var(--space-lg) var(--space-md);
+        border-radius: 0;
+      }
+      .nav-links {
+        gap: var(--space-xs);
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav .container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-xs);
+        padding-top: var(--space-xs);
+        padding-bottom: var(--space-xs);
+      }
+      .nav-logo {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: var(--space-xs);
+      }
+      .nav-logo img {
+        height: 50px;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: var(--space-xs);
+        font-size: 0.8125rem;
+      }
+      .nav-links a {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <img src="https://i.imgur.com/PrQvHzV.png" alt="AVA">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="breaking-news.html">Breaking News</a></li>
+        <li><a href="clinical-trials.html">Clinical Trials</a></li>
+        <li><a href="diabetes-log.html">Tools</a></li>
+        <li><a href="assistance-programs.html">Assistance</a></li>
+      </ul>
+      <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="header">
+      <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+      <h1>About</h1>
+      <p class="subtitle">The story behind AVA</p>
+    </div>
+
+    <div class="content-section">
+      <h2>My First Memory</h2>
+      <p>My first diabetic memory is a low blood sugar. I had a nightmare. I fought my mother while she put sugar under my tongue. I was four years old when I was diagnosed in 1992.</p>
+
+      <p>When I was diagnosed, they told me to "sugar count," not carb count. It was more like: don't eat sugar. I took Type N and Type R — one in the morning, one at night. You got two shots a day and just winged it the rest of the time.</p>
+
+      <p>I remember the doctors telling me the story of how insulin was made, and all I got from it was that it came from pigs and cows. Synthetic insulins were new.</p>
+
+      <p>I didn't know anyone else who was Type 1. It was less obvious back then because there were no pumps or CGMs. I knew one guy from my church, and he had both legs amputated and was on dialysis. He would tell me to take care of myself or I would end up like him.</p>
+
+      <p>As a child, that stuck with me.</p>
+
+      <h2>Growing Up</h2>
+      <p>I was always into futurist shows and AI and science. I remember anytime a date in the future was brought up, my first thought was: <em>I hope I'm alive to get to see that.</em></p>
+
+      <p>I've been following the advancements in AI for 20 years. 17-year-old me was still saying, "I hope I'm alive to get to see that."</p>
+
+      <p>I remember always hearing diabetes in the top 10 killers in the US. It hovered between 5 and 7. It's currently number 7.</p>
+
+      <p>I still have the fear of death. It's etched into my subconscious. The reason is different now. I want to see my girls grow up. I have to be here for them.</p>
+
+      <h2>My Daughters</h2>
+      <p>I have two daughters. Keira is 11. She's been with me full time the majority of her life. She once saved me by running to the neighbor's house (my dad) because my sugar was low and it scared her. She is a big help to her little sister. Sometimes. If you know, you know.</p>
+
+      <p>Then there's Kaislyn Ava.</p>
+
+      <p>I'll never forget the night we pricked her finger and her sugar said 438. All of a sudden I could see all of the signs: the frequent thirst, the nausea, wetting the bed. Everything changed.</p>
+
+      <p>I was now taking care of my own child with diabetes. I knew exactly how she felt, and it was devastating. Confused. Scared. Mad.</p>
+
+      <p>We began the whole process. We moved to a pump very quickly because I was already knowledgeable about it. I had used a pump briefly from 17 to 19, and I have always stayed somewhat up to date on the newest tech.</p>
+
+      <p>I'm sick of hearing the cure is 5 years away.</p>
+
+      <p>Kaislyn is incredibly brave and smart. Of course, there were lots of tears and questions in the beginning. I did my best to answer them. She knows what diabetes is and what the insulin is for. She can read a nutrition label. She enters all of her own numbers into her pump, and then we check. If there's something off, we find out where the mistake is and I explain it.</p>
+
+      <p>Obviously, it's not cool she got diabetes, and I would do whatever to give her a normal life. But it's cool to have someone to go through this with. She is not alone. We get to talk about how we feel when our sugars are high and when they're low.</p>
+
+      <p>My mother and grandmother used to always tell me whenever I cried and said it wasn't fair that they would take it from me.</p>
+
+      <p>I say if I could have double diabetes, I would.</p>
+
+      <h2>Why I'm Doing This</h2>
+      <p>I've been uninsured since the age of 19. That's 18 years. I haven't seen an endocrinologist in 18 years. I go to a local medical group and see an RNP for my care. They have an income-based sliding scale, but it doesn't cover anything tech. No CGMs. No pumps.</p>
+
+      <p>I can't afford the tech.</p>
+
+      <p>I'm honestly about to fill out the forms that I myself generated by building this website to try and get them.</p>
+
+      <p>One time when Kaislyn was upset about diabetes, I made the comment that there's a lot of new stuff on the horizon. I think somebody's gonna find a cure one day.</p>
+
+      <div class="highlight-quote">
+        She said, "Why don't you?"
+      </div>
+
+      <p>In the moment, I brushed it off and said there's a lot of people way smarter than me working on it. But that is burned in my memory. It's the dream of the 10-year-old little boy hoping to live to see the cure one day.</p>
+
+      <h2>The Past Five Weeks</h2>
+      <p>I run my own business. I'm contracted out of a mobile home company to do warranty work. I'm self-taught, and I've only been doing this for five weeks.</p>
+
+      <p>The idea has been there for a while, but I was struggling with relationships, my own self-image. I used to cry on the way home from work frequently, beating myself down: I'm a failure. A bad dad. I don't have any friends.</p>
+
+      <p>But five weeks ago, something flipped.</p>
+
+      <p>I only consume long-form discussions, keynotes, podcasts. I have always been a science nerd. I have a patent for a diabetes app/toy that I know families will love, and I hope to start posting about soon.</p>
+
+      <p>The same guy who couldn't code a single thing, who hated on himself and thought he was a failure, has built an iPhone app that simulates Type 1 Diabetes, programmed a teddy bear, built a website, filed a provisional patent — all with the help of AI.</p>
+
+      <p>Impossibles are becoming possible with the help of this tech.</p>
+
+      <p>For the past two weeks, I have occasionally cried on the way home because I'm proud of myself.</p>
+
+      <p>Maybe all of this doesn't work. I have learned valuable skills along the way. <strong>If this site helps one person, it was worth all of the frustration.</strong></p>
+
+      <p>I'm a sculptor, and I can see the sculpture I want to create. I'm chipping away at it by hitting a flathead screwdriver with a crescent wrench. It's slow, but I'm slowly refining my toolkit.</p>
+
+      <h2>What I Believe</h2>
+      <p>I believe the answer to what is the root cause — and what the real cure is, not "functional cure" — is in all of the current literature and data we have collected. Someone needs to aggregate all of that data and see what connections we have missed.</p>
+
+      <p>The literature is spread amongst tens of thousands of papers. It's impossible for any human to synthesize.</p>
+
+      <p>We now have that tool. Let's utilize it.</p>
+
+      <p>We need an organized push to get one of these big frontier models to take a look at the literature and see what they can discover.</p>
+
+      <p>That's why I built AVA — named after my daughter's middle name.</p>
+    </div>
+
+    <div class="footer">
+      <p class="footer-signature">— Kameron Martin</p>
+    </div>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    const icon = darkModeToggle.querySelector('i');
+
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    updateIcon(currentTheme);
+
+    function updateIcon(theme) {
+      if (theme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateIcon(newTheme);
+    });
+  </script>
+</body>
+</html>

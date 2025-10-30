@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Breaking News - Type 1 Diabetes Research | AVA</title>
   <meta name="description" content="Latest breaking news and cutting-edge developments in Type 1 Diabetes research">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNXY0C38PY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FNXY0C38PY');
+  </script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Design System */
@@ -56,28 +66,34 @@
     /* Navigation */
     nav {
       background: var(--white);
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-md);
       position: sticky;
       top: 0;
       z-index: 100;
-      margin-bottom: var(--space-xl);
+      margin-bottom: var(--space-lg);
+      border-bottom: 1px solid #e2e8f0;
     }
 
     nav .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: var(--space-sm);
-      padding-bottom: var(--space-sm);
+      padding-top: var(--space-xs);
+      padding-bottom: var(--space-xs);
     }
 
     .nav-logo {
       display: flex;
       align-items: center;
+      transition: transform 0.2s;
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.05);
     }
 
     .nav-logo img {
-      height: 40px;
+      height: 60px;
       width: auto;
     }
 
@@ -93,11 +109,20 @@
       text-decoration: none;
       font-weight: 500;
       font-size: 0.95rem;
-      transition: color 0.2s;
+      transition: all 0.2s;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      position: relative;
     }
 
     .nav-links a:hover {
       color: var(--primary);
+      background: var(--light-gray);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a:active {
+      transform: translateY(0);
     }
 
     /* Header */
@@ -296,14 +321,49 @@
 
     /* Mobile Responsive */
     @media (max-width: 768px) {
+      nav {
+        margin-bottom: var(--space-md);
+      }
+      nav .container {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+      }
       .header h1 { font-size: 1.75rem; }
       .breaking-title { font-size: 1.25rem; padding-right: 0; }
       .breaking-badge { position: static; margin-bottom: var(--space-sm); display: inline-block; }
-      .nav-links { gap: var(--space-sm); font-size: 0.875rem; }
+      .nav-links {
+        gap: var(--space-xs);
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+      }
     }
 
     @media (max-width: 480px) {
-      .nav-links { display: none; }
+      nav .container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-xs);
+        padding-top: var(--space-xs);
+        padding-bottom: var(--space-xs);
+      }
+      .nav-logo {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: var(--space-xs);
+      }
+      .nav-logo img {
+        height: 50px;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: var(--space-xs);
+        font-size: 0.8125rem;
+      }
+      .nav-links a {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+      }
     }
   </style>
 </head>
@@ -319,6 +379,8 @@
         <li><a href="breaking-news.html">Breaking News</a></li>
         <li><a href="clinical-trials.html">Clinical Trials</a></li>
         <li><a href="diabetes-log.html">Tools</a></li>
+        <li><a href="assistance-programs.html">Assistance</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
     </div>
   </nav>
