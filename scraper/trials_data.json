@@ -1,13 +1,53 @@
 [
   {
-    "nct_id": "NCT06791291",
-    "title": "Efficacy and Safety of Teplizumab in the Treatment of Japanese Pediatric and Adult Participants Aged 8 to 34 Years With Stage 2 Type 1 Diabetes: A Multicenter, Randomized, Open-label, Controlled Study.",
-    "phase": "PHASE2",
+    "nct_id": "NCT05000021",
+    "title": "Reducing Diabetes Distress Using Cognitive Behavioral Therapy in Young Adults With Type 1 Diabetes",
+    "phase": "NA",
     "status": "RECRUITING",
-    "start_date": "2025-07-25",
-    "priority": "HIGH",
+    "start_date": "2022-06-27",
+    "priority": "MEDIUM",
     "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06791291"
+    "url": "https://clinicaltrials.gov/study/NCT05000021"
+  },
+  {
+    "nct_id": "NCT05734313",
+    "title": "Telemedicine-Delivered Unified Protocol for Cognitive Behavioral Therapy for Anxiety and Depression in Young Adults With Type 1 Diabetes",
+    "phase": "NA",
+    "status": "RECRUITING",
+    "start_date": "2023-03-31",
+    "priority": "MEDIUM",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT05734313"
+  },
+  {
+    "nct_id": "NCT05268250",
+    "title": "Remedy to Diabetes Distress (R2D2): A Scalable Screen to Treat Program for School-age Families",
+    "phase": "NA",
+    "status": "RECRUITING",
+    "start_date": "2024-02-26",
+    "priority": "MEDIUM",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT05268250"
+  },
+  {
+    "nct_id": "NCT06325202",
+    "title": "Closed Loop and Education for Hypoglycemia Awareness Restoration (CLEAR), Conducted by the Impaired Awareness of Hypoglycemia Consortium (IAHC)",
+    "phase": "NA",
+    "status": "RECRUITING",
+    "start_date": "2025-10-03",
+    "priority": "MEDIUM",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06325202"
+  },
+  {
+    "nct_id": "NCT06405373",
+    "title": "Fusing Rapid-cycle Testing and Adaptive Trial Designs: A Scientific Pipeline to Translate and Individualize Evidence-based Psychosocial and Behavioral Interventions in Routine Type 1 Diabetes Care",
+    "phase": "NA",
+    "status": "RECRUITING",
+    "start_date": "2024-10-01",
+    "priority": "MEDIUM",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06405373"
   },
   {
     "nct_id": "NCT06111586",
@@ -18,6 +58,16 @@
     "priority": "HIGH",
     "source": "ClinicalTrials.gov",
     "url": "https://clinicaltrials.gov/study/NCT06111586"
+  },
+  {
+    "nct_id": "NCT06791291",
+    "title": "Efficacy and Safety of Teplizumab in the Treatment of Japanese Pediatric and Adult Participants Aged 8 to 34 Years With Stage 2 Type 1 Diabetes: A Multicenter, Randomized, Open-label, Controlled Study.",
+    "phase": "PHASE2",
+    "status": "RECRUITING",
+    "start_date": "2025-07-25",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06791291"
   },
   {
     "nct_id": "NCT05018585",
@@ -60,16 +110,6 @@
     "url": "https://clinicaltrials.gov/study/NCT07104500"
   },
   {
-    "nct_id": "NCT06845202",
-    "title": "A Phase 1/2, Randomized, Double-blind, Placebo-controlled 2-part Study of the Safety, Tolerability, Efficacy, Pharmacokinetics, and Pharmacodynamics of Single Dose ALN-4324 in Overweight to Obese Adult Healthy Volunteers and Multiple Dose ALN-4324 in Overweight to Obese Patients With Type 2 Diabetes Mellitus (T2DM)",
-    "phase": "PHASE1",
-    "status": "RECRUITING",
-    "start_date": "2025-03-03",
-    "priority": "HIGH",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06845202"
-  },
-  {
     "nct_id": "NCT06914895",
     "title": "A Phase 3, Multicenter, Randomized, Double-Blind, Placebo-Controlled, Parallel-Group Study Evaluating the Efficacy and Safety of Tirzepatide Once Weekly Compared to Placebo in Adult Participants With Type 1 Diabetes and Obesity or Overweight",
     "phase": "PHASE3",
@@ -78,6 +118,16 @@
     "priority": "HIGH",
     "source": "ClinicalTrials.gov",
     "url": "https://clinicaltrials.gov/study/NCT06914895"
+  },
+  {
+    "nct_id": "NCT06845202",
+    "title": "A Phase 1/2, Randomized, Double-blind, Placebo-controlled 2-part Study of the Safety, Tolerability, Efficacy, Pharmacokinetics, and Pharmacodynamics of Single Dose ALN-4324 in Overweight to Obese Adult Healthy Volunteers and Multiple Dose ALN-4324 in Overweight to Obese Patients With Type 2 Diabetes Mellitus (T2DM)",
+    "phase": "PHASE1",
+    "status": "RECRUITING",
+    "start_date": "2025-03-03",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06845202"
   },
   {
     "nct_id": "NCT06972459",
@@ -120,6 +170,16 @@
     "url": "https://clinicaltrials.gov/study/NCT06546930"
   },
   {
+    "nct_id": "NCT07088068",
+    "title": "A Randomized, Double-blind, 2-arm, Phase 3 Study to Investigate Efficacy and Safety of Teplizumab Compared With Placebo in Participants 1 to 25 Years of Age With Newly Diagnosed Stage 3 Type 1 Diabetes (T1D)",
+    "phase": "PHASE3",
+    "status": "RECRUITING",
+    "start_date": "2025-08-06",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT07088068"
+  },
+  {
     "nct_id": "NCT06807190",
     "title": "A Multi-centre, Prospective, Open Label, Non-interventional, Single-armed, 52 Weeks Post-marketing Study to Investigate Safety and Clinical Parameters of Awiqli Once Weekly in Patients With Diabetes Mellitus Under Real-world Clinical Practice Setting in Japan",
     "phase": "Unknown",
@@ -128,16 +188,6 @@
     "priority": "MEDIUM",
     "source": "ClinicalTrials.gov",
     "url": "https://clinicaltrials.gov/study/NCT06807190"
-  },
-  {
-    "nct_id": "NCT07116434",
-    "title": "Discovery Diabetes: A Pilot Randomized Controlled Trial",
-    "phase": "NA",
-    "status": "RECRUITING",
-    "start_date": "2025-11",
-    "priority": "MEDIUM",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT07116434"
   },
   {
     "nct_id": "NCT06919354",
@@ -160,14 +210,14 @@
     "url": "https://clinicaltrials.gov/study/NCT06976619"
   },
   {
-    "nct_id": "NCT07088068",
-    "title": "A Randomized, Double-blind, 2-arm, Phase 3 Study to Investigate Efficacy and Safety of Teplizumab Compared With Placebo in Participants 1 to 25 Years of Age With Newly Diagnosed Stage 3 Type 1 Diabetes (T1D)",
-    "phase": "PHASE3",
+    "nct_id": "NCT07116434",
+    "title": "Discovery Diabetes: A Pilot Randomized Controlled Trial",
+    "phase": "NA",
     "status": "RECRUITING",
-    "start_date": "2025-08-06",
-    "priority": "HIGH",
+    "start_date": "2025-11",
+    "priority": "MEDIUM",
     "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT07088068"
+    "url": "https://clinicaltrials.gov/study/NCT07116434"
   },
   {
     "nct_id": "NCT05663515",
@@ -180,16 +230,6 @@
     "url": "https://clinicaltrials.gov/study/NCT05663515"
   },
   {
-    "nct_id": "NCT07212075",
-    "title": "Precision Subclassification of Mental Health in Diabetes: Digital Twins for Precision Mental Health to Track Subgroups",
-    "phase": "Unknown",
-    "status": "RECRUITING",
-    "start_date": "2025-01-01",
-    "priority": "MEDIUM",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT07212075"
-  },
-  {
     "nct_id": "NCT06752928",
     "title": "A Randomized Controlled Trial Comparing Dexcom Continuous Glucose Monitoring to Point of Care Glucose Testing for the Management of Hospital and Post-Discharge Subjects With Type 1 Diabetes",
     "phase": "NA",
@@ -200,14 +240,14 @@
     "url": "https://clinicaltrials.gov/study/NCT06752928"
   },
   {
-    "nct_id": "NCT06812988",
-    "title": "A 52-week Randomized, Double-blind, Placebo-controlled, Multi-center Phase 2a Study Assessing Safety and Efficacy of SAR442970, a Dual Anti-TNF-\u03b1 and Anti-OX40L NANOBODY\u00ae Molecule, for Preservation of Pancreatic \u03b2-cell Function in Adults and Adolescents With Recently Diagnosed Type 1 Diabetes",
-    "phase": "PHASE2",
+    "nct_id": "NCT07212075",
+    "title": "Precision Subclassification of Mental Health in Diabetes: Digital Twins for Precision Mental Health to Track Subgroups",
+    "phase": "Unknown",
     "status": "RECRUITING",
-    "start_date": "2025-02-28",
-    "priority": "HIGH",
+    "start_date": "2025-01-01",
+    "priority": "MEDIUM",
     "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06812988"
+    "url": "https://clinicaltrials.gov/study/NCT07212075"
   },
   {
     "nct_id": "NCT07209930",
@@ -218,6 +258,16 @@
     "priority": "MEDIUM",
     "source": "ClinicalTrials.gov",
     "url": "https://clinicaltrials.gov/study/NCT07209930"
+  },
+  {
+    "nct_id": "NCT06812988",
+    "title": "A 52-week Randomized, Double-blind, Placebo-controlled, Multi-center Phase 2a Study Assessing Safety and Efficacy of SAR442970, a Dual Anti-TNF-\u03b1 and Anti-OX40L NANOBODY\u00ae Molecule, for Preservation of Pancreatic \u03b2-cell Function in Adults and Adolescents With Recently Diagnosed Type 1 Diabetes",
+    "phase": "PHASE2",
+    "status": "RECRUITING",
+    "start_date": "2025-02-28",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06812988"
   },
   {
     "nct_id": "NCT07000149",
@@ -240,16 +290,6 @@
     "url": "https://clinicaltrials.gov/study/NCT03228732"
   },
   {
-    "nct_id": "NCT07195045",
-    "title": "Thai Version of PainPREDICT: Translation, Validation, and Mobile Application Development for Screening Painful Diabetic Neuropathy in Diabetes Patients",
-    "phase": "NA",
-    "status": "RECRUITING",
-    "start_date": "2025-08-28",
-    "priority": "MEDIUM",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT07195045"
-  },
-  {
     "nct_id": "NCT05626712",
     "title": "Clinical Trial to Evaluate the Safety and Efficacy of CELZ-201 in Patients With Recent Onset Type 1 Diabetes (CREATE-1)",
     "phase": "PHASE1",
@@ -258,6 +298,16 @@
     "priority": "HIGH",
     "source": "ClinicalTrials.gov",
     "url": "https://clinicaltrials.gov/study/NCT05626712"
+  },
+  {
+    "nct_id": "NCT07195045",
+    "title": "Thai Version of PainPREDICT: Translation, Validation, and Mobile Application Development for Screening Painful Diabetic Neuropathy in Diabetes Patients",
+    "phase": "NA",
+    "status": "RECRUITING",
+    "start_date": "2025-08-28",
+    "priority": "MEDIUM",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT07195045"
   },
   {
     "nct_id": "NCT06704672",
@@ -280,26 +330,6 @@
     "url": "https://clinicaltrials.gov/study/NCT06461065"
   },
   {
-    "nct_id": "NCT06945406",
-    "title": "A Phase 1 Study to Assess the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of LY4057996 in Healthy Participants and Participants With Type 1 and Type 2 Diabetes",
-    "phase": "PHASE1",
-    "status": "RECRUITING",
-    "start_date": "2025-05-16",
-    "priority": "HIGH",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06945406"
-  },
-  {
-    "nct_id": "NCT06985862",
-    "title": "Development of Artificial Intelligence Tools for the Detection of Stress Markers and Consideration of Stress States in the Monitoring of Subjects With Type 1 Diabetes",
-    "phase": "NA",
-    "status": "RECRUITING",
-    "start_date": "2025-09-03",
-    "priority": "MEDIUM",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06985862"
-  },
-  {
     "nct_id": "NCT06739811",
     "title": "Phoenix: Clinical Evaluation of the Medtronic Implantable Insulin Pump System (MIIPS 2020) in Adult Subjects With Type 1 Diabetes",
     "phase": "NA",
@@ -308,6 +338,16 @@
     "priority": "MEDIUM",
     "source": "ClinicalTrials.gov",
     "url": "https://clinicaltrials.gov/study/NCT06739811"
+  },
+  {
+    "nct_id": "NCT06945406",
+    "title": "A Phase 1 Study to Assess the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of LY4057996 in Healthy Participants and Participants With Type 1 and Type 2 Diabetes",
+    "phase": "PHASE1",
+    "status": "RECRUITING",
+    "start_date": "2025-05-16",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06945406"
   },
   {
     "nct_id": "NCT06516614",
@@ -320,14 +360,14 @@
     "url": "https://clinicaltrials.gov/study/NCT06516614"
   },
   {
-    "nct_id": "NCT07199946",
-    "title": "A Phase I/II Double-blind, Randomized, Placebo-controlled Trial to Preserve Residual Insulin Secretion in Children With Recent Onset Type 1 Diabetes by Giving Verapamil",
-    "phase": "PHASE1",
+    "nct_id": "NCT06985862",
+    "title": "Development of Artificial Intelligence Tools for the Detection of Stress Markers and Consideration of Stress States in the Monitoring of Subjects With Type 1 Diabetes",
+    "phase": "NA",
     "status": "RECRUITING",
-    "start_date": "2025-08-06",
-    "priority": "HIGH",
+    "start_date": "2025-09-03",
+    "priority": "MEDIUM",
     "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT07199946"
+    "url": "https://clinicaltrials.gov/study/NCT06985862"
   },
   {
     "nct_id": "NCT07020936",
@@ -340,24 +380,14 @@
     "url": "https://clinicaltrials.gov/study/NCT07020936"
   },
   {
-    "nct_id": "NCT07185555",
-    "title": "Applying Very Low Calorie Ketogenic Diet to the Treatment of Obesity in People With Type 1 Diabetes on Intensive Insulin Therapy Using Automated Insulin Delivery System",
-    "phase": "NA",
+    "nct_id": "NCT07199946",
+    "title": "A Phase I/II Double-blind, Randomized, Placebo-controlled Trial to Preserve Residual Insulin Secretion in Children With Recent Onset Type 1 Diabetes by Giving Verapamil",
+    "phase": "PHASE1",
     "status": "RECRUITING",
-    "start_date": "2025-01-16",
-    "priority": "MEDIUM",
+    "start_date": "2025-08-06",
+    "priority": "HIGH",
     "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT07185555"
-  },
-  {
-    "nct_id": "NCT05463289",
-    "title": "Implementing Digital Retinal Exams Into Comprehensive Pediatric Diabetes Care",
-    "phase": "NA",
-    "status": "RECRUITING",
-    "start_date": "2022-07-11",
-    "priority": "MEDIUM",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT05463289"
+    "url": "https://clinicaltrials.gov/study/NCT07199946"
   },
   {
     "nct_id": "NCT04187443",
@@ -380,6 +410,26 @@
     "url": "https://clinicaltrials.gov/study/NCT06896045"
   },
   {
+    "nct_id": "NCT07185555",
+    "title": "Applying Very Low Calorie Ketogenic Diet to the Treatment of Obesity in People With Type 1 Diabetes on Intensive Insulin Therapy Using Automated Insulin Delivery System",
+    "phase": "NA",
+    "status": "RECRUITING",
+    "start_date": "2025-01-16",
+    "priority": "MEDIUM",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT07185555"
+  },
+  {
+    "nct_id": "NCT05463289",
+    "title": "Implementing Digital Retinal Exams Into Comprehensive Pediatric Diabetes Care",
+    "phase": "NA",
+    "status": "RECRUITING",
+    "start_date": "2022-07-11",
+    "priority": "MEDIUM",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT05463289"
+  },
+  {
     "nct_id": "NCT06575426",
     "title": "A Phase I/IIa, Single Site, Open-Label, Ascending Dose Study to Evaluate the Safety and Efficacy of OPF-310 [Encapsulated Porcine Islet Cells for Xenotransplantation] in Subjects With Type 1 Diabetes Mellitus",
     "phase": "PHASE1",
@@ -400,6 +450,16 @@
     "url": "https://clinicaltrials.gov/study/NCT06706284"
   },
   {
+    "nct_id": "NCT06280703",
+    "title": "A Three-Part, Randomized, Double-Blind (Part A) and Open-Label (Part B and Part C), Multi-Dose, Phase 1 Study to Assess the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of LY3938577 in Healthy Participants and Participants With Type 1 Diabetes Mellitus",
+    "phase": "PHASE1",
+    "status": "RECRUITING",
+    "start_date": "2024-05-15",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06280703"
+  },
+  {
     "nct_id": "NCT06982859",
     "title": "A Phase 1, Investigator- and Participant-Blinded Study to Evaluate the Effect of Retatrutide on \u03b1- and \u03b2- Cell Function and Insulin Sensitivity in Adult Participants With Type 2 Diabetes Mellitus",
     "phase": "PHASE1",
@@ -408,6 +468,16 @@
     "priority": "HIGH",
     "source": "ClinicalTrials.gov",
     "url": "https://clinicaltrials.gov/study/NCT06982859"
+  },
+  {
+    "nct_id": "NCT06069583",
+    "title": "Using the Support Online Platform for Self-management Education of Adults Living With Type 1 Diabetes as Part of Usual Care or Independently: an Implementation Study",
+    "phase": "NA",
+    "status": "RECRUITING",
+    "start_date": "2024-05-05",
+    "priority": "MEDIUM",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06069583"
   },
   {
     "nct_id": "NCT05910840",
@@ -430,26 +500,6 @@
     "url": "https://clinicaltrials.gov/study/NCT07160257"
   },
   {
-    "nct_id": "NCT06069583",
-    "title": "Using the Support Online Platform for Self-management Education of Adults Living With Type 1 Diabetes as Part of Usual Care or Independently: an Implementation Study",
-    "phase": "NA",
-    "status": "RECRUITING",
-    "start_date": "2024-05-05",
-    "priority": "MEDIUM",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06069583"
-  },
-  {
-    "nct_id": "NCT06280703",
-    "title": "A Three-Part, Randomized, Double-Blind (Part A) and Open-Label (Part B and Part C), Multi-Dose, Phase 1 Study to Assess the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of LY3938577 in Healthy Participants and Participants With Type 1 Diabetes Mellitus",
-    "phase": "PHASE1",
-    "status": "RECRUITING",
-    "start_date": "2024-05-15",
-    "priority": "HIGH",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06280703"
-  },
-  {
     "nct_id": "NCT07177404",
     "title": "Surveying Experiences and Lifestyle Effects in Choosing Technology and Hybrid Closed Loop in Type 1 Diabetes",
     "phase": "Unknown",
@@ -458,26 +508,6 @@
     "priority": "MEDIUM",
     "source": "ClinicalTrials.gov",
     "url": "https://clinicaltrials.gov/study/NCT07177404"
-  },
-  {
-    "nct_id": "NCT06685185",
-    "title": "A Study Investigating Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of Single and Multiple Doses of NNC0363-1063 in Healthy Participants and Participants With Type 1 Diabetes",
-    "phase": "PHASE1",
-    "status": "RECRUITING",
-    "start_date": "2024-11-12",
-    "priority": "HIGH",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06685185"
-  },
-  {
-    "nct_id": "NCT06880835",
-    "title": "INHALE-AIDEx: A Randomized Crossover Trial Evaluating the Effect of Inhaled Technosphere Insulin (Afrezza\u00ae) vs Rapid Acting Analogue Insulin on Exercise-Induced Hypoglycemia in Adults With Type 1 Diabetes Using Automated Insulin Delivery",
-    "phase": "NA",
-    "status": "RECRUITING",
-    "start_date": "2025-06-05",
-    "priority": "MEDIUM",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06880835"
   },
   {
     "nct_id": "NCT05594563",
@@ -500,14 +530,24 @@
     "url": "https://clinicaltrials.gov/study/NCT06452654"
   },
   {
-    "nct_id": "NCT06325202",
-    "title": "Closed Loop and Education for Hypoglycemia Awareness Restoration (CLEAR), Conducted by the Impaired Awareness of Hypoglycemia Consortium (IAHC)",
+    "nct_id": "NCT06880835",
+    "title": "INHALE-AIDEx: A Randomized Crossover Trial Evaluating the Effect of Inhaled Technosphere Insulin (Afrezza\u00ae) vs Rapid Acting Analogue Insulin on Exercise-Induced Hypoglycemia in Adults With Type 1 Diabetes Using Automated Insulin Delivery",
     "phase": "NA",
     "status": "RECRUITING",
-    "start_date": "2025-09-17",
+    "start_date": "2025-06-05",
     "priority": "MEDIUM",
     "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06325202"
+    "url": "https://clinicaltrials.gov/study/NCT06880835"
+  },
+  {
+    "nct_id": "NCT06685185",
+    "title": "A Study Investigating Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of Single and Multiple Doses of NNC0363-1063 in Healthy Participants and Participants With Type 1 Diabetes",
+    "phase": "PHASE1",
+    "status": "RECRUITING",
+    "start_date": "2024-11-12",
+    "priority": "HIGH",
+    "source": "ClinicalTrials.gov",
+    "url": "https://clinicaltrials.gov/study/NCT06685185"
   },
   {
     "nct_id": "NCT07052292",
@@ -538,45 +578,5 @@
     "priority": "MEDIUM",
     "source": "ClinicalTrials.gov",
     "url": "https://clinicaltrials.gov/study/NCT05936242"
-  },
-  {
-    "nct_id": "NCT06860516",
-    "title": "A Non-interventional Study of HLA-DRB1*04:01 Distribution in Adults With Recently Diagnosed Type 1 Diabetes (T1D)",
-    "phase": "Unknown",
-    "status": "RECRUITING",
-    "start_date": "2025-06-06",
-    "priority": "MEDIUM",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06860516"
-  },
-  {
-    "nct_id": "NCT06783309",
-    "title": "A Phase 1b/2a Double Blind, Placebo Controlled Study to Evaluate the Safety, Tolerability, Pharmacodynamics, and Efficacy of CNP-103 in Subjects Ages 12-35 With Recent Onset Stage 3 Type 1 Diabetes",
-    "phase": "PHASE1",
-    "status": "RECRUITING",
-    "start_date": "2025-05-12",
-    "priority": "HIGH",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06783309"
-  },
-  {
-    "nct_id": "NCT07179471",
-    "title": "\"Fake Carbs\" Practice in the Glycemic Outcomes in Children and Adolescents Using AID System: A Cross-over Observational Study",
-    "phase": "Unknown",
-    "status": "RECRUITING",
-    "start_date": "2025-06-04",
-    "priority": "MEDIUM",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT07179471"
-  },
-  {
-    "nct_id": "NCT06731218",
-    "title": "A Single-Center, Single-Arm, Open-Label Phase I Clinical Trial Evaluating the Safety and Efficacy of RGB-5088 Islet Cell Injection in the Treatment of Type 1 Diabetes Mellitus",
-    "phase": "PHASE1",
-    "status": "RECRUITING",
-    "start_date": "2025-02-17",
-    "priority": "HIGH",
-    "source": "ClinicalTrials.gov",
-    "url": "https://clinicaltrials.gov/study/NCT06731218"
   }
 ]
