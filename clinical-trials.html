@@ -866,7 +866,7 @@
               </div>
 
               <div class="trial-meta">
-                ${trial.phase ? `<span><i class="fas fa-vial"></i> ${trial.phase}</span>` : ''}
+                ${trial.phase && trial.phase !== 'NA' && trial.phase !== 'Unknown' ? `<span><i class="fas fa-vial"></i> ${trial.phase}</span>` : ''}
                 ${trial.status ? `<span><i class="fas fa-heartbeat"></i> ${trial.status}</span>` : ''}
                 ${trial.start_date ? `<span><i class="far fa-calendar"></i> Start: ${trial.start_date}</span>` : ''}
               </div>
