@@ -280,24 +280,77 @@
       gap: var(--space-xs);
     }
 
-    .eligibility-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: var(--space-sm);
+    .requirements-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: #f59e0b;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: var(--space-sm);
     }
 
-    .eligibility-item {
+    .requirements-btn:hover {
+      background: #d97706;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .requirements-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      margin-top: 0;
+    }
+
+    .requirements-content.expanded {
+      max-height: 1000px;
+      margin-top: var(--space-md);
+    }
+
+    .requirements-section {
+      background: var(--bg-light);
+      padding: var(--space-md);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+    .requirements-section h4 {
+      color: var(--dark);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
       display: flex;
       align-items: center;
       gap: var(--space-xs);
-      color: #78350f;
-      font-size: 0.9375rem;
-      font-weight: 600;
     }
 
-    .eligibility-item i {
+    .requirements-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .requirements-section li {
+      padding: var(--space-xs) 0;
+      padding-left: var(--space-lg);
+      position: relative;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .requirements-section li:before {
+      content: "•";
+      position: absolute;
+      left: var(--space-sm);
       color: #f59e0b;
-      font-size: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
     }
 
     .technical-details {
@@ -705,15 +758,61 @@
 
           return {
             summary: description.briefSummary || '',
-            minAge: eligibility.minimumAge || null,
-            maxAge: eligibility.maximumAge || null,
-            sex: eligibility.sex || 'All',
+            eligibilityCriteria: eligibility.eligibilityCriteria || 'No eligibility criteria available.',
             locations: data.protocolSection.contactsLocationsModule?.locations || []
           };
         }
       } catch (error) {
         console.error(`Error fetching details for ${nctId}:`, error);
         return null;
+      }
+    }
+
+    // Parse eligibility criteria into inclusion/exclusion lists
+    function parseEligibilityCriteria(criteriaText) {
+      const lines = criteriaText.split('\n').map(line => line.trim()).filter(line => line);
+
+      let inclusionCriteria = [];
+      let exclusionCriteria = [];
+      let currentSection = null;
+
+      for (let line of lines) {
+        const lowerLine = line.toLowerCase();
+
+        if (lowerLine.includes('inclusion criteria') || lowerLine.includes('inclusion:')) {
+          currentSection = 'inclusion';
+          continue;
+        } else if (lowerLine.includes('exclusion criteria') || lowerLine.includes('exclusion:')) {
+          currentSection = 'exclusion';
+          continue;
+        }
+
+        // Skip empty lines and section headers
+        if (!line || line.length < 3) continue;
+
+        // Add to appropriate section
+        if (currentSection === 'inclusion') {
+          inclusionCriteria.push(line.replace(/^[-•*]\s*/, '').replace(/^\d+\.\s*/, ''));
+        } else if (currentSection === 'exclusion') {
+          exclusionCriteria.push(line.replace(/^[-•*]\s*/, '').replace(/^\d+\.\s*/, ''));
+        }
+      }
+
+      return { inclusionCriteria, exclusionCriteria };
+    }
+
+    // Toggle requirements display
+    function toggleRequirements(index) {
+      const content = document.getElementById(`requirements-${index}`);
+      const button = document.getElementById(`req-btn-${index}`);
+      const icon = button.querySelector('i');
+
+      content.classList.toggle('expanded');
+
+      if (content.classList.contains('expanded')) {
+        button.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Requirements';
+      } else {
+        button.innerHTML = '<i class="fas fa-list-check"></i> See Requirements';
       }
     }
 
@@ -740,11 +839,14 @@
               <h2 class="trial-title">${plainTitle}</h2>
 
               <div class="quick-eligibility" id="quick-${index}">
-                <h3><i class="fas fa-bolt"></i> Quick Check</h3>
-                <div class="eligibility-grid">
-                  <div class="eligibility-item">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <span>Loading eligibility...</span>
+                <h3><i class="fas fa-clipboard-list"></i> Eligibility Requirements</h3>
+                <button class="requirements-btn" id="req-btn-${index}" onclick="toggleRequirements(${index})">
+                  <i class="fas fa-list-check"></i> See Requirements
+                </button>
+                <div class="requirements-content" id="requirements-${index}">
+                  <div style="text-align: center; padding: var(--space-md); color: var(--gray);">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 1.5rem;"></i>
+                    <p style="margin-top: var(--space-sm);">Loading requirements...</p>
                   </div>
                 </div>
               </div>
@@ -792,32 +894,58 @@
                   }
                 }
 
-                // Update quick eligibility with real data
-                const quickEl = document.getElementById(`quick-${index}`);
-                if (quickEl) {
-                  const locationText = details.locations.length > 0
-                    ? `${details.locations.length} location${details.locations.length > 1 ? 's' : ''}`
-                    : 'Multiple Sites';
+                // Update requirements section with parsed criteria
+                const requirementsEl = document.getElementById(`requirements-${index}`);
+                if (requirementsEl && details.eligibilityCriteria) {
+                  const { inclusionCriteria, exclusionCriteria } = parseEligibilityCriteria(details.eligibilityCriteria);
 
-                  quickEl.innerHTML = `
-                    <h3><i class="fas fa-bolt"></i> Quick Check</h3>
-                    <div class="eligibility-grid">
-                      ${details.minAge || details.maxAge ? `
-                        <div class="eligibility-item">
-                          <i class="fas fa-birthday-cake"></i>
-                          <span>${details.minAge || '?'} - ${details.maxAge || '?'}</span>
-                        </div>
-                      ` : ''}
-                      <div class="eligibility-item">
-                        <i class="fas fa-user"></i>
-                        <span>${details.sex}</span>
+                  let requirementsHTML = '';
+
+                  if (inclusionCriteria.length > 0) {
+                    requirementsHTML += `
+                      <div class="requirements-section">
+                        <h4><i class="fas fa-check-circle" style="color: #059669;"></i> Inclusion Criteria</h4>
+                        <ul>
+                          ${inclusionCriteria.map(criteria => `<li>${criteria}</li>`).join('')}
+                        </ul>
                       </div>
-                      <div class="eligibility-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>${locationText}</span>
+                    `;
+                  }
+
+                  if (exclusionCriteria.length > 0) {
+                    requirementsHTML += `
+                      <div class="requirements-section">
+                        <h4><i class="fas fa-times-circle" style="color: #dc2626;"></i> Exclusion Criteria</h4>
+                        <ul>
+                          ${exclusionCriteria.map(criteria => `<li>${criteria}</li>`).join('')}
+                        </ul>
                       </div>
-                    </div>
-                  `;
+                    `;
+                  }
+
+                  if (requirementsHTML === '') {
+                    requirementsHTML = `
+                      <div style="text-align: center; padding: var(--space-md); color: var(--gray);">
+                        <p>No detailed eligibility criteria available. Please visit the full study page for more information.</p>
+                      </div>
+                    `;
+                  }
+
+                  // Add location info
+                  if (details.locations && details.locations.length > 0) {
+                    const locationText = details.locations.length > 0
+                      ? `${details.locations.length} location${details.locations.length > 1 ? 's' : ''}`
+                      : 'Multiple Sites';
+
+                    requirementsHTML += `
+                      <div class="requirements-section">
+                        <h4><i class="fas fa-map-marker-alt" style="color: #0891b2;"></i> Study Locations</h4>
+                        <p style="color: var(--gray); padding-left: var(--space-lg);">${locationText} available - see full study page for details</p>
+                      </div>
+                    `;
+                  }
+
+                  requirementsEl.innerHTML = requirementsHTML;
                 }
               }
             }
