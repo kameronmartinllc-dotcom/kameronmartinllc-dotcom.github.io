@@ -286,21 +286,23 @@ class MedicalScraper:
     def scrape_clinical_trials(self, days_back: int = 7) -> List[Dict]:
         """Scrape recent clinical trials from ClinicalTrials.gov - focusing on actively recruiting trials"""
         logger.info("Scraping ClinicalTrials.gov for actively recruiting T1D trials...")
-        
+
         trials = []
+        cutoff_date = datetime.now() - timedelta(days=365)  # Only trials updated in last year
+
         try:
             # ClinicalTrials.gov search for T1D trials - multiple searches to catch all variations
             search_url = "https://clinicaltrials.gov/api/v2/studies"
-            
+
             # Search terms to catch different T1D variations
             search_terms = [
                 'Type 1 Diabetes',
-                'Type 1 Diabetes Mellitus', 
+                'Type 1 Diabetes Mellitus',
                 'Diabetes Mellitus, Type 1',
                 'Type 1 Diabetes (T1D)',
                 'Diabetes Type 1'
             ]
-            
+
             for term in search_terms:
                 params = {
                     'query.cond': term,
@@ -308,23 +310,33 @@ class MedicalScraper:
                     'pageSize': 50,  # Increased from 20
                     'sort': 'LastUpdatePostDate:desc'
                 }
-                
+
                 response = self.session.get(search_url, params=params)
                 if response.status_code == 200:
                     data = response.json()
-                    
+
                     for study in data.get('studies', []):
                         trial_data = self._process_clinical_trial(study)
                         if trial_data and trial_data not in trials:  # Avoid duplicates
-                            trials.append(trial_data)
-                            
+                            # Filter out trials that haven't been updated recently
+                            if trial_data.get('last_update_date'):
+                                try:
+                                    last_update = datetime.strptime(trial_data['last_update_date'], '%Y-%m-%d')
+                                    if last_update >= cutoff_date:
+                                        trials.append(trial_data)
+                                except:
+                                    # If date parsing fails, include it anyway
+                                    trials.append(trial_data)
+                            else:
+                                trials.append(trial_data)
+
                     logger.info(f"Found {len(data.get('studies', []))} trials for term: {term}")
                 else:
                     logger.warning(f"Failed to search for term '{term}': {response.status_code}")
-                        
+
         except Exception as e:
             logger.error(f"Error scraping ClinicalTrials.gov: {e}")
-            
+
         return trials
     
     def _process_clinical_trial(self, study: Dict) -> Optional[Dict]:
@@ -334,18 +346,19 @@ class MedicalScraper:
             identification_module = protocol_section.get('identificationModule', {})
             status_module = protocol_section.get('statusModule', {})
             design_module = protocol_section.get('designModule', {})
-            
+
             nct_id = identification_module.get('nctId', 'Unknown')
             title = identification_module.get('briefTitle', 'No title available')
             official_title = identification_module.get('officialTitle', title)
-            
+
             # Get status and phase
             overall_status = status_module.get('overallStatus', 'Unknown')
             phase = design_module.get('phases', ['Unknown'])[0] if design_module.get('phases') else 'Unknown'
-            
-            # Get start date
+
+            # Get start date and last update date
             start_date = status_module.get('startDateStruct', {}).get('date', 'Unknown')
-            
+            last_update_date = status_module.get('lastUpdatePostDateStruct', {}).get('date', None)
+
             # Determine priority based on phase and status - focus on trials needing participants
             priority = 'MEDIUM'
             if overall_status == 'RECRUITING':
@@ -357,18 +370,19 @@ class MedicalScraper:
                     priority = 'MEDIUM'
             else:
                 priority = 'LOW'  # Not actively recruiting
-            
+
             return {
                 'nct_id': nct_id,
                 'title': official_title,
                 'phase': phase,
                 'status': overall_status,
                 'start_date': start_date,
+                'last_update_date': last_update_date,
                 'priority': priority,
                 'source': 'ClinicalTrials.gov',
                 'url': f"https://clinicaltrials.gov/study/{nct_id}"
             }
-            
+
         except Exception as e:
             logger.error(f"Error processing clinical trial: {e}")
             return None
