@@ -579,6 +579,28 @@
         .video-credit a:hover {
             text-decoration: underline;
         }
+
+        .external-video-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #0891b2 100%);
+            color: var(--white);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .external-video-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .external-video-btn i {
+            margin-left: var(--space-xs);
+        }
     </style>
 </head>
 <body>
@@ -883,10 +905,11 @@
 
                 <div class="video-wrapper">
                     <h4><i class="fas fa-video"></i> How to Give an Insulin Injection</h4>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/fZDEYLKSxGQ" title="Insulin Injection Technique" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@BeyondType1" target="_blank" rel="noopener">Beyond Type 1</a></p>
+                    <p>Watch the step-by-step injection tutorial from Beyond Type 1:</p>
+                    <a href="https://beyondtype1.org/how-to-give-yourself-an-insulin-injection/" target="_blank" rel="noopener" class="external-video-btn">
+                        Watch Tutorial <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <p class="video-credit">Tutorial hosted on <a href="https://beyondtype1.org" target="_blank" rel="noopener">Beyond Type 1</a></p>
                 </div>
 
                 <div class="knowledge-check">
@@ -969,11 +992,12 @@
                 </div>
 
                 <div class="video-wrapper">
-                    <h4><i class="fas fa-video"></i> Carb Counting Basics for Type 1 Diabetes</h4>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/mFk5R-mhGUE" title="Carb Counting Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@diabetes" target="_blank" rel="noopener">American Diabetes Association</a></p>
+                    <h4><i class="fas fa-video"></i> Carb Counting Tips for Type 1 Diabetes</h4>
+                    <p>Learn carb counting from JDRF's comprehensive guide:</p>
+                    <a href="https://www.jdrf.org/t1d-resources/daily-management/carb-counting-tips/" target="_blank" rel="noopener" class="external-video-btn">
+                        Read Guide <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <p class="video-credit">Resource from <a href="https://www.jdrf.org" target="_blank" rel="noopener">JDRF (Breakthrough T1D)</a></p>
                 </div>
 
                 <div class="knowledge-check">
@@ -1033,23 +1057,24 @@
                     <div class="video-wrapper">
                         <h4><i class="fas fa-video"></i> How to Apply a Dexcom G7 CGM</h4>
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/VKQO1xqljbY" title="Dexcom G7 Sensor Application" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/YU8tib41-_4" title="Dexcom G7 Sensor Application" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@DexcomInc" target="_blank" rel="noopener">Dexcom</a></p>
                     </div>
 
                     <div class="video-wrapper">
                         <h4><i class="fas fa-video"></i> How to Apply a FreeStyle Libre Sensor</h4>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/ts_NFQPqM_w" title="FreeStyle Libre Sensor Application" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@AbbottDiabetesCare" target="_blank" rel="noopener">Abbott Diabetes Care</a></p>
+                        <p>Watch the official tutorial from Abbott:</p>
+                        <a href="https://www.freestyle.abbott/us-en/how-to-set-up.html" target="_blank" rel="noopener" class="external-video-btn">
+                            Watch Tutorial <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <p class="video-credit">Tutorial hosted on <a href="https://www.freestyle.abbott" target="_blank" rel="noopener">Abbott FreeStyle Libre</a></p>
                     </div>
 
                     <div class="video-wrapper">
                         <h4><i class="fas fa-video"></i> Medtronic Guardian Sensor Insertion</h4>
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/P8VHNYz0D3I" title="Medtronic Guardian Sensor Insertion" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/0DoeJeqH-nY" title="Medtronic Guardian Sensor Insertion" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@MedtronicDiabetes" target="_blank" rel="noopener">Medtronic Diabetes</a></p>
                     </div>
@@ -1074,27 +1099,30 @@
                     </ul>
 
                     <div class="video-wrapper">
-                        <h4><i class="fas fa-video"></i> Tandem t:slim X2 - Infusion Set Change</h4>
+                        <h4><i class="fas fa-video"></i> Tandem t:slim X2 - Infusion Set Introduction</h4>
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/IzSGJ6ppYho" title="Tandem Infusion Set Change" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/XRYS-GCDN6o" title="Tandem Infusion Sets Overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@TandemDiabetes" target="_blank" rel="noopener">Tandem Diabetes</a></p>
+                        <p style="margin-top: var(--space-sm); font-size: 0.9375rem;">For detailed insertion tutorials, visit <a href="https://www.tandemdiabetes.com/products/infusion-sets" target="_blank" rel="noopener" style="color: var(--accent); font-weight: 600;">Tandem's full video library</a></p>
                     </div>
 
                     <div class="video-wrapper">
-                        <h4><i class="fas fa-video"></i> How to Change an Omnipod</h4>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/zPp7wQdVsvs" title="Omnipod Pod Change Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@Omnipod" target="_blank" rel="noopener">Insulet (Omnipod)</a></p>
+                        <h4><i class="fas fa-video"></i> How to Change an Omnipod 5</h4>
+                        <p>Watch the official pod activation tutorial from Omnipod:</p>
+                        <a href="https://www.omnipod.com/current-podders/resources/omnipod-5/videos/pod-activation" target="_blank" rel="noopener" class="external-video-btn">
+                            Watch Tutorial <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <p class="video-credit">Tutorial hosted on <a href="https://www.omnipod.com" target="_blank" rel="noopener">Omnipod.com</a></p>
                     </div>
 
                     <div class="video-wrapper">
-                        <h4><i class="fas fa-video"></i> Medtronic MiniMed Pump - Changing Your Infusion Set</h4>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/vBZP0lk9qxQ" title="Medtronic Infusion Set Change" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@MedtronicDiabetes" target="_blank" rel="noopener">Medtronic Diabetes</a></p>
+                        <h4><i class="fas fa-video"></i> Medtronic MiniMed - Infusion Set Change</h4>
+                        <p>Watch official tutorials for your specific infusion set type:</p>
+                        <a href="https://www.medtronicdiabetes.com/customer-support/minimed-780g-system-support/pump-changing-infusion-set" target="_blank" rel="noopener" class="external-video-btn">
+                            Watch Tutorials <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <p class="video-credit">Tutorials hosted on <a href="https://www.medtronicdiabetes.com" target="_blank" rel="noopener">Medtronic Diabetes</a></p>
                     </div>
                 </div>
 
@@ -1182,10 +1210,11 @@
 
                 <div class="video-wrapper">
                     <h4><i class="fas fa-video"></i> Exercise Tips for Type 1 Diabetes</h4>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/fRNJFKdHD_I" title="Exercise with Type 1 Diabetes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@JDRF" target="_blank" rel="noopener">JDRF</a></p>
+                    <p>Learn how to manage blood sugar during exercise from Beyond Type 1:</p>
+                    <a href="https://beyondtype1.org/diabetes-and-exercise/" target="_blank" rel="noopener" class="external-video-btn">
+                        Watch Tutorial <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <p class="video-credit">Tutorial hosted on <a href="https://beyondtype1.org" target="_blank" rel="noopener">Beyond Type 1</a></p>
                 </div>
 
                 <div class="subtopic">
