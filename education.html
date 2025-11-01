@@ -601,6 +601,222 @@
         .external-video-btn i {
             margin-left: var(--space-xs);
         }
+
+        /* Chatbot Widget */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent) 0%, #0891b2 100%);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 380px;
+            height: 550px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .chatbot-container.active {
+            display: flex;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--accent) 0%, #0891b2 100%);
+            color: var(--white);
+            padding: var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chatbot-header h3 {
+            margin: 0;
+            font-size: 1.125rem;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-disclaimer {
+            background: #fff3cd;
+            color: #856404;
+            padding: var(--space-sm);
+            font-size: 0.75rem;
+            border-bottom: 1px solid #ffeaa7;
+            text-align: center;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--space-md);
+            background: var(--bg-light);
+        }
+
+        .chat-message {
+            margin-bottom: var(--space-md);
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .chat-message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.875rem;
+        }
+
+        .message-avatar.user {
+            background: var(--primary);
+        }
+
+        .message-content {
+            background: var(--white);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            max-width: 75%;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chat-message.user .message-content {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .message-content p {
+            margin: 0;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+        }
+
+        .chatbot-input-area {
+            padding: var(--space-md);
+            background: var(--white);
+            border-top: 1px solid var(--light-gray);
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: var(--space-sm);
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius-md);
+            font-size: 0.9375rem;
+            font-family: inherit;
+        }
+
+        .chatbot-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .chatbot-send {
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .chatbot-send:hover {
+            background: #0891b2;
+        }
+
+        .chatbot-send:disabled {
+            background: var(--light-gray);
+            cursor: not-allowed;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: var(--space-sm);
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gray);
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.7; }
+            30% { transform: translateY(-10px); opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+            .chatbot-container {
+                width: calc(100vw - 40px);
+                height: calc(100vh - 140px);
+                bottom: 80px;
+                right: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1701,6 +1917,45 @@
 
     </div>
 
+    <!-- T1D Education Chatbot -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open T1D Education Assistant">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3><i class="fas fa-robot"></i> T1D Education Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Close chat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-disclaimer">
+            ⚠️ Educational information only - not medical advice. Always consult your endocrinologist.
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="chat-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Hi! I'm your T1D education assistant. I can help answer questions about Type 1 Diabetes management, but I'm not a doctor. How can I help you today?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input
+                type="text"
+                class="chatbot-input"
+                id="chatbotInput"
+                placeholder="Ask a question about T1D..."
+                maxlength="500"
+            >
+            <button class="chatbot-send" id="chatbotSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
     <script>
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
@@ -1753,6 +2008,221 @@
                 });
             });
         });
+
+        // T1D Education Chatbot
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+
+        // Toggle chatbot
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('active');
+            if (chatbotContainer.classList.contains('active')) {
+                chatbotInput.focus();
+            }
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotContainer.classList.remove('active');
+        });
+
+        // Send message on Enter key
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !chatbotSend.disabled) {
+                sendMessage();
+            }
+        });
+
+        chatbotSend.addEventListener('click', sendMessage);
+
+        // Chat conversation history
+        let conversationHistory = [];
+
+        async function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (!message) return;
+
+            // Add user message to chat
+            addMessage(message, 'user');
+            chatbotInput.value = '';
+            chatbotSend.disabled = true;
+
+            // Check for emergency keywords
+            if (detectEmergency(message)) {
+                addMessage('🚨 This sounds like a medical emergency. Please call 911 or your endocrinologist immediately. I cannot provide emergency medical advice.', 'bot');
+                chatbotSend.disabled = false;
+                return;
+            }
+
+            // Check for dosing questions
+            if (detectDosingQuestion(message)) {
+                addMessage('⚠️ I cannot provide insulin dosing advice. Please contact your endocrinologist or diabetes care team for questions about insulin doses. They know your specific treatment plan.', 'bot');
+                chatbotSend.disabled = false;
+                return;
+            }
+
+            // Show typing indicator
+            const typingId = showTypingIndicator();
+
+            try {
+                // Call Gemini API
+                const response = await callGeminiAPI(message);
+                removeTypingIndicator(typingId);
+                addMessage(response, 'bot');
+            } catch (error) {
+                removeTypingIndicator(typingId);
+                addMessage('Sorry, I encountered an error. Please try again or contact your healthcare provider for medical questions.', 'bot');
+                console.error('Chatbot error:', error);
+            }
+
+            chatbotSend.disabled = false;
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}`;
+
+            const avatar = document.createElement('div');
+            avatar.className = `message-avatar ${sender}`;
+            avatar.innerHTML = sender === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            content.innerHTML = `<p>${text}</p>`;
+
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(content);
+            chatbotMessages.appendChild(messageDiv);
+
+            // Scroll to bottom
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+            // Add to history (for context)
+            conversationHistory.push({ role: sender === 'user' ? 'user' : 'model', parts: [{ text }] });
+        }
+
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'chat-message';
+            typingDiv.id = 'typing-indicator-' + Date.now();
+
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.innerHTML = '<i class="fas fa-robot"></i>';
+
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            content.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+
+            typingDiv.appendChild(avatar);
+            typingDiv.appendChild(content);
+            chatbotMessages.appendChild(typingDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+            return typingDiv.id;
+        }
+
+        function removeTypingIndicator(id) {
+            const typingDiv = document.getElementById(id);
+            if (typingDiv) typingDiv.remove();
+        }
+
+        function detectEmergency(message) {
+            const emergencyKeywords = [
+                'unconscious', 'passing out', 'seizure', 'convuls', 'can\'t wake',
+                'severe', 'dka', 'ketoacidosis', 'vomiting', 'can\'t breathe',
+                'chest pain', 'extreme', 'emergency', '911'
+            ];
+            const lowerMessage = message.toLowerCase();
+            return emergencyKeywords.some(keyword => lowerMessage.includes(keyword));
+        }
+
+        function detectDosingQuestion(message) {
+            const dosingKeywords = [
+                'how much insulin', 'insulin dose', 'how many units',
+                'should i give', 'should i take', 'insulin calculator',
+                'dose should i', 'units should i', 'correct dose'
+            ];
+            const lowerMessage = message.toLowerCase();
+            return dosingKeywords.some(keyword => lowerMessage.includes(keyword));
+        }
+
+        async function callGeminiAPI(userMessage) {
+            // IMPORTANT: Replace 'YOUR_GEMINI_API_KEY' with actual API key
+            const API_KEY = 'YOUR_GEMINI_API_KEY';
+
+            if (API_KEY === 'YOUR_GEMINI_API_KEY') {
+                return 'Chatbot not configured yet. Please add your Google Gemini API key to enable the assistant. Get a free API key at https://makersuite.google.com/app/apikey';
+            }
+
+            const GEMINI_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`;
+
+            // Build system context with safeguards
+            const systemPrompt = `You are a compassionate Type 1 Diabetes education assistant. Your role is to provide accurate, evidence-based educational information to newly diagnosed families and people with T1D.
+
+CRITICAL SAFETY RULES:
+1. NEVER provide specific insulin doses or dosing calculations
+2. NEVER diagnose medical conditions
+3. NEVER tell someone to stop or change their insulin
+4. For ANY medical decision: "Please consult your endocrinologist"
+5. For emergencies: "Call 911 or your doctor immediately"
+6. Always include: "This is educational information, not medical advice"
+
+YOUR KNOWLEDGE BASE:
+- Type 1 Diabetes is an autoimmune condition where the body attacks insulin-producing beta cells
+- Blood sugar management involves balancing insulin, food (carbs), and activity
+- Target blood sugar: 70-180 mg/dL for most people
+- CGMs (Continuous Glucose Monitors) track glucose every 1-5 minutes
+- Insulin pumps deliver insulin continuously (basal) and at meals (bolus)
+- Carb counting: 1 serving = ~15g carbs
+- Hypoglycemia (low blood sugar): <70 mg/dL, treat with 15g fast-acting carbs
+- DKA (Diabetic Ketoacidosis): medical emergency, requires immediate care
+- Technology: Dexcom, FreeStyle Libre, Tandem, Omnipod, Medtronic
+
+YOUR TONE:
+- Warm and reassuring for scared parents
+- Use simple language, explain medical terms
+- Acknowledge their feelings ("I understand this is overwhelming")
+- Empower them with knowledge
+- Reference the education page sections when relevant
+
+Remember: You provide EDUCATION, not medical treatment plans.`;
+
+            try {
+                const response = await fetch(GEMINI_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [
+                            { role: 'user', parts: [{ text: systemPrompt }] },
+                            { role: 'model', parts: [{ text: 'I understand. I will provide educational information about Type 1 Diabetes while following all safety guidelines. I will never provide medical advice, dosing information, or diagnoses. I will always remind users to consult their healthcare team for medical decisions.' }] },
+                            ...conversationHistory.slice(-6), // Last 3 exchanges for context
+                            { role: 'user', parts: [{ text: userMessage }] }
+                        ],
+                        generationConfig: {
+                            temperature: 0.7,
+                            maxOutputTokens: 500,
+                        }
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.candidates && data.candidates[0]) {
+                    return data.candidates[0].content.parts[0].text;
+                } else {
+                    throw new Error('No response from API');
+                }
+            } catch (error) {
+                console.error('Gemini API Error:', error);
+                throw error;
+            }
+        }
     </script>
 </body>
 </html>
