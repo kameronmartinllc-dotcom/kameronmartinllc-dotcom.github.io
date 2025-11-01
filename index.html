@@ -790,6 +790,134 @@
         font-size: 1rem;
       }
     }
+
+    /* Review Section */
+    .review-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .review-section h2 {
+      color: var(--dark);
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+    }
+
+    .review-section > p {
+      color: var(--gray);
+      font-size: 1.0625rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .star-rating {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-lg);
+      font-size: 2.5rem;
+    }
+
+    .star {
+      cursor: pointer;
+      color: var(--light-gray);
+      transition: all 0.2s;
+    }
+
+    .star:hover,
+    .star.active {
+      color: #fbbf24;
+      transform: scale(1.1);
+    }
+
+    .review-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: var(--space-lg);
+    }
+
+    .form-label {
+      display: block;
+      color: var(--dark);
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+      font-size: 0.9375rem;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: var(--space-sm) var(--space-md);
+      border: 2px solid var(--light-gray);
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.2s;
+      background: var(--bg-light);
+      color: var(--dark);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--white);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, #60a5fa 100%);
+      color: var(--white);
+      padding: var(--space-sm) var(--space-xl);
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .success-message {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+      color: #065f46;
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-md);
+      margin-top: var(--space-md);
+      display: none;
+      border-left: 4px solid var(--success);
+      text-align: left;
+    }
+
+    .success-message.show {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -934,6 +1062,52 @@
       </form>
     </div>
 
+    <!-- Review Section -->
+    <div class="review-section">
+      <h2>
+        <i class="fas fa-star"></i>
+        Share Your Thoughts
+      </h2>
+      <p>Help us improve AVA for the T1D community. How would you rate your experience with this site?</p>
+
+      <div class="star-rating" id="starRating">
+        <i class="fas fa-star star" data-rating="1"></i>
+        <i class="fas fa-star star" data-rating="2"></i>
+        <i class="fas fa-star star" data-rating="3"></i>
+        <i class="fas fa-star star" data-rating="4"></i>
+        <i class="fas fa-star star" data-rating="5"></i>
+      </div>
+
+      <form class="review-form" id="reviewForm" action="https://formspree.io/f/xanlwdpq" method="POST">
+        <input type="hidden" name="rating" id="ratingInput" value="">
+        <input type="hidden" name="_subject" value="AVA Website Review">
+        <input type="hidden" name="page" value="Homepage">
+
+        <div class="form-group">
+          <label class="form-label" for="reviewerName">Name (optional)</label>
+          <input type="text" class="form-input" id="reviewerName" name="name" placeholder="Your name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reviewerEmail">Email (optional)</label>
+          <input type="email" class="form-input" id="reviewerEmail" name="email" placeholder="your.email@example.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reviewText">What do you think? What features would you like to see?</label>
+          <textarea class="form-textarea" id="reviewText" name="review" placeholder="Share your feedback..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> Submit Review
+        </button>
+
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle"></i> Thank you for your feedback! Your input helps us serve the T1D community better.
+        </div>
+      </form>
+    </div>
+
     <!-- Footer -->
     <div class="footer">
       <div class="footer-heart">
@@ -1038,6 +1212,73 @@
     // Load all content on page load
     loadReports();
     loadBreakingNewsTeaser();
+
+    // Star Rating Functionality
+    const stars = document.querySelectorAll('.star');
+    const ratingInput = document.getElementById('ratingInput');
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener('click', function() {
+        selectedRating = parseInt(this.getAttribute('data-rating'));
+        ratingInput.value = selectedRating;
+        updateStars();
+      });
+
+      star.addEventListener('mouseenter', function() {
+        const hoverRating = parseInt(this.getAttribute('data-rating'));
+        highlightStars(hoverRating);
+      });
+    });
+
+    document.getElementById('starRating').addEventListener('mouseleave', function() {
+      updateStars();
+    });
+
+    function highlightStars(rating) {
+      stars.forEach(star => {
+        const starRating = parseInt(star.getAttribute('data-rating'));
+        if (starRating <= rating) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+    }
+
+    function updateStars() {
+      highlightStars(selectedRating);
+    }
+
+    // Form Submission
+    const reviewForm = document.getElementById('reviewForm');
+    reviewForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          document.getElementById('successMessage').classList.add('show');
+          reviewForm.reset();
+          selectedRating = 0;
+          ratingInput.value = '';
+          updateStars();
+
+          setTimeout(() => {
+            document.getElementById('successMessage').classList.remove('show');
+          }, 5000);
+        }
+      }).catch(error => {
+        alert('Sorry, there was an error submitting your review. Please try again.');
+      });
+    });
   </script>
 
   <!-- Dark Mode Toggle -->
