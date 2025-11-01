@@ -934,6 +934,199 @@
     .success-message.show {
       display: block;
     }
+
+    /* Doctor Search Section */
+    .doctor-search {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doctor-search h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--dark);
+    }
+
+    .doctor-search > p {
+      color: var(--gray);
+      font-size: 1.0625rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .search-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .search-row {
+      display: flex;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+      align-items: center;
+    }
+
+    .search-input-group {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-label {
+      display: block;
+      color: var(--dark);
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+      font-size: 0.9375rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: var(--space-sm) var(--space-md);
+      border: 2px solid var(--light-gray);
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      transition: all 0.2s;
+      background: var(--bg-light);
+      color: var(--dark);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--white);
+    }
+
+    .search-select {
+      width: 100%;
+      padding: var(--space-sm) var(--space-md);
+      border: 2px solid var(--light-gray);
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      transition: all 0.2s;
+      background: var(--bg-light);
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    .search-select:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--white);
+    }
+
+    .location-btn {
+      padding: var(--space-sm) var(--space-md);
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .location-btn:hover {
+      background: #0e7490;
+      transform: translateY(-1px);
+    }
+
+    .search-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, #60a5fa 100%);
+      color: var(--white);
+      padding: var(--space-sm) var(--space-xl);
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1.125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+    }
+
+    .search-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .search-btn:active {
+      transform: translateY(0);
+    }
+
+    .search-btn:disabled {
+      background: var(--gray);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .search-providers {
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
+      border-top: 2px solid var(--light-gray);
+    }
+
+    .search-providers h3 {
+      font-size: 1rem;
+      color: var(--gray);
+      margin-bottom: var(--space-md);
+      text-align: center;
+    }
+
+    .provider-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .provider-btn {
+      padding: var(--space-sm);
+      background: var(--bg-light);
+      color: var(--dark);
+      border: 2px solid var(--light-gray);
+      border-radius: var(--radius-md);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+    }
+
+    .provider-btn:hover {
+      border-color: var(--primary);
+      background: var(--white);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (max-width: 768px) {
+      .search-row {
+        flex-direction: column;
+      }
+
+      .location-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1030,6 +1223,80 @@
       </h2>
       <p>Find help with insulin, CGM, pump, and supply costs. Comprehensive guide to manufacturer programs and resources for uninsured families.</p>
       <a href="assistance-programs.html">Find Assistance <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Find a Doctor Section -->
+    <div class="doctor-search">
+      <h2>
+        <i class="fas fa-user-md"></i>
+        Find an Endocrinologist Near You
+      </h2>
+      <p>Locate Type 1 Diabetes specialists and pediatric endocrinologists in your area. Find the right care team for you or your child.</p>
+
+      <div class="search-container">
+        <div class="search-row">
+          <div class="search-input-group">
+            <label class="search-label" for="zipCode">
+              <i class="fas fa-map-marker-alt"></i> ZIP Code or City
+            </label>
+            <input
+              type="text"
+              id="zipCode"
+              class="search-input"
+              placeholder="Enter ZIP code or city name"
+              aria-label="ZIP code or city"
+            >
+          </div>
+          <button class="location-btn" id="useLocationBtn" aria-label="Use my current location">
+            <i class="fas fa-crosshairs"></i> Use My Location
+          </button>
+        </div>
+
+        <div class="search-row">
+          <div class="search-input-group">
+            <label class="search-label" for="radius">
+              <i class="fas fa-ruler"></i> Search Radius
+            </label>
+            <select id="radius" class="search-select" aria-label="Search radius">
+              <option value="5">5 miles</option>
+              <option value="10" selected>10 miles</option>
+              <option value="25">25 miles</option>
+              <option value="50">50 miles</option>
+              <option value="100">100 miles</option>
+            </select>
+          </div>
+
+          <div class="search-input-group">
+            <label class="search-label" for="specialty">
+              <i class="fas fa-stethoscope"></i> Specialty
+            </label>
+            <select id="specialty" class="search-select" aria-label="Specialty type">
+              <option value="endocrinologist">Endocrinologist (Adult)</option>
+              <option value="pediatric-endocrinologist">Pediatric Endocrinologist</option>
+              <option value="both">Both Adult & Pediatric</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="search-btn" id="searchBtn" disabled>
+          <i class="fas fa-search"></i> Search for Doctors
+        </button>
+
+        <div class="search-providers">
+          <h3>Or search on these platforms:</h3>
+          <div class="provider-buttons">
+            <a href="#" class="provider-btn" id="healthgradesLink" target="_blank" rel="noopener">
+              <i class="fas fa-hospital"></i> Healthgrades
+            </a>
+            <a href="#" class="provider-btn" id="zocdocLink" target="_blank" rel="noopener">
+              <i class="fas fa-calendar-alt"></i> Zocdoc
+            </a>
+            <a href="#" class="provider-btn" id="vitalsLink" target="_blank" rel="noopener">
+              <i class="fas fa-user-md"></i> Vitals
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Mission -->
@@ -1301,6 +1568,113 @@
   <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
     <i class="fas fa-moon"></i>
   </button>
+
+  <script>
+    // Doctor Search Functionality
+    const zipCodeInput = document.getElementById('zipCode');
+    const useLocationBtn = document.getElementById('useLocationBtn');
+    const radiusSelect = document.getElementById('radius');
+    const specialtySelect = document.getElementById('specialty');
+    const searchBtn = document.getElementById('searchBtn');
+    const healthgradesLink = document.getElementById('healthgradesLink');
+    const zocdocLink = document.getElementById('zocdocLink');
+    const vitalsLink = document.getElementById('vitalsLink');
+
+    let userLocation = null;
+
+    // Enable search button when location is entered
+    zipCodeInput.addEventListener('input', function() {
+      searchBtn.disabled = this.value.trim().length === 0;
+      updateProviderLinks();
+    });
+
+    // Use current location
+    useLocationBtn.addEventListener('click', function() {
+      if (!navigator.geolocation) {
+        alert('Geolocation is not supported by your browser');
+        return;
+      }
+
+      this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Getting location...';
+      this.disabled = true;
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          zipCodeInput.value = `${userLocation.lat.toFixed(4)}, ${userLocation.lng.toFixed(4)}`;
+          searchBtn.disabled = false;
+          useLocationBtn.innerHTML = '<i class="fas fa-check"></i> Location Set';
+          useLocationBtn.disabled = false;
+          updateProviderLinks();
+        },
+        (error) => {
+          alert('Unable to get your location. Please enter a ZIP code manually.');
+          useLocationBtn.innerHTML = '<i class="fas fa-crosshairs"></i> Use My Location';
+          useLocationBtn.disabled = false;
+        }
+      );
+    });
+
+    // Build search query based on specialty
+    function getSearchQuery() {
+      const specialty = specialtySelect.value;
+      if (specialty === 'pediatric-endocrinologist') {
+        return 'pediatric endocrinologist type 1 diabetes';
+      } else if (specialty === 'both') {
+        return 'endocrinologist pediatric type 1 diabetes';
+      } else {
+        return 'endocrinologist type 1 diabetes';
+      }
+    }
+
+    // Update provider links in real-time
+    function updateProviderLinks() {
+      const location = zipCodeInput.value.trim();
+      const searchQuery = getSearchQuery();
+
+      if (location) {
+        // Healthgrades
+        healthgradesLink.href = `https://www.healthgrades.com/usearch?what=${encodeURIComponent(searchQuery)}&where=${encodeURIComponent(location)}`;
+
+        // Zocdoc
+        zocdocLink.href = `https://www.zocdoc.com/search/?dr_specialty=122&address=${encodeURIComponent(location)}&reason_visit=344`;
+
+        // Vitals
+        vitalsLink.href = `https://www.vitals.com/search?q=${encodeURIComponent(searchQuery)}&loc=${encodeURIComponent(location)}`;
+      }
+    }
+
+    // Main search button click - opens Google Maps
+    searchBtn.addEventListener('click', function() {
+      const location = zipCodeInput.value.trim();
+      const radius = radiusSelect.value;
+      const searchQuery = getSearchQuery();
+
+      if (!location) {
+        alert('Please enter a ZIP code or use your current location');
+        return;
+      }
+
+      // Build Google Maps search URL
+      let mapsUrl;
+      if (userLocation) {
+        // Use coordinates
+        mapsUrl = `https://www.google.com/maps/search/${encodeURIComponent(searchQuery)}/@${userLocation.lat},${userLocation.lng},${Math.round(14 - Math.log2(parseInt(radius)))}z`;
+      } else {
+        // Use ZIP code or city name
+        mapsUrl = `https://www.google.com/maps/search/${encodeURIComponent(searchQuery + ' near ' + location)}`;
+      }
+
+      // Open in new tab
+      window.open(mapsUrl, '_blank');
+    });
+
+    // Update specialty dropdown triggers link updates
+    specialtySelect.addEventListener('change', updateProviderLinks);
+  </script>
 
   <script>
     // Dark mode functionality
