@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T1D Education Center - AVA</title>
+    <title>T1D Education Center - Complete Guide for Newly Diagnosed | AVA</title>
+    <meta name="description" content="Comprehensive Type 1 Diabetes education covering blood sugar management, insulin, nutrition, technology, complications, mental health, and the latest research. Free resource for newly diagnosed patients and families.">
+    <meta name="keywords" content="type 1 diabetes education, T1D basics, diabetes management, insulin therapy, carb counting, CGM, insulin pump, diabetes complications, newly diagnosed, diabetes mental health">
+    <meta name="author" content="Kameron Martin - AVA">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://avatype1.com/education.html">
+    <meta property="og:title" content="Type 1 Diabetes Education Center - Complete Guide">
+    <meta property="og:description" content="Learn everything about T1D management: blood sugar, insulin, nutrition, technology, and living well with diabetes. Designed for newly diagnosed families.">
+    <meta property="og:image" content="https://i.imgur.com/5oztDHD.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://avatype1.com/education.html">
+    <meta property="twitter:title" content="Type 1 Diabetes Education Center - Complete Guide">
+    <meta property="twitter:description" content="Comprehensive T1D education covering management, technology, complications, and research. Free for families.">
+    <meta property="twitter:image" content="https://i.imgur.com/5oztDHD.png">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNXY0C38PY"></script>
@@ -508,6 +525,60 @@
             .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; }
             .nav-links a { padding: 6px 10px; font-size: 0.75rem; }
         }
+
+        /* Video Embeds */
+        .video-wrapper {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .video-wrapper h4 {
+            color: var(--dark);
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: var(--radius-sm);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-credit {
+            margin-top: var(--space-sm);
+            font-size: 0.875rem;
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        .video-credit a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .video-credit a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -810,6 +881,14 @@
                     <p>Insulin absorption can vary by injection site. Abdomen absorbs fastest, followed by arms, then thighs and buttocks. Rotate sites to prevent lipohypertrophy (lumpy areas that don't absorb insulin well).</p>
                 </div>
 
+                <div class="video-wrapper">
+                    <h4><i class="fas fa-video"></i> How to Give an Insulin Injection</h4>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/fZDEYLKSxGQ" title="Insulin Injection Technique" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@BeyondType1" target="_blank" rel="noopener">Beyond Type 1</a></p>
+                </div>
+
                 <div class="knowledge-check">
                     <h4><i class="fas fa-check-circle"></i> Knowledge Check</h4>
                     <div class="check-item">
@@ -889,6 +968,14 @@
                     </ul>
                 </div>
 
+                <div class="video-wrapper">
+                    <h4><i class="fas fa-video"></i> Carb Counting Basics for Type 1 Diabetes</h4>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/mFk5R-mhGUE" title="Carb Counting Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@diabetes" target="_blank" rel="noopener">American Diabetes Association</a></p>
+                </div>
+
                 <div class="knowledge-check">
                     <h4><i class="fas fa-check-circle"></i> Knowledge Check</h4>
                     <div class="check-item">
@@ -942,6 +1029,30 @@
                         <li>Reduced fingersticks</li>
                         <li>Share data with family members remotely</li>
                     </ul>
+
+                    <div class="video-wrapper">
+                        <h4><i class="fas fa-video"></i> How to Apply a Dexcom G7 CGM</h4>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/VKQO1xqljbY" title="Dexcom G7 Sensor Application" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@DexcomInc" target="_blank" rel="noopener">Dexcom</a></p>
+                    </div>
+
+                    <div class="video-wrapper">
+                        <h4><i class="fas fa-video"></i> How to Apply a FreeStyle Libre Sensor</h4>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/ts_NFQPqM_w" title="FreeStyle Libre Sensor Application" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@AbbottDiabetesCare" target="_blank" rel="noopener">Abbott Diabetes Care</a></p>
+                    </div>
+
+                    <div class="video-wrapper">
+                        <h4><i class="fas fa-video"></i> Medtronic Guardian Sensor Insertion</h4>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/P8VHNYz0D3I" title="Medtronic Guardian Sensor Insertion" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@MedtronicDiabetes" target="_blank" rel="noopener">Medtronic Diabetes</a></p>
+                    </div>
                 </div>
 
                 <div class="subtopic">
@@ -961,6 +1072,30 @@
                         <li>No need to carry pens and needles</li>
                         <li>Can pause insulin delivery (for exercise)</li>
                     </ul>
+
+                    <div class="video-wrapper">
+                        <h4><i class="fas fa-video"></i> Tandem t:slim X2 - Infusion Set Change</h4>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/IzSGJ6ppYho" title="Tandem Infusion Set Change" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@TandemDiabetes" target="_blank" rel="noopener">Tandem Diabetes</a></p>
+                    </div>
+
+                    <div class="video-wrapper">
+                        <h4><i class="fas fa-video"></i> How to Change an Omnipod</h4>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/zPp7wQdVsvs" title="Omnipod Pod Change Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@Omnipod" target="_blank" rel="noopener">Insulet (Omnipod)</a></p>
+                    </div>
+
+                    <div class="video-wrapper">
+                        <h4><i class="fas fa-video"></i> Medtronic MiniMed Pump - Changing Your Infusion Set</h4>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/vBZP0lk9qxQ" title="Medtronic Infusion Set Change" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@MedtronicDiabetes" target="_blank" rel="noopener">Medtronic Diabetes</a></p>
+                    </div>
                 </div>
 
                 <div class="subtopic">
@@ -1043,6 +1178,14 @@
                 <div class="warning-box">
                     <h4><i class="fas fa-exclamation-triangle"></i> Exercise Safety</h4>
                     <p>Don't exercise if blood sugar is above 250 mg/dL and ketones are present. High blood sugar without insulin on board can worsen during exercise. Always have emergency glucose available.</p>
+                </div>
+
+                <div class="video-wrapper">
+                    <h4><i class="fas fa-video"></i> Exercise Tips for Type 1 Diabetes</h4>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/fRNJFKdHD_I" title="Exercise with Type 1 Diabetes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-credit">Video courtesy of <a href="https://www.youtube.com/@JDRF" target="_blank" rel="noopener">JDRF</a></p>
                 </div>
 
                 <div class="subtopic">
