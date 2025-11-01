@@ -333,11 +333,13 @@
     }
 
     .tool-card.primary { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); }
+    .tool-card.accent { background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%); }
     .tool-card.success { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); }
     .tool-card.warning { background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); }
     .tool-card.purple { background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); }
 
     [data-theme="dark"] .tool-card.primary { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); }
+    [data-theme="dark"] .tool-card.accent { background: linear-gradient(135deg, #164e63 0%, #155e75 100%); }
     [data-theme="dark"] .tool-card.success { background: linear-gradient(135deg, #064e3b 0%, #065f46 100%); }
     [data-theme="dark"] .tool-card.warning { background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%); }
     [data-theme="dark"] .tool-card.purple { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%); }
@@ -353,6 +355,7 @@
     }
 
     .tool-card.primary h2 { color: var(--primary); }
+    .tool-card.accent h2 { color: var(--accent); }
     .tool-card.success h2 { color: var(--success); }
     .tool-card.warning h2 { color: var(--warning); }
     .tool-card.purple h2 { color: var(--purple); }
@@ -380,6 +383,11 @@
 
     .tool-card.primary a {
       background: var(--primary);
+      color: var(--white);
+    }
+
+    .tool-card.accent a {
+      background: var(--accent);
       color: var(--white);
     }
 
@@ -793,6 +801,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="breaking-news.html">Breaking News</a></li>
+        <li><a href="education.html">Education</a></li>
         <li><a href="clinical-trials.html">Clinical Trials</a></li>
         <li><a href="diabetes-log.html">Tools</a></li>
         <li><a href="assistance-programs.html">Assistance</a></li>
@@ -834,6 +843,15 @@
     </div>
 
     <!-- Tool Cards -->
+    <div class="tool-card accent">
+      <h2>
+        <i class="fas fa-graduation-cap"></i>
+        T1D Education Center
+      </h2>
+      <p>Comprehensive education for newly diagnosed patients and families. Learn about blood sugar management, insulin, nutrition, technology, and living well with Type 1 Diabetes.</p>
+      <a href="education.html">Start Learning <i class="fas fa-arrow-right"></i></a>
+    </div>
+
     <div class="tool-card primary">
       <h2>
         <i class="fas fa-chart-line"></i>

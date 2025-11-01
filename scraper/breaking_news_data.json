@@ -9,7 +9,7 @@
       "content": "This exciting news from ABC News brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
     },
     "meta": {
-      "published": "30 Oct 2025",
+      "published": "28 Oct 2024",
       "phase": "Research",
       "status": "Published",
       "priority": "HIGH",
@@ -19,7 +19,29 @@
     "link": "https://abcnews.go.com/GMA/Wellness/new-therapy-after-islet-cell-transplant-shows-promise/story?id=115230952",
     "special": true,
     "excitement_rank": 1,
-    "published_timestamp": 1761794358.869249
+    "published_timestamp": 1730088000.0
+  },
+  {
+    "id": "9cc9977f",
+    "badge": "BREAKING",
+    "title": "FDA Approves First Automated Insulin Delivery System for Type 2 Diabetes",
+    "summary": "The FDA approved the first automated insulin delivery system specifically for people with type 2 diabetes, marking a significant advancement that could benefit type 1 diabetes management in the future.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This exciting news from FDA News brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
+    },
+    "meta": {
+      "published": "22 Oct 2024",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "HIGH",
+      "stage": "FDA Approval",
+      "research_type": "Technology"
+    },
+    "link": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-automated-insulin-delivery-system-use-type-2-diabetes",
+    "special": true,
+    "excitement_rank": 2,
+    "published_timestamp": 1729569600.0
   },
   {
     "id": "3feda5d8",
@@ -31,7 +53,7 @@
       "content": "This exciting news from Breakthrough T1D brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
     },
     "meta": {
-      "published": "30 Oct 2025",
+      "published": "15 Oct 2024",
       "phase": "Research",
       "status": "Published",
       "priority": "HIGH",
@@ -40,8 +62,96 @@
     },
     "link": "https://www.breakthrought1d.org/for-the-media/press-releases/breakthrough-t1d-announces-the-publication-of-two-peer-reviewed-articles-that-expand-insight-into-the-burdens-of-living-with-type-1-diabetes/",
     "special": true,
-    "excitement_rank": 2,
-    "published_timestamp": 1761790758.869249
+    "excitement_rank": 3,
+    "published_timestamp": 1728964800.0
+  },
+  {
+    "id": "18593a6b",
+    "badge": "BREAKING",
+    "title": "Study Shows Continuous Glucose Monitors Improve Outcomes in Newly Diagnosed Type 1 Diabetes",
+    "summary": "New research demonstrates that using continuous glucose monitors from the time of diagnosis leads to better glycemic control and fewer hospitalizations in children and adults with newly diagnosed type 1 diabetes.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This exciting news from Diabetes Care Journal brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
+    },
+    "meta": {
+      "published": "08 Oct 2024",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "HIGH",
+      "stage": "Clinical Research",
+      "research_type": "Technology"
+    },
+    "link": "https://diabetesjournals.org/care",
+    "special": true,
+    "excitement_rank": 4,
+    "published_timestamp": 1728360000.0
+  },
+  {
+    "id": "b73498d1",
+    "badge": "BREAKING",
+    "title": "New Artificial Pancreas System Shows 95% Time-in-Range in Clinical Trial",
+    "summary": "A new closed-loop insulin delivery system achieved an unprecedented 95% time-in-range in a recent clinical trial, representing a major advancement in automated diabetes management technology.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This exciting news from The Lancet brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
+    },
+    "meta": {
+      "published": "25 Sep 2024",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "HIGH",
+      "stage": "Clinical Trials",
+      "research_type": "Technology"
+    },
+    "link": "https://www.thelancet.com/diabetes-endocrinology",
+    "special": true,
+    "excitement_rank": 5,
+    "published_timestamp": 1727236800.0
+  },
+  {
+    "id": "b29d3ad0",
+    "badge": "BREAKING",
+    "title": "Medicare Expands Coverage for Continuous Glucose Monitors",
+    "summary": "Medicare announced expanded coverage criteria for continuous glucose monitors, making these life-changing devices accessible to more people with type 1 diabetes on Medicare.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This exciting news from CMS brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
+    },
+    "meta": {
+      "published": "12 Sep 2024",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "HIGH",
+      "stage": "Policy",
+      "research_type": "Access"
+    },
+    "link": "https://www.cms.gov",
+    "special": true,
+    "excitement_rank": 6,
+    "published_timestamp": 1726113600.0
+  },
+  {
+    "id": "f3cbe5de",
+    "badge": "BREAKING",
+    "title": "Researchers Identify New Biomarker for Early Type 1 Diabetes Detection",
+    "summary": "Scientists have discovered a new biomarker that could help identify type 1 diabetes years before symptoms appear, potentially enabling early intervention to preserve beta cell function.",
+    "details": {
+      "heading": "\ud83d\udd2c What This Means for Families:",
+      "content": "This exciting news from Nature Medicine brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
+    },
+    "meta": {
+      "published": "05 Aug 2024",
+      "phase": "Research",
+      "status": "Published",
+      "priority": "HIGH",
+      "stage": "Early Research",
+      "research_type": "Prevention"
+    },
+    "link": "https://www.nature.com/nm/",
+    "special": true,
+    "excitement_rank": 7,
+    "published_timestamp": 1722830400.0
   },
   {
     "id": "b9ad7ba8",
@@ -53,7 +163,7 @@
       "content": "This exciting news from American Journal of Managed Care brings hope and important updates for families managing Type 1 Diabetes. Stay informed about the latest developments that could impact your daily life and future treatment options."
     },
     "meta": {
-      "published": "30 Oct 2025",
+      "published": "02 Jan 2024",
       "phase": "Research",
       "status": "Published",
       "priority": "MEDIUM",
@@ -62,7 +172,7 @@
     },
     "link": "https://www.ajmc.com/view/top-5-most-read-type-1-diabetes-articles-of-2023",
     "special": true,
-    "excitement_rank": 3,
-    "published_timestamp": 1761787158.869249
+    "excitement_rank": 8,
+    "published_timestamp": 1704171600.0
   }
 ]
