@@ -825,10 +825,43 @@
                         <label for="k1-4">I can explain to others why insulin is necessary for survival with T1D</label>
                     </div>
                 </div>
-            </div>
-        </div>
 
-</div>
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <p style="color: var(--gray); margin-bottom: var(--space-md); font-style: italic;">
+                        📺 Add educational videos here! Replace VIDEO_ID_HERE with actual YouTube video IDs.
+                    </p>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
+                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                    <p style="font-size: 0.9rem;">Add video here<br><small>Replace VIDEO_ID in iframe src</small></p>
+                                </div>
+                            </div>
+                            <p class="video-credit" style="color: var(--gray);">
+                                <!-- Replace VIDEO_ID_HERE: <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE"... -->
+                            </p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
+                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                    <p style="font-size: 0.9rem;">Add video here<br><small>Replace VIDEO_ID in iframe src</small></p>
+                                </div>
+                            </div>
+                            <p class="video-credit" style="color: var(--gray);">
+                                <!-- Replace VIDEO_ID_HERE: <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE"... -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Topic 2: Blood Sugar Science -->
@@ -920,10 +953,30 @@
                         <label for="k2-4">I'm learning to look for patterns rather than reacting to single numbers</label>
                     </div>
                 </div>
-            </div>
-        </div>
 
-</div>
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/wZAjVQWbMlE" title="Blood Sugar Management for Parents" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=wZAjVQWbMlE" target="_blank" rel="noopener">Children's Hospital - Blood Glucose Monitoring</a></p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/0BXK96wOKgY" title="Blood Sugar Explained for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=0BXK96wOKgY" target="_blank" rel="noopener">DigiBete - Understanding Blood Sugar</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Cross Reference to First 30 Days -->
@@ -1037,10 +1090,43 @@
                         <label for="k3-4">I understand the importance of not stacking insulin</label>
                     </div>
                 </div>
-            </div>
-        </div>
 
-</div>
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <p style="color: var(--gray); margin-bottom: var(--space-md); font-style: italic;">
+                        📺 Add educational videos here! Replace VIDEO_ID_HERE with actual YouTube video IDs.
+                    </p>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
+                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                    <p style="font-size: 0.9rem;">Add video here<br><small>Replace VIDEO_ID in iframe src</small></p>
+                                </div>
+                            </div>
+                            <p class="video-credit" style="color: var(--gray);">
+                                <!-- Replace VIDEO_ID_HERE: <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE"... -->
+                            </p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
+                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                    <p style="font-size: 0.9rem;">Add video here<br><small>Replace VIDEO_ID in iframe src</small></p>
+                                </div>
+                            </div>
+                            <p class="video-credit" style="color: var(--gray);">
+                                <!-- Replace VIDEO_ID_HERE: <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE"... -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Continue with remaining topics... Due to length, I'll include the remaining 6 topics in a condensed format -->
@@ -1178,10 +1264,33 @@
                         <label for="k4-4">I'm learning to estimate carbs in restaurant meals</label>
                     </div>
                 </div>
-            </div>
-        </div>
 
-</div>
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <p style="color: var(--gray); margin-bottom: var(--space-md); font-style: italic;">
+                        📺 Add educational videos here! Replace VIDEO_ID_HERE with actual YouTube video IDs.
+                    </p>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/1ej5IbcSc8k" title="Carb Counting Basics - Diabetes UK" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=1ej5IbcSc8k" target="_blank" rel="noopener">Diabetes UK - Carb Counting</a></p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
+                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                    <p style="font-size: 0.9rem;">Add video here<br><small>Search: Carb counting for kids</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1337,10 +1446,25 @@
                         <label for="k5-4">I know technology is a tool that still requires active management</label>
                     </div>
                 </div>
-            </div>
-        </div>
 
-<!-- Video for Kids -->
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <p style="color: var(--gray); margin-bottom: var(--space-md); font-style: italic;">
+                        📺 Suggested searches: "CGM explained", "insulin pump tutorial", "diabetes technology for kids"
+                    </p>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
+                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                    <p style="font-size: 0.9rem;">Add video here<br><small>Search: CGM & pump basics</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Video for Kids -->
                         <div class="video-item">
                             <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
                             <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
@@ -1466,10 +1590,25 @@
                         <label for="k6-4">I know how to pack and travel safely with diabetes supplies</label>
                     </div>
                 </div>
-            </div>
-        </div>
 
-<!-- Video for Kids -->
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <p style="color: var(--gray); margin-bottom: var(--space-md); font-style: italic;">
+                        📺 Suggested searches: "diabetes at school", "type 1 diabetes sports", "diabetes travel tips"
+                    </p>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
+                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                    <p style="font-size: 0.9rem;">Add video here<br><small>Search: Diabetes daily life</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Video for Kids -->
                         <div class="video-item">
                             <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
                             <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
@@ -1609,10 +1748,25 @@
                         <label for="k7-4">I know what screenings I need and when</label>
                     </div>
                 </div>
-            </div>
-        </div>
 
-<!-- Video for Kids -->
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <p style="color: var(--gray); margin-bottom: var(--space-md); font-style: italic;">
+                        📺 Suggested searches: "preventing diabetes complications", "DKA explained", "diabetes hypoglycemia"
+                    </p>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
+                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                    <p style="font-size: 0.9rem;">Add video here<br><small>Search: Diabetes complications prevention</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Video for Kids -->
                         <div class="video-item">
                             <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
                             <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
@@ -1753,10 +1907,25 @@
                         <label for="k8-4">I practice self-compassion and celebrate small wins</label>
                     </div>
                 </div>
-            </div>
-        </div>
 
-<!-- Video for Kids -->
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <p style="color: var(--gray); margin-bottom: var(--space-md); font-style: italic;">
+                        📺 Suggested searches: "diabetes burnout", "mental health type 1 diabetes", "coping with diabetes kids"
+                    </p>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
+                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                    <p style="font-size: 0.9rem;">Add video here<br><small>Search: Diabetes mental health support</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Video for Kids -->
                         <div class="video-item">
                             <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
                             <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
@@ -1911,10 +2080,25 @@
                         <label for="k9-4">I can identify red flags for T1D scams</label>
                     </div>
                 </div>
-            </div>
-        </div>
 
-<!-- Video for Kids -->
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <p style="color: var(--gray); margin-bottom: var(--space-md); font-style: italic;">
+                        📺 Suggested searches: "JDRF cure research", "type 1 diabetes clinical trials", "future of diabetes treatment"
+                    </p>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
+                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                    <p style="font-size: 0.9rem;">Add video here<br><small>Search: Type 1 diabetes cure research</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Video for Kids -->
                         <div class="video-item">
                             <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
                             <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
