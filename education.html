@@ -722,113 +722,12 @@
                 <!-- Video for Kids -->
                 <div class="video-item">
                     <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
-                    <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
-                            <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
-                            <p style="font-size: 0.9rem;">Add kids video here<br><small>Search: "type 1 diabetes explained for kids"</small></p>
-                        </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/4EEtubB74lM" title="Type 1 Diabetes Explained for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
+                    <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=4EEtubB74lM" target="_blank" rel="noopener">Type 1 Diabetes for Kids</a></p>
                 </div>
             </div>
-        </div>
-
-        <!-- Topic 1: Understanding T1D -->
-        <div class="topic-section">
-            <div class="topic-header" onclick="toggleTopic(1)">
-                <div class="topic-title">
-                    <div class="topic-icon icon-primary">
-                        <i class="fas fa-microscope"></i>
-                    </div>
-                    <h2>Understanding Type 1 Diabetes</h2>
-                </div>
-                <i class="fas fa-chevron-down expand-icon"></i>
-            </div>
-            <div class="topic-content" id="topic-1">
-                <p class="topic-intro">Type 1 Diabetes is an autoimmune condition where your immune system mistakenly attacks the insulin-producing beta cells in your pancreas. Understanding what's happening in your body helps you manage the condition with confidence.</p>
-
-                <div class="subtopic">
-                    <h3><i class="fas fa-dna" style="color: var(--primary);"></i> What is Type 1 Diabetes?</h3>
-                    <p>Type 1 Diabetes (T1D) occurs when your immune system destroys the beta cells in your pancreas. These cells are responsible for producing insulin, a hormone that allows glucose (sugar) from food to enter your cells for energy.</p>
-                    <p>Without insulin, glucose builds up in the bloodstream instead of being used by cells. This causes high blood sugar levels and means your body can't get the energy it needs from food.</p>
-                </div>
-
-                <div class="did-you-know">
-                    <h4><i class="fas fa-lightbulb"></i> Did You Know?</h4>
-                    <p>Type 1 Diabetes accounts for about 5-10% of all diabetes cases. It's not caused by lifestyle choices and cannot be prevented with diet or exercise.</p>
-                </div>
-
-                <div class="subtopic">
-                    <h3><i class="fas fa-shield-virus" style="color: var(--primary);"></i> The Autoimmune Process</h3>
-                    <p>In T1D, your immune system—which normally protects you from viruses and bacteria—mistakes beta cells for threats and destroys them. We don't fully understand why this happens, but genetics and environmental factors both play a role.</p>
-                    <p><strong>Key points about the autoimmune attack:</strong></p>
-                    <ul>
-                        <li>It usually begins months or years before symptoms appear</li>
-                        <li>By the time of diagnosis, 80-90% of beta cells are typically destroyed</li>
-                        <li>Some beta cell function may remain (the "honeymoon period")</li>
-                        <li>Eventually, nearly all beta cells are destroyed</li>
-                    </ul>
-                </div>
-
-                <div class="subtopic">
-                    <h3><i class="fas fa-not-equal" style="color: var(--primary);"></i> T1D vs T2D: Key Differences</h3>
-                    <p><strong>Type 1 Diabetes:</strong></p>
-                    <ul>
-                        <li>Autoimmune condition</li>
-                        <li>Body produces little to no insulin</li>
-                        <li>Usually diagnosed in children/young adults (but can occur at any age)</li>
-                        <li>Requires insulin for survival</li>
-                        <li>Not preventable</li>
-                    </ul>
-                    <p><strong>Type 2 Diabetes:</strong></p>
-                    <ul>
-                        <li>Metabolic condition</li>
-                        <li>Body produces insulin but doesn't use it effectively (insulin resistance)</li>
-                        <li>Usually diagnosed in adults (but increasingly in youth)</li>
-                        <li>Often managed with lifestyle changes and oral medications</li>
-                        <li>Risk can be reduced with healthy lifestyle</li>
-                    </ul>
-                </div>
-
-                <div class="subtopic">
-                    <h3><i class="fas fa-clock" style="color: var(--primary);"></i> The Honeymoon Period</h3>
-                    <p>Shortly after diagnosis and starting insulin therapy, many people experience a "honeymoon period" where their remaining beta cells temporarily produce some insulin. During this time:</p>
-                    <ul>
-                        <li>Insulin needs may decrease significantly</li>
-                        <li>Blood sugars may be easier to control</li>
-                        <li>Some people need very little injected insulin</li>
-                        <li>This period typically lasts weeks to months, rarely up to a year</li>
-                        <li>Eventually, the remaining beta cells stop working</li>
-                    </ul>
-                </div>
-
-                <div class="warning-box">
-                    <h4><i class="fas fa-exclamation-triangle"></i> Important!</h4>
-                    <p>The honeymoon period is temporary. Never stop taking insulin, even if your needs decrease dramatically. Work closely with your diabetes team to adjust doses safely.</p>
-                </div>
-
-                <div class="knowledge-check">
-                    <h4><i class="fas fa-check-circle"></i> Knowledge Check</h4>
-                    <div class="check-item">
-                        <input type="checkbox" id="k1-1">
-                        <label for="k1-1">I understand that T1D is an autoimmune condition, not caused by lifestyle</label>
-                    </div>
-                    <div class="check-item">
-                        <input type="checkbox" id="k1-2">
-                        <label for="k1-2">I know the difference between Type 1 and Type 2 diabetes</label>
-                    </div>
-                    <div class="check-item">
-                        <input type="checkbox" id="k1-3">
-                        <label for="k1-3">I understand what the honeymoon period is and that it's temporary</label>
-                    </div>
-                    <div class="check-item">
-                        <input type="checkbox" id="k1-4">
-                        <label for="k1-4">I can explain to others why insulin is necessary for survival with T1D</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-</div>
         </div>
 
         <!-- Topic 2: Blood Sugar Science -->
@@ -1340,18 +1239,7 @@
             </div>
         </div>
 
-<!-- Video for Kids -->
-                        <div class="video-item">
-                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
-                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
-                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
-                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
-                                    <p style="font-size: 0.9rem;">Add video here<br><small>Search: Diabetes tech for kids</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
 
@@ -1464,21 +1352,6 @@
                     <div class="check-item">
                         <input type="checkbox" id="k6-4">
                         <label for="k6-4">I know how to pack and travel safely with diabetes supplies</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-<!-- Video for Kids -->
-                        <div class="video-item">
-                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
-                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
-                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
-                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
-                                    <p style="font-size: 0.9rem;">Add video here<br><small>Search: Kids with diabetes sports</small></p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1612,21 +1485,6 @@
             </div>
         </div>
 
-<!-- Video for Kids -->
-                        <div class="video-item">
-                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
-                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
-                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
-                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
-                                    <p style="font-size: 0.9rem;">Add video here<br><small>Search: Staying healthy with diabetes kids</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="topic-section">
             <div class="topic-header" onclick="toggleTopic(8)">
                 <div class="topic-title">
@@ -1751,21 +1609,6 @@
                     <div class="check-item">
                         <input type="checkbox" id="k8-4">
                         <label for="k8-4">I practice self-compassion and celebrate small wins</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-<!-- Video for Kids -->
-                        <div class="video-item">
-                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
-                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
-                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
-                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
-                                    <p style="font-size: 0.9rem;">Add video here<br><small>Search: Kids coping with diabetes</small></p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1914,18 +1757,7 @@
             </div>
         </div>
 
-<!-- Video for Kids -->
-                        <div class="video-item">
-                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
-                            <div class="video-container" style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 56.25%;">
-                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--gray);">
-                                    <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
-                                    <p style="font-size: 0.9rem;">Add video here<br><small>Search: Hope for diabetes cure kids</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
 
