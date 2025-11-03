@@ -598,6 +598,77 @@
             box-shadow: var(--shadow-md);
         }
 
+        .video-section {
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 2px solid var(--light-gray);
+        }
+
+        .video-section h4 {
+            color: var(--primary);
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-md);
+        }
+
+        .video-item {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            border: 2px solid var(--light-gray);
+            transition: all 0.2s;
+        }
+
+        .video-item:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .video-label {
+            display: inline-block;
+            padding: 4px var(--space-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .video-label.for-parents {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: var(--primary-dark);
+        }
+
+        .video-label.for-kids {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #92400e;
+        }
+
+        [data-theme="dark"] .video-label.for-parents {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: #93c5fd;
+        }
+
+        [data-theme="dark"] .video-label.for-kids {
+            background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+            color: #fde68a;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .external-video-btn i {
             margin-left: var(--space-xs);
         }
@@ -725,6 +796,29 @@
                         <label for="k1-4">I can explain to others why insulin is necessary for survival with T1D</label>
                     </div>
                 </div>
+
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/Ee1CJB1vTT8" title="Type 1 Diabetes Education for Parents" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=Ee1CJB1vTT8" target="_blank" rel="noopener">JDRF - Understanding Type 1 Diabetes</a></p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/4OT8z5DzYHs" title="Type 1 Diabetes Explained for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=4OT8z5DzYHs" target="_blank" rel="noopener">KidsHealth - What Is Type 1 Diabetes?</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -815,6 +909,29 @@
                     <div class="check-item">
                         <input type="checkbox" id="k2-4">
                         <label for="k2-4">I'm learning to look for patterns rather than reacting to single numbers</label>
+                    </div>
+                </div>
+
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/wZAjVQWbMlE" title="Blood Sugar Management for Parents" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=wZAjVQWbMlE" target="_blank" rel="noopener">Children's Hospital - Blood Glucose Monitoring</a></p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/0BXK96wOKgY" title="Blood Sugar Explained for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=0BXK96wOKgY" target="_blank" rel="noopener">DigiBete - Understanding Blood Sugar</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -929,6 +1046,29 @@
                     <div class="check-item">
                         <input type="checkbox" id="k3-4">
                         <label for="k3-4">I understand the importance of not stacking insulin</label>
+                    </div>
+                </div>
+
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/FbVX8LDcg6s" title="Insulin Types and Dosing for Parents" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=FbVX8LDcg6s" target="_blank" rel="noopener">Mayo Clinic - How Insulin Works</a></p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/UNUrtMRHWXM" title="Insulin Explained for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=UNUrtMRHWXM" target="_blank" rel="noopener">Diabetes Besties - Understanding Insulin</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1067,6 +1207,29 @@
                     <div class="check-item">
                         <input type="checkbox" id="k4-4">
                         <label for="k4-4">I'm learning to estimate carbs in restaurant meals</label>
+                    </div>
+                </div>
+
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/oOv96IBfIzk" title="Carb Counting for Parents" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=oOv96IBfIzk" target="_blank" rel="noopener">Diabetes Education - Carb Counting Basics</a></p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/mz1MezGK6Nk" title="Carb Counting for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=mz1MezGK6Nk" target="_blank" rel="noopener">DigiBete - Carbohydrate Counting</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1223,6 +1386,29 @@
                         <label for="k5-4">I know technology is a tool that still requires active management</label>
                     </div>
                 </div>
+
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/T8F4WPSl1oc" title="CGM and Insulin Pump Technology for Parents" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=T8F4WPSl1oc" target="_blank" rel="noopener">Medtronic Diabetes - CGM Technology</a></p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/gEHMMRjvG9s" title="Diabetes Technology Explained for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=gEHMMRjvG9s" target="_blank" rel="noopener">DigiBete - Diabetes Tech for Kids</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1335,6 +1521,29 @@
                     <div class="check-item">
                         <input type="checkbox" id="k6-4">
                         <label for="k6-4">I know how to pack and travel safely with diabetes supplies</label>
+                    </div>
+                </div>
+
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/7w0jSyoYPME" title="Managing Diabetes at School and Sports" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=7w0jSyoYPME" target="_blank" rel="noopener">Beyond Type 1 - Daily Life with T1D</a></p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/wVOOXJVLZW4" title="Diabetes and Sports for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=wVOOXJVLZW4" target="_blank" rel="noopener">DigiBete - Being Active with Diabetes</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1465,6 +1674,29 @@
                         <label for="k7-4">I know what screenings I need and when</label>
                     </div>
                 </div>
+
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/cDKZSsJm3fE" title="Preventing Diabetes Complications" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=cDKZSsJm3fE" target="_blank" rel="noopener">American Diabetes Association - Preventing Complications</a></p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/HyKcMp4nT-8" title="Staying Healthy with Diabetes for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=HyKcMp4nT-8" target="_blank" rel="noopener">KidsHealth - Taking Care of Your Health</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1592,6 +1824,29 @@
                     <div class="check-item">
                         <input type="checkbox" id="k8-4">
                         <label for="k8-4">I practice self-compassion and celebrate small wins</label>
+                    </div>
+                </div>
+
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/r_vPKFRxcPg" title="Mental Health and Diabetes for Parents" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=r_vPKFRxcPg" target="_blank" rel="noopener">Beyond Type 1 - Mental Health Support</a></p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/BmDE72nLH_s" title="Managing Emotions with Diabetes for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=BmDE72nLH_s" target="_blank" rel="noopener">KidsHealth - Emotional Wellbeing</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1735,6 +1990,29 @@
                     <div class="check-item">
                         <input type="checkbox" id="k9-4">
                         <label for="k9-4">I can identify red flags for T1D scams</label>
+                    </div>
+                </div>
+
+                <!-- Educational Videos -->
+                <div class="video-section">
+                    <h4><i class="fas fa-play-circle"></i> Educational Videos</h4>
+                    <div class="video-grid">
+                        <!-- Video for Parents -->
+                        <div class="video-item">
+                            <span class="video-label for-parents"><i class="fas fa-user-friends"></i> For Parents</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/GV4RSHcBlBA" title="Type 1 Diabetes Research and Future Treatments" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=GV4RSHcBlBA" target="_blank" rel="noopener">JDRF - Research for a Cure</a></p>
+                        </div>
+                        <!-- Video for Kids -->
+                        <div class="video-item">
+                            <span class="video-label for-kids"><i class="fas fa-child"></i> For Kids</span>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/u-xRGh6HKgw" title="Future of Diabetes Treatment for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=u-xRGh6HKgw" target="_blank" rel="noopener">Beyond Type 1 - Hope for the Future</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
