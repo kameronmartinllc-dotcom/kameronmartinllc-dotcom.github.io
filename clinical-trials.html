@@ -111,6 +111,8 @@
     .nav-logo img {
       height: 60px;
       width: auto;
+      mix-blend-mode: multiply;
+      background: transparent;
     }
 
     .nav-links {
@@ -552,6 +554,10 @@
 
     [data-theme="dark"] .dark-mode-toggle:hover {
       box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
+    }
+
+    [data-theme="dark"] .nav-logo img {
+      mix-blend-mode: screen;
     }
 
     @media (max-width: 480px) {

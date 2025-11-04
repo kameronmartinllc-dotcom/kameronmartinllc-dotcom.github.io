@@ -135,6 +135,8 @@
     .nav-logo img {
       height: 60px;
       width: auto;
+      mix-blend-mode: multiply;
+      background: transparent;
     }
 
     .nav-links {
@@ -179,6 +181,8 @@
       width: 200px;
       height: auto;
       margin-bottom: var(--space-lg);
+      mix-blend-mode: multiply;
+      background: transparent;
     }
 
     h1 {
@@ -360,6 +364,11 @@
     [data-theme="dark"] .tool-card.success { background: linear-gradient(135deg, #064e3b 0%, #065f46 100%); }
     [data-theme="dark"] .tool-card.warning { background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%); }
     [data-theme="dark"] .tool-card.purple { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%); }
+
+    [data-theme="dark"] .logo,
+    [data-theme="dark"] .nav-logo img {
+      mix-blend-mode: screen;
+    }
 
     .tool-card h2 {
       font-size: 1.5rem;
