@@ -538,6 +538,23 @@
             text-decoration: underline;
         }
 
+        [data-theme="dark"] .cross-ref {
+            background: rgba(42, 42, 42, 0.6);
+            border-left-color: #6ee7b7;
+        }
+
+        [data-theme="dark"] .cross-ref h4 {
+            color: #6ee7b7;
+        }
+
+        [data-theme="dark"] .cross-ref p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        [data-theme="dark"] .cross-ref a {
+            color: #6ee7b7;
+        }
+
         @media (max-width: 768px) {
             .header h1 { font-size: 2rem; }
             .topic-title h2 { font-size: 1.5rem; }
@@ -691,6 +708,16 @@
         [data-theme="dark"] .video-label.for-kids {
             background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
             color: #fde68a;
+        }
+
+        /* Ensure all h2, h3, h4 in dark mode are white for readability */
+        [data-theme="dark"] .video-section h2,
+        [data-theme="dark"] .video-section h4 {
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        [data-theme="dark"] .subtopic h3 i {
+            opacity: 0.9;
         }
 
         @media (max-width: 768px) {
@@ -1816,10 +1843,6 @@
                         <label for="k9-4">I can identify red flags for T1D scams</label>
                     </div>
                 </div>
-            </div>
-        </div>
-
-
             </div>
         </div>
 
