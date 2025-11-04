@@ -1,0 +1,205 @@
+/* Dark Fractal Theme - AvA Type 1 */
+/* Generated from dark-fractal-theme-spec.md */
+
+/* Dark Fractal Theme Variables */
+[data-theme="dark"] {
+  /* Background - Gradient from spec */
+  --bg-gradient-start: #0a0a0a;
+  --bg-gradient-end: #2a2a2a;
+
+  /* Primary Colors - Grey palette from spec */
+  --primary: #999999;
+  --primary-dark: #808080;
+  --accent: #999999;
+  --success: #999999;
+  --warning: #999999;
+  --purple: #999999;
+
+  /* Neutral Colors */
+  --dark: #f8fafc;
+  --gray: #cccccc;
+  --light-gray: #3a3a3a;
+  --bg-light: #2a2a2a;
+  --white: #0a0a0a;
+
+  /* Button Colors from spec */
+  --food-button: #3a3a3a;
+  --insulin-button: #4a4a4a;
+
+  /* Shadows - adjusted for dark theme */
+  --shadow-sm: 0 1px 3px rgba(255,255,255,0.05);
+  --shadow-md: 0 4px 12px rgba(255,255,255,0.08);
+  --shadow-lg: 0 8px 24px rgba(255,255,255,0.1);
+}
+
+/* Dark Fractal Background */
+[data-theme="dark"] body {
+  background: linear-gradient(
+    135deg,
+    var(--bg-gradient-start) 0%,
+    var(--bg-gradient-end) 100%
+  ) !important;
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Fractal Canvas Container */
+.fractal-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#fractal-pattern {
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure content stays above fractal pattern */
+[data-theme="dark"] nav,
+[data-theme="dark"] .container,
+[data-theme="dark"] .content,
+[data-theme="dark"] footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Navigation adjustments for dark theme */
+[data-theme="dark"] nav {
+  background: rgba(42, 42, 42, 0.85) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(153, 153, 153, 0.2);
+}
+
+/* Card/Section backgrounds */
+[data-theme="dark"] .tool-card,
+[data-theme="dark"] .topic-section,
+[data-theme="dark"] .section-card,
+[data-theme="dark"] .card,
+[data-theme="dark"] .breaking-card,
+[data-theme="dark"] .trial-card,
+[data-theme="dark"] .report-item,
+[data-theme="dark"] .reports,
+[data-theme="dark"] .mission,
+[data-theme="dark"] .email-signup,
+[data-theme="dark"] .review-section,
+[data-theme="dark"] .doctor-search,
+[data-theme="dark"] .header,
+[data-theme="dark"] .footer {
+  background: rgba(42, 42, 42, 0.6) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(153, 153, 153, 0.15);
+}
+
+/* Button styles from spec */
+[data-theme="dark"] .food-button,
+[data-theme="dark"] button.food,
+[data-theme="dark"] .btn-food {
+  background-color: var(--food-button) !important;
+  border: 1px solid rgba(153, 153, 153, 0.2);
+}
+
+[data-theme="dark"] .insulin-button,
+[data-theme="dark"] button.insulin,
+[data-theme="dark"] .btn-insulin {
+  background-color: var(--insulin-button) !important;
+  border: 1px solid rgba(153, 153, 153, 0.2);
+}
+
+/* Primary buttons and accents */
+[data-theme="dark"] button,
+[data-theme="dark"] .btn,
+[data-theme="dark"] .button,
+[data-theme="dark"] a.button {
+  background: var(--insulin-button);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(153, 153, 153, 0.2);
+}
+
+[data-theme="dark"] button:hover,
+[data-theme="dark"] .btn:hover {
+  background: var(--primary);
+  border-color: rgba(153, 153, 153, 0.4);
+}
+
+/* Text contrast adjustments */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] span {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .subtitle,
+[data-theme="dark"] .secondary-text {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Links */
+[data-theme="dark"] a {
+  color: var(--primary);
+}
+
+[data-theme="dark"] a:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Form inputs */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: var(--light-gray);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(153, 153, 153, 0.2);
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(153, 153, 153, 0.2);
+}
+
+/* Dark mode toggle - keep as accent color */
+[data-theme="dark"] .dark-mode-toggle {
+  background: var(--insulin-button) !important;
+  border: 1px solid rgba(153, 153, 153, 0.3);
+}
+
+[data-theme="dark"] .dark-mode-toggle:hover {
+  background: var(--primary) !important;
+  box-shadow: 0 8px 24px rgba(153, 153, 153, 0.3) !important;
+}
+
+/* Ensure proper layering */
+[data-theme="dark"] .topic-content,
+[data-theme="dark"] .content-area {
+  background: rgba(42, 42, 42, 0.4);
+}
+
+/* Stats and badges */
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .badge {
+  background: var(--light-gray);
+  border: 1px solid rgba(153, 153, 153, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  [data-theme="dark"] .fractal-canvas-container {
+    opacity: 0.6; /* Reduce fractal intensity on mobile */
+  }
+}
