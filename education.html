@@ -33,6 +33,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="fractal-theme.css">
+    <link rel="stylesheet" href="quiz.css">
     <style>
         /* Design System */
         :root {
@@ -757,6 +758,47 @@
                         <iframe src="https://www.youtube.com/embed/4EEtubB74lM" title="Type 1 Diabetes Explained for Kids" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <p class="video-credit">Source: <a href="https://www.youtube.com/watch?v=4EEtubB74lM" target="_blank" rel="noopener">Type 1 Diabetes for Kids</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Quiz Section -->
+        <div class="quiz-section">
+            <h2><i class="fas fa-brain"></i> Test Your Knowledge</h2>
+            <p class="quiz-intro">Challenge yourself with our interactive Type 1 Diabetes quiz! Choose between the adult version with detailed medical knowledge or the kid-friendly version. Track your progress, see explanations for each answer, and retake the quiz to improve your score.</p>
+
+            <!-- Quiz Selector -->
+            <div id="quiz-selector">
+                <div class="quiz-choice-card" onclick="startQuiz('adult')">
+                    <div class="quiz-choice-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Adult Quiz</h3>
+                    <p>13 questions covering detailed medical knowledge, management strategies, and technical aspects of Type 1 Diabetes.</p>
+                </div>
+                <div class="quiz-choice-card kid-quiz" onclick="startQuiz('kid')">
+                    <div class="quiz-choice-icon"><i class="fas fa-child"></i></div>
+                    <h3>Kids Quiz</h3>
+                    <p>13 fun, age-appropriate questions to help kids understand their diabetes in a friendly way!</p>
+                </div>
+            </div>
+
+            <!-- Quiz Interface -->
+            <div id="quiz-interface">
+                <div class="quiz-header">
+                    <h3 id="quiz-title">Knowledge Quiz</h3>
+                    <button class="back-btn" onclick="backToSelector()">
+                        <i class="fas fa-arrow-left"></i> Back to Quiz Selection
+                    </button>
+                </div>
+
+                <div class="quiz-progress">
+                    <div class="progress-bar-container">
+                        <div id="quiz-progress-bar"></div>
+                    </div>
+                    <div id="quiz-progress-text">0 / 0 completed</div>
+                </div>
+
+                <div id="quiz-container">
+                    <!-- Quiz questions will be dynamically loaded here -->
                 </div>
             </div>
         </div>
@@ -1836,6 +1878,9 @@
             });
         });
     </script>
+
+    <!-- Quiz Functionality -->
+    <script src="quiz.js"></script>
 
     <!-- Dark Fractal Pattern -->
     <script src="fractal-pattern.js"></script>
