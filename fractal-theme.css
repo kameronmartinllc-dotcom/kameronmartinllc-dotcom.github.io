@@ -92,7 +92,7 @@
 [data-theme="dark"] .footer {
   background: rgba(42, 42, 42, 0.6) !important;
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(153, 153, 153, 0.15);
+  border: 1px solid rgba(153, 153, 153, 0.25);
 }
 
 /* Button styles from spec */
