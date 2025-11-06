@@ -143,7 +143,8 @@ let currentBG = 120;
 let userSettings = {
     carbRatio: 10,
     correctionFactor: 50,
-    targetBG: 100
+    targetBG: 100,
+    carbMethod: 'net' // 'net' or 'total'
 };
 let stats = {
     totalAttempts: 0,
@@ -182,6 +183,10 @@ function startQuiz() {
     const correctionFactor = parseFloat(document.getElementById('correction-factor').value);
     const targetBG = parseFloat(document.getElementById('target-bg').value);
 
+    // Get selected carb counting method
+    const carbMethodRadio = document.querySelector('input[name="carb-method"]:checked');
+    const carbMethod = carbMethodRadio ? carbMethodRadio.value : 'net';
+
     if (!carbRatio || !correctionFactor || !targetBG) {
         alert('Please fill in all your dosing settings!');
         return;
@@ -192,7 +197,7 @@ function startQuiz() {
         return;
     }
 
-    userSettings = { carbRatio, correctionFactor, targetBG };
+    userSettings = { carbRatio, correctionFactor, targetBG, carbMethod };
 
     // Hide setup, show quiz
     document.getElementById('setup-section').style.display = 'none';
@@ -296,8 +301,13 @@ function checkAnswer() {
         return;
     }
 
-    // Calculate correct answer
-    const correctCarbs = Math.round((currentFood.totalCarbs - currentFood.fiber) * currentPortion);
+    // Calculate correct answer based on selected method
+    let correctCarbs;
+    if (userSettings.carbMethod === 'net') {
+        correctCarbs = Math.round((currentFood.totalCarbs - currentFood.fiber) * currentPortion);
+    } else {
+        correctCarbs = Math.round(currentFood.totalCarbs * currentPortion);
+    }
     const correctInsulinCarbs = parseFloat((correctCarbs / userSettings.carbRatio).toFixed(1));
 
     const bgDifference = currentBG - userSettings.targetBG;
@@ -349,13 +359,22 @@ function checkAnswer() {
 function displayFeedback(type, message, data) {
     const icon = type === 'correct' ? '🎉' : type === 'close' ? '💡' : '📖';
 
+    // Generate explanation based on carb counting method
+    const carbMethodName = userSettings.carbMethod === 'net' ? 'Net Carbs (Total - Fiber)' : 'Total Carbs';
+    const carbCalculation = userSettings.carbMethod === 'net'
+        ? `Total Carbs (${Math.round(currentFood.totalCarbs * currentPortion)}g) - Fiber (${Math.round(currentFood.fiber * currentPortion)}g) = <strong>${data.correctCarbs}g</strong>`
+        : `Total Carbs = <strong>${data.correctCarbs}g</strong> (${currentPortion > 1 ? `${currentFood.totalCarbs}g × ${currentPortion} servings` : 'no fiber subtraction'})`;
+
     let explanation = `
         <div class="explanation">
             <h4>Step-by-Step Solution:</h4>
+            <p style="background: #eff6ff; padding: var(--space-sm); border-radius: var(--radius-sm); margin-bottom: var(--space-md); color: #1e40af; font-size: 0.9375rem;">
+                <strong>Using: ${carbMethodName}</strong>
+            </p>
 
             <div class="step">
-                <strong>1. Calculate Net Carbs</strong><br>
-                Total Carbs (${Math.round(currentFood.totalCarbs * currentPortion)}g) - Fiber (${Math.round(currentFood.fiber * currentPortion)}g) = <strong>${data.correctCarbs}g</strong>
+                <strong>1. Calculate Carbs to Dose For</strong><br>
+                ${carbCalculation}
                 ${data.userCarbsEating != data.correctCarbs ? `<br><span style="color: var(--warning);">You calculated: ${data.userCarbsEating}g</span>` : '<br><span style="color: var(--success);">✓ You got this right!</span>'}
             </div>
 
