@@ -742,6 +742,34 @@
         .external-video-btn i {
             margin-left: var(--space-xs);
         }
+
+        /* Dark Mode for Dosing Quiz Feature Section */
+        [data-theme="dark"] .topic-section[style*="linear-gradient(135deg, #f0fdf4"] {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%) !important;
+            border-color: #10b981 !important;
+        }
+
+        [data-theme="dark"] .topic-section[style*="linear-gradient(135deg, #f0fdf4"] h2,
+        [data-theme="dark"] .topic-section[style*="linear-gradient(135deg, #f0fdf4"] h3,
+        [data-theme="dark"] .topic-section[style*="linear-gradient(135deg, #f0fdf4"] p,
+        [data-theme="dark"] .topic-section[style*="linear-gradient(135deg, #f0fdf4"] li {
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        [data-theme="dark"] .topic-section[style*="linear-gradient(135deg, #f0fdf4"] div[style*="background: white"] {
+            background: rgba(15, 23, 42, 0.6) !important;
+            border-color: #10b981 !important;
+        }
+
+        @media (max-width: 768px) {
+            .topic-section[style*="display: grid; grid-template-columns: 1fr 1fr"] {
+                display: block !important;
+            }
+
+            .topic-section[style*="display: grid; grid-template-columns: 1fr 1fr"] > div {
+                margin-bottom: var(--space-lg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -772,6 +800,53 @@
             <p class="subtitle">Master the knowledge you need to thrive with Type 1 Diabetes</p>
             <div class="header-callout">
                 <p style="font-size: 1.0625rem; line-height: 1.7; color: #1e40af;"><strong>Newly diagnosed?</strong> Start with our <a href="first-30-days.html" style="color: #1e40af; font-weight: 700;">First 30 Days Survival Guide</a> for immediate, practical help. Then come back here for deeper knowledge to build long-term confidence.</p>
+            </div>
+        </div>
+
+        <!-- Insulin Dosing Practice Quiz Feature -->
+        <div class="topic-section" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 3px solid #10b981; margin-bottom: var(--space-xl);">
+            <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); flex-wrap: wrap;">
+                <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0;">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <h2 style="color: #065f46; font-size: 1.75rem; margin-bottom: var(--space-xs);"><i class="fas fa-star" style="color: #f59e0b;"></i> Practice Insulin Dosing Skills</h2>
+                    <p style="color: #047857; font-size: 1.0625rem; font-weight: 500;">Master carb counting and dose calculations with real nutrition labels</p>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-lg);">
+                <div>
+                    <h3 style="color: #065f46; margin-bottom: var(--space-sm); font-size: 1.125rem;"><i class="fas fa-check-circle" style="color: #10b981;"></i> What You'll Practice:</h3>
+                    <ul style="color: #047857; line-height: 2; margin-left: var(--space-lg); font-size: 1rem;">
+                        <li><strong>Reading nutrition labels</strong> - Learn to identify carbs, fiber, and serving sizes</li>
+                        <li><strong>Calculating net carbs</strong> - Master the formula: Total Carbs - Fiber</li>
+                        <li><strong>Adjusting for portions</strong> - Practice multiplying when eating multiple servings</li>
+                        <li><strong>Applying your carb ratio</strong> - Convert carbs to insulin units</li>
+                        <li><strong>Correction doses</strong> - Factor in blood glucose and ISF</li>
+                    </ul>
+                </div>
+                <div style="background: white; border-radius: var(--radius-md); padding: var(--space-lg); border: 2px solid #10b981;">
+                    <h3 style="color: #065f46; margin-bottom: var(--space-sm); font-size: 1.125rem;"><i class="fas fa-graduation-cap" style="color: #10b981;"></i> How It Works:</h3>
+                    <ol style="color: #047857; line-height: 2; margin-left: var(--space-lg); font-size: 1rem;">
+                        <li>Enter your personal carb ratio, ISF, and target BG</li>
+                        <li>Get a random food with a real nutrition label</li>
+                        <li>See how many servings you're "eating"</li>
+                        <li>Calculate the correct insulin dose step-by-step</li>
+                        <li>Receive instant feedback with detailed explanations</li>
+                        <li>Track your accuracy and improve over time!</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div style="text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-md); border: 2px dashed #10b981;">
+                <p style="color: #065f46; font-size: 1.125rem; margin-bottom: var(--space-md); font-weight: 600;">
+                    <i class="fas fa-lightbulb" style="color: #f59e0b;"></i> Perfect for newly diagnosed patients learning to dose insulin independently!
+                </p>
+                <a href="dosing-quiz.html" style="display: inline-flex; align-items: center; gap: var(--space-sm); background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: white; text-decoration: none; font-weight: 700; font-size: 1.25rem; padding: 18px 40px; border-radius: var(--radius-md); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(16, 185, 129, 0.5)';" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.4)';">
+                    <i class="fas fa-play-circle"></i> Start Practicing Now
+                </a>
+                <p style="color: #059669; margin-top: var(--space-sm); font-size: 0.9375rem;"><i class="fas fa-clock"></i> 5-10 minutes per session • Unlimited practice</p>
             </div>
         </div>
 

@@ -241,12 +241,12 @@ function updateScenario() {
 }
 
 function renderNutritionLabel() {
-    const netCarbs = (currentFood.totalCarbs - currentFood.fiber) * currentPortion;
-    const totalCarbs = currentFood.totalCarbs * currentPortion;
-    const fiber = currentFood.fiber * currentPortion;
-    const sugars = currentFood.sugars * currentPortion;
-    const protein = currentFood.protein * currentPortion;
-    const calories = Math.round(currentFood.calories * currentPortion);
+    // Always show the label for 1 standard serving - user must multiply by portion size themselves!
+    const totalCarbs = currentFood.totalCarbs;
+    const fiber = currentFood.fiber;
+    const sugars = currentFood.sugars;
+    const protein = currentFood.protein;
+    const calories = currentFood.calories;
 
     const html = `
         <div class="nutrition-label">
@@ -264,19 +264,19 @@ function renderNutritionLabel() {
                 % Daily Value*
             </div>
             <div class="nutrient-row major">
-                <span><strong>Total Carbohydrate</strong> ${Math.round(totalCarbs)}g</span>
+                <span><strong>Total Carbohydrate</strong> ${totalCarbs}g</span>
                 <span>${Math.round((totalCarbs / 275) * 100)}%</span>
             </div>
             <div class="nutrient-row indent">
-                <span>Dietary Fiber ${Math.round(fiber)}g</span>
+                <span>Dietary Fiber ${fiber}g</span>
                 <span>${Math.round((fiber / 28) * 100)}%</span>
             </div>
             <div class="nutrient-row indent">
-                <span>Total Sugars ${Math.round(sugars)}g</span>
+                <span>Total Sugars ${sugars}g</span>
                 <span></span>
             </div>
             <div class="nutrient-row major" style="border-bottom: 10px solid #000;">
-                <span><strong>Protein</strong> ${Math.round(protein)}g</span>
+                <span><strong>Protein</strong> ${protein}g</span>
                 <span></span>
             </div>
         </div>
