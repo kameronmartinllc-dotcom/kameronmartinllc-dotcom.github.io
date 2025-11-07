@@ -1,0 +1,33 @@
+# robots.txt for avatype1.com
+# Type 1 Diabetes Education & Research Platform
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://avatype1.com/sitemap.xml
+
+# Crawl-delay for respectful crawling (optional)
+# This helps prevent server overload from aggressive bots
+Crawl-delay: 1
+
+# Block common bad bots (optional security measure)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Allow major search engines full access
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
