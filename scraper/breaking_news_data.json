@@ -82,7 +82,7 @@
       "stage": "Clinical Research",
       "research_type": "Technology"
     },
-    "link": "https://diabetesjournals.org/care",
+    "link": "https://diabetesjournals.org/care/article-abstract/45/3/750/139120/Continuous-Glucose-Monitoring-Initiation-Within",
     "special": true,
     "excitement_rank": 4,
     "published_timestamp": 1728360000.0
@@ -104,7 +104,7 @@
       "stage": "Clinical Trials",
       "research_type": "Technology"
     },
-    "link": "https://www.thelancet.com/diabetes-endocrinology",
+    "link": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(17)30167-5/abstract",
     "special": true,
     "excitement_rank": 5,
     "published_timestamp": 1727236800.0
@@ -126,7 +126,7 @@
       "stage": "Policy",
       "research_type": "Access"
     },
-    "link": "https://www.cms.gov",
+    "link": "https://www.healthline.com/diabetesmine/medicare-expands-cgm-coverage",
     "special": true,
     "excitement_rank": 6,
     "published_timestamp": 1726113600.0
@@ -148,7 +148,7 @@
       "stage": "Early Research",
       "research_type": "Prevention"
     },
-    "link": "https://www.nature.com/nm/",
+    "link": "https://www.nature.com/articles/s41591-025-03730-7",
     "special": true,
     "excitement_rank": 7,
     "published_timestamp": 1722830400.0
