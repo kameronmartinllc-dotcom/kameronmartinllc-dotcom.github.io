@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - AvA Type 1</title>
+  <meta name="description" content="Terms of Service for AvA Type 1 educational diabetes app">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNXY0C38PY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FNXY0C38PY');
+  </script>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://avatype1.com/terms-of-service.html">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="fractal-theme.css">
+  <style>
+    /* Design System */
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --accent: #0891b2;
+      --success: #059669;
+      --warning: #dc2626;
+      --purple: #7c3aed;
+      --dark: #1e293b;
+      --gray: #64748b;
+      --light-gray: #f1f5f9;
+      --bg-light: #f8fafc;
+      --white: #ffffff;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 32px;
+      --space-xl: 48px;
+      --space-2xl: 64px;
+    }
+
+    [data-theme="dark"] {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --accent: #06b6d4;
+      --success: #10b981;
+      --warning: #ef4444;
+      --purple: #8b5cf6;
+      --dark: #f8fafc;
+      --gray: #cbd5e1;
+      --light-gray: #334155;
+      --bg-light: #1e293b;
+      --white: #0f172a;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+      color: var(--dark);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    [data-theme="dark"] body {
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--white);
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      margin-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-xs);
+      padding-bottom: var(--space-xs);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      transition: transform 0.2s;
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-logo img {
+      height: 80px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-lg);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      background: var(--light-gray);
+      transform: translateY(-1px);
+    }
+
+    .content-wrapper {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl) var(--space-xl);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-md);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      color: var(--dark);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+    }
+
+    .last-updated {
+      color: var(--gray);
+      font-size: 0.9375rem;
+      margin-bottom: var(--space-xl);
+      font-weight: 600;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 2px solid var(--light-gray);
+    }
+
+    h2:first-of-type {
+      margin-top: var(--space-lg);
+      border-top: none;
+    }
+
+    h3 {
+      color: var(--dark);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-sm);
+    }
+
+    p {
+      margin-bottom: var(--space-md);
+      line-height: 1.7;
+    }
+
+    ul, ol {
+      margin-left: var(--space-xl);
+      margin-bottom: var(--space-md);
+    }
+
+    li {
+      margin-bottom: var(--space-xs);
+      line-height: 1.7;
+    }
+
+    strong {
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-left: 4px solid #f59e0b;
+      padding: var(--space-lg);
+      border-radius: var(--radius-md);
+      margin: var(--space-lg) 0;
+    }
+
+    [data-theme="dark"] .warning-box {
+      background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+      border-left-color: #f59e0b;
+    }
+
+    .emergency-box {
+      background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+      border-left: 4px solid var(--warning);
+      padding: var(--space-lg);
+      border-radius: var(--radius-md);
+      margin: var(--space-lg) 0;
+      font-size: 1.0625rem;
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .emergency-box {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    }
+
+    .acknowledgment-box {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      border-left: 4px solid var(--primary);
+      padding: var(--space-lg);
+      border-radius: var(--radius-md);
+      margin: var(--space-lg) 0;
+    }
+
+    [data-theme="dark"] .acknowledgment-box {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    }
+
+    .footer {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-lg);
+      margin-top: var(--space-2xl);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      color: var(--gray);
+    }
+
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: var(--space-lg);
+      right: var(--space-lg);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      z-index: 1000;
+    }
+
+    .dark-mode-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+    }
+
+    [data-theme="dark"] .dark-mode-toggle {
+      background: var(--warning);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      .content-wrapper { padding: var(--space-lg); }
+      .nav-links {
+        gap: var(--space-xs);
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <img src="logo.png" alt="AVA Type 1 Diabetes Platform Logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="breaking-news.html">Breaking News</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="clinical-trials.html">Clinical Trials</a></li>
+        <li><a href="diabetes-log.html">Tools</a></li>
+        <li><a href="assistance-programs.html">Assistance</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="content-wrapper">
+      <h1>Terms of Service for AvA Type 1</h1>
+      <p class="last-updated"><strong>Last Updated: November 8, 2024</strong></p>
+
+      <h2>Acceptance of Terms</h2>
+      <p>By downloading, installing, or using AvA Type 1 (the "App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+      <p><strong>For Minors:</strong> If you are under 18 years of age, you must have your parent or legal guardian's permission to use this App. Parents and guardians accept these Terms on behalf of their children.</p>
+
+      <h2>Description of Service</h2>
+      <p>AvA Type 1 is an <strong>educational application</strong> designed to teach children and families about Type 1 diabetes management through:</p>
+      <ul>
+        <li>Interactive educational games</li>
+        <li>Simulated glucose monitoring</li>
+        <li>Practice food logging</li>
+        <li>Carbohydrate counting exercises</li>
+        <li>Optional Bluetooth-enabled stuffed animal companion</li>
+      </ul>
+      <div class="warning-box">
+        <strong>IMPORTANT: This app is for EDUCATIONAL PURPOSES ONLY.</strong>
+      </div>
+
+      <h2>Medical Disclaimer</h2>
+
+      <h3>NOT A MEDICAL DEVICE</h3>
+      <div class="emergency-box">
+        <strong>AvA Type 1 is NOT a medical device and should NEVER be used for:</strong>
+        <ul style="margin-top: var(--space-sm);">
+          <li>Actual diabetes management or treatment</li>
+          <li>Real blood glucose monitoring</li>
+          <li>Insulin dosing decisions</li>
+          <li>Medical diagnosis</li>
+          <li>Emergency situations</li>
+          <li>Replacing medical equipment or professional care</li>
+        </ul>
+      </div>
+
+      <h3>Educational Simulation Only</h3>
+      <p>All features in the app, including:</p>
+      <ul>
+        <li>Glucose readings</li>
+        <li>Insulin calculations</li>
+        <li>Carb counts</li>
+        <li>IOB (Insulin on Board) values</li>
+        <li>COB (Carbs on Board) values</li>
+      </ul>
+      <p>Are <strong>SIMULATED FOR EDUCATIONAL PURPOSES ONLY</strong> and do not reflect real medical data.</p>
+
+      <h3>Professional Medical Advice Required</h3>
+      <p><strong>ALWAYS:</strong></p>
+      <ul>
+        <li>Consult qualified healthcare professionals for diabetes management</li>
+        <li>Use FDA-approved medical devices for actual glucose monitoring</li>
+        <li>Follow your doctor's treatment plan</li>
+        <li>Seek immediate medical attention for emergencies</li>
+        <li>Verify all medical information with healthcare providers</li>
+      </ul>
+
+      <p><strong>NEVER:</strong></p>
+      <ul>
+        <li>Make treatment decisions based on this app</li>
+        <li>Use simulated values for real insulin dosing</li>
+        <li>Delay seeking medical care</li>
+        <li>Replace prescribed medical devices with this app</li>
+      </ul>
+
+      <h2>Parental Supervision</h2>
+      <p>This app is designed for children with Type 1 diabetes and their families. Parents and guardians should:</p>
+      <ul>
+        <li>Supervise children's use of the app</li>
+        <li>Ensure children understand this is educational only</li>
+        <li>Monitor app usage and learning progress</li>
+        <li>Discuss app content with children</li>
+        <li>Reinforce that real diabetes management requires actual medical devices</li>
+      </ul>
+
+      <h2>User Responsibilities</h2>
+      <p>By using AvA Type 1, you agree to:</p>
+      <ol>
+        <li><strong>Use for Education Only:</strong> Understand this app is for learning, not medical treatment</li>
+        <li><strong>Age Appropriate Use:</strong> Ensure users are of appropriate age (with parental consent if under 18)</li>
+        <li><strong>Accurate Information:</strong> Use the app as intended for educational purposes</li>
+        <li><strong>No Misuse:</strong> Not attempt to reverse engineer, modify, or distribute the app</li>
+        <li><strong>Compliance:</strong> Follow all applicable laws and regulations</li>
+      </ol>
+
+      <h2>Intellectual Property</h2>
+
+      <h3>Ownership</h3>
+      <p>AvA Type 1, including all content, features, and functionality, is owned by Kameron Martin and is protected by copyright, trademark, and other intellectual property laws.</p>
+
+      <h3>License</h3>
+      <p>We grant you a limited, non-exclusive, non-transferable, revocable license to:</p>
+      <ul>
+        <li>Download and install the App on devices you own or control</li>
+        <li>Use the App for personal, non-commercial, educational purposes</li>
+      </ul>
+
+      <h3>Restrictions</h3>
+      <p>You may NOT:</p>
+      <ul>
+        <li>Copy, modify, or create derivative works of the App</li>
+        <li>Reverse engineer or decompile the App</li>
+        <li>Remove any copyright or proprietary notices</li>
+        <li>Use the App for commercial purposes</li>
+        <li>Distribute or sublicense the App</li>
+        <li>Use the App for any illegal purpose</li>
+      </ul>
+
+      <h2>Bluetooth Functionality (Optional)</h2>
+      <p>If using the stuffed animal companion feature:</p>
+      <ul>
+        <li>Bluetooth must be enabled on your device</li>
+        <li>You are responsible for your Bluetooth device</li>
+        <li>We are not responsible for Bluetooth connection issues</li>
+        <li>You can disable Bluetooth access at any time in iOS Settings</li>
+        <li>Bluetooth data is stored locally and not transmitted to us</li>
+      </ul>
+
+      <h2>Limitation of Liability</h2>
+      <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</strong></p>
+
+      <h3>No Warranty</h3>
+      <p>THE APP IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING:</p>
+      <ul>
+        <li>Merchantability</li>
+        <li>Fitness for a particular purpose</li>
+        <li>Accuracy of information</li>
+        <li>Uninterrupted or error-free operation</li>
+      </ul>
+
+      <h3>Limitation of Damages</h3>
+      <p>IN NO EVENT SHALL THE DEVELOPER BE LIABLE FOR:</p>
+      <ul>
+        <li>Medical complications or health issues</li>
+        <li>Decisions made based on app simulations</li>
+        <li>Lost profits or data</li>
+        <li>Indirect, incidental, special, or consequential damages</li>
+        <li>Personal injury or death</li>
+      </ul>
+      <p><strong>YOU ASSUME ALL RISK</strong> associated with use of this educational app.</p>
+
+      <h3>Medical Risk Acknowledgment</h3>
+      <p>You expressly acknowledge and agree that:</p>
+      <ul>
+        <li>This app is not suitable for actual diabetes management</li>
+        <li>Real medical decisions require professional healthcare guidance</li>
+        <li>Simulated data is for learning only</li>
+        <li>The developer is not responsible for any health consequences</li>
+      </ul>
+
+      <h2>Indemnification</h2>
+      <p>You agree to indemnify and hold harmless the developer, Kameron Martin, from any claims, damages, losses, or expenses (including legal fees) arising from:</p>
+      <ul>
+        <li>Your use or misuse of the App</li>
+        <li>Violation of these Terms</li>
+        <li>Violation of any rights of another person</li>
+        <li>Any medical decisions or health outcomes</li>
+        <li>Use of app data for non-educational purposes</li>
+      </ul>
+
+      <h2>Privacy</h2>
+      <p>Your use of the App is also governed by our <a href="privacy-policy.html" style="color: var(--primary); font-weight: 600;">Privacy Policy</a>. By using the App, you consent to the practices described in our Privacy Policy.</p>
+      <p><strong>Key Privacy Points:</strong></p>
+      <ul>
+        <li>We do not collect personal information</li>
+        <li>All data is stored locally on your device</li>
+        <li>No data is transmitted to external servers</li>
+        <li>See full Privacy Policy for details</li>
+      </ul>
+
+      <h2>Changes to Terms</h2>
+      <p>We reserve the right to modify these Terms at any time. Changes will be effective when posted with an updated "Last Updated" date. Your continued use of the App after changes constitutes acceptance of the modified Terms.</p>
+      <p>We will notify you of material changes through:</p>
+      <ul>
+        <li>In-app notification</li>
+        <li>Updated "Last Updated" date</li>
+      </ul>
+
+      <h2>Contact Information</h2>
+      <p>For questions about these Terms:</p>
+      <p style="margin-left: var(--space-lg);">
+        <strong>Developer:</strong> Kameron Martin<br>
+        <strong>Email:</strong> kameron@avatype1.com<br>
+        <strong>Website:</strong> <a href="https://avatype1.com" style="color: var(--primary);">https://avatype1.com</a><br>
+        <strong>App:</strong> AvA Type 1<br>
+        <strong>Bundle ID:</strong> com.kameronmartin.AvA-Type-1
+      </p>
+
+      <div class="acknowledgment-box">
+        <h3 style="margin-top: 0;">Acknowledgment</h3>
+        <p><strong>BY USING AVA TYPE 1, YOU ACKNOWLEDGE THAT:</strong></p>
+        <ul>
+          <li>✓ You have read and understood these Terms</li>
+          <li>✓ You agree to be bound by these Terms</li>
+          <li>✓ You understand this is an educational app only</li>
+          <li>✓ You will not use this app for actual diabetes management</li>
+          <li>✓ You will seek professional medical care for all health decisions</li>
+          <li>✓ You are at least 18 years old, or have parental consent</li>
+          <li>✓ You accept all risks associated with educational app use</li>
+        </ul>
+      </div>
+
+      <div class="emergency-box">
+        <h3 style="margin-top: 0;">🚨 Emergency Notice</h3>
+        <p style="font-size: 1.125rem; margin-bottom: var(--space-sm);"><strong>IN CASE OF MEDICAL EMERGENCY:</strong></p>
+        <p><strong>DO NOT rely on this app. CALL 911 or seek immediate medical attention.</strong></p>
+        <p style="margin-bottom: 0;">This app is for education only and cannot help in medical emergencies.</p>
+      </div>
+
+      <p style="text-align: center; margin-top: var(--space-xl); color: var(--gray); font-size: 0.9375rem;">© 2024 AvA Type 1. All rights reserved.</p>
+    </div>
+
+    <div class="footer">
+      <p style="font-size: 0.9375rem; margin-bottom: var(--space-sm);">
+        <i class="fas fa-info-circle"></i> <strong>Medical Disclaimer:</strong> This website is for educational and informational purposes only.
+      </p>
+      <p style="font-size: 0.875rem;">
+        Powered by AVA <i class="fas fa-heart"></i>
+      </p>
+    </div>
+  </div>
+
+  <!-- Dark Mode Toggle -->
+  <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <script>
+    // Dark mode functionality
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    const icon = darkModeToggle.querySelector('i');
+
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+
+    if (currentTheme === 'dark') {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+
+      if (newTheme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    });
+  </script>
+
+  <!-- Dark Fractal Pattern -->
+  <script src="fractal-pattern.js"></script>
+</body>
+</html>

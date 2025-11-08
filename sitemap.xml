@@ -69,6 +69,21 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://avatype1.com/terms-of-service.html</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://avatype1.com/privacy-policy.html</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Archived Reports & Trials -->
   <url>
     <loc>https://avatype1.com/report-2025-10-26.html</loc>
